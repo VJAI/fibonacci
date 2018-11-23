@@ -10,3 +10,9 @@ gulp.task('sass', function () {
 	           .pipe(concat('fibonacci.css'))
 	           .pipe(gulp.dest('.'));
 });
+
+gulp.task('watch', function () {
+	gulp.watch('./scss/*.scss', ['sass']);
+});
+
+gulp.task('default', ['sass', 'watch']);

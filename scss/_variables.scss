@@ -9,6 +9,7 @@ $h2-font-size:                      1.91rem !default;
 $h3-font-size:                      1.375rem !default;
 $h4-font-size:                      1rem !default;
 $small-font-size:                   0.541rem !default;
+$medium-font-size:                  0.708rem !default;
 
 // Line-heights
 $base-line-height:                  1.6 !default;
@@ -17,3 +18,8 @@ $heading-line-height:               1 !default;
 // Colors
 $body-color:                        rgb(51, 51, 51) !default;
 $heading-color:                     inherit !default;
+$light-gray:                        rgba(51, 51, 51, 0.5) !default;
+$medium-gray:                       rgba(51, 51, 51, 0.8) !default;
+
+// Z-index
+$header-z-index:                    10 !default;

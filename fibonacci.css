@@ -15,7 +15,7 @@ html, body {
 
 p {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 1rem; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,104 +52,96 @@ a, a:hover, a:visited, a:active {
   color: inherit;
   text-decoration: none; }
 
-header {
+body > header, body footer {
   display: flex;
+  align-items: center;
   position: fixed;
-  top: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
   z-index: 10;
   height: 2rem;
-  align-items: center; }
-  header .logo {
-    margin-left: 1rem; }
-  header nav {
-    margin-left: auto;
-    margin-right: 2rem; }
-  header ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-    header ul li {
-      margin-left: 0;
-      margin-right: 1rem;
-      padding: 0; }
-
-header a, footer {
-  font-size: 13px;
+  padding: 0 1rem;
+  font-size: 0.541rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: rgba(51, 51, 51, 0.5); }
 
-article .title {
+body > header {
+  top: 0;
+  background: linear-gradient(white, rgba(255, 255, 255, 0)) no-repeat; }
+  body > header nav {
+    margin-left: auto; }
+  body > header ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    body > header ul li {
+      margin-left: 0;
+      margin-right: 1rem; }
+      body > header ul li:last-child {
+        margin-right: 0; }
+      body > header ul li a {
+        line-height: 1;
+        transition: color 0.5s; }
+        body > header ul li a:hover {
+          color: #333333; }
+
+body > footer {
+  bottom: 0;
+  justify-content: flex-end;
+  background: linear-gradient(rgba(255, 255, 255, 0), white) no-repeat; }
+
+article > header {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column; }
+  article > header h1 {
+    font-size: 4.25rem;
+    position: relative;
+    top: -2rem;
+    margin: 0 2rem;
+    max-width: 70rem;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif; }
+  article > header .author-meta {
+    text-align: center;
+    font-size: 0.708rem;
+    color: rgba(51, 51, 51, 0.8);
+    display: flex;
+    flex-direction: column; }
+    article > header .author-meta img {
+      border-radius: 50%;
+      margin-bottom: 0.25rem; }
+  article > header .post-meta {
+    display: flex;
+    color: rgba(51, 51, 51, 0.8);
+    font-size: 0.708rem;
+    margin-top: 2rem; }
+    article > header .post-meta > div {
+      flex-grow: 1;
+      margin-right: 2rem; }
+    article > header .post-meta .tags {
+      display: flex; }
+      article > header .post-meta .tags ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex; }
+        article > header .post-meta .tags ul li {
+          margin-left: 0.25rem; }
 
-article .title h1 {
-  font-size: 102px;
-  position: relative;
-  top: -4rem;
-  margin: 0 2rem;
-  max-width: 70rem;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif; }
-
-article .title .author-meta {
-  text-align: center;
-  font-size: 17px;
-  color: rgba(51, 51, 51, 0.8);
-  display: flex;
-  flex-direction: column; }
-
-.author-meta img {
-  border-radius: 50%; }
-
-article .title .author-meta div:first-of-type {
-  font-style: italic;
-  margin-bottom: 1rem; }
-
-article .title .post-meta {
-  display: flex;
-  color: rgba(51, 51, 51, 0.8);
-  font-size: 0.5rem;
-  margin-top: 2rem;
-  width: 40rem; }
-
-article .title .post-meta > div {
-  flex-grow: 1; }
-
-article .title .post-meta .tags {
-  display: flex; }
-
-article .title .post-meta .tags ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex; }
-
-article .title .post-meta .tags ul li {
-  margin-left: 0.25rem; }
-
-article .content {
-  max-width: 35rem;
+article > main {
   margin: 4rem auto 0 auto; }
-
-article .content p:first-of-type {
-  font-style: italic;
-  color: rgba(51, 51, 51, 0.8); }
-
-footer {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 10;
-  position: fixed;
-  bottom: 0;
-  width: 100%; }
+  article > main h1, article > main h2, article > main h3, article > main h4, article > main h5, article > main h6, article > main p {
+    max-width: 35rem;
+    margin-left: auto;
+    margin-right: auto; }
+  article > main p:first-of-type {
+    color: rgba(51, 51, 51, 0.8);
+    padding: 2rem 0;
+    border-top: dashed 4px rgba(51, 51, 51, 0.5);
+    border-bottom: dashed 4px rgba(51, 51, 51, 0.5);
+    margin-bottom: 4rem;
+    font-size: 1.1rem; }

@@ -21,7 +21,7 @@ html, body {
 // Typography
 p {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
 }
 
@@ -69,35 +69,58 @@ a, a:hover, a:visited, a:active {
 }
 
 // Layout elements
-header {
-  display: flex;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 10;
-  height: 2rem;
-  align-items: center;
-
-  .logo {
-    margin-left: 1rem;
-  }
-
-  nav {
-    margin-left: auto;
-    margin-right: 2rem;
-  }
-
-  ul {
+body {
+  > header, footer {
     display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: $header-z-index;
+    height: 2rem;
+    padding: 0 1rem;
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $light-gray;
+  }
 
-    li {
-      margin-left: 0;
-      margin-right: 1rem;
-      padding: 0;
+  > header {
+    top: 0;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) no-repeat;
+
+    nav {
+      margin-left: auto;
     }
+
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-left: 0;
+        margin-right: 1rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          line-height: 1;
+          transition: color 0.5s;
+
+          &:hover {
+            color: $body-color;
+          }
+        }
+      }
+    }
+  }
+
+  > footer {
+    bottom: 0;
+    justify-content: flex-end;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) no-repeat;
   }
 }

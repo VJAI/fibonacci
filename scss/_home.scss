@@ -1,91 +1,78 @@
-header a, footer {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(51, 51, 51, 0.5);
-}
+article {
+  > header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-article .title {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+    h1 {
+      font-size: 4.25rem;
+      position: relative;
+      top: -2rem;
+      margin: 0 2rem;
+      max-width: 70rem;
+      text-align: center;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
 
-article .title h1 {
-  font-size: 102px;
-  position: relative;
-  top: -4rem;
-  margin: 0 2rem;
-  max-width: 70rem;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+    .author-meta {
+      text-align: center;
+      font-size: $medium-font-size;
+      color: $medium-gray;
+      display: flex;
+      flex-direction: column;
 
-article .title .author-meta {
-  text-align: center;
-  font-size: 17px;
-  color: rgba(51, 51, 51, 0.8);
-  display: flex;
-  flex-direction: column;
-}
+      img {
+        border-radius: 50%;
+        margin-bottom: 0.25rem;
+      }
+    }
 
-.author-meta img {
-  border-radius: 50%;
-}
+    .post-meta {
+      display: flex;
+      color: $medium-gray;
+      font-size: $medium-font-size;
+      margin-top: 2rem;
 
-article .title .author-meta div:first-of-type {
-  font-style: italic;
-  margin-bottom: 1rem;
-}
+      > div {
+        flex-grow: 1;
+        margin-right: 2rem;
+      }
 
-article .title .post-meta {
-  display: flex;
-  color: rgba(51, 51, 51, 0.8);
-  font-size: 0.5rem;
-  margin-top: 2rem;
-  width: 40rem;
-}
+      .tags {
+        display: flex;
 
-article .title .post-meta > div {
-  flex-grow: 1;
-}
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
 
-article .title .post-meta .tags {
-  display: flex;
-}
+          li {
+            margin-left: 0.25rem;
+          }
+        }
+      }
+    }
+  }
 
-article .title .post-meta .tags ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-}
+  > main {
+    margin: 4rem auto 0 auto;
 
-article .title .post-meta .tags ul li {
-  margin-left: 0.25rem;
-}
+    h1, h2, h3, h4, h5, h6, p {
+      max-width: 35rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-article .content {
-  max-width: 35rem;
-  margin: 4rem auto 0 auto;
-}
-
-article .content p:first-of-type {
-  font-style: italic;
-  color: rgba(51, 51, 51, 0.8);
-}
-
-footer {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 10;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    p:first-of-type {
+      color: rgba(51, 51, 51, 0.8);
+      padding: 2rem 0;
+      border-top: dashed 4px $light-gray;
+      border-bottom: dashed 4px $light-gray;
+      margin-bottom: 4rem;
+      font-size: 1.1rem;
+    }
+  }
 }
