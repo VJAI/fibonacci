@@ -1,25 +1,39 @@
 // Font families
 $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
+$mono-font-family:                  'Source Code Pro', monospace !default;
 
 // Sizes
-$base-font-size:                    24px !default;
-$h1-font-size:                      2.625rem !default;
-$h2-font-size:                      1.91rem !default;
-$h3-font-size:                      1.375rem !default;
-$h4-font-size:                      1rem !default;
-$small-font-size:                   0.541rem !default;
-$medium-font-size:                  0.708rem !default;
+// Scale: 13 | 15 | 17 | 20 | 28 | 45 | 72
+$base-size:                         20px !default;
+$xs-size:                           0.65rem !default;
+$sm-size:                           0.85rem !default;
+$md-size:                           1rem !default;
+$lg-size:                           1.4rem !default;
+$xl-size:                           2.25rem !default;
+$xxl-size:                          3.6rem !default;
+$base-font-size:                    $md-size !default;
+$h1-font-size:                      $xxl-size !default;
+$h2-font-size:                      $xl-size !default;
+$h3-font-size:                      $lg-size !default;
+$h4-font-size:                      $base-font-size !default;
+$medium-font-size:                  $sm-size !default;
+$small-font-size:                   $xs-size !default;
 
-// Line-heights
-$base-line-height:                  1.6 !default;
-$heading-line-height:               1 !default;
+$base-line-height:                  1.5 !default;
+$heading-line-height:               0.85 !default;
+$heading-spacing:                   -0.5px !default;
 
 // Colors
 $body-color:                        rgb(51, 51, 51) !default;
 $heading-color:                     inherit !default;
 $light-gray:                        rgba(51, 51, 51, 0.5) !default;
 $medium-gray:                       rgba(51, 51, 51, 0.8) !default;
+$highlight-color:                   rgb(241, 247, 234) !default;
 
-// Z-index
-$header-z-index:                    10 !default;
+// Containers
+$container-width:                   42rem !default;
+$inner-padding:                     $sm-size $lg-size !default;
+
+// Borders
+$border-radius:                     3px !default;
