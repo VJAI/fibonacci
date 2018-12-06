@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="fibonacci.css">
+	<link rel="stylesheet"
+	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+</head>
+<body>
+
+<header class="header">
+	<a href="index.html" class="logo">
+		fibonacci
+	</a>
+	<nav>
+		<ul>
+			<li>
+				<a href="home.html">home</a>
+			</li>
+			<li>
+				<a href="contact.html">contact</a>
+			</li>
+			<li>
+				<a href="about.html">about</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<main class="main">
+	<article>
+		<header>
+			<h1>Contact</h1>
+		</header>
+
+		<p>
+			Would you like to contact me about something? like a technical question or to share what you know, you are in the
+			right spot! Please use the below contact form to send your query.
+		</p>
+
+		<form id="contact-form" method="post" action="contact">
+			<div>
+				<p class="form-field">
+					<label for="Name">Name: (*)</label>
+					<input required type="text" name="Name" id="Name" maxlength="50" title="Name required">
+				</p>
+				<p class="form-field">
+					<label for="ReplyTo">E-mail: (*)</label>
+					<input required type="text" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
+				</p>
+				<p class="form-field">
+					<label for="subject">Subject: (*)</label>
+					<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required">
+				</p>
+				<p class="form-field">
+					<label for="Body">Message: (*)</label>
+					<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50"></textarea>
+				</p>
+
+				<input type="submit" name="submit" value="Send Message" id="submit">
+			</div>
+		</form>
+	</article>
+</main>
+
+<footer class="footer">
+	&copy; 2018 &middot; All Rights Reserved
+</footer>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

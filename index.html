@@ -4,6 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="fibonacci.css">
+	<link rel="stylesheet"
+	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
 <body>
 
@@ -36,6 +39,10 @@
 			<h1>Lorem ipsum dolor sit amet</h1>
 		</header>
 
+		<figure class="full">
+			<img src="assets/pexels-photo.jpeg">
+		</figure>
+
 		<p>
 			<a href="#">Vivamus</a> eleifend purus varius rhoncus varius. Integer et ex facilisis, eleifend nunc eget,
 			facilisis eros. Morbi sit amet sapien id nunc fringilla blandit. Sed rhoncus euismod arcu a rutrum. Duis euismod
@@ -46,7 +53,7 @@
 		<h2>Lorem ipsum dolor sit amet</h2>
 
 		<p>
-			Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo feugiat.
+			<code>Pellentesque at egestas</code> elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo feugiat.
 			Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
 			bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
 			lorem, tempor pellentesque neque laoreet ac.
@@ -99,8 +106,8 @@
 			Below is the example of full width image.
 		</p>
 
-		<figure class="full">
-			<img src="assets/pexels-photo.jpeg" />
+		<figure>
+			<img src="assets/beautiful-blur-bright.jpg" />
 			<figcaption>Fig 1. This is a photo taken from the <i>Langawi</i> isand from <i>Malaysia</i> country. The photo is taken by the prominent photographer <i>Vijaya Anand</i>.</figcaption>
 		</figure>
 
@@ -113,54 +120,56 @@
 			lorem, tempor pellentesque neque laoreet ac.
 		</p>
 
-		<figure class="table">
-			<table>
-				<thead>
-				<tr>
-					<th>Director</th>
-					<th>Film</th>
-					<th>Released</th>
-					<th>Budget ($)</th>
-					<th>Gross ($)</th>
-					<th>Rating</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>John Ford</td>
-					<td>The Informer</td>
-					<td>May 1935</td>
-					<td>243,000</td>
-					<td>950,000</td>
-					<td>8.3</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>The Grapes Of Wrath</td>
-					<td>Jan 1940</td>
-					<td>800,000</td>
-					<td>1,500,000</td>
-					<td>9.3</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>The Grapes Of Wrath</td>
-					<td>Jan 1940</td>
-					<td>800,000</td>
-					<td>1,500,000</td>
-					<td>9.3</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>The Grapes Of Wrath</td>
-					<td>Jan 1940</td>
-					<td>800,000</td>
-					<td>1,500,000</td>
-					<td>9.3</td>
-				</tr>
-				</tbody>
-			</table>
-			<figcaption>Empoyee Information of Apttus</figcaption>
+		<figure>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+					<tr>
+						<th>Director</th>
+						<th>Film</th>
+						<th>Released</th>
+						<th class="right">Budget ($)</th>
+						<th class="right">Gross ($)</th>
+						<th class="right">Rating</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>John Ford</td>
+						<td>The Informer</td>
+						<td>May 1935</td>
+						<td class="right">243,000</td>
+						<td class="right">950,000</td>
+						<td class="right">8.3</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>The Grapes Of Wrath</td>
+						<td>Jan 1940</td>
+						<td class="right">800,000</td>
+						<td class="right">1,500,000</td>
+						<td class="right">9.3</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>The Grapes Of Wrath</td>
+						<td>Jan 1940</td>
+						<td class="right">800,000</td>
+						<td class="right">1,500,000</td>
+						<td class="right">9.3</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>The Grapes Of Wrath</td>
+						<td>Jan 1940</td>
+						<td class="right">800,000</td>
+						<td class="right">1,500,000</td>
+						<td class="right">9.3</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<figcaption>Table 1. Empoyee Information of Apttus</figcaption>
 		</figure>
 
 		<h2>Lorem ipsum dolor sit amet</h2>
@@ -173,7 +182,7 @@
 		</p>
 
 <figure>
-<pre><code>using System.ComponentModel.DataAnnotations;
+<pre><code class="c#">using System.ComponentModel.DataAnnotations;
 
 namespace JustBlog.Models
 {
@@ -199,5 +208,6 @@ namespace JustBlog.Models
 <footer class="footer">
 	&copy; 2018 &middot; All Rights Reserved
 </footer>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

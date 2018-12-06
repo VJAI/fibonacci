@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
+
+  a, a:focus, a:visited, a:hover {
+    border-bottom: none;
+  }
 }
 
 h1 {
@@ -83,7 +87,6 @@ ul, ol {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: $md-size;
-  font-size: $sm-size;
 }
 
 // Blockquotes
@@ -95,6 +98,8 @@ blockquote {
   font-family: $heading-font-family;
   color: $medium-gray;
   font-size: $medium-font-size;
+  margin-top: $md-size;
+  margin-bottom: $lg-size;
 
   p {
     font-size: $medium-font-size;
@@ -119,8 +124,16 @@ blockquote {
 
 // Figures
 figure {
+  margin-top: $md-size;
+  margin-bottom: $lg-size;
+
   img {
     display: block;
+    width: 100%;
+  }
+
+  table {
+    margin: 0;
   }
 
   figcaption {
@@ -128,13 +141,22 @@ figure {
     color: $medium-gray;
     margin-top: 0.25rem;
     font-family: $heading-font-family;
-    text-align: center;
+
+    code {
+      font-size: $xs-size;
+    }
   }
 
-  &.table {
+  .table-wrapper {
     padding: $inner-padding;
     background-color: $highlight-color;
     border-radius: $border-radius;
+  }
+
+  &.full {
+    figcaption {
+      text-align: center;
+    }
   }
 }
 
@@ -145,12 +167,26 @@ table {
   font-size: $sm-size;
   font-family: $heading-font-family;
   border-collapse: collapse;
+  margin-top: $md-size;
+  margin-bottom: $lg-size;
 
   caption {
     text-align: left;
     font-size: $xs-size;
     color: $medium-gray;
     font-family: $heading-font-family;
+  }
+
+  td, th {
+    line-height: 1.4;
+
+    &.center {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
   }
 
   thead {
@@ -161,21 +197,47 @@ table {
       }
     }
   }
+}
 
-  tbody {
-    tr {
+// Pre and Code elements
+pre {
+  line-height: 1.2;
+
+  code {
+    font-family: $mono-font-family;
+    font-size: 0.75rem;
+    letter-spacing: normal;
+
+    &.hljs {
+      padding: 0;
+      background: transparent;
     }
   }
 }
 
-// Code elements
-pre {
-  line-height: 1.2;
+label {
+  font-family: $heading-font-family;
+  font-weight: bold;
+  font-size: $sm-size;
 }
 
-code {
-  font-family: $mono-font-family;
-  font-size: 0.75rem;
+input[type="text"], textarea {
+  font-family: $heading-font-family;
+  font-size: inherit;
+  line-height: 1.2;
+  padding: 0.35rem 0.5rem;
+  width: 100%;
+  border: solid 1px #ccc;
+}
+
+button, [type="button"], [type="submit"] {
+  cursor: pointer;
+  font-family: $heading-font-family;
+  font-size: $sm-size;
+  padding: 0.5rem 0.75rem;
+  background-color: $body-color;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 // Layout elements
@@ -233,7 +295,8 @@ code {
   article {
     > * {
       max-width: $container-width;
-      margin: $md-size auto $lg-size auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .full {
@@ -281,6 +344,15 @@ code {
     > p:first-of-type {
       font-size: 1.2rem;
     }
+  }
+}
+
+#contact-form {
+  padding: 1rem;
+
+  input[type="submit"] {
+    margin-left: auto;
+    display: block;
   }
 }
 
