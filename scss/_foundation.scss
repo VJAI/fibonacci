@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600|Source+Sans+Pro:400,600|Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro');
 
-// Global stuff
+// Global stuff.
 :root {
   font-size: $base-size;
 }
@@ -18,19 +18,28 @@ html, body {
   box-sizing: inherit;
 }
 
-// Paragraphs & Headings
+// Paragraphs & Headings.
 p {
   margin-top: 0;
   margin-bottom: $md-size;
   font-size: $md-size;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
 
-  a, a:focus, a:visited, a:hover {
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus,
+  a:active {
     border-bottom: none;
   }
 }
@@ -43,14 +52,14 @@ h1 {
   &::after {
     display: block;
     content: '';
-    border-bottom: solid 4px $body-color;
+    border-bottom: solid 6px $border-color;
     margin-top: $xl-size;
     width: 40%;
   }
 }
 
 h2 {
-  font-size:  $h2-font-size;
+  font-size: $h2-font-size;
   margin-bottom: $md-size;
 }
 
@@ -75,23 +84,27 @@ h6 {
   margin-bottom: $xs-size;
 }
 
-// Links
-a, a:focus, a:visited, a:hover {
+// Links.
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
   color: inherit;
   text-decoration: none;
   border-bottom: dotted 1px $body-color;
 }
 
-// Lists
-ul, ol {
+// Lists.
+ul,
+ol {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: $md-size;
 }
 
-// Blockquotes
+// Blockquotes.
 blockquote {
-  max-width: $container-width;
   background-color: $highlight-color;
   padding: $inner-padding;
   border-radius: $border-radius;
@@ -104,10 +117,10 @@ blockquote {
   p {
     font-size: $medium-font-size;
     hanging-punctuation: first;
-  }
 
-  p:last-of-type {
-    margin-bottom: 0;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   cite {
@@ -122,7 +135,7 @@ blockquote {
   }
 }
 
-// Figures
+// Figures.
 figure {
   margin-top: $md-size;
   margin-bottom: $lg-size;
@@ -160,7 +173,7 @@ figure {
   }
 }
 
-// Tables
+// Tables.
 table {
   caption-side: bottom;
   width: 100%;
@@ -201,9 +214,8 @@ table {
 
 // Pre and Code elements
 pre {
-  line-height: 1.2;
-
   code {
+    line-height: $code-line-height;
     font-family: $mono-font-family;
     font-size: 0.75rem;
     letter-spacing: normal;
@@ -224,8 +236,8 @@ label {
 input[type="text"], textarea {
   font-family: $heading-font-family;
   font-size: inherit;
-  line-height: 1.2;
-  padding: 0.35rem 0.5rem;
+  line-height: $code-line-height;
+  padding: $input-padding;
   width: 100%;
   border: solid 1px #ccc;
 }
@@ -234,9 +246,9 @@ button, [type="button"], [type="submit"] {
   cursor: pointer;
   font-family: $heading-font-family;
   font-size: $sm-size;
-  padding: 0.5rem 0.75rem;
+  padding: $button-padding;
   background-color: $body-color;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
 }
 
@@ -344,15 +356,6 @@ button, [type="button"], [type="submit"] {
     > p:first-of-type {
       font-size: 1.2rem;
     }
-  }
-}
-
-#contact-form {
-  padding: 1rem;
-
-  input[type="submit"] {
-    margin-left: auto;
-    display: block;
   }
 }
 

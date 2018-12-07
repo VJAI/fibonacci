@@ -1,9 +1,9 @@
-// Font families
+// Font families.
 $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
 $mono-font-family:                  'Source Code Pro', monospace !default;
 
-// Sizes
+// Sizes.
 // Scale: 13 | 15 | 17 | 20 | 28 | 45 | 72
 $base-size:                         20px !default;
 $xs-size:                           0.65rem !default;
@@ -20,20 +20,29 @@ $h4-font-size:                      $base-font-size !default;
 $medium-font-size:                  $sm-size !default;
 $small-font-size:                   $xs-size !default;
 
+// Line Heights.
 $base-line-height:                  1.5 !default;
 $heading-line-height:               0.85 !default;
+$table-line-height:                 1.4 !default;
+$code-line-height:                  1.2 !default;
+
 $heading-spacing:                   -0.5px !default;
 
-// Colors
+// Colors.
 $body-color:                        rgb(51, 51, 51) !default;
 $heading-color:                     inherit !default;
 $light-gray:                        rgba(51, 51, 51, 0.5) !default;
 $medium-gray:                       rgba(51, 51, 51, 0.8) !default;
 $highlight-color:                   rgb(241, 247, 234) !default;
+$border-color:                      rgb(135, 146, 163) !default;
+$white:                             rgb(255, 255, 255) !default;
+$black:                             rgb(0, 0, 0) !default;
 
-// Containers
+// Containers.
 $container-width:                   42rem !default;
 $inner-padding:                     $sm-size $lg-size !default;
+$input-padding:                     0.35rem 0.5rem !default;
+$button-padding:                    0.5rem 0.75rem !default;
 
-// Borders
+// Borders.
 $border-radius:                     3px !default;
