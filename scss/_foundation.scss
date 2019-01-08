@@ -351,10 +351,57 @@ button, [type="button"], [type="submit"] {
           margin-top: 0.25rem;
         }
       }
+
+      .post-meta {
+        display: flex;
+        font-size: $xs-size;
+        color: $light-gray;
+        font-family: $heading-font-family;
+
+        > div {
+          margin-right: 1rem;
+        }
+
+        ul, li {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: inline;
+        }
+
+        a {
+          border-bottom: none;
+        }
+
+        .tagged-in {
+          li {
+            a::after {
+              content: ', ';
+            }
+          }
+
+          li:last-child {
+            a::after {
+              content: '';
+            }
+          }
+        }
+      }
     }
 
     > p:first-of-type {
       font-size: 1.2rem;
+    }
+
+    .continue-reading {
+      text-align: right;
+      font-size: $sm-size;
+      color: $light-gray;
+      font-family: $heading-font-family;
+    }
+
+    .poster-image {
+      margin-top: 0.25rem;
     }
   }
 }

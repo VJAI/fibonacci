@@ -269,8 +269,33 @@ button, [type="button"], [type="submit"] {
         color: rgba(51, 51, 51, 0.5);
         font-family: "Source Sans Pro", sans-serif;
         margin-top: 0.25rem; }
+    .main article header .post-meta {
+      display: flex;
+      font-size: 0.65rem;
+      color: rgba(51, 51, 51, 0.5);
+      font-family: "Source Sans Pro", sans-serif; }
+      .main article header .post-meta > div {
+        margin-right: 1rem; }
+      .main article header .post-meta ul, .main article header .post-meta li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: inline; }
+      .main article header .post-meta a {
+        border-bottom: none; }
+      .main article header .post-meta .tagged-in li a::after {
+        content: ', '; }
+      .main article header .post-meta .tagged-in li:last-child a::after {
+        content: ''; }
   .main article > p:first-of-type {
     font-size: 1.2rem; }
+  .main article .continue-reading {
+    text-align: right;
+    font-size: 0.85rem;
+    color: rgba(51, 51, 51, 0.5);
+    font-family: "Source Sans Pro", sans-serif; }
+  .main article .poster-image {
+    margin-top: 0.25rem; }
 
 .footer {
   justify-content: flex-end; }
