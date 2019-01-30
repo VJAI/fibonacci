@@ -60,16 +60,19 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
+  margin-top: 1.8rem;
   margin-bottom: $md-size;
 }
 
 h3 {
   font-size: $h3-font-size;
+  margin-top: $lg-size;
   margin-bottom: $sm-size;
 }
 
 h4 {
   font-size: $h4-font-size;
+  margin-top: $lg-size;
   margin-bottom: $xs-size;
 }
 
@@ -305,6 +308,8 @@ button, [type="button"], [type="submit"] {
   margin-top: 4rem;
 
   article {
+    margin-bottom: $xl-size;
+
     > * {
       max-width: $container-width;
       margin-left: auto;

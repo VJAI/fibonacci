@@ -4,11 +4,42 @@ main {
       position: relative;
       top: -3rem;
     }
-  }
 
-  .related-posts, .comments {
-    max-width: 60rem;
-    margin-left: auto;
-    margin-right: auto;
+    .related-posts {
+      overflow: auto;
+      margin-bottom: $xl-size;
+
+      h3 {
+        margin-left: 0.5rem;
+      }
+
+      .posts {
+        height: 20rem;
+        background-color: $dim-gray;
+        display: flex;
+        padding: 1rem;
+        overflow-x: auto;
+
+        .post-card {
+          min-width: 18rem;
+          background-color: $white;
+          margin-right: 1rem;
+
+          .post-card-head {
+            height: 15rem;
+          }
+
+          .post-card-body {
+
+          }
+        }
+      }
+    }
+
+    .comments {
+      max-width: $container-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
