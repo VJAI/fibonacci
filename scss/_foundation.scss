@@ -111,14 +111,13 @@ blockquote {
   background-color: $highlight-color;
   padding: $inner-padding;
   border-radius: $border-radius;
-  font-family: $heading-font-family;
   color: $medium-gray;
-  font-size: $medium-font-size;
+  font-size: $lg-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
 
   p {
-    font-size: $medium-font-size;
+    font-size: $lg-size;
     hanging-punctuation: first;
 
     &:last-of-type {
@@ -215,6 +214,13 @@ table {
   }
 }
 
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 // Pre and Code elements
 pre {
   code {
@@ -265,12 +271,14 @@ button, [type="button"], [type="submit"] {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: $light-gray;
+  font-family: $heading-font-family;
 }
 
 // Header
 .header {
   a {
     border-bottom: none;
+    font-family: $heading-font-family;
   }
 
   nav {
@@ -362,6 +370,10 @@ button, [type="button"], [type="submit"] {
         font-size: $xs-size;
         color: $light-gray;
         font-family: $heading-font-family;
+
+        .icon {
+          color: $white;
+        }
 
         > div {
           margin-right: 1rem;
