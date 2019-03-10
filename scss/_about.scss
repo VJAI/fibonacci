@@ -5,4 +5,27 @@
       position: relative;
     }
   }
+
+  .social {
+    display: flex;
+    font-family: $heading-font-family;
+    font-size: $xs-size;
+    color: $light-gray;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: solid 1px $dim-gray;
+    border-bottom: solid 1px $dim-gray;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    a {
+      border-bottom: none;
+    }
+
+    .separator {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
 }

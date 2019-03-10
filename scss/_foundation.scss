@@ -115,6 +115,7 @@ blockquote {
   font-size: $lg-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
+  font-family: $heading-font-family;
 
   p {
     font-size: $lg-size;
@@ -371,12 +372,8 @@ button, [type="button"], [type="submit"] {
         color: $light-gray;
         font-family: $heading-font-family;
 
-        .icon {
-          color: $white;
-        }
-
         > div {
-          margin-right: 1rem;
+          margin-right: 0.5rem;
         }
 
         ul, li {
@@ -392,15 +389,7 @@ button, [type="button"], [type="submit"] {
 
         .tagged-in {
           li {
-            a::after {
-              content: ', ';
-            }
-          }
-
-          li:last-child {
-            a::after {
-              content: '';
-            }
+            margin-right: 0.125rem;
           }
         }
       }

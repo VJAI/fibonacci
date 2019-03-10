@@ -117,7 +117,8 @@ blockquote {
   color: rgba(51, 51, 51, 0.8);
   font-size: 1.4rem;
   margin-top: 1rem;
-  margin-bottom: 1.4rem; }
+  margin-bottom: 1.4rem;
+  font-family: "Source Sans Pro", sans-serif; }
   blockquote p {
     font-size: 1.4rem;
     hanging-punctuation: first; }
@@ -286,10 +287,8 @@ button, [type="button"], [type="submit"] {
         font-size: 0.75rem;
         color: rgba(51, 51, 51, 0.5);
         font-family: "Source Sans Pro", sans-serif; }
-        .main article header .post-meta .icon {
-          color: white; }
         .main article header .post-meta > div {
-          margin-right: 1rem; }
+          margin-right: 0.5rem; }
         .main article header .post-meta ul, .main article header .post-meta li {
           margin: 0;
           padding: 0;
@@ -297,10 +296,8 @@ button, [type="button"], [type="submit"] {
           display: inline; }
         .main article header .post-meta a {
           border-bottom: none; }
-        .main article header .post-meta .tagged-in li a::after {
-          content: ', '; }
-        .main article header .post-meta .tagged-in li:last-child a::after {
-          content: ''; }
+        .main article header .post-meta .tagged-in li {
+          margin-right: 0.125rem; }
     .main article > p:first-of-type {
       font-size: 1.2rem; }
     .main article .continue-reading {
@@ -330,20 +327,57 @@ main.post-detail .related-posts {
   margin-bottom: 2.25rem; }
   main.post-detail .related-posts h3 {
     margin-left: 0.5rem; }
-  main.post-detail .related-posts ul li {
-    margin-left: 2rem;
-    padding: 0; }
-    main.post-detail .related-posts ul li h4 {
-      margin-top: 0; }
+  main.post-detail .related-posts ul {
+    list-style: none;
+    margin-top: 1.5rem; }
+    main.post-detail .related-posts ul li {
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0; }
+      main.post-detail .related-posts ul li h4 {
+        margin-top: 0;
+        font-weight: normal; }
+        main.post-detail .related-posts ul li h4:before {
+          content: '→';
+          display: inline;
+          margin-right: 0.5rem; }
 
 main.post-detail .comments {
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto; }
+  main.post-detail .comments form .user {
+    margin-right: 0.5rem; }
+    main.post-detail .comments form .user img {
+      border-radius: 50%; }
+  main.post-detail .comments form .new-comment {
+    display: flex; }
+    main.post-detail .comments form .new-comment .form-control {
+      flex: 1; }
+      main.post-detail .comments form .new-comment .form-control textarea {
+        min-height: 75px; }
 
 .about article p {
   font-size: 1.2rem;
   position: relative; }
+
+.about .social {
+  display: flex;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(51, 51, 51, 0.5);
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: solid 1px #f7f7f7;
+  border-bottom: solid 1px #f7f7f7;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  .about .social a {
+    border-bottom: none; }
+  .about .social .separator {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem; }
 
 #contact-form {
   padding: 1rem; }
