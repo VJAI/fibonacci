@@ -2,4 +2,4 @@
 
 A simplistic read-friendly blog template built with golden ratio.
 
-![Screen Shot](https://raw.githubusercontent.com/VJAI/fibonacci/tree/master/assets/screenshot.png)
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/screenshot.png)
