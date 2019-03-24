@@ -20,8 +20,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="68">
-                <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+              <first_editor relative-caret-position="136">
+                <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
               </first_editor>
               <second_editor>
                 <js_state />
@@ -241,12 +241,12 @@
       <workItem from="1552227670470" duration="2419000" />
       <workItem from="1552230708766" duration="1055000" />
       <workItem from="1553350222305" duration="214000" />
-      <workItem from="1553417860714" duration="2186000" />
+      <workItem from="1553417860714" duration="2312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67269000" />
+    <option name="totallyTimeSpent" value="67395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="32" width="1395" height="817" extended-state="0" />
@@ -609,8 +609,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
           </first_editor>
           <second_editor>
             <js_state />
