@@ -5,16 +5,29 @@ main {
       top: -3rem;
     }
 
+    // https://css-tricks.com/examples/hrs/
     hr {
-      max-width: $container-width;
-      margin-left: auto;
-      margin-right: auto;
+      overflow: visible; /* For IE */
+      padding: 0;
+      border: none;
+      border-top: medium double $body-color;
+      color: $body-color;
+      text-align: center;
+      margin-top: $xl-size;
+      margin-bottom: $xl-size;
+    }
+
+    hr:after {
+      content: "§";
+      display: inline-block;
+      position: relative;
+      top: -0.7em;
+      font-size: 1.5em;
+      padding: 0 0.25em;
+      background: white;
     }
 
     .related-posts {
-      max-width: $container-width;
-      margin-left: auto;
-      margin-right: auto;
       margin-bottom: $xl-size;
 
       h3 {
@@ -29,27 +42,16 @@ main {
           margin-left: 0.5rem;
           margin-bottom: 0.5rem;
           padding: 0;
-
-          h4 {
-            margin-top: 0;
-            font-weight: normal;
-
-            &:before {
-              content: '→';
-              display: inline;
-              margin-right: 0.5rem;
-            }
-          }
         }
       }
     }
 
     .comments {
-      max-width: $container-width;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: $xl-size;
 
       form {
+        margin-top: 1.5rem;
+
         .user {
           margin-right: 0.5rem;
 

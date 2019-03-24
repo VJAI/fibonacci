@@ -47,7 +47,8 @@ h6 {
 h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
-  margin-bottom: $xxl-size;
+  margin-bottom: 4.69rem;
+  color: $medium-gray;
 
   &::after {
     display: block;
@@ -282,6 +283,15 @@ button, [type="button"], [type="submit"] {
     font-family: $heading-font-family;
   }
 
+  .logo {
+    transition: all 0.5s;
+
+    &:hover {
+      letter-spacing: 3px;
+      color: $body-color;
+    }
+  }
+
   nav {
     margin-left: auto;
 
@@ -355,7 +365,7 @@ button, [type="button"], [type="submit"] {
 
         img {
           border-radius: 50%;
-          opacity: 0.7;
+          opacity: 0.8;
         }
 
         span {
@@ -363,6 +373,16 @@ button, [type="button"], [type="submit"] {
           color: $light-gray;
           font-family: $heading-font-family;
           margin-top: 0.25rem;
+
+          &.role {
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: $dim-gray;
+            padding: 1px 5px;
+            font-size: 0.58rem;
+            border-radius: 3px;
+          }
         }
       }
 
@@ -385,11 +405,24 @@ button, [type="button"], [type="submit"] {
 
         a {
           border-bottom: none;
+          transition: color 0.5s;
+
+          &:hover {
+            color: $body-color;
+          }
         }
 
         .tagged-in {
+          font-style: italic;
+
           li {
             margin-right: 0.125rem;
+          }
+        }
+
+        .posted-date {
+          span {
+            font-variant: small-caps;
           }
         }
       }
@@ -408,6 +441,10 @@ button, [type="button"], [type="submit"] {
 
     .poster-image {
       margin-top: 0.25rem;
+
+      img {
+        border-radius: 3px;
+      }
     }
   }
 }
