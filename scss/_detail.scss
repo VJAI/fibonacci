@@ -1,8 +1,12 @@
 main {
   &.post-detail {
+    h1 {
+      margin-bottom: $xl-size;
+    }
+
     .post-meta {
       position: relative;
-      top: -3rem;
+      top: -1.8rem;
     }
 
     // https://css-tricks.com/examples/hrs/

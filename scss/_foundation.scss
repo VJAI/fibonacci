@@ -48,7 +48,7 @@ h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
   margin-bottom: 4.69rem;
-  color: $medium-gray;
+  color: $body-color;
 
   &::after {
     display: block;
@@ -434,9 +434,16 @@ button, [type="button"], [type="submit"] {
 
     .continue-reading {
       text-align: right;
-      font-size: $sm-size;
+      font-size: $xs-size;
       color: $light-gray;
       font-family: $heading-font-family;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.5s;
+
+      &:hover {
+        color: $body-color;
+      }
     }
 
     .poster-image {

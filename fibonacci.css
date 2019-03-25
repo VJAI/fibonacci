@@ -64,7 +64,7 @@ h1 {
   font-size: 3.53rem;
   margin-top: 2.16rem;
   margin-bottom: 4.69rem;
-  color: rgba(51, 51, 51, 0.8); }
+  color: #333333; }
   h1::after {
     display: block;
     content: '';
@@ -324,9 +324,14 @@ button, [type="button"], [type="submit"] {
       font-size: 1.2rem; }
     .main article .continue-reading {
       text-align: right;
-      font-size: 0.84rem;
+      font-size: 0.74rem;
       color: rgba(51, 51, 51, 0.5);
-      font-family: "Source Sans Pro", sans-serif; }
+      font-family: "Source Sans Pro", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.5s; }
+      .main article .continue-reading:hover {
+        color: #333333; }
     .main article .poster-image {
       margin-top: 0.25rem; }
       .main article .poster-image img {
@@ -335,9 +340,12 @@ button, [type="button"], [type="submit"] {
 .footer {
   justify-content: flex-end; }
 
+main.post-detail h1 {
+  margin-bottom: 2.16rem; }
+
 main.post-detail .post-meta {
   position: relative;
-  top: -3rem; }
+  top: -1.8rem; }
 
 main.post-detail hr {
   overflow: visible;
