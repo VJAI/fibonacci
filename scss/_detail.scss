@@ -53,16 +53,32 @@ main {
     .comments {
       margin-bottom: $xl-size;
 
+      .user {
+        margin-right: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          border-radius: 50%;
+        }
+
+        span {
+          font-family: $heading-font-family;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          background-color: $dim-gray;
+          padding: 1px 5px;
+          font-size: 0.58rem;
+          border-radius: 3px;
+          margin-top: 0.25rem;
+          text-align: center;
+        }
+      }
+
       form {
         margin-top: 1.5rem;
-
-        .user {
-          margin-right: 0.5rem;
-
-          img {
-            border-radius: 50%;
-          }
-        }
 
         .new-comment {
           display: flex;
@@ -72,6 +88,37 @@ main {
 
             textarea {
               min-height: 75px;
+            }
+          }
+        }
+      }
+
+      .comments-list {
+        margin: 1.5rem 0 0 0;
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding-bottom: 1rem;
+
+          .comment {
+            display: flex;
+
+            .comment-info {
+              .commented-date {
+                text-align: right;
+                font-family: $heading-font-family;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 0.58rem;
+              }
+            }
+
+            button {
+              padding: 0.25rem 0.75rem;
+              font-size: 0.58rem;
+              background-color: transparent;
+              color: $body-color
             }
           }
         }

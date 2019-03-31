@@ -262,20 +262,63 @@ namespace JustBlog.Models
 		<section class="comments">
 			<h3>Comments</h3>
 
+			<h4>Post Comment</h4>
+
 			<form>
 				<div class="new-comment">
 					<div class="user">
-						<img src="assets/author_mini.png" width="60"/>
+						<img src="assets/author_mini.png" width="50"/>
+						<span>You</span>
 					</div>
 					<div class="form-control">
-						<textarea></textarea>
+						<textarea placeholder="Write not more than 500 characters..."></textarea>
 					</div>
 				</div>
 			</form>
 
-			<div>
+			<h4>2 Comments</h4>
 
-			</div>
+			<ul class="comments-list">
+				<li>
+					<div class="comment">
+						<div class="user">
+							<img src="assets/martin.png" width="50"/>
+							<span>Martin</span>
+						</div>
+						<div class="comment-info">
+							<div class="commented-date">
+								just now
+							</div>
+							<div class="desc">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</div>
+							<div>
+								<button>Reply</button>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="comment">
+						<div class="user">
+							<img src="assets/tanny.jpg" width="50"/>
+							<span>Tanny</span>
+						</div>
+						<div class="comment-info">
+							<div class="commented-date">
+								2 days ago
+							</div>
+							<div class="desc">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</div>
+							<div>
+								<button>Reply</button>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
 		</section>
 	</article>
 </main>

@@ -381,18 +381,51 @@ main.post-detail .related-posts {
 
 main.post-detail .comments {
   margin-bottom: 2.16rem; }
+  main.post-detail .comments .user {
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    main.post-detail .comments .user img {
+      border-radius: 50%; }
+    main.post-detail .comments .user span {
+      font-family: "Source Sans Pro", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: #f7f7f7;
+      padding: 1px 5px;
+      font-size: 0.58rem;
+      border-radius: 3px;
+      margin-top: 0.25rem;
+      text-align: center; }
   main.post-detail .comments form {
     margin-top: 1.5rem; }
-    main.post-detail .comments form .user {
-      margin-right: 0.5rem; }
-      main.post-detail .comments form .user img {
-        border-radius: 50%; }
     main.post-detail .comments form .new-comment {
       display: flex; }
       main.post-detail .comments form .new-comment .form-control {
         flex: 1; }
         main.post-detail .comments form .new-comment .form-control textarea {
           min-height: 75px; }
+  main.post-detail .comments .comments-list {
+    margin: 1.5rem 0 0 0;
+    list-style: none;
+    padding: 0; }
+    main.post-detail .comments .comments-list li {
+      padding-bottom: 1rem; }
+      main.post-detail .comments .comments-list li .comment {
+        display: flex; }
+        main.post-detail .comments .comments-list li .comment .comment-info .commented-date {
+          text-align: right;
+          font-family: "Source Sans Pro", sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 0.58rem; }
+        main.post-detail .comments .comments-list li .comment button {
+          padding: 0.25rem 0.75rem;
+          font-size: 0.58rem;
+          background-color: transparent;
+          color: #333333; }
 
 .about article p {
   font-size: 1.2rem;
