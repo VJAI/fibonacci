@@ -244,7 +244,7 @@ label {
   font-size: $sm-size;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="search"], textarea {
   font-family: $heading-font-family;
   font-size: inherit;
   line-height: $code-line-height;
@@ -261,6 +261,39 @@ button, [type="button"], [type="submit"] {
   background-color: $body-color;
   color: $white;
   text-transform: uppercase;
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+.icon {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.calendar {
+  background-image: url('assets/calendar.svg');
+}
+
+.tag {
+  background-image: url('assets/tag.svg');
+}
+
+.comment {
+  background-image: url('assets/comment.svg');
+}
+
+.search {
+  background-image: url('assets/search.svg');
 }
 
 // Layout elements
@@ -317,6 +350,24 @@ button, [type="button"], [type="submit"] {
 
         &:last-child {
           margin-right: 0;
+        }
+
+        .search-form {
+          display: flex;
+          align-items: center;
+
+          input {
+            border: none;
+            border-bottom: solid 1px $light-gray;
+            padding: 0;
+            line-height: 1;
+            color: $light-gray;
+            padding-bottom: 0.25rem;
+
+            &:focus, &:active {
+              outline: none;
+            }
+          }
         }
       }
     }
@@ -394,6 +445,12 @@ button, [type="button"], [type="submit"] {
 
         > div {
           margin-right: 0.5rem;
+          display: flex;
+          align-items: center;
+
+          .icon {
+            margin-right: 0.25rem;
+          }
         }
 
         ul, li {

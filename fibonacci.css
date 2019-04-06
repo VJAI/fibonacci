@@ -198,7 +198,7 @@ label {
   font-weight: bold;
   font-size: 0.84rem; }
 
-input[type="text"], textarea {
+input[type="text"], input[type="search"], textarea {
   font-family: "Source Sans Pro", sans-serif;
   font-size: inherit;
   line-height: 1.2;
@@ -214,6 +214,42 @@ button, [type="button"], [type="submit"] {
   background-color: #333333;
   color: white;
   text-transform: uppercase; }
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0; }
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; }
+
+.icon {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background-repeat: no-repeat; }
+
+.calendar {
+  background-image: url("assets/calendar.svg"); }
+
+.tag {
+  background-image: url("assets/tag.svg"); }
+
+.comment {
+  background-image: url("assets/comment.svg"); }
+
+.search {
+  background-image: url("assets/search.svg"); }
 
 .header, .footer {
   display: flex;
@@ -254,6 +290,18 @@ button, [type="button"], [type="submit"] {
       margin-right: 1rem; }
       .header nav ul li:last-child {
         margin-right: 0; }
+      .header nav ul li .search-form {
+        display: flex;
+        align-items: center; }
+        .header nav ul li .search-form input {
+          border: none;
+          border-bottom: solid 1px rgba(51, 51, 51, 0.5);
+          padding: 0;
+          line-height: 1;
+          color: rgba(51, 51, 51, 0.5);
+          padding-bottom: 0.25rem; }
+          .header nav ul li .search-form input:focus, .header nav ul li .search-form input:active {
+            outline: none; }
 
 .main {
   margin-top: 4rem; }
@@ -303,7 +351,11 @@ button, [type="button"], [type="submit"] {
         color: rgba(51, 51, 51, 0.5);
         font-family: "Source Sans Pro", sans-serif; }
         .main article header .post-meta > div {
-          margin-right: 0.5rem; }
+          margin-right: 0.5rem;
+          display: flex;
+          align-items: center; }
+          .main article header .post-meta > div .icon {
+            margin-right: 0.25rem; }
         .main article header .post-meta ul, .main article header .post-meta li {
           margin: 0;
           padding: 0;
