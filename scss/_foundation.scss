@@ -113,13 +113,13 @@ blockquote {
   padding: $inner-padding;
   border-radius: $border-radius;
   color: $medium-gray;
-  font-size: $lg-size;
+  font-size: $md-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
   font-family: $heading-font-family;
 
   p {
-    font-size: $lg-size;
+    font-size: $md-size;
     hanging-punctuation: first;
 
     &:last-of-type {
@@ -241,12 +241,15 @@ pre {
 label {
   font-family: $heading-font-family;
   font-weight: bold;
-  font-size: $sm-size;
+  font-size: $xs-size;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $medium-gray;
 }
 
 input[type="text"], input[type="search"], textarea {
   font-family: $heading-font-family;
-  font-size: inherit;
+  font-size: $xs-size;
   line-height: $code-line-height;
   padding: $input-padding;
   width: 100%;
@@ -256,11 +259,13 @@ input[type="text"], input[type="search"], textarea {
 button, [type="button"], [type="submit"] {
   cursor: pointer;
   font-family: $heading-font-family;
-  font-size: $sm-size;
+  font-size: $xs-size;
   padding: $button-padding;
   background-color: $body-color;
   color: $white;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
 }
 
 /* clears the 'X' from Internet Explorer */
@@ -278,22 +283,22 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   height: 12px;
   display: inline-block;
   background-repeat: no-repeat;
-}
 
-.calendar {
-  background-image: url('assets/calendar.svg');
-}
+  &.calendar {
+    background-image: url('assets/calendar.svg');
+  }
 
-.tag {
-  background-image: url('assets/tag.svg');
-}
+  &.tag {
+    background-image: url('assets/tag.svg');
+  }
 
-.comment {
-  background-image: url('assets/comment.svg');
-}
+  &.comment {
+    background-image: url('assets/comment.svg');
+  }
 
-.search {
-  background-image: url('assets/search.svg');
+  &.search {
+    background-image: url('assets/search.svg');
+  }
 }
 
 // Layout elements
@@ -444,7 +449,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         font-family: $heading-font-family;
 
         > div {
-          margin-right: 0.5rem;
+          margin-right: 1rem;
           display: flex;
           align-items: center;
 
