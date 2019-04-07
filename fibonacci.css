@@ -63,7 +63,7 @@ h6 {
 h1 {
   font-size: 3.53rem;
   margin-top: 2.16rem;
-  margin-bottom: 4.69rem;
+  margin-bottom: 4.68rem;
   color: #333333; }
   h1::after {
     display: block;
@@ -187,7 +187,7 @@ hr {
 pre code {
   line-height: 1.2;
   font-family: "Source Code Pro", monospace;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   letter-spacing: normal; }
   pre code.hljs {
     padding: 0;
@@ -305,7 +305,7 @@ input[type="search"]::-webkit-search-results-decoration {
             outline: none; }
 
 .main {
-  margin-top: 4rem; }
+  margin-top: 3.84rem; }
   .main article {
     margin-bottom: 2.16rem; }
     .main article > * {

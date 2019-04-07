@@ -16,17 +16,17 @@ gulp.task('watch', function () {
 	gulp.watch('./scss/*.scss', ['sass']);
 });
 
-gulp.task('server', function () {
+gulp.task('server', ['sass', 'watch'], function () {
 	gulp.src('.').pipe(
 		webserver(
 			{
 				port: 4200,
 				livereload: true,
-				directoryListing: true,
+				directoryListing: false,
 				open: true
 			}
 		)
 	);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['server']);

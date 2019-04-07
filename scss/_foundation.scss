@@ -47,7 +47,7 @@ h6 {
 h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
-  margin-bottom: 4.69rem;
+  margin-bottom: $xxxl-size;
   color: $body-color;
 
   &::after {
@@ -61,7 +61,7 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
-  margin-top: 1.8rem;
+  margin-top: 1.8rem; // 34px
   margin-bottom: $md-size;
 }
 
@@ -228,7 +228,7 @@ pre {
   code {
     line-height: $code-line-height;
     font-family: $mono-font-family;
-    font-size: 0.75rem;
+    font-size: $xs-size;
     letter-spacing: normal;
 
     &.hljs {
@@ -306,7 +306,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   display: flex;
   align-items: center;
   height: $xl-size;
-  padding: 0 1rem;
+  padding: 0 $md-size;
   font-size: $small-font-size;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -351,7 +351,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
       li {
         margin-left: 0;
-        margin-right: 1rem;
+        margin-right: $md-size;
 
         &:last-child {
           margin-right: 0;
@@ -380,7 +380,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .main {
-  margin-top: 4rem;
+  margin-top: 3.84rem; // 73
 
   article {
     margin-bottom: $xl-size;
@@ -413,7 +413,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
       .author {
         position: absolute;
-        top: 1rem;
+        top: $md-size;
         left: -7.5rem;
         display: flex;
         flex-direction: column;
@@ -436,7 +436,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
             letter-spacing: 1px;
             background-color: $dim-gray;
             padding: 1px 5px;
-            font-size: 0.58rem;
+            font-size: 0.58rem; // 11px
             border-radius: 3px;
           }
         }
@@ -449,7 +449,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         font-family: $heading-font-family;
 
         > div {
-          margin-right: 1rem;
+          margin-right: $md-size;
           display: flex;
           align-items: center;
 
@@ -491,7 +491,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
 
     > p:first-of-type {
-      font-size: 1.2rem;
+      font-size: $lead-para-font-size;
     }
 
     .continue-reading {

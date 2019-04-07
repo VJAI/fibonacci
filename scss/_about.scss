@@ -1,7 +1,7 @@
 .about {
   article {
     p {
-      font-size: 1.2rem;
+      font-size: $lead-para-font-size;
       position: relative;
     }
   }
@@ -16,8 +16,8 @@
     letter-spacing: 1px;
     border-top: solid 1px $dim-gray;
     border-bottom: solid 1px $dim-gray;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: $md-size;
+    padding-bottom: $md-size;
 
     a {
       border-bottom: none;
