@@ -2,6 +2,8 @@
 
 A simplistic read-friendly blog template built with golden ratio.
 
+[Demo](https://vjai.github.io/fibonacci/index.html)
+
 ## Screenshots
 
 ![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/home.png)
@@ -12,5 +14,6 @@ A simplistic read-friendly blog template built with golden ratio.
 
 ![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/about.png)
 
-[Demo](https://vjai.github.io/fibonacci/index.html)
+## Pending
 
+Responsiveness
