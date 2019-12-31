@@ -2,7 +2,28 @@
 
 // Global stuff.
 :root {
-  font-size: $base-size;
+  --base-size: 16px;
+  --xs-size: 0.63rem;   // 12px
+  --sm-size: 0.69rem;   // 13px
+  --md-size: 1rem;      // 16px
+  --lg-size: 1.1rem;    // 21px
+  --xl-size: 1.79rem;   // 34px
+  --xxl-size: 2.90rem;  // 55px
+  --xxxl-size: 3.84rem; // 73px
+  font-size: var(--base-size);
+}
+
+@media only screen and (min-width: $mobile-breakpoint) {
+  :root {
+    --base-size: 19px;
+    --xs-size: 0.74rem;   // 14px
+    --sm-size: 0.84rem;   // 16px
+    --md-size: 1rem;      // 19px
+    --lg-size: 1.31rem;   // 25px
+    --xl-size: 2.16rem;   // 41px
+    --xxl-size: 3.53rem;  // 67px
+    --xxxl-size: 4.68rem; // 89px
+  }
 }
 
 html, body {
@@ -61,7 +82,7 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
-  margin-top: 1.8rem; // 34px
+  margin-top: 1.8rem;
   margin-bottom: $md-size;
 }
 
@@ -380,19 +401,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .main {
-  margin-top: 3.84rem; // 73
+  margin-top: 3.84rem;
 
   article {
     margin-bottom: $xl-size;
 
     > * {
-      max-width: $container-width;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: $md-size;
+      margin-right: $md-size;
+    }
+
+    @media only screen and (min-width: $container-width) {
+      > * {
+        max-width: $container-width;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .full {
       max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .right, .left {
@@ -436,20 +466,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
             letter-spacing: 1px;
             background-color: $dim-gray;
             padding: 1px 5px;
-            font-size: 0.58rem; // 11px
+            font-size: 0.58rem;
             border-radius: 3px;
           }
         }
       }
 
       .post-meta {
-        display: flex;
         font-size: $xs-size;
         color: $light-gray;
         font-family: $heading-font-family;
 
         > div {
-          margin-right: $md-size;
+          margin-bottom: 5px;
+          margin-right: 0;
           display: flex;
           align-items: center;
 
@@ -485,6 +515,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         .posted-date {
           span {
             font-variant: small-caps;
+          }
+        }
+      }
+
+      @media only screen and (min-width: $mobile-breakpoint) {
+        .post-meta {
+          display: flex;
+
+          > div {
+            margin-bottom: 0;
+            margin-right: $md-size;
           }
         }
       }
