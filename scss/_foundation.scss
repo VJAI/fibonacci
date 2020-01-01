@@ -389,12 +389,38 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
             line-height: 1;
             color: $light-gray;
             padding-bottom: 0.25rem;
+            display: none;
 
             &:focus, &:active {
               outline: none;
             }
           }
+
+          @media only screen and (min-width: $mobile-breakpoint) {
+            input {
+              display: block;
+            }
+          }
         }
+      }
+    }
+
+    &.search-active {
+      flex-grow: 1;
+      margin-left: 1rem;
+
+      .search-form {
+        input {
+          display: block;
+        }
+      }
+
+      ul li:not(:first-child) {
+        display: none;
+      }
+
+      ul li:first-child {
+        width: 100%;
       }
     }
   }
@@ -525,7 +551,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
           > div {
             margin-bottom: 0;
+          }
+
+          > div:not(:last-child) {
             margin-right: $md-size;
+          }
+
+          .posted-date .date {
+            min-width: 6.58rem;
+          }
+
+          .total-comments a {
+            min-width: 5.25rem;
           }
         }
       }

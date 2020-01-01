@@ -6,6 +6,10 @@ main {
 
     .post-meta {
       position: relative;
+      top: -1rem;
+    }
+
+    @media only screen and (min-width: $mobile-breakpoint) {
       top: -1.8rem;
     }
 

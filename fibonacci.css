@@ -319,9 +319,22 @@ input[type="search"]::-webkit-search-results-decoration {
           padding: 0;
           line-height: 1;
           color: rgba(51, 51, 51, 0.5);
-          padding-bottom: 0.25rem; }
+          padding-bottom: 0.25rem;
+          display: none; }
           .header nav ul li .search-form input:focus, .header nav ul li .search-form input:active {
             outline: none; }
+        @media only screen and (min-width: 480px) {
+          .header nav ul li .search-form input {
+            display: block; } }
+  .header nav.search-active {
+    flex-grow: 1;
+    margin-left: 1rem; }
+    .header nav.search-active .search-form input {
+      display: block; }
+    .header nav.search-active ul li:not(:first-child) {
+      display: none; }
+    .header nav.search-active ul li:first-child {
+      width: 100%; }
 
 .main {
   margin-top: 3.84rem; }
@@ -402,8 +415,13 @@ input[type="search"]::-webkit-search-results-decoration {
         .main article header .post-meta {
           display: flex; }
           .main article header .post-meta > div {
-            margin-bottom: 0;
-            margin-right: var(--md-size); } }
+            margin-bottom: 0; }
+          .main article header .post-meta > div:not(:last-child) {
+            margin-right: var(--md-size); }
+          .main article header .post-meta .posted-date .date {
+            min-width: 6.58rem; }
+          .main article header .post-meta .total-comments a {
+            min-width: 5.25rem; } }
     .main article > p:first-of-type {
       font-size: 1.2rem; }
     .main article .continue-reading {
@@ -429,7 +447,11 @@ main.post-detail h1 {
 
 main.post-detail .post-meta {
   position: relative;
-  top: -1.8rem; }
+  top: -1rem; }
+
+@media only screen and (min-width: 480px) {
+  main.post-detail {
+    top: -1.8rem; } }
 
 main.post-detail hr {
   overflow: visible;
