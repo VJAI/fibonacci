@@ -343,6 +343,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   }
 
   .logo {
+    display: flex;
+    align-items: center;
     transition: all 0.5s;
 
     &:hover {
