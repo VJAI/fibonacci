@@ -1,4 +1,4 @@
-# fibonacci
+# ![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/logo.png) fibonacci
 
 A simplistic read-friendly blog template built with golden ratio.
 
