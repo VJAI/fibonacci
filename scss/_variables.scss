@@ -23,7 +23,8 @@ $h4-font-size:                      $base-font-size !default;
 $medium-font-size:                  $sm-size !default;
 $small-font-size:                   $xs-size !default;
 $lead-para-font-size:               1.2rem !default;
-$mobile-breakpoint:                 480px;
+$breakpoint1:                       480px;
+$breakpoint2:                       768px;
 
 // Line Heights.
 $base-line-height:                  1.5 !default;

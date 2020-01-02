@@ -1,16 +1,25 @@
 main {
   &.post-detail {
-    h1 {
-      margin-bottom: $xl-size;
-    }
+    article {
+      .title-and-meta {
+        h1 {
+          margin-bottom: $xl-size;
+        }
 
-    .post-meta {
-      position: relative;
-      top: -1rem;
-    }
+        .post-meta {
+          position: relative;
 
-    @media only screen and (min-width: $mobile-breakpoint) {
-      top: -1.8rem;
+          @media only screen and (min-width: 1100px) {
+            .author {
+              top: -6rem;
+            }
+          }
+        }
+
+        @media only screen and (min-width: $breakpoint1) {
+          top: -1.8rem;
+        }
+      }
     }
 
     // https://css-tricks.com/examples/hrs/
