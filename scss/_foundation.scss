@@ -462,7 +462,7 @@ input[type="search"]::-webkit-search-results-decoration {
       margin-right: $md-size;
     }
 
-    @media only screen and (min-width: $container-width) {
+    @media only screen and (min-width: $breakpoint4) {
       > * {
         max-width: $container-width;
         margin-left: auto;
@@ -537,7 +537,7 @@ input[type="search"]::-webkit-search-results-decoration {
             }
           }
 
-          @media only screen and (min-width: 1100px) {
+          @media only screen and (min-width: $breakpoint3) {
             .author {
               position: absolute;
               top: $md-size;
@@ -608,7 +608,7 @@ input[type="search"]::-webkit-search-results-decoration {
           }
         }
 
-        @media only screen and (min-width: $breakpoint2) and (max-width: 1100px) {
+        @media only screen and (min-width: $breakpoint2) and (max-width: $breakpoint3) {
 
           .author {
             img {

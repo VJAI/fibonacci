@@ -349,7 +349,7 @@ input[type="search"]::-webkit-search-results-decoration {
     .main article > * {
       margin-left: var(--md-size);
       margin-right: var(--md-size); }
-    @media only screen and (min-width: 42rem) {
+    @media only screen and (min-width: 836px) {
       .main article > * {
         max-width: 42rem;
         margin-left: auto;
