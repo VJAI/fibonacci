@@ -394,6 +394,7 @@ input[type="search"]::-webkit-search-results-decoration {
       margin: 0;
       padding: 0;
       list-style: none;
+      align-items: center;
 
       li {
         margin-left: 0;
@@ -421,7 +422,7 @@ input[type="search"]::-webkit-search-results-decoration {
             }
           }
 
-          @media only screen and (min-width: $breakpoint1) {
+          @media only screen and (min-width: $breakpoint5) {
             input {
               display: block;
             }

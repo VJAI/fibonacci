@@ -310,7 +310,8 @@ input[type="search"]::-webkit-search-results-decoration {
       display: flex;
       margin: 0;
       padding: 0;
-      list-style: none; }
+      list-style: none;
+      align-items: center; }
       .header nav ul li {
         margin-left: 0;
         margin-right: var(--md-size); }
@@ -329,7 +330,7 @@ input[type="search"]::-webkit-search-results-decoration {
             display: none; }
             .header nav ul li .search-form input:focus, .header nav ul li .search-form input:active {
               outline: none; }
-          @media only screen and (min-width: 480px) {
+          @media only screen and (min-width: 560px) {
             .header nav ul li .search-form input {
               display: block; } }
     .header nav.search-active {

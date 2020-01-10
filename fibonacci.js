@@ -1,5 +1,5 @@
 (function () {
-	var x = window.matchMedia('screen and (min-width: 480px)');
+	var x = window.matchMedia('screen and (min-width: 560px)');
 	var nav = document.querySelector('.header nav');
 	var searchInput = document.querySelector('.search-form input');
 	var searchIcon = document.querySelector('.search-form span');
