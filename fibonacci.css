@@ -6,9 +6,9 @@
   --sm-size: 0.8125rem;
   --md-size: 1rem;
   --lg-size: 1.3125rem;
-  --xl-size: 2.125rem;
-  --xxl-size: 3.4375rem;
-  --xxxl-size: 4.5625rem;
+  --xl-size: 1.75rem;
+  --xxl-size: 2.3125rem;
+  --xxxl-size: 2.8125rem;
   font-size: var(--base-size); }
 
 @media only screen and (min-width: 480px) {
