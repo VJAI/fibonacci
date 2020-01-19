@@ -2,13 +2,13 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro");
 :root {
   --base-size: 16px;
-  --xs-size: 0.63rem;
-  --sm-size: 0.69rem;
+  --xs-size: 0.75rem;
+  --sm-size: 0.8125rem;
   --md-size: 1rem;
-  --lg-size: 1.1rem;
-  --xl-size: 1.79rem;
-  --xxl-size: 2.90rem;
-  --xxxl-size: 3.84rem;
+  --lg-size: 1.3125rem;
+  --xl-size: 2.125rem;
+  --xxl-size: 3.4375rem;
+  --xxxl-size: 4.5625rem;
   font-size: var(--base-size); }
 
 @media only screen and (min-width: 480px) {
