@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro');
 
 // Global stuff.
+// Ratio 1.618 Interval 5
 :root {
   --base-size: 16px;
-  --xs-size: 0.75rem; // 12px
-  --sm-size: 0.8125rem; // 13px
+  --xs-size: 0.8125rem; // 13px
+  --sm-size: 0.9375rem; // 15px
   --md-size: 1rem; // 16px
   --lg-size: 1.3125rem; // 21px
-  --xl-size: 1.75rem; // 28px
-  --xxl-size: 2.3125rem; // 37px
-  --xxxl-size: 2.8125rem; // 45px
+  --xl-size: 1.8125rem; // 29px
+  --xxl-size: 2.375rem; // 38px
+  --xxxl-size: 2.875rem; // 46px
   font-size: var(--base-size);
 }
 
@@ -19,7 +20,7 @@
     --xs-size: 0.74rem; // 14px
     --sm-size: 0.84rem; // 16px
     --md-size: 1rem; // 19px
-    --lg-size: 1.31rem; // 25px
+    --lg-size: 1.32rem; // 25px
     --xl-size: 2.16rem; // 41px
     --xxl-size: 3.53rem; // 67px
     --xxxl-size: 4.68rem; // 89px
