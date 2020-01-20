@@ -383,10 +383,16 @@ input[type="search"]::-webkit-search-results-decoration {
     a {
       line-height: 1;
       transition: color 0.5s;
-      font-size: $xs-size;
+      font-size: 0.75rem;
 
       &:hover {
         color: $body-color;
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint1) {
+      a {
+        font-size: $xs-size;
       }
     }
 

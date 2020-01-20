@@ -303,9 +303,12 @@ input[type="search"]::-webkit-search-results-decoration {
     .header nav a {
       line-height: 1;
       transition: color 0.5s;
-      font-size: var(--xs-size); }
+      font-size: 0.75rem; }
       .header nav a:hover {
         color: #333333; }
+    @media only screen and (min-width: 480px) {
+      .header nav a {
+        font-size: var(--xs-size); } }
     .header nav ul {
       display: flex;
       margin: 0;
