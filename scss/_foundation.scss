@@ -459,9 +459,14 @@ input[type="search"]::-webkit-search-results-decoration {
   article {
     margin-bottom: $xl-size;
 
+    article {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     > * {
-      margin-left: $md-size;
-      margin-right: $md-size;
+      margin-left: $lg-size;
+      margin-right: $lg-size;
     }
 
     @media only screen and (min-width: $breakpoint4) {
