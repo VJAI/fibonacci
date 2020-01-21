@@ -20,3 +20,29 @@ A simplistic read-friendly blog template built with golden ratio.
 ![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/contact.png)
 
 ![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/about.png)
+
+## Development
+
+Fork the repo or download the source-code and then open the terminal at the root of the project and run,
+
+```
+npm install
+```
+
+Once the necessary packages are installed run the website using the below command.
+
+```
+npm start
+```
+
+## Customization
+
+You can customize the theme by changing the variables in `_variables.scss` file under "scss" folder.
+
+## License
+
+MIT
+
+## Questions & Feedback
+
+Please send email to vijay.prideparrot AT gmail.com.

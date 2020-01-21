@@ -4,7 +4,7 @@
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "main": "gulpfile.js",
   "scripts": {
-    "serve": "gulp",
+    "start": "gulp",
     "build": "gulp sass"
   },
   "keywords": ["template", "blog"],
