@@ -2,7 +2,9 @@
 
 A simplistic read-friendly blog template built with golden ratio.
 
-[Demo](https://vjai.github.io/fibonacci/index.html)
+## Demo
+
+[https://vjai.github.io/fibonacci/index.html](https://vjai.github.io/fibonacci/index.html)
 
 ## Supported Browsers
 
@@ -10,16 +12,6 @@ A simplistic read-friendly blog template built with golden ratio.
 - Safari
 - Firefox
 - Edge
-
-## Screenshots
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/home.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/detail.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/contact.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/about.png)
 
 ## Development
 
@@ -46,3 +38,13 @@ MIT
 ## Questions & Feedback
 
 Please send email to vijay.prideparrot AT gmail.com.
+
+## Screenshots
+
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/home.png)
+
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/detail.png)
+
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/contact.png)
+
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/about.png)
