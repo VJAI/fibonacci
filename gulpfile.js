@@ -7,7 +7,7 @@ var webserver = require('gulp-webserver');
 
 gulp.task('sass', function () {
 	return gulp.src(['./scss', '*.scss'].join('/'))
-	           .pipe(sass())
+	           .pipe(sass().on('error', sass.logError))
 	           .pipe(concat('fibonacci.css'))
 	           .pipe(gulp.dest('.'));
 });

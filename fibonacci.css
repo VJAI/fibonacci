@@ -317,7 +317,7 @@ input[type="search"]::-webkit-search-results-decoration {
       align-items: center; }
       .header nav ul li {
         margin-left: 0;
-        margin-right: var(--md-size); }
+        margin-right: 0.6875rem; }
         .header nav ul li:last-child {
           margin-right: 0; }
         .header nav ul li .search-form {
@@ -336,6 +336,9 @@ input[type="search"]::-webkit-search-results-decoration {
           @media only screen and (min-width: 560px) {
             .header nav ul li .search-form input {
               display: block; } }
+      @media only screen and (min-width: 480px) {
+        .header nav ul li {
+          margin-right: var(--md-size); } }
     .header nav.search-active {
       flex-grow: 1;
       margin-left: 1rem; }
@@ -388,10 +391,11 @@ input[type="search"]::-webkit-search-results-decoration {
         .main article header .title-and-meta .post-meta .author {
           display: flex;
           flex-direction: row;
-          align-items: center; }
+          align-items: flex-end; }
           .main article header .title-and-meta .post-meta .author img {
             border-radius: 50%;
-            opacity: 0.8; }
+            opacity: 0.8;
+            width: 30px; }
           .main article header .title-and-meta .post-meta .author span {
             font-size: var(--xs-size);
             color: rgba(51, 51, 51, 0.5);
@@ -439,13 +443,12 @@ input[type="search"]::-webkit-search-results-decoration {
             margin-bottom: 0; }
           .main article header .title-and-meta .post-meta > div:not(:last-child) {
             margin-right: var(--md-size); }
+          .main article header .title-and-meta .post-meta .author {
+            align-items: center; }
           .main article header .title-and-meta .post-meta .posted-date .date {
             min-width: 6.58rem; }
           .main article header .title-and-meta .post-meta .total-comments a {
             min-width: 5.25rem; } }
-      @media only screen and (min-width: 768px) and (max-width: 1100px) {
-        .main article header .title-and-meta .author img {
-          width: 30px; } }
     .main article > p:first-of-type {
       font-size: 1.2rem; }
     .main article .continue-reading {

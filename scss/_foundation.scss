@@ -405,7 +405,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
       li {
         margin-left: 0;
-        margin-right: $md-size;
+        margin-right: 0.6875rem;
 
         &:last-child {
           margin-right: 0;
@@ -434,6 +434,12 @@ input[type="search"]::-webkit-search-results-decoration {
               display: block;
             }
           }
+        }
+      }
+
+      @media only screen and (min-width: $breakpoint1) {
+        li {
+          margin-right: $md-size;
         }
       }
     }
@@ -525,11 +531,12 @@ input[type="search"]::-webkit-search-results-decoration {
           .author {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-end;
 
             img {
               border-radius: 50%;
               opacity: 0.8;
+              width: 30px;
             }
 
             span {
@@ -611,21 +618,16 @@ input[type="search"]::-webkit-search-results-decoration {
               margin-right: $md-size;
             }
 
+            .author {
+              align-items: center;
+            }
+
             .posted-date .date {
               min-width: 6.58rem;
             }
 
             .total-comments a {
               min-width: 5.25rem;
-            }
-          }
-        }
-
-        @media only screen and (min-width: $breakpoint2) and (max-width: $breakpoint3) {
-
-          .author {
-            img {
-              width: 30px;
             }
           }
         }

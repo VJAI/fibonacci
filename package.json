@@ -4,14 +4,16 @@
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "gulp",
+    "build": "gulp sass"
   },
+  "keywords": ["template", "blog"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VJAI/fibonacci.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Vijaya Anand <vijay.prideparrot@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/VJAI/fibonacci/issues"
   },
