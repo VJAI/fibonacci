@@ -2,25 +2,25 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro");
 :root {
   --base-size: 16px;
-  --xs-size: 0.8125rem;
-  --sm-size: 0.9375rem;
+  --xs-size: 0.825rem;
+  --sm-size: 0.908rem;
   --md-size: 1rem;
-  --lg-size: 1.3125rem;
-  --xl-size: 1.8125rem;
-  --xxl-size: 2.375rem;
-  --xxxl-size: 2.875rem;
+  --lg-size: 1.335rem;
+  --xl-size: 1.961rem;
+  --xxl-size: 2.378rem;
+  --xxxl-size: 2.882rem;
   font-size: var(--base-size); }
 
 @media only screen and (min-width: 480px) {
   :root {
     --base-size: 19px;
-    --xs-size: 0.74rem;
-    --sm-size: 0.84rem;
+    --xs-size: 0.749rem;
+    --sm-size: 0.825rem;
     --md-size: 1rem;
-    --lg-size: 1.32rem;
-    --xl-size: 2.16rem;
-    --xxl-size: 3.53rem;
-    --xxxl-size: 4.68rem; } }
+    --lg-size: 1.335rem;
+    --xl-size: 2.160rem;
+    --xxl-size: 3.494rem;
+    --xxxl-size: 4.664rem; } }
 
 html, body {
   margin: 0;

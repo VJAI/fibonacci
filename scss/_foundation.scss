@@ -2,28 +2,31 @@
 
 // Global stuff.
 // Ratio 1.618 Interval 5
+
+// 0.382rem 0.421rem 0.463rem 0.510rem 0.561rem 0.618rem 0.680rem 0.749rem 0.825rem 0.908rem 1.000rem 1.101rem 1.212rem 1.335rem 1.470rem 1.618rem 1.781rem 1.961rem 2.160rem 2.378rem 2.618rem 2.882rem 3.174rem 3.494rem 3.847rem 4.236rem 4.664rem 5.135rem 5.654rem 6.225rem
+
 :root {
   --base-size: 16px;
-  --xs-size: 0.8125rem; // 13px
-  --sm-size: 0.9375rem; // 15px
-  --md-size: 1rem; // 16px
-  --lg-size: 1.3125rem; // 21px
-  --xl-size: 1.8125rem; // 29px
-  --xxl-size: 2.375rem; // 38px
-  --xxxl-size: 2.875rem; // 46px
+  --xs-size: 0.825rem;
+  --sm-size: 0.908rem;
+  --md-size: 1rem;
+  --lg-size: 1.335rem;
+  --xl-size: 1.961rem;
+  --xxl-size: 2.378rem;
+  --xxxl-size: 2.882rem;
   font-size: var(--base-size);
 }
 
 @media only screen and (min-width: $breakpoint1) {
   :root {
     --base-size: 19px;
-    --xs-size: 0.74rem; // 14px
-    --sm-size: 0.84rem; // 16px
-    --md-size: 1rem; // 19px
-    --lg-size: 1.32rem; // 25px
-    --xl-size: 2.16rem; // 41px
-    --xxl-size: 3.53rem; // 67px
-    --xxxl-size: 4.68rem; // 89px
+    --xs-size: 0.749rem;
+    --sm-size: 0.825rem;
+    --md-size: 1rem;
+    --lg-size: 1.335rem;
+    --xl-size: 2.160rem;
+    --xxl-size: 3.494rem;
+    --xxxl-size: 4.664rem;
   }
 }
 
