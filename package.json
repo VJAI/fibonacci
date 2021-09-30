@@ -2,12 +2,11 @@
   "name": "fibonacci",
   "version": "1.0.0",
   "description": "A simplistic read-friendly blog template built with golden ratio",
-  "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp sass"
   },
-  "keywords": ["template", "blog"],
+  "keywords": ["template", "blog", "golden-ratio", "ux", "fibonacci"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VJAI/fibonacci.git"
