@@ -6,7 +6,13 @@
     "start": "gulp",
     "build": "gulp sass"
   },
-  "keywords": ["template", "blog", "golden-ratio", "ux", "fibonacci"],
+  "keywords": [
+    "template",
+    "blog",
+    "golden-ratio",
+    "ux",
+    "fibonacci"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VJAI/fibonacci.git"
