@@ -1,52 +1,85 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%% About Page %%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
+	<title>fibonacci | About</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="fibonacci.css">
-	<link rel="stylesheet"
-	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
-<body>
+<body class="cmp__page">
 
-<header class="header">
-	<a href="index.html" class="logo">
-		<img src="assets/logo.png" style="width: 2rem;">
-		<span>fibonacci</span>
-	</a>
-	<nav>
+<!-- Page Header Component -->
+<header class="cmp__page-header">
+
+	<!-- Logo and Tag Line -->
+	<div class="cmp__blog-info">
+		<!-- Logo Component -->
+		<a href="index.html" class="cmp__blog-logo-anchor">
+			<img class="cmp__blog-logo" src="assets/logo.png" style="width: 2rem;" alt="logo">
+			<span class="cmp__blog-name">fibonacci</span>
+		</a>
+
+		<span class="cmp__separator">|</span>
+
+		<!-- Blog Tag Line -->
+		<div class="cmp__blog-tag-line">
+			<span>being pragmatic...</span>
+		</div>
+	</div>
+
+	<!-- Page Navigation Component -->
+	<nav class="cmp__nav">
 		<ul>
 			<li>
-				<form class="search-form">
-					<input type="search" placeholder="Search...">
-					<span class="icon search"></span>
+				<form class="cmp__search-form">
+					<label>
+						<input type="search" placeholder="Search...">
+					</label>
+					<span class="cmp__icon cmp__icon-search"></span>
 				</form>
 			</li>
 			<li>
-				<a href="index.html">home</a>
+				<a href="index.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+					<span class="cmp__nav-link-text">home</span>
+				</a>
 			</li>
 			<li>
-				<a href="contact.html">contact</a>
+				<a href="contact.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+					<span class="cmp__nav-link-text">contact</span>
+				</a>
 			</li>
-			<li>
-				<a href="about.html">about</a>
+			<li class="active">
+				<a href="about.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+					<span class="cmp__nav-link-text">about</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<main class="main about">
-	<article>
-		<header>
-			<h1>About Me</h1>
-		</header>
+<!-- Page Main Content Component -->
+<main class="cmp__page-main">
 
-		<figure class="full">
-			<img src="assets/author.jpg" alt="Author">
+	<article class="cmp__page-content cmp__about">
+
+		<!-- Page Title -->
+		<h1 class="cmp__page-title">About Me</h1>
+
+		<!-- Author Photo -->
+		<figure class="cmp__figure cmp__figure-full">
+			<img src="assets/author.jpg" alt="Author" />
 		</figure>
-		
-		<p>
+
+		<!-- Author Description -->
+		<p class="drop-cap">
 			Hi, I&rsquo;m Triton. I was graduated as an Electronics Engineer way back in 2004. It's little late for me to know my destiny is written to play with code. I started my career in Software development 10 years back. I worked in numerous projects and got appreciation from many people. I spent most of the time in my career with Microsoft technology stack. Some of the frameworks I've good expertise with are: ASP.NET, ASP.NET MVC, ASP.NET Web API and WCF.
 		</p>
 
@@ -54,7 +87,8 @@
 			After I discovered the beauty of JavaScript I moved to front-end development. Nowadays I spend most of the time learning and experimenting frameworks like Backbone, RequireJs, AngularJs, Grunt and Node.
 		</p>
 
-		<div class="social">
+		<!-- Social Links -->
+		<div class="cmp__social-widget">
 			<a href="#">
 				Facebook
 			</a>
@@ -70,9 +104,11 @@
 	</article>
 </main>
 
-<footer class="footer">
-	&copy; 2018 &middot; All Rights Reserved
+<!-- Page Footer Component -->
+<footer class="cmp__page-footer">
+	&copy; 2021 &middot; All Rights Reserved
 </footer>
+
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="fibonacci.js"></script>
 </body>

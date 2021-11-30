@@ -1,140 +1,138 @@
-main {
-  &.post-detail {
-    article {
-      .title-and-meta {
-        h1 {
-          margin-bottom: $xl-size;
-        }
-
-        .post-meta {
-          position: relative;
-
-          @media only screen and (min-width: 1100px) {
-            .author {
-              top: -6rem;
-            }
-          }
-        }
-
-        @media only screen and (min-width: $breakpoint1) {
-          top: -1.8rem;
-        }
-      }
-    }
-
-    // https://css-tricks.com/examples/hrs/
-    hr {
-      overflow: visible; /* For IE */
-      padding: 0;
-      border: none;
-      border-top: medium double $body-color;
-      color: $body-color;
-      text-align: center;
-      margin-top: $xl-size;
+.cmp__blog_detail {
+  .cmp__article-title-meta {
+    .cmp__article-header-title {
       margin-bottom: $xl-size;
     }
 
-    hr:after {
-      content: "§";
-      display: inline-block;
+    .cmp__article-meta {
       position: relative;
-      top: -0.7em;
-      font-size: 1.5em;
-      padding: 0 0.25em;
-      background: white;
-    }
 
-    .related-posts {
-      margin-bottom: $xl-size;
-
-      h3 {
-        margin-left: 0.5rem;
-      }
-
-      ul {
-        list-style: none;
-        margin-top: 1.5rem;
-
-        li {
-          margin-left: 0.5rem;
-          margin-bottom: 0.5rem;
-          padding: 0;
+      @media only screen and (min-width: 1100px) {
+        .cmp__article-author {
+          top: -6rem;
         }
       }
     }
 
-    .comments {
-      margin-bottom: $xl-size;
+    @media only screen and (min-width: $mobile) {
+      top: -1.8rem;
+    }
+  }
 
-      .user {
-        margin-right: 0.5rem;
+  // https://css-tricks.com/examples/hrs/
+  hr {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double $body-color;
+    color: $body-color;
+    text-align: center;
+    margin-top: $xl-size;
+    margin-bottom: $xl-size;
+  }
+
+  hr:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+  }
+}
+
+// Related Posts Widget
+.cmp__related-posts {
+  margin-bottom: $xl-size;
+
+  h3 {
+    margin-left: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    margin-top: 1.5rem;
+
+    li {
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0;
+    }
+  }
+}
+
+// Comments Widget
+.cmp__comments {
+  margin-bottom: $xl-size;
+
+  .cmp__comment-by {
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+    }
+
+    span {
+      font-family: $heading-font-family;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: $dim-gray;
+      padding: 1px 5px;
+      font-size: 0.58rem;
+      border-radius: 3px;
+      margin-top: 0.25rem;
+      text-align: center;
+    }
+  }
+
+  .cmp__comments-form {
+    margin-top: 1.5rem;
+
+    .cmp__form-container {
+      display: flex;
+
+      .cmp__form-control {
+        flex: 1;
+
+        textarea {
+          min-height: 75px;
+        }
+      }
+    }
+  }
+
+  .cmp__comments-list {
+    margin: 1.5rem 0 0 0;
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding-bottom: 1rem;
+
+      .cmp__comment {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
-        img {
-          border-radius: 50%;
+        .cmp__comment-detail {
+          .cmp__commented-date {
+            text-align: right;
+            font-family: $heading-font-family;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.58rem;
+            color: $light-gray;
+          }
         }
 
-        span {
-          font-family: $heading-font-family;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          background-color: $dim-gray;
-          padding: 1px 5px;
+        .cmp__button {
+          padding: 0.25rem 0.75rem;
           font-size: 0.58rem;
-          border-radius: 3px;
-          margin-top: 0.25rem;
-          text-align: center;
-        }
-      }
-
-      form {
-        margin-top: 1.5rem;
-
-        .new-comment {
-          display: flex;
-
-          .form-control {
-            flex: 1;
-
-            textarea {
-              min-height: 75px;
-            }
-          }
-        }
-      }
-
-      .comments-list {
-        margin: 1.5rem 0 0 0;
-        list-style: none;
-        padding: 0;
-
-        li {
-          padding-bottom: 1rem;
-
-          .comment {
-            display: flex;
-
-            .comment-info {
-              .commented-date {
-                text-align: right;
-                font-family: $heading-font-family;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-size: 0.58rem;
-                color: $light-gray;
-              }
-            }
-
-            button {
-              padding: 0.25rem 0.75rem;
-              font-size: 0.58rem;
-              background-color: transparent;
-              color: $body-color
-            }
-          }
+          background-color: transparent;
+          color: $body-color
         }
       }
     }

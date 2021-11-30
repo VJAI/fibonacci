@@ -1,70 +1,105 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%% Contact Page %%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
+	<title>fibonacci | Contact</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="fibonacci.css">
-	<link rel="stylesheet"
-	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
-<body>
+<body class="cmp__page">
 
-<header class="header">
-	<a href="index.html" class="logo">
-		<img src="assets/logo.png" style="width: 2rem;">
-		<span>fibonacci</span>
-	</a>
-	<nav>
+<!-- Page Header Component -->
+<header class="cmp__page-header">
+
+	<!-- Logo and Tag Line -->
+	<div class="cmp__blog-info">
+		<!-- Logo Component -->
+		<a href="index.html" class="cmp__blog-logo-anchor">
+			<img class="cmp__blog-logo" src="assets/logo.png" style="width: 2rem;" alt="logo">
+			<span class="cmp__blog-name">fibonacci</span>
+		</a>
+
+		<span class="cmp__separator">|</span>
+
+		<!-- Blog Tag Line -->
+		<div class="cmp__blog-tag-line">
+			<span>being pragmatic...</span>
+		</div>
+	</div>
+
+	<!-- Page Navigation Component -->
+	<nav class="cmp__nav">
 		<ul>
 			<li>
-				<form class="search-form">
-					<input type="search" placeholder="Search...">
-					<span class="icon search"></span>
+				<form class="cmp__search-form">
+					<label>
+						<input type="search" placeholder="Search...">
+					</label>
+					<span class="cmp__icon cmp__icon-search"></span>
 				</form>
 			</li>
 			<li>
-				<a href="index.html">home</a>
+				<a href="index.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+					<span class="cmp__nav-link-text">home</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="contact.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+					<span class="cmp__nav-link-text">contact</span>
+				</a>
 			</li>
 			<li>
-				<a href="contact.html">contact</a>
-			</li>
-			<li>
-				<a href="about.html">about</a>
+				<a href="about.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+					<span class="cmp__nav-link-text">about</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<main class="main">
-	<article>
-		<header>
-			<h1>Contact</h1>
-		</header>
+<!-- Page Main Content Component -->
+<main class="cmp__page-main">
+
+	<article class="cmp__page-content cmp__contact">
+
+		<!-- Page Title -->
+		<h1 class="cmp__page-title">Contact</h1>
 
 		<p>
 			Would you like to contact me about something? like a technical question or to share what you know, you are in the
 			right spot! Please use the below contact form to send your query.
 		</p>
 
-		<form id="contact-form" method="post" action="contact">
-			<div>
-				<p class="form-field">
-					<label for="Name">Name: (*)</label>
+		<form class="cmp__form cmp__contact-form" method="post">
+			<div class="cmp__form-container">
+
+				<div class="cmp__form-control">
+					<label for="Name">Name</label>
 					<input required type="text" name="Name" id="Name" maxlength="50" title="Name required">
-				</p>
-				<p class="form-field">
-					<label for="ReplyTo">E-mail: (*)</label>
-					<input required type="text" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
-				</p>
-				<p class="form-field">
-					<label for="subject">Subject: (*)</label>
+				</div>
+
+				<div class="cmp__form-control">
+					<label for="ReplyTo">E-mail</label>
+					<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
+				</div>
+
+				<div class="cmp__form-control">
+					<label for="subject">Subject</label>
 					<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required">
-				</p>
-				<p class="form-field">
-					<label for="Body">Message: (*)</label>
+				</div>
+
+				<div class="cmp__form-control">
+					<label for="Body">Message</label>
 					<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50"></textarea>
-				</p>
+				</div>
 
 				<input type="submit" name="submit" value="Send Message" id="submit">
 			</div>
@@ -72,9 +107,11 @@
 	</article>
 </main>
 
-<footer class="footer">
-	&copy; 2018 &middot; All Rights Reserved
+<!-- Page Footer Component -->
+<footer class="cmp__page-footer">
+	&copy; 2021 &middot; All Rights Reserved
 </footer>
+
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="fibonacci.js"></script>
 </body>

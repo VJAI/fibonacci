@@ -1,31 +1,31 @@
-.about {
+.cmp__about {
   article {
     p {
       font-size: $lead-para-font-size;
       position: relative;
     }
   }
+}
 
-  .social {
-    display: flex;
-    font-family: $heading-font-family;
-    font-size: $xs-size;
-    color: $light-gray;
-    justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-top: solid 1px $dim-gray;
-    border-bottom: solid 1px $dim-gray;
-    padding-top: $md-size;
-    padding-bottom: $md-size;
+.cmp__social-widget {
+  display: flex;
+  font-family: $heading-font-family;
+  font-size: $xs-size;
+  color: $light-gray;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: solid 1px $dim-gray;
+  border-bottom: solid 1px $dim-gray;
+  padding-top: $md-size;
+  padding-bottom: $md-size;
 
-    a {
-      border-bottom: none;
-    }
+  a {
+    border-bottom: none;
+  }
 
-    .separator {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-    }
+  .separator {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }

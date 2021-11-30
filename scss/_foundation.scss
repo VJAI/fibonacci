@@ -1,10 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700');
 
-// Global stuff.
-// Ratio 1.618 Interval 5
+/**
+  Sizes built with golden ratio (1.618) with the interval of 5.
+  Font Size Calculator: https://gist.github.com/VJAI/f4240f0353bf992d967f52f74844d963
 
-// 0.382rem 0.421rem 0.463rem 0.510rem 0.561rem 0.618rem 0.680rem 0.749rem 0.825rem 0.908rem 1.000rem 1.101rem 1.212rem 1.335rem 1.470rem 1.618rem 1.781rem 1.961rem 2.160rem 2.378rem 2.618rem 2.882rem 3.174rem 3.494rem 3.847rem 4.236rem 4.664rem 5.135rem 5.654rem 6.225rem
+  const base = 19;
+  const ratio = 1.618;
+  const interval = 5;
 
+  function size(point) {
+    const s = base * Math.pow(ratio, point/interval);
+    return [s, `${(s / base).toFixed(3)} rem`];
+  }
+
+  for (let i = -20; i < 20; i++) {
+    console.log(size(i));
+  }
+
+  0.146 0.161 0.177 0.195 0.214 0.236 0.260 0.286 0.315 0.347
+  0.382 0.421 0.463 0.510 0.561 0.618 0.680 0.749 0.825 0.908
+  1.000 1.101 1.212 1.335 1.470 1.618 1.781 1.961 2.160 2.378
+  2.618 2.882 3.174 3.494 3.847 4.236 4.664 5.135 5.654 6.225
+ */
+
+// Medium and Small Screens.
 :root {
   --base-size: 16px;
   --xs-size: 0.825rem;
@@ -17,7 +36,8 @@
   font-size: var(--base-size);
 }
 
-@media only screen and (min-width: $breakpoint1) {
+// Large and Extra Large Screens
+@media only screen and (min-width: $mobile) {
   :root {
     --base-size: 19px;
     --xs-size: 0.749rem;
@@ -30,26 +50,30 @@
   }
 }
 
+// Global Overrides.
 html, body {
   margin: 0;
   padding: 0;
   font-family: $body-font-family;
+  font-size: $body-font-size;
   line-height: $base-line-height;
   color: $body-color;
   box-sizing: border-box;
 }
 
+// CSS Resets.
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-// Paragraphs & Headings.
+// Paragraphs.
 p {
   margin-top: 0;
   margin-bottom: $md-size;
-  font-size: $md-size;
+  font-size: $body-font-size;
 }
 
+// Headings.
 h1,
 h2,
 h3,
@@ -59,6 +83,7 @@ h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
+  color: $heading-color;
 
   a:link,
   a:visited,
@@ -73,7 +98,7 @@ h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
-  color: $body-color;
+  color: $brand-color;
 
   &::after {
     display: block;
@@ -86,7 +111,7 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
-  margin-top: 1.8rem;
+  margin-top: 1.781rem;
   margin-bottom: $md-size;
 }
 
@@ -122,6 +147,12 @@ a:active {
   color: inherit;
   text-decoration: none;
   border-bottom: dotted 1px $body-color;
+  transition: all $medium-speed;
+}
+
+a:hover {
+  color: $brand-color;
+  border-bottom: dotted 1px $brand-color;
 }
 
 // Lists.
@@ -159,7 +190,7 @@ blockquote {
 
     &::before {
       content: '—';
-      margin-right: 0.25rem;
+      margin-right: 0.26rem;
     }
   }
 }
@@ -179,13 +210,13 @@ figure {
   }
 
   figcaption {
-    font-size: $xs-size;
-    color: $medium-gray;
-    margin-top: 0.25rem;
-    font-family: $heading-font-family;
+    margin-top: 0.26rem;
+    font-size: $figure-caption-font-size;
+    color: $figure-caption-color;
+    font-family: $figure-caption-font-family;
 
     code {
-      font-size: $xs-size;
+      font-size: $code-font-size;
     }
   }
 
@@ -195,7 +226,11 @@ figure {
     border-radius: $border-radius;
   }
 
-  &.full {
+  &.cmp__figure-full {
+    img {
+      border-radius: 0;
+    }
+
     figcaption {
       text-align: center;
     }
@@ -206,21 +241,21 @@ figure {
 table {
   caption-side: bottom;
   width: 100%;
-  font-size: $sm-size;
-  font-family: $heading-font-family;
+  font-size: $table-font-size;
+  font-family: $table-font-family;
   border-collapse: collapse;
   margin-top: $md-size;
   margin-bottom: $lg-size;
 
   caption {
     text-align: left;
-    font-size: $xs-size;
-    color: $medium-gray;
-    font-family: $heading-font-family;
+    font-size: $table-caption-font-size;
+    color: $table-caption-color;
+    font-family: $table-caption-font-family;
   }
 
   td, th {
-    line-height: 1.4;
+    line-height: $table-line-height;
 
     &.center {
       text-align: center;
@@ -241,19 +276,12 @@ table {
   }
 }
 
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-// Pre and Code elements
+// Pre, Code & Var elements
 pre {
   code {
     line-height: $code-line-height;
-    font-family: $mono-font-family;
-    font-size: $xs-size;
+    font-family: $code-font-family;
+    font-size: $code-font-size;
     letter-spacing: normal;
 
     &.hljs {
@@ -263,33 +291,49 @@ pre {
   }
 }
 
+var {
+  font-family: $code-font-family;
+}
+
+// Form elements.
+// Labels.
 label {
-  font-family: $heading-font-family;
+  font-family: $label-font-family;
+  font-size: $label-font-size;
   font-weight: bold;
-  font-size: $xs-size;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: $label-letter-spacing;
   color: $medium-gray;
 }
 
-input[type="text"], input[type="search"], textarea {
-  font-family: $heading-font-family;
-  font-size: $xs-size;
+// Input Textboxes and Textareas.
+input[type="text"], input[type="email"], input[type="search"], textarea {
+  width: 100%;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
   line-height: $code-line-height;
   padding: $input-padding;
-  width: 100%;
-  border: solid 1px #ccc;
+  border: solid 2px $input-border-color;
+  transition: all $medium-speed;
+  outline: none;
+  color: $body-color;
+
+  &:focus, &:active {
+    outline: none;
+    border-color: $brand-color;
+  }
 }
 
+// Buttons.
 button, [type="button"], [type="submit"] {
   cursor: pointer;
-  font-family: $heading-font-family;
-  font-size: $xs-size;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
   padding: $button-padding;
-  background-color: $body-color;
-  color: $white;
+  background-color: $button-bg-color;
+  color: $button-text-color;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: $medium-letter-spacing;
   border: none;
 }
 
@@ -314,357 +358,48 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.icon {
-  width: 12px;
-  height: 12px;
+.cmp__form-control {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: $lg-size;
+}
+
+// Icons.
+.cmp__icon {
+  width: 16px;
+  height: 16px;
   display: inline-block;
   background-repeat: no-repeat;
-
-  &.calendar {
-    background-image: url('assets/calendar.svg');
-  }
-
-  &.tag {
-    background-image: url('assets/tag.svg');
-  }
-
-  &.comment {
-    background-image: url('assets/comment.svg');
-  }
-
-  &.search {
-    background-image: url('assets/search.svg');
-  }
 }
 
-// Layout elements
-.header, .footer {
-  display: flex;
-  align-items: center;
-  height: $xl-size;
-  padding: 0 $md-size;
-  font-size: $small-font-size;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: $light-gray;
-  font-family: $heading-font-family;
+.cmp__icon-calendar {
+  background-image: url('assets/icons/calendar.svg');
 }
 
-// Header
-.header {
-  margin-top: 0.25rem;
-
-  a {
-    border-bottom: none;
-    font-family: $heading-font-family;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-
-    span {
-      transition: all 0.5s;
-      margin-left: 0.25rem
-    }
-
-    &:hover {
-      span {
-        letter-spacing: 3px;
-        color: $body-color;
-      }
-
-      img {
-        width: 3rem;
-      }
-    }
-  }
-
-  nav {
-    margin-left: auto;
-
-    a {
-      line-height: 1;
-      transition: color 0.5s;
-      font-size: 0.75rem;
-
-      &:hover {
-        color: $body-color;
-      }
-    }
-
-    @media only screen and (min-width: $breakpoint1) {
-      a {
-        font-size: $xs-size;
-      }
-    }
-
-    ul {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      align-items: center;
-
-      li {
-        margin-left: 0;
-        margin-right: 0.6875rem;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        .search-form {
-          display: flex;
-          align-items: center;
-
-          input {
-            border: none;
-            border-bottom: solid 1px $light-gray;
-            padding: 0;
-            line-height: 1;
-            color: $light-gray;
-            padding-bottom: 0.25rem;
-            display: none;
-
-            &:focus, &:active {
-              outline: none;
-            }
-          }
-
-          @media only screen and (min-width: $breakpoint5) {
-            input {
-              display: block;
-            }
-          }
-        }
-      }
-
-      @media only screen and (min-width: $breakpoint1) {
-        li {
-          margin-right: $md-size;
-        }
-      }
-    }
-
-    &.search-active {
-      flex-grow: 1;
-      margin-left: 1rem;
-
-      .search-form {
-        input {
-          display: block;
-        }
-      }
-
-      ul li:not(:first-child) {
-        display: none;
-      }
-
-      ul li:first-child {
-        width: 100%;
-      }
-    }
-  }
+.cmp__icon-tag {
+  background-image: url('assets/icons/tag.svg');
 }
 
-.main {
-  margin-top: 3.84rem;
-
-  article {
-    margin-bottom: $xl-size;
-
-    article {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    > * {
-      margin-left: $lg-size;
-      margin-right: $lg-size;
-    }
-
-    @media only screen and (min-width: $breakpoint4) {
-      > * {
-        max-width: $container-width;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .full {
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .right, .left {
-      width: calc((100% + 42rem) / 2);
-      max-width: 100%;
-    }
-
-    .left {
-      margin-left: 0;
-    }
-
-    .right {
-      margin-right: 0;
-    }
-
-    header {
-      position: relative;
-
-      .title-and-meta {
-        .post-meta {
-          font-size: $xs-size;
-          color: $light-gray;
-          font-family: $heading-font-family;
-
-          > div {
-            margin-bottom: 5px;
-            margin-right: 0;
-            display: flex;
-            align-items: center;
-
-            .icon {
-              margin-right: 0.25rem;
-            }
-          }
-
-          .author {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
-
-            img {
-              border-radius: 50%;
-              opacity: 0.8;
-              width: 30px;
-            }
-
-            span {
-              font-size: $small-font-size;
-              color: $light-gray;
-              font-family: $heading-font-family;
-              margin-left: 0.25rem;
-
-              &.role {
-                margin-top: 0;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                background-color: $dim-gray;
-                padding: 1px 5px;
-                font-size: 0.58rem;
-                border-radius: 3px;
-              }
-            }
-          }
-
-          @media only screen and (min-width: $breakpoint3) {
-            .author {
-              position: absolute;
-              top: $md-size;
-              left: -7.5rem;
-              flex-direction: column;
-
-              img {
-                width: 80px;
-              }
-
-              span {
-                margin-top: 0.25rem;
-                margin-left: 0;
-              }
-            }
-          }
-
-          ul, li {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: inline;
-          }
-
-          a {
-            border-bottom: none;
-            transition: color 0.5s;
-
-            &:hover {
-              color: $body-color;
-            }
-          }
-
-          .tagged-in {
-            font-style: italic;
-
-            li {
-              margin-right: 0.125rem;
-            }
-          }
-
-          .posted-date {
-            span {
-              font-variant: small-caps;
-            }
-          }
-        }
-
-        @media only screen and (min-width: $breakpoint2) {
-          .post-meta {
-            display: flex;
-
-            > div {
-              margin-bottom: 0;
-            }
-
-            > div:not(:last-child) {
-              margin-right: $md-size;
-            }
-
-            .author {
-              align-items: center;
-            }
-
-            .posted-date .date {
-              min-width: 6.58rem;
-            }
-
-            .total-comments a {
-              min-width: 5.25rem;
-            }
-          }
-        }
-      }
-    }
-
-    > p:first-of-type {
-      font-size: $lead-para-font-size;
-    }
-
-    .continue-reading {
-      text-align: right;
-      font-size: $xs-size;
-      color: $light-gray;
-      font-family: $heading-font-family;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.5s;
-
-      &:hover {
-        color: $body-color;
-      }
-    }
-
-    .poster-image {
-      margin-top: 0.25rem;
-
-      img {
-        border-radius: 3px;
-      }
-    }
-  }
+.cmp__icon-comment {
+  background-image: url('assets/icons/comment.svg');
 }
 
-.footer {
-  justify-content: flex-end;
+.cmp__icon-search {
+  background-image: url('assets/icons/search.svg');
+}
+
+.cmp__icon-share {
+  background-image: url('assets/icons/share.svg');
+}
+
+.cmp__icon-home {
+  background-image: url('assets/icons/home.svg');
+}
+
+.cmp__icon-contact {
+  background-image: url('assets/icons/contact.svg');
+}
+
+.cmp__icon-person {
+  background-image: url('assets/icons/person.svg');
 }

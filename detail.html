@@ -1,61 +1,101 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%% Article Detail Page %%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
+	<title>fibonacci | Lorem ipsum dolor sit amet</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="fibonacci.css">
-	<link rel="stylesheet"
-	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
-<body>
+<body class="cmp__page">
 
-<header class="header">
-	<a href="index.html" class="logo">
-		<img src="assets/logo.png" style="width: 2rem;">
-		<span>fibonacci</span>
-	</a>
-	<nav>
+<!-- Page Header Component -->
+<header class="cmp__page-header">
+
+	<!-- Logo and Tag Line -->
+	<div class="cmp__blog-info">
+		<!-- Logo Component -->
+		<a href="index.html" class="cmp__blog-logo-anchor">
+			<img class="cmp__blog-logo" src="assets/logo.png" style="width: 2rem;" alt="logo">
+			<span class="cmp__blog-name">fibonacci</span>
+		</a>
+
+		<span class="cmp__separator">|</span>
+
+		<!-- Blog Tag Line -->
+		<div class="cmp__blog-tag-line">
+			<span>being pragmatic...</span>
+		</div>
+	</div>
+
+	<!-- Page Navigation Component -->
+	<nav class="cmp__nav">
 		<ul>
 			<li>
-				<form class="search-form">
-					<input type="search" placeholder="Search...">
-					<span class="icon search"></span>
+				<form class="cmp__search-form">
+					<label>
+						<input type="search" placeholder="Search...">
+					</label>
+					<span class="cmp__icon cmp__icon-search"></span>
 				</form>
 			</li>
-			<li>
-				<a href="index.html">home</a>
+			<li class="active">
+				<a href="index.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+					<span class="cmp__nav-link-text">home</span>
+				</a>
 			</li>
 			<li>
-				<a href="contact.html">contact</a>
+				<a href="contact.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+					<span class="cmp__nav-link-text">contact</span>
+				</a>
 			</li>
 			<li>
-				<a href="about.html">about</a>
+				<a href="about.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+					<span class="cmp__nav-link-text">about</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<main class="main post-detail">
-	<article>
-		<header>
-			<div class="title-and-meta">
-				<h1>Lorem ipsum dolor sit amet</h1>
+<!-- Page Main Content Component -->
+<main class="cmp__page-main">
 
-				<div class="post-meta">
-					<div class="author">
-						<img src="assets/author_mini.png" width="15"/>
-						<span>Triton Maxwell</span>
-						<span class="role">Admin</span>
+	<article class="cmp__page-content cmp__blog_detail">
+
+		<header class="cmp__article-header">
+			<div class="cmp__article-title-meta">
+				<h1 class="cmp__article-header-title">
+					Lorem ipsum dolor sit amet consectetur adipiscing
+				</h1>
+
+				<!-- Post Meta Info -->
+				<div class="cmp__article-meta">
+
+					<!-- Author Info -->
+					<div class="cmp__article-author">
+						<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
+						<span class="cmp__article-author-name">Triton Maxwell</span>
+						<span class="cmp__article-author-role">Admin</span>
 					</div>
 
-					<div class="posted-date">
-						<span class="icon calendar"></span>
-						<span>Dec 12, 2018 4:00 PM</span>
+					<!-- Posted Date -->
+					<div class="cmp__article-date">
+						<span class="cmp__icon cmp__icon-calendar"></span>
+						<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
 					</div>
-					<div class="tagged-in">
-						<span class="icon tag"></span>
-						<ul>
+
+					<!-- Tags -->
+					<div class="cmp__article-tags">
+						<span class="cmp__icon cmp__icon-tag"></span>
+						<ul class="cmp__article-tags-list">
 							<li>
 								<a href="#">#javascript</a>
 							</li>
@@ -67,19 +107,28 @@
 							</li>
 						</ul>
 					</div>
-					<div class="total-comments">
-						<span class="icon comment"></span>
-						<a href="#">107 Comments</a>
+
+					<!-- Comments -->
+					<div class="cmp__article-total-comments">
+						<span class="cmp__icon cmp__icon-comment"></span>
+						<a class="cmp__article-comments-link" href="#">100 Comments</a>
+					</div>
+
+					<!-- Share -->
+					<div class="cmp__article-share">
+						<span class="cmp__icon cmp__icon-share"></span>
+						<a class="cmp__article-comments-link" href="#">20 Shares</a>
 					</div>
 				</div>
 			</div>
 		</header>
 
-		<figure class="full poster-image">
-			<img src="assets/animal-animal-photography-canidae.jpg">
+		<figure class="cmp__figure cmp__article-poster cmp__figure-full">
+			<img src="assets/blog_resources/animal-animal-photography-canidae.jpg" alt="Alt Text">
+			<figcaption>A beautiful photo of canines.</figcaption>
 		</figure>
 
-		<p>
+		<p class="drop-cap">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -149,7 +198,7 @@
 		</p>
 
 		<figure>
-			<img src="assets/beautiful-blur-bright.jpg"/>
+			<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Alt Text"/>
 			<figcaption>Fig 1. This is a photo taken from the <i>Langawi</i> isand from <i>Malaysia</i> country. The photo is
 				taken by the prominent photographer <i>Vijaya Anand</i>.
 			</figcaption>
@@ -248,8 +297,10 @@ namespace JustBlog.Models
 
 		<hr>
 
-		<section class="related-posts">
+		<!-- Related Posts Widget -->
+		<section class="cmp__related-posts">
 			<h3>Related Posts</h3>
+
 			<ul>
 				<li>
 					<a href="#">Lorem ipsum dolor sit amet</a>
@@ -269,18 +320,19 @@ namespace JustBlog.Models
 			</ul>
 		</section>
 
-		<section class="comments">
+		<!-- Comments Widget -->
+		<section class="cmp__comments">
 			<h3>Comments</h3>
 
 			<h4>Post Comment</h4>
 
-			<form>
-				<div class="new-comment">
-					<div class="user">
-						<img src="assets/author_mini.png" width="50"/>
+			<form class="cmp__form cmp__comments-form">
+				<div class="cmp__form-container">
+					<div class="cmp__comment-by">
+						<img src="assets/author_mini.png" width="50"  alt="You" />
 						<span>You</span>
 					</div>
-					<div class="form-control">
+					<div class="cmp__form-control">
 						<textarea placeholder="Write not more than 500 characters..."></textarea>
 					</div>
 				</div>
@@ -288,44 +340,44 @@ namespace JustBlog.Models
 
 			<h4>2 Comments</h4>
 
-			<ul class="comments-list">
+			<ul class="cmp__comments-list">
 				<li>
-					<div class="comment">
-						<div class="user">
-							<img src="assets/martin.png" width="50"/>
+					<div class="cmp__comment">
+						<div class="cmp__comment-by">
+							<img src="assets/martin.png" width="50"  alt="Martin" />
 							<span>Martin</span>
 						</div>
-						<div class="comment-info">
-							<div class="commented-date">
+						<div class="cmp__comment-detail">
+							<div class="cmp__commented-date">
 								just now
 							</div>
-							<div class="desc">
+							<div class="cmp__comment-desc">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua.
 							</div>
-							<div>
-								<button>Reply</button>
+							<div class="cmp__comment-reply">
+								<button class="cmp__button">Reply</button>
 							</div>
 						</div>
 					</div>
 				</li>
 
 				<li>
-					<div class="comment">
-						<div class="user">
-							<img src="assets/tanny.jpg" width="50"/>
+					<div class="cmp__comment">
+						<div class="cmp__comment-by">
+							<img src="assets/tanny.jpg" width="50"  alt="Tanny" />
 							<span>Tanny</span>
 						</div>
-						<div class="comment-info">
-							<div class="commented-date">
-								2 days ago
+						<div class="cmp__comment-detail">
+							<div class="cmp__commented-date">
+								just now
 							</div>
-							<div class="desc">
+							<div class="cmp__comment-desc">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua.
 							</div>
-							<div>
-								<button>Reply</button>
+							<div class="cmp__comment-reply">
+								<button class="cmp__button">Reply</button>
 							</div>
 						</div>
 					</div>
@@ -335,9 +387,11 @@ namespace JustBlog.Models
 	</article>
 </main>
 
-<footer class="footer">
-	&copy; 2018 &middot; All Rights Reserved
+<!-- Page Footer Component -->
+<footer class="cmp__page-footer">
+	&copy; 2021 &middot; All Rights Reserved
 </footer>
+
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="fibonacci.js"></script>
 </body>

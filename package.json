@@ -4,7 +4,7 @@
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass"
+    "build": "gulp compile"
   },
   "keywords": [
     "template",
@@ -24,9 +24,10 @@
   },
   "homepage": "https://github.com/VJAI/fibonacci#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-webserver": "^0.9.1"
+    "gulp-sass": "^5.0.0",
+    "gulp-webserver": "^0.9.1",
+    "sass": "^1.44.0"
   }
 }

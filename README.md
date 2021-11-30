@@ -41,10 +41,10 @@ Please send email to vijay.prideparrot AT gmail.com.
 
 ## Screenshots
 
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/home.png)
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/home.png)
 
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/detail.png)
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/detail.png)
 
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/contact.png)
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/contact.png)
 
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/assets/about.png)
+![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/about.png)
