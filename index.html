@@ -4,390 +4,439 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>fibonacci | Home</title>
-	<link rel="stylesheet" type="text/css" href="fibonacci.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fibonacci | Home</title>
+  <link rel="stylesheet" type="text/css" href="fibonacci.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
-<body class="cmp__page">
+<body class="cmp__blog">
 
-<!-- Page Header Component -->
-<header class="cmp__page-header">
+<!-- Blog Header Component -->
+<header class="cmp__blog-header">
 
-	<!-- Logo and Tag Line -->
-	<div class="cmp__blog-info">
-		<!-- Logo Component -->
-		<a href="index.html" class="cmp__blog-logo-anchor">
-			<img class="cmp__blog-logo" src="assets/logo.png" style="width: 2rem;" alt="logo">
-			<span class="cmp__blog-name">fibonacci</span>
-		</a>
+  <!-- Logo and Tag Line -->
+  <div class="cmp__blog-info">
 
-		<span class="cmp__separator">|</span>
+    <!-- Logo Component -->
+    <a class="cmp__blog-logo" href="index.html">
+      <img class="cmp__blog-logo-pic" src="assets/logo.png" alt="logo" style="width: 2rem;">
+      <span class="cmp__blog-name">fibonacci</span>
+    </a>
 
-		<!-- Blog Tag Line -->
-		<div class="cmp__blog-tag-line">
-			<span>being pragmatic...</span>
-		</div>
-	</div>
+    <span class="cmp__separator"></span>
 
-	<!-- Page Navigation Component -->
-	<nav class="cmp__nav">
-		<ul>
-			<li>
-				<form class="cmp__form cmp__search-form">
-					<label>
-						<input type="search" placeholder="Search...">
-					</label>
-					<span class="cmp__icon cmp__icon-search"></span>
-				</form>
-			</li>
-			<li class="active">
-				<a href="index.html">
-					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
-					<span class="cmp__nav-link-text">home</span>
-				</a>
-			</li>
-			<li>
-				<a href="contact.html">
-					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
-					<span class="cmp__nav-link-text">contact</span>
-				</a>
-			</li>
-			<li>
-				<a href="about.html">
-					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
-					<span class="cmp__nav-link-text">about</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
+    <!-- Blog Tag Line -->
+    <div class="cmp__blog-tag-line">
+      <span>being pragmatic...</span>
+    </div>
+  </div>
+
+  <!-- Page Navigation Component -->
+  <nav class="cmp__blog-nav">
+    <ul>
+      <li>
+        <form class="cmp__form cmp__search-form">
+          <label>
+            <input type="search" placeholder="Search...">
+          </label>
+          <span class="cmp__icon cmp__icon-search"></span>
+        </form>
+      </li>
+      <li class="cmp__nav-active">
+        <a class="cmp__nav-link" href="index.html">
+          <span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+          <span class="cmp__nav-link-text">home</span>
+        </a>
+      </li>
+      <li>
+        <a class="cmp__nav-link" href="contact.html">
+          <span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+          <span class="cmp__nav-link-text">contact</span>
+        </a>
+      </li>
+      <li>
+        <a class="cmp__nav-link" href="about.html">
+          <span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+          <span class="cmp__nav-link-text">about</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <!-- Page Main Content Component -->
-<main class="cmp__page-main">
+<main class="cmp__blog-main">
 
-	<article class="cmp__page-content cmp__blog_list">
+  <article id="cmp__blog-list" class="cmp__blog-content cmp__layout-switch">
 
-		<!-- Page Title -->
-		<h1 class="cmp__page-title">
-			Latest Posts
-		</h1>
+    <!-- Page Title -->
+    <h1 class="cmp__blog-title">
+      Latest Posts
+    </h1>
 
-		<!-- Article Entry #1 -->
-		<article class="cmp__article">
-			<header class="cmp__article-header">
-				<div class="cmp__article-title-meta">
-					<h2 class="cmp__article-header-title">
-						<a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
-					</h2>
+    <!-- Article Entry #1 -->
+    <article class="cmp__article">
 
-					<!-- Post Meta Info -->
-					<div class="cmp__article-meta">
+      <!-- Article Header -->
+      <header class="cmp__article-header">
 
-						<!-- Author Info -->
-						<div class="cmp__article-author">
-							<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
-							<span class="cmp__article-author-name">Triton Maxwell</span>
-							<span class="cmp__article-author-role">Admin</span>
-						</div>
+        <!-- Article Title -->
+        <h2 class="cmp__article-title">
+          <a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </h2>
 
-						<!-- Posted Date -->
-						<div class="cmp__article-date">
-							<span class="cmp__icon cmp__icon-calendar"></span>
-							<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
-						</div>
+        <!-- Article Meta -->
+        <div class="cmp__article-meta">
 
-						<!-- Tags -->
-						<div class="cmp__article-tags">
-							<span class="cmp__icon cmp__icon-tag"></span>
-							<ul class="cmp__article-tags-list">
-								<li>
-									<a href="#">#javascript</a>
-								</li>
-								<li>
-									<a href="#">#css</a>
-								</li>
-								<li>
-									<a href="#">#html</a>
-								</li>
-							</ul>
-						</div>
+          <!-- Author Info -->
+          <div class="cmp__article-author">
+            <img class="cmp__article-author-pic" src="assets/author_mini.png" alt="Author"/>
+            <span class="cmp__article-author-name">Triton Maxwell</span>
+            <span class="cmp__article-author-role">Admin</span>
+          </div>
 
-						<!-- Comments -->
-						<div class="cmp__article-total-comments">
-							<span class="cmp__icon cmp__icon-comment"></span>
-							<a class="cmp__article-comments-link" href="#">100 Comments</a>
-						</div>
+          <!-- Posted Date -->
+          <div class="cmp__article-date">
+            <span class="cmp__icon cmp__icon-calendar"></span>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
 
-						<!-- Share -->
-						<div class="cmp__article-share">
-							<span class="cmp__icon cmp__icon-share"></span>
-							<a class="cmp__article-comments-link" href="#">20 Shares</a>
-						</div>
+          <!-- Tags -->
+          <div class="cmp__article-tags">
+            <span class="cmp__icon cmp__icon-tag"></span>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
 
-					</div>
-				</div>
-			</header>
+          <!-- Comments -->
+          <div class="cmp__article-total-comments">
+            <span class="cmp__icon cmp__icon-comment"></span>
+            <a class="cmp__article-comments-link" href="#">100 Comments</a>
+          </div>
 
-			<!-- Article Mini Content -->
-			<!-- Article Poster -->
-			<figure class="cmp__figure cmp__article-poster">
-				<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
-				<figcaption>A beautiful photo of apple agriculture.</figcaption>
-			</figure>
+          <!-- Share Controls -->
+          <div class="cmp__article-share">
+            <span class="cmp__icon cmp__icon-share"></span>
+            <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          </div>
 
-			<p class="drop-cap">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+        </div>
+      </header>
 
-			<p>
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			</p>
+      <!-- Article Content -->
+      <main class="cmp__article-content">
 
-			<div class="cmp__article-continue-reading">
-				<a href="detail.html">Continue Reading →</a>
-			</div>
-		</article>
+        <!-- Article Poster -->
+        <figure class="cmp__article-poster">
+          <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
+          <figcaption class="center">The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
 
-		<!-- Article Entry #2 -->
-		<article class="cmp__article">
-			<header class="cmp__article-header">
-				<div class="cmp__article-title-meta">
-					<h2 class="cmp__article-header-title">
-						<a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
-					</h2>
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
 
-					<div class="cmp__article-meta">
-						<div class="cmp__article-author">
-							<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
-							<span class="cmp__article-author-name">Triton Maxwell</span>
-							<span class="cmp__article-author-role">Admin</span>
-						</div>
-						<div class="cmp__article-date">
-							<span class="cmp__icon cmp__icon-calendar"></span>
-							<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
-						</div>
-						<div class="cmp__article-tags">
-							<span class="cmp__icon cmp__icon-tag"></span>
-							<ul class="cmp__article-tags-list">
-								<li>
-									<a href="#">#javascript</a>
-								</li>
-								<li>
-									<a href="#">#css</a>
-								</li>
-								<li>
-									<a href="#">#html</a>
-								</li>
-							</ul>
-						</div>
-						<div class="cmp__article-total-comments">
-							<span class="cmp__icon cmp__icon-comment"></span>
-							<a class="cmp__article-comments-link" href="#">100 Comments</a>
-						</div>
-					</div>
-				</div>
-			</header>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </main>
 
-			<figure class="cmp__article-poster">
-				<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
-				<figcaption>A beautiful photo of apple agriculture.</figcaption>
-			</figure>
+      <!-- Article Footer -->
+      <footer class="cmp__article-footer">
+        <a class="cmp__article-continue-reading" href="detail.html">Continue Reading →</a>
+      </footer>
+    </article>
 
-			<p class="drop-cap">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+    <!-- Article Entry #2 -->
+    <article class="cmp__article">
+      <header class="cmp__article-header">
+        <h2 class="cmp__article-title">
+          <a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </h2>
+        <div class="cmp__article-meta">
+          <div class="cmp__article-author">
+            <img class="cmp__article-author-pic" src="assets/author_mini.png" alt="Author"/>
+            <span class="cmp__article-author-name">Triton Maxwell</span>
+            <span class="cmp__article-author-role">Admin</span>
+          </div>
+          <div class="cmp__article-date">
+            <span class="cmp__icon cmp__icon-calendar"></span>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
+          <div class="cmp__article-tags">
+            <span class="cmp__icon cmp__icon-tag"></span>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
+          <div class="cmp__article-total-comments">
+            <span class="cmp__icon cmp__icon-comment"></span>
+            <a class="cmp__article-comments-link" href="#">100 Comments</a>
+          </div>
+          <div class="cmp__article-share">
+            <span class="cmp__icon cmp__icon-share"></span>
+            <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          </div>
+        </div>
+      </header>
 
-			<p>
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			</p>
+      <main class="cmp__article-content">
+        <figure class="cmp__article-poster">
+          <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
+          <figcaption class="center">The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
 
-			<div class="cmp__article-continue-reading">
-				<a href="detail.html">Continue Reading →</a>
-			</div>
-		</article>
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
 
-		<!-- Article Entry #3 -->
-		<article class="cmp__article">
-			<header class="cmp__article-header">
-				<div class="cmp__article-title-meta">
-					<h2 class="cmp__article-header-title">
-						<a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
-					</h2>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </main>
 
-					<div class="cmp__article-meta">
-						<div class="cmp__article-author">
-							<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
-							<span class="cmp__article-author-name">Triton Maxwell</span>
-							<span class="cmp__article-author-role">Admin</span>
-						</div>
-						<div class="cmp__article-date">
-							<span class="cmp__icon cmp__icon-calendar"></span>
-							<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
-						</div>
-						<div class="cmp__article-tags">
-							<span class="cmp__icon cmp__icon-tag"></span>
-							<ul class="cmp__article-tags-list">
-								<li>
-									<a href="#">#javascript</a>
-								</li>
-								<li>
-									<a href="#">#css</a>
-								</li>
-								<li>
-									<a href="#">#html</a>
-								</li>
-							</ul>
-						</div>
-						<div class="cmp__article-total-comments">
-							<span class="cmp__icon cmp__icon-comment"></span>
-							<a class="cmp__article-comments-link" href="#">100 Comments</a>
-						</div>
-					</div>
-				</div>
-			</header>
+      <footer class="cmp__article-footer">
+        <a class="cmp__article-continue-reading" href="detail.html">Continue Reading →</a>
+      </footer>
+    </article>
 
-			<figure class="cmp__article-poster">
-				<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
-				<figcaption>A beautiful photo of apple agriculture.</figcaption>
-			</figure>
+    <!-- Article Entry #3 -->
+    <article class="cmp__article">
+      <header class="cmp__article-header">
+        <h2 class="cmp__article-title">
+          <a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </h2>
+        <div class="cmp__article-meta">
+          <div class="cmp__article-author">
+            <img class="cmp__article-author-pic" src="assets/author_mini.png" alt="Author"/>
+            <span class="cmp__article-author-name">Triton Maxwell</span>
+            <span class="cmp__article-author-role">Admin</span>
+          </div>
+          <div class="cmp__article-date">
+            <span class="cmp__icon cmp__icon-calendar"></span>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
+          <div class="cmp__article-tags">
+            <span class="cmp__icon cmp__icon-tag"></span>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
+          <div class="cmp__article-total-comments">
+            <span class="cmp__icon cmp__icon-comment"></span>
+            <a class="cmp__article-comments-link" href="#">100 Comments</a>
+          </div>
+          <div class="cmp__article-share">
+            <span class="cmp__icon cmp__icon-share"></span>
+            <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          </div>
+        </div>
+      </header>
 
-			<p class="drop-cap">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+      <main class="cmp__article-content">
+        <figure class="cmp__article-poster">
+          <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
+          <figcaption class="center">The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
 
-			<p>
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			</p>
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
 
-			<div class="cmp__article-continue-reading">
-				<a href="detail.html">Continue Reading →</a>
-			</div>
-		</article>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </main>
 
-		<!-- Article Entry #4 -->
-		<article class="cmp__article">
-			<header class="cmp__article-header">
-				<div class="cmp__article-title-meta">
-					<h2 class="cmp__article-header-title">
-						<a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
-					</h2>
+      <footer class="cmp__article-footer">
+        <a class="cmp__article-continue-reading" href="detail.html">Continue Reading →</a>
+      </footer>
+    </article>
 
-					<div class="cmp__article-meta">
-						<div class="cmp__article-author">
-							<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
-							<span class="cmp__article-author-name">Triton Maxwell</span>
-							<span class="cmp__article-author-role">Admin</span>
-						</div>
-						<div class="cmp__article-date">
-							<span class="cmp__icon cmp__icon-calendar"></span>
-							<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
-						</div>
-						<div class="cmp__article-tags">
-							<span class="cmp__icon cmp__icon-tag"></span>
-							<ul class="cmp__article-tags-list">
-								<li>
-									<a href="#">#javascript</a>
-								</li>
-								<li>
-									<a href="#">#css</a>
-								</li>
-								<li>
-									<a href="#">#html</a>
-								</li>
-							</ul>
-						</div>
-						<div class="cmp__article-total-comments">
-							<span class="cmp__icon cmp__icon-comment"></span>
-							<a class="cmp__article-comments-link" href="#">100 Comments</a>
-						</div>
-					</div>
-				</div>
-			</header>
+    <!-- Article Entry #4 -->
+    <article class="cmp__article">
+      <header class="cmp__article-header">
+        <h2 class="cmp__article-title">
+          <a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </h2>
+        <div class="cmp__article-meta">
+          <div class="cmp__article-author">
+            <img class="cmp__article-author-pic" src="assets/author_mini.png" alt="Author"/>
+            <span class="cmp__article-author-name">Triton Maxwell</span>
+            <span class="cmp__article-author-role">Admin</span>
+          </div>
+          <div class="cmp__article-date">
+            <span class="cmp__icon cmp__icon-calendar"></span>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
+          <div class="cmp__article-tags">
+            <span class="cmp__icon cmp__icon-tag"></span>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
+          <div class="cmp__article-total-comments">
+            <span class="cmp__icon cmp__icon-comment"></span>
+            <a class="cmp__article-comments-link" href="#">100 Comments</a>
+          </div>
+          <div class="cmp__article-share">
+            <span class="cmp__icon cmp__icon-share"></span>
+            <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          </div>
+        </div>
+      </header>
 
-			<figure class="cmp__article-poster">
-				<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
-				<figcaption>A beautiful photo of apple agriculture.</figcaption>
-			</figure>
+      <main class="cmp__article-content">
+        <figure class="cmp__article-poster">
+          <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
+          <figcaption class="center">The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
 
-			<p class="drop-cap">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
 
-			<p>
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			</p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </main>
 
-			<div class="cmp__article-continue-reading">
-				<a href="detail.html">Continue Reading →</a>
-			</div>
-		</article>
+      <footer class="cmp__article-footer">
+        <a class="cmp__article-continue-reading" href="detail.html">Continue Reading →</a>
+      </footer>
+    </article>
 
-		<!-- Article Entry #5 -->
-		<article class="cmp__article">
-			<header class="cmp__article-header">
-				<div class="cmp__article-title-meta">
-					<h2 class="cmp__article-header-title">
-						<a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
-					</h2>
+    <!-- Article Entry #5 -->
+    <article class="cmp__article">
+      <header class="cmp__article-header">
+        <h2 class="cmp__article-title">
+          <a href="detail.html">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </h2>
+        <div class="cmp__article-meta">
+          <div class="cmp__article-author">
+            <img class="cmp__article-author-pic" src="assets/author_mini.png" alt="Author"/>
+            <span class="cmp__article-author-name">Triton Maxwell</span>
+            <span class="cmp__article-author-role">Admin</span>
+          </div>
+          <div class="cmp__article-date">
+            <span class="cmp__icon cmp__icon-calendar"></span>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
+          <div class="cmp__article-tags">
+            <span class="cmp__icon cmp__icon-tag"></span>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
+          <div class="cmp__article-total-comments">
+            <span class="cmp__icon cmp__icon-comment"></span>
+            <a class="cmp__article-comments-link" href="#">100 Comments</a>
+          </div>
+          <div class="cmp__article-share">
+            <span class="cmp__icon cmp__icon-share"></span>
+            <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          </div>
+        </div>
+      </header>
 
-					<div class="cmp__article-meta">
-						<div class="cmp__article-author">
-							<img class="cmp__article-author-pic" src="assets/author_mini.png" width="15"  alt="Author"/>
-							<span class="cmp__article-author-name">Triton Maxwell</span>
-							<span class="cmp__article-author-role">Admin</span>
-						</div>
-						<div class="cmp__article-date">
-							<span class="cmp__icon cmp__icon-calendar"></span>
-							<span class="cmp__article-date-text">Dec 12, 2021 4:00 PM</span>
-						</div>
-						<div class="cmp__article-tags">
-							<span class="cmp__icon cmp__icon-tag"></span>
-							<ul class="cmp__article-tags-list">
-								<li>
-									<a href="#">#javascript</a>
-								</li>
-								<li>
-									<a href="#">#css</a>
-								</li>
-								<li>
-									<a href="#">#html</a>
-								</li>
-							</ul>
-						</div>
-						<div class="cmp__article-total-comments">
-							<span class="cmp__icon cmp__icon-comment"></span>
-							<a class="cmp__article-comments-link" href="#">100 Comments</a>
-						</div>
-					</div>
-				</div>
-			</header>
+      <main class="cmp__article-content">
+        <figure class="cmp__article-poster">
+          <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
+          <figcaption class="center">The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
 
-			<figure class="cmp__article-poster">
-				<img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Apple">
-				<figcaption>A beautiful photo of apple agriculture.</figcaption>
-			</figure>
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
 
-			<p class="drop-cap">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </main>
 
-			<p>
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			</p>
-
-			<div class="cmp__article-continue-reading">
-				<a href="detail.html">Continue Reading →</a>
-			</div>
-		</article>
-	</article>
+      <footer class="cmp__article-footer">
+        <a class="cmp__article-continue-reading" href="detail.html">Continue Reading →</a>
+      </footer>
+    </article>
+  </article>
 </main>
 
 <!-- Page Footer Component -->
-<footer class="cmp__page-footer">
-	&copy; 2021 &middot; All Rights Reserved
+<footer class="cmp__blog-footer">
+  &copy; 2021 &middot; All Rights Reserved
 </footer>
 
 <script>hljs.initHighlightingOnLoad();</script>

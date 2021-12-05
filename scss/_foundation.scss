@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700');
+@import '../assets/icons/sprite';
 
 /**
   Sizes built with golden ratio (1.618) with the interval of 5.
@@ -67,19 +68,19 @@ html, body {
 }
 
 // Paragraphs.
-p {
+p, .para {
   margin-top: 0;
   margin-bottom: $md-size;
   font-size: $body-font-size;
 }
 
 // Headings.
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
@@ -94,7 +95,7 @@ h6 {
   }
 }
 
-h1 {
+h1, .h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
@@ -103,37 +104,37 @@ h1 {
   &::after {
     display: block;
     content: '';
-    border-bottom: solid 6px $border-color;
+    border-bottom: solid $h1-border-width $border-color;
     margin-top: $xl-size;
     width: 40%;
   }
 }
 
-h2 {
+h2, .h2 {
   font-size: $h2-font-size;
   margin-top: 1.781rem;
   margin-bottom: $md-size;
 }
 
-h3 {
+h3, .h3 {
   font-size: $h3-font-size;
   margin-top: $lg-size;
   margin-bottom: $sm-size;
 }
 
-h4 {
+h4, .h4 {
   font-size: $h4-font-size;
   margin-top: $lg-size;
   margin-bottom: $xs-size;
 }
 
-h5 {
+h5, .h5 {
   font-size: $h4-font-size;
   font-style: italic;
   margin-bottom: $xs-size;
 }
 
-h6 {
+h6, .h6 {
   font-size: $small-font-size;
   margin-bottom: $xs-size;
 }
@@ -143,24 +144,63 @@ a:link,
 a:visited,
 a:hover,
 a:focus,
-a:active {
+a:active,
+.link {
   color: inherit;
+  border-bottom: dotted 1px;
   text-decoration: none;
-  border-bottom: dotted 1px $body-color;
   transition: all $medium-speed;
 }
 
-a:hover {
+a:hover, .link:hover {
   color: $brand-color;
-  border-bottom: dotted 1px $brand-color;
 }
 
 // Lists.
 ul,
-ol {
+ol,
+menu {
   padding-left: 0;
+  list-style: none;
   margin-top: 0;
   margin-bottom: $md-size;
+}
+
+ul li:before, menu li:before {
+  content: "\25A0";
+  color: $brand-color;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+ol {
+  counter-reset: li;
+}
+
+ol li:before {
+  content: counter(li) '.';
+  color: $medium-gray;
+  counter-increment: li;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-family: $heading-font-family;
+}
+
+dl {
+  dt {
+    font-family: $heading-font-family;
+    font-size: $h4-font-size;
+    color: $medium-gray;
+    letter-spacing: $medium-letter-spacing;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin-bottom: $xs-size;
+  }
 }
 
 // Blockquotes.
@@ -217,6 +257,10 @@ figure {
 
     code {
       font-size: $code-font-size;
+    }
+
+    &.center {
+      text-align: center;
     }
   }
 
@@ -291,8 +335,72 @@ pre {
   }
 }
 
-var {
+var, kbd {
   font-family: $code-font-family;
+  font-style: normal;
+  color: $var-color;
+  background-color: $var-bg-color;
+  letter-spacing: $small-letter-spacing;
+  border-radius: $border-radius;
+  font-size: $var-font-size;
+  padding: 0 0.146rem;
+}
+
+// Abbr, Acronym.
+abbr, acronym {
+  text-transform: uppercase;
+  letter-spacing: $medium-letter-spacing;
+  text-decoration: none;
+
+  &:after {
+    content: '†';
+    font-size: $special-char-font-size;
+    position: relative;
+    top: -0.618em;
+  }
+}
+
+// Definition.
+dfn {
+  font-style: italic;
+}
+
+// Superscript & Subscript.
+sup, sub {
+  font-size: $special-char-font-size;
+}
+
+// Small.
+small {
+  font-size: $small-font-size;
+}
+
+// Datetimes.
+time {
+  font-family: $heading-font-family;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: $medium-letter-spacing;
+}
+
+// Strong, data etc.
+strong, data {
+  font-weight: bold;
+}
+
+// Italic.
+i {
+  font-style: italic;
+}
+
+// Highlight.
+mark {
+  background-color: $mark-bg-color;
+}
+
+// Address element.
+address {
+  font-style: italic;
 }
 
 // Form elements.
@@ -372,34 +480,107 @@ input[type="search"]::-webkit-search-results-decoration {
   background-repeat: no-repeat;
 }
 
-.cmp__icon-calendar {
-  background-image: url('assets/icons/calendar.svg');
+// Status Colors.
+.cmp__status-success {
+  background-color: $success;
 }
 
-.cmp__icon-tag {
-  background-image: url('assets/icons/tag.svg');
+.cmp__status-warn {
+  background-color: $warn;
 }
 
-.cmp__icon-comment {
-  background-image: url('assets/icons/comment.svg');
+.cmp__status-error {
+  background-color: $error;
 }
 
-.cmp__icon-search {
-  background-image: url('assets/icons/search.svg');
+// Selection Color.
+::selection {
+  text-shadow: none;
+  color: $white;
+  background: $brand-color;
 }
 
-.cmp__icon-share {
-  background-image: url('assets/icons/share.svg');
+// Floats.
+.cmp__float-left {
+  float: left;
 }
 
-.cmp__icon-home {
-  background-image: url('assets/icons/home.svg');
+.cmp__float-right {
+  float: right;
 }
 
-.cmp__icon-contact {
-  background-image: url('assets/icons/contact.svg');
+.cmp__float-left:after, .cmp__float-right:after {
+  clear: both;
+  height: 0;
+  width: 100%;
+  content: '';
+  display: block;
 }
 
-.cmp__icon-person {
-  background-image: url('assets/icons/person.svg');
+.cmp__clear {
+  clear: both;
+}
+
+// Create re-usable paddings and margins.
+$sizes: ("xs": $xs-size, "sm": $sm-size, "md": $md-size, "lg": $lg-size, "xl": $xl-size, "xxl": $xxl-size, "xxxl": $xxxl-size );
+
+@each $name, $size in $sizes {
+
+  // Paddings.
+  .cmp__pad-#{$name} {
+    padding: #{$size};
+  }
+
+  .cmp__pad-hor-#{$name} {
+    padding: 0 #{$size};
+  }
+
+  .cmp__pad-ver-#{$name} {
+    padding: #{$size} 0;
+  }
+
+  .cmp__pad-left-#{$name} {
+    padding: 0 0 0 #{$size};
+  }
+
+  .cmp__pad-right-#{$name} {
+    padding: 0 #{$size} 0 0;
+  }
+
+  .cmp__pad-top-#{$name} {
+    padding: #{$size} 0 0;
+  }
+
+  .cmp__pad-bottom-#{$name} {
+    padding: 0 0 #{$size};
+  }
+
+  // Margins.
+  .cmp__mar-#{$name} {
+    margin: #{$size};
+  }
+
+  .cmp__mar-hor-#{$name} {
+    margin: 0 #{$size};
+  }
+
+  .cmp__mar-ver-#{$name} {
+    margin: #{$size} 0;
+  }
+
+  .cmp__mar-left-#{$name} {
+    margin: 0 0 0 #{$size};
+  }
+
+  .cmp__mar-right-#{$name} {
+    margin: 0 #{$size} 0 0;
+  }
+
+  .cmp__mar-top-#{$name} {
+    margin: #{$size} 0 0;
+  }
+
+  .cmp__mar-bottom-#{$name} {
+    margin: 0 0 #{$size};
+  }
 }

@@ -15,6 +15,9 @@ $highlight-color:                   rgba(241, 247, 234, 1) !default;
 $border-color:                      rgb(135, 146, 163, 1) !default;
 $white:                             rgba(255, 255, 255, 1) !default;
 $black:                             rgba(0, 0, 0, 1) !default;
+$success:                           $highlight-color !default;
+$warn:                              rgba(252, 248, 220, 1) !default;
+$error:                             rgba(255, 238, 235, 1) !default;
 
 // Sizes.
 $xs-size:                           var(--xs-size) !default;
@@ -67,11 +70,25 @@ $h4-font-size:                      $base-font-size !default;
 $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $small-letter-spacing !default;
 $heading-color:                     lighten($body-color, 20%) !default;
+$h1-border-width:                   6px !default;
+
+// Links.
+$link-color:                        $brand-color !default;
+$link-hover-color:                  darken($brand-color, 15%) !default;
 
 // Code.
 $code-font-family:                  $mono-font-family !default;
 $code-font-size:                    $small-font-size !default;
 $code-line-height:                  $small-line-height !default;
+$var-color:                         $medium-gray !default;
+$var-bg-color:                      #fff3bf !default;
+$var-font-size:                     0.9em !default;
+
+// Abbr & Acronym.
+$special-char-font-size:            0.618rem !default;
+
+// Mark.
+$mark-bg-color:                     #ffff73 !default;
 
 // Labels.
 $label-font-family:                 $heading-font-family !default;
@@ -108,6 +125,9 @@ $table-line-height:                 $medium-line-height !default;
 $medium-speed:                      0.5s !default;
 
 // Specific Variables.
+// Header Component.
+$header-height:                     $xl-size !default;
+
 // Logo Component.
 $logo-font-family:                  $display-font-family !default;
 $logo-font-size:                    $lg-size !default;
@@ -124,6 +144,7 @@ $nav-active-border-width:           4px !default;
 // Footer Component.
 $footer-font-family:                $heading-font-family !default;
 $footer-font-size:                  $small-font-size !default;
+$footer-height:                     $xl-size !default;
 
 // Page Main Component.
 $page-content-top:                  3.84rem !default;

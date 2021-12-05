@@ -1,6 +1,6 @@
 (function () {
 	var x = window.matchMedia('screen and (min-width: 560px)');
-	var nav = document.querySelector('.cmp__nav');
+	var nav = document.querySelector('.cmp__blog-nav');
 	var searchInput = document.querySelector('.cmp__search-form input');
 	var searchIcon = document.querySelector('.cmp__search-form span');
 

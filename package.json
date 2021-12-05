@@ -4,7 +4,8 @@
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "scripts": {
     "start": "gulp",
-    "build": "gulp compile"
+    "build": "gulp compile",
+    "sprites": "svg-sprite --config sprite-config.json assets/icons/*.svg"
   },
   "keywords": [
     "template",
@@ -28,6 +29,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.0.0",
     "gulp-webserver": "^0.9.1",
-    "sass": "^1.44.0"
+    "sass": "^1.44.0",
+    "svg-sprite": "^1.5.3"
   }
 }

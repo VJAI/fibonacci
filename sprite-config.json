@@ -1,0 +1,13 @@
+{
+  "mode": {
+    "css": {
+      "dest": "assets/icons",
+      "prefix": ".cmp__icon-%s",
+      "sprite": "sprites.svg",
+      "bust": false,
+      "render": {
+        "scss": true
+      }
+    }
+  }
+}
