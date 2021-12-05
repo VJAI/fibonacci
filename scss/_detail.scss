@@ -18,28 +18,6 @@
       top: -1.8rem;
     }
   }
-
-  // https://css-tricks.com/examples/hrs/
-  hr {
-    overflow: visible; /* For IE */
-    padding: 0;
-    border: none;
-    border-top: medium double $body-color;
-    color: $body-color;
-    text-align: center;
-    margin-top: $xl-size;
-    margin-bottom: $xl-size;
-  }
-
-  hr:after {
-    content: "§";
-    display: inline-block;
-    position: relative;
-    top: -0.7em;
-    font-size: 1.5em;
-    padding: 0 0.25em;
-    background: white;
-  }
 }
 
 // Related Posts Widget

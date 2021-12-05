@@ -358,6 +358,43 @@
         > p:first-of-type {
           font-size: $lead-para-font-size;
         }
+
+        // Table of contents.
+        .cmp__toc {
+          padding: $lg-size $xl-size;
+          background-color: $dim-gray;
+          margin-bottom: $xl-size;
+          border-radius: $border-radius;
+
+          h5 {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: $brand-color;
+            border-bottom: solid 1px lighten($border-color, 30%);
+            padding-bottom: $xs-size;
+            text-align: center;
+            margin-bottom: $sm-size;
+          }
+
+          ol {
+            padding-left: $md-size;
+            text-transform: uppercase;
+            letter-spacing: $medium-letter-spacing;
+            font-size: $sm-size;
+
+            a {
+              color: $light-gray;
+
+              &:hover {
+                color: $brand-color;
+              }
+            }
+
+            ol {
+              font-size: $xs-size;
+            }
+          }
+        }
       }
 
       // Article Footer.

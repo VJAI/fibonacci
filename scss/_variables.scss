@@ -6,7 +6,7 @@ $mono-font-family:                  'Source Code Pro', monospace !default;
 $display-font-family:               'Amatic SC', cursive !default;
 
 // Colors.
-$brand-color:                       #f04875 !default;
+$brand-color:                       rgba(240, 72, 117, 1) !default;
 $body-color:                        rgba(51, 51, 51, 1) !default;
 $dim-gray:                          rgba(247, 247, 247, 1) !default;
 $light-gray:                        rgba(51, 51, 51, 0.5) !default;
@@ -65,8 +65,9 @@ $lead-para-font-size:               1.212rem !default;
 // Headings.
 $h1-font-size:                      $xxl-size !default;
 $h2-font-size:                      $xl-size !default;
-$h3-font-size:                      $lg-size !default;
-$h4-font-size:                      $base-font-size !default;
+$h3-font-size:                      1.618rem !default;
+$h4-font-size:                      $lg-size !default;
+$h5-font-size:                      $base-font-size !default;
 $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $small-letter-spacing !default;
 $heading-color:                     lighten($body-color, 20%) !default;
@@ -80,12 +81,13 @@ $link-hover-color:                  darken($brand-color, 15%) !default;
 $code-font-family:                  $mono-font-family !default;
 $code-font-size:                    $small-font-size !default;
 $code-line-height:                  $small-line-height !default;
+$code-bg-color:                     rgba(247, 247, 247, 0.7) !default;
 $var-color:                         $medium-gray !default;
 $var-bg-color:                      #fff3bf !default;
 $var-font-size:                     0.9em !default;
 
 // Abbr & Acronym.
-$special-char-font-size:            0.618rem !default;
+$special-char-font-size:            0.618em !default;
 
 // Mark.
 $mark-bg-color:                     #ffff73 !default;
@@ -110,14 +112,14 @@ $button-bg-color:                   $body-color !default;
 
 // Figures.
 $figure-caption-font-size:          $small-font-size !default;
-$figure-caption-color:              $medium-gray !default;
+$figure-caption-color:              $light-gray !default;
 $figure-caption-font-family:        $heading-font-family !default;
 
 // Tables.
 $table-font-size:                   $sm-size !default;
 $table-font-family:                 $heading-font-family !default;
 $table-caption-font-size:           $small-font-size !default;
-$table-caption-color:               $medium-gray !default;
+$table-caption-color:               $light-gray !default;
 $table-caption-font-family:         $heading-font-family !default;
 $table-line-height:                 $medium-line-height !default;
 

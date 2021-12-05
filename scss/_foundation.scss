@@ -129,8 +129,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: $h4-font-size;
-  font-style: italic;
+  font-size: $h5-font-size;
   margin-bottom: $xs-size;
 }
 
@@ -164,6 +163,7 @@ menu {
   list-style: none;
   margin-top: 0;
   margin-bottom: $md-size;
+  position: relative;
 }
 
 ul li:before, menu li:before {
@@ -173,6 +173,7 @@ ul li:before, menu li:before {
   display: inline-block;
   width: 1em;
   margin-left: -1em;
+  position: absolute;
 }
 
 ol {
@@ -180,19 +181,32 @@ ol {
 }
 
 ol li:before {
-  content: counter(li) '.';
-  color: $medium-gray;
+  content: counter(li) ".";
   counter-increment: li;
+  counter-reset: revert;
   display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  width: 1.470em;
+  margin-left: -1.961em;
   font-family: $heading-font-family;
+  position: absolute;
+  text-align: right;
+}
+
+ol li li:before {
+  content: counters(li, ".") " ";
+}
+
+ul, ol, menu {
+  ul, ol, menu {
+    padding-left: $md-size;
+    margin-bottom: 0.421rem;
+  }
 }
 
 dl {
   dt {
     font-family: $heading-font-family;
-    font-size: $h4-font-size;
+    font-size: $h5-font-size;
     color: $medium-gray;
     letter-spacing: $medium-letter-spacing;
     text-transform: uppercase;
@@ -206,13 +220,18 @@ dl {
 // Blockquotes.
 blockquote {
   background-color: $highlight-color;
-  padding: $inner-padding;
   border-radius: $border-radius;
   color: $medium-gray;
   font-size: $md-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
   font-family: $heading-font-family;
+
+  h1, h2, h3, h4, h5 {
+    font-family: $body-font-family;
+    border-bottom: solid 2px;
+    display: inline-block;
+  }
 
   p {
     font-size: $md-size;
@@ -256,11 +275,8 @@ figure {
     font-family: $figure-caption-font-family;
 
     code {
+      font-family: $code-font-family;
       font-size: $code-font-size;
-    }
-
-    &.center {
-      text-align: center;
     }
   }
 
@@ -300,14 +316,6 @@ table {
 
   td, th {
     line-height: $table-line-height;
-
-    &.center {
-      text-align: center;
-    }
-
-    &.right {
-      text-align: right;
-    }
   }
 
   thead {
@@ -327,10 +335,11 @@ pre {
     font-family: $code-font-family;
     font-size: $code-font-size;
     letter-spacing: normal;
+    border-radius: $border-radius;
 
     &.hljs {
       padding: 0;
-      background: transparent;
+      background-color: $code-bg-color;
     }
   }
 }
@@ -372,7 +381,7 @@ sup, sub {
 
 // Small.
 small {
-  font-size: $small-font-size;
+  font-size: 0.825rem;
 }
 
 // Datetimes.
@@ -480,6 +489,26 @@ input[type="search"]::-webkit-search-results-decoration {
   background-repeat: no-repeat;
 }
 
+// Horizontal line.
+hr {
+  margin: $xl-size 0;
+  border: 0;
+  border-bottom: 1px solid lighten($light-gray, 60%);
+  position: relative;
+}
+
+hr:before {
+  content: '';
+  //position: absolute;
+  left: 5%;
+  top: -5px;
+  width: 20%;
+  background-color: $brand-color;
+  height: 10px;
+  z-index: 1;
+  display: block;
+}
+
 // Status Colors.
 .cmp__status-success {
   background-color: $success;
@@ -522,7 +551,23 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 // Create re-usable paddings and margins.
-$sizes: ("xs": $xs-size, "sm": $sm-size, "md": $md-size, "lg": $lg-size, "xl": $xl-size, "xxl": $xxl-size, "xxxl": $xxxl-size );
+.cmp__no-margin {
+  margin: 0;
+}
+
+.cmp__no-pad {
+  padding: 0;
+}
+
+$sizes: (
+  "xs": $xs-size,
+  "sm": $sm-size,
+  "md": $md-size,
+  "lg": $lg-size,
+  "xl": $xl-size,
+  "xxl": $xxl-size,
+  "xxxl": $xxxl-size
+);
 
 @each $name, $size in $sizes {
 
@@ -532,27 +577,29 @@ $sizes: ("xs": $xs-size, "sm": $sm-size, "md": $md-size, "lg": $lg-size, "xl": $
   }
 
   .cmp__pad-hor-#{$name} {
-    padding: 0 #{$size};
+    padding-left: #{$size};
+    padding-right: #{$size};
   }
 
   .cmp__pad-ver-#{$name} {
-    padding: #{$size} 0;
+    padding-top: #{$size};
+    padding-bottom: #{$size};
   }
 
   .cmp__pad-left-#{$name} {
-    padding: 0 0 0 #{$size};
+    padding-left: #{$size};
   }
 
   .cmp__pad-right-#{$name} {
-    padding: 0 #{$size} 0 0;
+    padding-right: #{$size};
   }
 
   .cmp__pad-top-#{$name} {
-    padding: #{$size} 0 0;
+    padding-top: #{$size};
   }
 
   .cmp__pad-bottom-#{$name} {
-    padding: 0 0 #{$size};
+    padding-bottom: #{$size};
   }
 
   // Margins.
@@ -561,26 +608,63 @@ $sizes: ("xs": $xs-size, "sm": $sm-size, "md": $md-size, "lg": $lg-size, "xl": $
   }
 
   .cmp__mar-hor-#{$name} {
-    margin: 0 #{$size};
+    margin-left: #{$size};
+    margin-right: #{$size};
   }
 
   .cmp__mar-ver-#{$name} {
-    margin: #{$size} 0;
+    margin-top: #{$size};
+    margin-bottom: #{$size};
   }
 
   .cmp__mar-left-#{$name} {
-    margin: 0 0 0 #{$size};
+    margin-left: #{$size};
   }
 
   .cmp__mar-right-#{$name} {
-    margin: 0 #{$size} 0 0;
+    margin-right: #{$size};
   }
 
   .cmp__mar-top-#{$name} {
-    margin: #{$size} 0 0;
+    margin-top: #{$size};
   }
 
   .cmp__mar-bottom-#{$name} {
-    margin: 0 0 #{$size};
+    margin-bottom: #{$size};
   }
+}
+
+// Color Classes.
+$colors: (
+  "brand-color": $brand-color,
+  "body-color": $body-color,
+  "dim-gray-color": $dim-gray,
+  "light-gray-color": $light-gray,
+  "medium-gray-color": $medium-gray,
+  "highlight-color": $highlight-color,
+  "border-color": $border-color,
+  "white-color": $white,
+  "black-color": $black,
+  "success-color": $success,
+  "warn-color": $warn,
+  "error-color": $error
+);
+
+@each $name, $color in $sizes {
+  .cmp__#{$name} {
+    color: $color;
+  }
+
+  .cmp__#{$name}-bg {
+    background-color: $color;
+  }
+}
+
+// Alignment classes.
+.cmp__right {
+  text-align: right;
+}
+
+.cmp__center {
+  text-align: center;
 }
