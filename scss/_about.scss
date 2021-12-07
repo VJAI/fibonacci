@@ -1,5 +1,6 @@
 .cmp__social-widget {
   display: flex;
+  flex-direction: column;
   font-family: $heading-font-family;
   font-size: $xs-size;
   color: $gray;
@@ -10,11 +11,13 @@
   border-bottom: solid 1px $dim-gray;
   padding-top: $md-size;
   padding-bottom: $md-size;
+  margin: 0 auto;
 
   a {
     border-bottom: none;
     display: flex;
     align-items: center;
+    margin-bottom: $xs-size;
 
     .cmp__icon {
       margin-right: 0.236rem;
@@ -26,7 +29,18 @@
   }
 
   .separator {
+    display: none;
     margin-left: 0.510rem;
     margin-right: 0.510rem;
+  }
+}
+
+@media only screen and (min-width: $mobile) {
+  .cmp__social-widget {
+    flex-direction: row;
+
+    .separator {
+      display: inherit;
+    }
   }
 }
