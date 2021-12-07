@@ -1,17 +1,8 @@
-.cmp__about {
-  article {
-    p {
-      font-size: $lead-para-font-size;
-      position: relative;
-    }
-  }
-}
-
 .cmp__social-widget {
   display: flex;
   font-family: $heading-font-family;
   font-size: $xs-size;
-  color: $light-gray;
+  color: $gray;
   justify-content: center;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -22,10 +13,20 @@
 
   a {
     border-bottom: none;
+    display: flex;
+    align-items: center;
+
+    .cmp__icon {
+      margin-right: 0.236rem;
+    }
+
+    .cmp__social-text {
+      line-height: 1;
+    }
   }
 
   .separator {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 0.510rem;
+    margin-right: 0.510rem;
   }
 }

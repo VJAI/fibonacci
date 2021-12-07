@@ -24,18 +24,9 @@
 .cmp__related-posts {
   margin-bottom: $xl-size;
 
-  h3 {
-    margin-left: 0.5rem;
-  }
-
   ul {
-    list-style: none;
-    margin-top: 1.5rem;
-
     li {
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      padding: 0;
+      margin-bottom: 0.510rem;
     }
   }
 }
@@ -45,7 +36,7 @@
   margin-bottom: $xl-size;
 
   .cmp__comment-by {
-    margin-right: 0.5rem;
+    margin-right: 0.510rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,15 +52,16 @@
       letter-spacing: 1px;
       background-color: $dim-gray;
       padding: 1px 5px;
-      font-size: 0.58rem;
-      border-radius: 3px;
-      margin-top: 0.25rem;
+      font-size: 0.618rem;
+      border-radius: $border-radius;
+      margin-top: 0.260rem;
       text-align: center;
     }
   }
 
   .cmp__comments-form {
-    margin-top: 1.5rem;
+    margin-top: $md-size;
+    margin-bottom: $md-size;
 
     .cmp__form-container {
       display: flex;
@@ -85,12 +77,12 @@
   }
 
   .cmp__comments-list {
-    margin: 1.5rem 0 0 0;
+    margin: 1.470rem 0 0 0;
     list-style: none;
     padding: 0;
 
     li {
-      padding-bottom: 1rem;
+      padding-bottom: $md-size;
 
       .cmp__comment {
         display: flex;
@@ -101,16 +93,16 @@
             font-family: $heading-font-family;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.58rem;
-            color: $light-gray;
+            font-size: 0.618rem;
+            color: $gray;
           }
         }
 
         .cmp__button {
           padding: 0.25rem 0.75rem;
-          font-size: 0.58rem;
+          font-size: 0.618rem;
           background-color: transparent;
-          color: $body-color
+          color: $dark-gray
         }
       }
 

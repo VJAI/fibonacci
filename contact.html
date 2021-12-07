@@ -13,18 +13,19 @@
 </head>
 <body class="cmp__blog">
 
-<!-- Page Header Component -->
+<!-- Blog Header Component -->
 <header class="cmp__blog-header">
 
 	<!-- Logo and Tag Line -->
 	<div class="cmp__blog-info">
+
 		<!-- Logo Component -->
-		<a href="index.html" class="cmp__blog-logo-anchor">
-			<img class="cmp__blog-logo" src="assets/logo.png" style="width: 2rem;" alt="logo">
+		<a class="cmp__blog-logo" href="index.html">
+			<img class="cmp__blog-logo-pic" src="assets/logo.png" alt="logo" style="width: 2rem;">
 			<span class="cmp__blog-name">fibonacci</span>
 		</a>
 
-		<span class="cmp__separator">|</span>
+		<span class="cmp__separator"></span>
 
 		<!-- Blog Tag Line -->
 		<div class="cmp__blog-tag-line">
@@ -33,10 +34,10 @@
 	</div>
 
 	<!-- Page Navigation Component -->
-	<nav class="cmp__nav">
+	<nav class="cmp__blog-nav">
 		<ul>
 			<li>
-				<form class="cmp__search-form">
+				<form class="cmp__form cmp__search-form">
 					<label>
 						<input type="search" placeholder="Search...">
 					</label>
@@ -44,19 +45,19 @@
 				</form>
 			</li>
 			<li>
-				<a href="index.html">
+				<a class="cmp__nav-link" href="index.html">
 					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
 					<span class="cmp__nav-link-text">home</span>
 				</a>
 			</li>
-			<li class="active">
-				<a href="contact.html">
+			<li class="cmp__nav-active">
+				<a class="cmp__nav-link" href="contact.html">
 					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
 					<span class="cmp__nav-link-text">contact</span>
 				</a>
 			</li>
 			<li>
-				<a href="about.html">
+				<a class="cmp__nav-link" href="about.html">
 					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
 					<span class="cmp__nav-link-text">about</span>
 				</a>
@@ -68,42 +69,47 @@
 <!-- Page Main Content Component -->
 <main class="cmp__blog-main">
 
-	<article class="cmp__blog-content cmp__contact">
+	<article id="cmp__contact" class="cmp__blog-content cmp__article">
 
 		<!-- Page Title -->
-		<h1 class="cmp__blog-title">Contact</h1>
+		<header class="cmp__article-header cmp__layout-switch">
+			<h1 class="cmp__blog-title">Contact</h1>
+		</header>
 
-		<p>
-			Would you like to contact me about something? like a technical question or to share what you know, you are in the
-			right spot! Please use the below contact form to send your query.
-		</p>
+		<!-- Page Content -->
+		<main class="cmp__article-content cmp__layout-switch">
+			<p class="cmp__drop-cap">
+				Would you like to contact me about something? like a technical question or to share what you know, you are in the
+				right spot! Please use the below contact form to send your query.
+			</p>
 
-		<form class="cmp__form cmp__contact-form" method="post">
-			<div class="cmp__form-container">
+			<form class="cmp__form cmp__contact-form" method="post">
+				<div class="cmp__form-container">
 
-				<div class="cmp__form-control">
-					<label for="Name">Name</label>
-					<input required type="text" name="Name" id="Name" maxlength="50" title="Name required">
+					<div class="cmp__form-control">
+						<label for="Name">Name</label>
+						<input required type="text" name="Name" id="Name" maxlength="50" title="Name required">
+					</div>
+
+					<div class="cmp__form-control">
+						<label for="ReplyTo">E-mail</label>
+						<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
+					</div>
+
+					<div class="cmp__form-control">
+						<label for="subject">Subject</label>
+						<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required">
+					</div>
+
+					<div class="cmp__form-control">
+						<label for="Body">Message</label>
+						<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50"></textarea>
+					</div>
+
+					<input type="submit" name="submit" value="Send Message" id="submit">
 				</div>
-
-				<div class="cmp__form-control">
-					<label for="ReplyTo">E-mail</label>
-					<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
-				</div>
-
-				<div class="cmp__form-control">
-					<label for="subject">Subject</label>
-					<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required">
-				</div>
-
-				<div class="cmp__form-control">
-					<label for="Body">Message</label>
-					<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50"></textarea>
-				</div>
-
-				<input type="submit" name="submit" value="Send Message" id="submit">
-			</div>
-		</form>
+			</form>
+		</main>
 	</article>
 </main>
 

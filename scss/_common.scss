@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   padding: 0 $md-size;
-  color: $light-gray;
+  color: $gray;
   height: $header-height;
 }
 
@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   padding: 0 $md-size;
-  color: $light-gray;
+  color: $gray;
   font-family: $footer-font-family;
   font-size: $footer-font-size;
   letter-spacing: $large-letter-spacing;
@@ -124,6 +124,10 @@
         .cmp__nav-link-icon {
           margin-right: $nav-link-icon-spacing;
         }
+
+        .cmp__nav-link-text {
+          line-height: 1;
+        }
       }
 
       @media only screen and (min-width: $mobile) {
@@ -140,9 +144,9 @@
 
         input {
           border: none;
-          border-bottom: solid 1px $light-gray;
+          border-bottom: solid 1px $gray;
           line-height: $xs-line-height;
-          color: $light-gray;
+          color: $gray;
           padding: 0 0 0.260rem;
           display: none;
         }
@@ -325,38 +329,27 @@
           color: $link-hover-color;
         }
 
+        // Figure element.
         figure {
           img {
             border-radius: $border-radius;
           }
-        }
 
-        // Article Main Poster Image.
-        .cmp__article-poster {
-          margin-left: 0;
-          margin-right: 0;
-          margin-top: 0.26rem;
-        }
+          // Full width.
+          &.cmp__figure-full {
+            max-width: 100%;
+            @include horizontal-center;
 
-        // Full width figure.
-        .cmp__figure-full {
-          max-width: 100%;
-          @include horizontal-center;
-
-          img {
-            border-radius: 0;
+            img {
+              border-radius: 0;
+            }
           }
-        }
-
-        // Article element.
-        .cmp__page-element {
-          margin-top: $md-size;
-          margin-bottom: $lg-size;
         }
 
         // Lead Para styles.
         > p:first-of-type {
           font-size: $lead-para-font-size;
+          margin-top: $md-size;
         }
 
         // Table of contents.
@@ -370,7 +363,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: $brand-color;
-            border-bottom: solid 1px lighten($border-color, 30%);
+            border-bottom: solid 1px $light-border;
             padding-bottom: $xs-size;
             text-align: center;
             margin-bottom: $sm-size;
@@ -383,7 +376,7 @@
             font-size: $sm-size;
 
             a {
-              color: $light-gray;
+              color: $gray;
 
               &:hover {
                 color: $brand-color;
@@ -394,6 +387,19 @@
               font-size: $xs-size;
             }
           }
+        }
+
+        // Article Main Poster Image.
+        .cmp__article-poster {
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 0.26rem;
+        }
+
+        // Article element.
+        .cmp__page-element {
+          margin-top: $md-size;
+          margin-bottom: $lg-size;
         }
       }
 

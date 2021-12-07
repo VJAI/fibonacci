@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700');
-@import '../assets/icons/sprite';
+@import '../assets/sprite';
 
 /**
   Sizes built with golden ratio (1.618) with the interval of 5.
@@ -58,7 +58,7 @@ html, body {
   font-family: $body-font-family;
   font-size: $body-font-size;
   line-height: $base-line-height;
-  color: $body-color;
+  color: $dark-gray;
   box-sizing: border-box;
 }
 
@@ -104,7 +104,7 @@ h1, .h1 {
   &::after {
     display: block;
     content: '';
-    border-bottom: solid $h1-border-width $border-color;
+    border-bottom: solid $h1-border-width $dark-border;
     margin-top: $xl-size;
     width: 40%;
   }
@@ -219,7 +219,7 @@ dl {
 
 // Blockquotes.
 blockquote {
-  background-color: $highlight-color;
+  background-color: $success;
   border-radius: $border-radius;
   color: $medium-gray;
   font-size: $md-size;
@@ -282,7 +282,7 @@ figure {
 
   .table-wrapper {
     padding: $inner-padding;
-    background-color: $highlight-color;
+    background-color: $success;
     border-radius: $border-radius;
   }
 
@@ -321,7 +321,7 @@ table {
   thead {
     tr {
       th {
-        border-bottom: solid 1px $light-gray;
+        border-bottom: solid 1px $gray;
         text-align: left;
       }
     }
@@ -433,7 +433,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
   border: solid 2px $input-border-color;
   transition: all $medium-speed;
   outline: none;
-  color: $body-color;
+  color: $dark-gray;
 
   &:focus, &:active {
     outline: none;
@@ -477,14 +477,24 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .cmp__form-control {
   display: flex;
-  flex-direction: column;
-  padding-bottom: $lg-size;
+  flex-direction: row;
+  margin-bottom: $lg-size;
+  align-items: center;
+  background-color: $light-gray;
+
+  label {
+    min-width: 6.225rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: $sm-size;
+  }
 }
 
 // Icons.
 .cmp__icon {
-  width: 16px;
-  height: 16px;
+  width: $icon-width;
+  height: $icon-width;
   display: inline-block;
   background-repeat: no-repeat;
 }
@@ -493,13 +503,13 @@ input[type="search"]::-webkit-search-results-decoration {
 hr {
   margin: $xl-size 0;
   border: 0;
-  border-bottom: 1px solid lighten($light-gray, 60%);
+  border-bottom: 1px solid $light-gray;
   position: relative;
 }
 
 hr:before {
   content: '';
-  //position: absolute;
+  position: absolute;
   left: 5%;
   top: -5px;
   width: 20%;
@@ -507,6 +517,22 @@ hr:before {
   height: 10px;
   z-index: 1;
   display: block;
+}
+
+// Widgets.
+.cmp__widget {
+  background-color: $dim-gray;
+  border-radius: $border-radius;
+  padding: $lg-size $xl-size;
+
+  h5 {
+    margin-top: 0;
+    color: $gray;
+    text-transform: uppercase;
+    letter-spacing: $medium-letter-spacing;
+    border-bottom: solid 1px $light-border;
+    padding-bottom: $xs-size;
+  }
 }
 
 // Status Colors.
@@ -636,13 +662,15 @@ $sizes: (
 
 // Color Classes.
 $colors: (
-  "brand-color": $brand-color,
-  "body-color": $body-color,
-  "dim-gray-color": $dim-gray,
-  "light-gray-color": $light-gray,
-  "medium-gray-color": $medium-gray,
-  "highlight-color": $highlight-color,
-  "border-color": $border-color,
+  "brand": $brand-color,
+  "brand-dark": $brand-dark,
+  "brand-light": $brand-light,
+  "dark-gray": $dark-gray,
+  "medium-gray": $medium-gray,
+  "light-gray": $gray,
+  "dim-gray": $dim-gray,
+  "dark-border": $dark-border,
+  "light-border": $light-border,
   "white-color": $white,
   "black-color": $black,
   "success-color": $success,
@@ -651,11 +679,11 @@ $colors: (
 );
 
 @each $name, $color in $sizes {
-  .cmp__#{$name} {
+  .cmp__#{$name}-color {
     color: $color;
   }
 
-  .cmp__#{$name}-bg {
+  .cmp__#{$name}-color-bg {
     background-color: $color;
   }
 }
