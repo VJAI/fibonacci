@@ -203,7 +203,9 @@ ul, ol, menu {
   }
 }
 
+// Detail Lists.
 dl {
+  // Title.
   dt {
     font-family: $heading-font-family;
     font-size: $h5-font-size;
@@ -212,6 +214,7 @@ dl {
     text-transform: uppercase;
   }
 
+  // Description.
   dd {
     margin-bottom: $xs-size;
   }
@@ -219,16 +222,15 @@ dl {
 
 // Blockquotes.
 blockquote {
-  background-color: $success;
+  background-color: $bquote-bg-color;
   border-radius: $border-radius;
   color: $medium-gray;
-  font-size: $md-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
-  font-family: $heading-font-family;
+  font-family: $bquote-content-font-family;
 
   h1, h2, h3, h4, h5 {
-    font-family: $body-font-family;
+    font-family: $bquote-title-font-family;
     border-bottom: solid 2px;
     display: inline-block;
   }
@@ -245,7 +247,7 @@ blockquote {
   cite {
     text-align: right;
     display: block;
-    font-size: $small-font-size;
+    font-size: $cite-font-size;
 
     &::before {
       content: '—';
@@ -330,12 +332,14 @@ table {
 
 // Pre, Code & Var elements
 pre {
+  margin: 0;
+
   code {
     line-height: $code-line-height;
     font-family: $code-font-family;
     font-size: $code-font-size;
-    letter-spacing: normal;
     border-radius: $border-radius;
+    letter-spacing: normal;
 
     &.hljs {
       padding: 0;
@@ -386,10 +390,10 @@ small {
 
 // Datetimes.
 time {
-  font-family: $heading-font-family;
-  font-size: 0.8em;
-  text-transform: uppercase;
+  font-family: $time-font-family;
+  font-size: $time-font-size;
   letter-spacing: $medium-letter-spacing;
+  text-transform: uppercase;
 }
 
 // Strong, data etc.
@@ -412,6 +416,27 @@ address {
   font-style: italic;
 }
 
+// Horizontal line.
+hr {
+  margin: $xxl-size 0;
+  border: 0;
+  height: 1px;
+  background: $hr-bg;
+  position: relative;
+  overflow: visible;
+}
+
+hr:before {
+  content: '';
+  position: absolute;
+  left: calc(50% - 5px);
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: $brand-color;
+  transform: rotate(50deg);
+}
+
 // Form elements.
 // Labels.
 label {
@@ -428,12 +453,12 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
   width: 100%;
   font-family: $input-font-family;
   font-size: $input-font-size;
-  line-height: $code-line-height;
+  line-height: $input-line-height;
   padding: $input-padding;
   border: solid 2px $input-border-color;
   transition: all $medium-speed;
+  color: $input-text-color;
   outline: none;
-  color: $dark-gray;
 
   &:focus, &:active {
     outline: none;
@@ -452,6 +477,12 @@ button, [type="button"], [type="submit"] {
   text-transform: uppercase;
   letter-spacing: $medium-letter-spacing;
   border: none;
+  transition: all $medium-speed;
+
+  &:focus, &:active, &:hover {
+    background-color: $brand-dark;
+    outline: none;
+  }
 }
 
 /* clears the 'X' from Internet Explorer */
@@ -475,12 +506,23 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+// Placeholder.
+::placeholder {
+  color: $gray;
+  font-style: italic;
+}
+
+// Form controls with labels.
 .cmp__form-control {
   display: flex;
   flex-direction: row;
   margin-bottom: $lg-size;
   align-items: center;
-  background-color: $light-gray;
+  background-color: $form-control-bg-color;
+
+  &.cmp__required {
+    border-left: solid 4px $brand-color;
+  }
 
   label {
     min-width: 6.225rem;
@@ -499,29 +541,9 @@ input[type="search"]::-webkit-search-results-decoration {
   background-repeat: no-repeat;
 }
 
-// Horizontal line.
-hr {
-  margin: $xl-size 0;
-  border: 0;
-  border-bottom: 1px solid $light-gray;
-  position: relative;
-}
-
-hr:before {
-  content: '';
-  position: absolute;
-  left: 5%;
-  top: -5px;
-  width: 20%;
-  background-color: $brand-color;
-  height: 10px;
-  z-index: 1;
-  display: block;
-}
-
 // Widgets.
 .cmp__widget {
-  background-color: $dim-gray;
+  background-color: $widget-bg-color;
   border-radius: $border-radius;
   padding: $lg-size $xl-size;
 

@@ -102,6 +102,21 @@ $special-char-font-size:            0.618em !default;
 // Mark.
 $mark-bg-color:                     #ffff73 !default;
 
+// Blockquote.
+$bquote-bg-color:                   $success !default;
+$bquote-color:                      $medium-gray !default;
+$bquote-content-font-family:        $heading-font-family !default;
+$bquote-title-font-family:          $body-font-family !default;
+$cite-font-size:                    $small-font-size !default;
+
+// Time.
+$time-font-family:                  $heading-font-family !default;
+$time-font-size:                    0.8em !default;
+
+// Horizontal lines.
+$hr-bg:                             $light-gray !default;
+
+
 // Labels.
 $label-font-family:                 $heading-font-family !default;
 $label-font-size:                   $small-font-size !default;
@@ -109,9 +124,14 @@ $label-letter-spacing:              $medium-letter-spacing !default;
 
 // Inputs.
 $input-font-family:                 $heading-font-family !default;
-$input-font-size:                   $md-size !default;
+$input-font-size:                   $sm-size !default;
 $input-padding:                     0.510rem !default;
 $input-border-color:                $light-gray !default;
+$input-line-height:                 $small-line-height !default;
+$input-text-color:                  $medium-gray !default;
+
+// Form controls.
+$form-control-bg-color:             $light-gray !default;
 
 // Buttons.
 $button-font-family:                $heading-font-family !default;
@@ -159,10 +179,11 @@ $nav-active-border-width:           4px !default;
 // Footer Component.
 $footer-font-family:                $heading-font-family !default;
 $footer-font-size:                  $small-font-size !default;
-$footer-height:                     $xl-size !default;
+$footer-height:                     4.236rem !default;
 
 // Page Main Component.
-$page-content-top:                  3.84rem !default;
+$page-content-top:                  3.847rem !default;
+$page-content-bottom:               6.225rem !default;
 $continue-reading-font-family:      $heading-font-family !default;
 $continue-reading-color:            $gray !default;
 $continue-reading-font-size:        $small-font-size !default;
@@ -178,9 +199,11 @@ $article-author-left-offset:        -7.546rem !default;
 $author-pic-default-width:          30px !default;
 $author-pic-large-screen-width:     80px !default;
 
-// Table Of Contents.
-$toc-bg-color:                      $dim-gray !default;
+// Widgets.
+$widget-bg-color:                   $dim-gray !default;
 
+// Table Of Contents.
+$toc-bg-color:                      $widget-bg-color !default;
 
 // Utility Classes Variables.
 $drop-cap-font-size:                300% !default;

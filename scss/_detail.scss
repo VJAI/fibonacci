@@ -56,6 +56,7 @@
       border-radius: $border-radius;
       margin-top: 0.260rem;
       text-align: center;
+      color: $gray;
     }
   }
 
@@ -98,11 +99,16 @@
           }
         }
 
-        .cmp__button {
-          padding: 0.25rem 0.75rem;
-          font-size: 0.618rem;
-          background-color: transparent;
-          color: $dark-gray
+        .cmp__comment-reply {
+          display: flex;
+          justify-content: flex-start;
+
+          .cmp__button {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.618rem;
+            background-color: transparent;
+            color: $gray;
+          }
         }
       }
 

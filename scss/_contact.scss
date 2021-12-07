@@ -1,8 +1,27 @@
 .cmp__contact-form {
   padding: $md-size;
 
-  input[type="submit"] {
-    margin-left: auto;
-    display: block;
+  .cmp__bottom-row {
+    display: flex;
+
+    p {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      margin: 0;
+      font-size: $small-font-size;
+      color: $gray;
+      align-self: flex-start;
+      line-height: 1;
+
+      .cmp__icon {
+        margin-right: 0.236rem;
+      }
+    }
+
+    input[type="submit"] {
+      margin-left: auto;
+      display: block;
+    }
   }
 }
