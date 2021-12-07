@@ -1,10 +1,11 @@
+// Social Links.
 .cmp__social-widget {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-family: $heading-font-family;
   font-size: $xs-size;
   color: $gray;
-  justify-content: center;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding-top: $md-size;
@@ -12,9 +13,9 @@
   margin: 0 auto;
 
   a {
-    border-bottom: none;
     display: flex;
     align-items: center;
+    border-bottom: none;
     margin-bottom: $xs-size;
 
     .cmp__icon {
@@ -22,14 +23,13 @@
     }
 
     .cmp__social-text {
-      line-height: 1;
+      line-height: $xs-line-height;
     }
   }
 
   .separator {
     display: none;
-    margin-left: 0.510rem;
-    margin-right: 0.510rem;
+    margin: 0 0.510rem;
   }
 }
 
@@ -38,6 +38,10 @@
     flex-direction: row;
     border-top: solid 1px $dim-gray;
     border-bottom: solid 1px $dim-gray;
+
+    a {
+      margin-bottom: 0;
+    }
 
     .separator {
       display: block;

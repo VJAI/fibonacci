@@ -462,7 +462,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
   &:focus, &:active {
     outline: none;
-    border-color: $brand-color;
+    border-color: $medium-gray;
   }
 }
 
@@ -516,14 +516,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .cmp__form-control {
   display: flex;
   flex-direction: column;
-  margin-bottom: $lg-size;
   align-items: flex-start;
-
-  &.cmp__required {
-    input, textarea {
-      border-left: solid 4px $brand-color;
-    }
-  }
+  margin-bottom: $lg-size;
 
   label {
     display: flex;
@@ -537,14 +531,6 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-direction: row;
     background-color: $form-control-bg-color;
     align-items: center;
-
-    &.cmp__required {
-      border-left: solid 4px $brand-color;
-
-      input, textarea {
-        border-left: solid 2px $input-border-color;
-      }
-    }
 
     label {
       min-width: 6.225rem;

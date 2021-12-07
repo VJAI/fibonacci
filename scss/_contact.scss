@@ -5,22 +5,21 @@
     p {
       display: flex;
       align-items: center;
+      align-self: flex-start;
       flex-grow: 1;
-      margin: 0;
       font-size: $small-font-size;
       color: $gray;
-      align-self: flex-start;
-      line-height: 1;
+      line-height: $xs-line-height;
       margin-right: $md-size;
 
       .cmp__icon {
         display: none;
-        margin-right: 0.236rem;
       }
 
       @media only screen and (min-width: $mobile) {
         .cmp__icon {
           display: block;
+          margin-right: 0.236rem;
         }
       }
     }

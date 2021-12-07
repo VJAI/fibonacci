@@ -1,4 +1,13 @@
 (function () {
+	// Handling Hamburger.
+	var hamburger = document.querySelector('.cmp__hamburger'),
+		selectControl = document.querySelector('.cmp__hidden-menu');
+	
+	hamburger.addEventListener('click', function () {
+		selectControl.style.opacity = 1;
+	});
+	
+	// Handling Search Input.
 	var x = window.matchMedia('screen and (min-width: 560px)');
 	var nav = document.querySelector('.cmp__blog-nav');
 	var searchInput = document.querySelector('.cmp__search-form input');
