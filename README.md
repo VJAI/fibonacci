@@ -2,6 +2,8 @@
 
 A simplistic read-friendly blog template built with golden ratio.
 
+**NOTE: v2.0.0.beta is a still a work in progress. Please use version 1.**
+
 ## Demo
 
 [https://vjai.github.io/fibonacci/index.html](https://vjai.github.io/fibonacci/index.html)
