@@ -1,28 +1,4 @@
 .cmp__contact-form {
-  padding: $md-size;
-
-  .cmp__form-control {
-    label {
-      display: none;
-    }
-
-    input, textarea {
-      border-left: none;
-    }
-  }
-
-  @media only screen and (min-width: $mobile) {
-    .cmp__form-control {
-      label {
-        display: inherit;
-      }
-
-      input, textarea {
-        border-left: initial;
-      }
-    }
-  }
-
   .cmp__bottom-row {
     display: flex;
 
@@ -38,7 +14,14 @@
       margin-right: $md-size;
 
       .cmp__icon {
+        display: none;
         margin-right: 0.236rem;
+      }
+
+      @media only screen and (min-width: $mobile) {
+        .cmp__icon {
+          display: block;
+        }
       }
     }
 

@@ -7,8 +7,6 @@
   justify-content: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-top: solid 1px $dim-gray;
-  border-bottom: solid 1px $dim-gray;
   padding-top: $md-size;
   padding-bottom: $md-size;
   margin: 0 auto;
@@ -20,7 +18,7 @@
     margin-bottom: $xs-size;
 
     .cmp__icon {
-      margin-right: 0.236rem;
+      margin-right: 0.382rem;
     }
 
     .cmp__social-text {
@@ -38,9 +36,11 @@
 @media only screen and (min-width: $mobile) {
   .cmp__social-widget {
     flex-direction: row;
+    border-top: solid 1px $dim-gray;
+    border-bottom: solid 1px $dim-gray;
 
     .separator {
-      display: inherit;
+      display: block;
     }
   }
 }

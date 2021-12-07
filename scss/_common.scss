@@ -127,7 +127,14 @@
         }
 
         .cmp__nav-link-text {
+          display: none;
           line-height: 1;
+        }
+
+        @media only screen and (min-width: $tablet) {
+          .cmp__nav-link-text {
+            display: block;
+          }
         }
       }
 
