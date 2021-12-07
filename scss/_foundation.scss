@@ -1,10 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700');
+@import '../assets/sprite';
 
-// Global stuff.
-// Ratio 1.618 Interval 5
+/**
+  Sizes built with golden ratio (1.618) with the interval of 5.
+  Font Size Calculator: https://gist.github.com/VJAI/f4240f0353bf992d967f52f74844d963
 
-// 0.382rem 0.421rem 0.463rem 0.510rem 0.561rem 0.618rem 0.680rem 0.749rem 0.825rem 0.908rem 1.000rem 1.101rem 1.212rem 1.335rem 1.470rem 1.618rem 1.781rem 1.961rem 2.160rem 2.378rem 2.618rem 2.882rem 3.174rem 3.494rem 3.847rem 4.236rem 4.664rem 5.135rem 5.654rem 6.225rem
+  const base = 19;
+  const ratio = 1.618;
+  const interval = 5;
 
+  function size(point) {
+    const s = base * Math.pow(ratio, point/interval);
+    return [s, `${(s / base).toFixed(3)} rem`];
+  }
+
+  for (let i = -20; i < 20; i++) {
+    console.log(size(i));
+  }
+
+  0.146 0.161 0.177 0.195 0.214 0.236 0.260 0.286 0.315 0.347
+  0.382 0.421 0.463 0.510 0.561 0.618 0.680 0.749 0.825 0.908
+  1.000 1.101 1.212 1.335 1.470 1.618 1.781 1.961 2.160 2.378
+  2.618 2.882 3.174 3.494 3.847 4.236 4.664 5.135 5.654 6.225
+ */
+
+// Medium and Small Screens.
 :root {
   --base-size: 16px;
   --xs-size: 0.825rem;
@@ -17,7 +37,8 @@
   font-size: var(--base-size);
 }
 
-@media only screen and (min-width: $breakpoint1) {
+// Large and Extra Large Screens
+@media only screen and (min-width: $mobile) {
   :root {
     --base-size: 19px;
     --xs-size: 0.749rem;
@@ -30,35 +51,40 @@
   }
 }
 
+// Global Overrides.
 html, body {
   margin: 0;
   padding: 0;
   font-family: $body-font-family;
+  font-size: $body-font-size;
   line-height: $base-line-height;
-  color: $body-color;
+  color: $dark-gray;
   box-sizing: border-box;
 }
 
+// CSS Resets.
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-// Paragraphs & Headings.
-p {
+// Paragraphs.
+p, .para {
   margin-top: 0;
   margin-bottom: $md-size;
-  font-size: $md-size;
+  font-size: $body-font-size;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+// Headings.
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
+  color: $heading-color;
 
   a:link,
   a:visited,
@@ -69,46 +95,45 @@ h6 {
   }
 }
 
-h1 {
+h1, .h1 {
   font-size: $h1-font-size;
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
-  color: $body-color;
+  color: $brand-color;
 
   &::after {
     display: block;
     content: '';
-    border-bottom: solid 6px $border-color;
+    border-bottom: solid $h1-border-width $dark-border;
     margin-top: $xl-size;
     width: 40%;
   }
 }
 
-h2 {
+h2, .h2 {
   font-size: $h2-font-size;
-  margin-top: 1.8rem;
+  margin-top: 1.781rem;
   margin-bottom: $md-size;
 }
 
-h3 {
+h3, .h3 {
   font-size: $h3-font-size;
   margin-top: $lg-size;
   margin-bottom: $sm-size;
 }
 
-h4 {
+h4, .h4 {
   font-size: $h4-font-size;
   margin-top: $lg-size;
   margin-bottom: $xs-size;
 }
 
-h5 {
-  font-size: $h4-font-size;
-  font-style: italic;
+h5, .h5 {
+  font-size: $h5-font-size;
   margin-bottom: $xs-size;
 }
 
-h6 {
+h6, .h6 {
   font-size: $small-font-size;
   margin-bottom: $xs-size;
 }
@@ -118,30 +143,95 @@ a:link,
 a:visited,
 a:hover,
 a:focus,
-a:active {
+a:active,
+.link {
   color: inherit;
+  border-bottom: dotted 1px;
   text-decoration: none;
-  border-bottom: dotted 1px $body-color;
+  transition: all $medium-speed;
+}
+
+a:hover, .link:hover {
+  color: $brand-color;
 }
 
 // Lists.
 ul,
-ol {
+ol,
+menu {
   padding-left: 0;
+  list-style: none;
   margin-top: 0;
   margin-bottom: $md-size;
+  position: relative;
+}
+
+ul li:before, menu li:before {
+  content: "\25A0";
+  color: $brand-color;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+}
+
+ol {
+  counter-reset: li;
+}
+
+ol li:before {
+  content: counter(li) ".";
+  counter-increment: li;
+  counter-reset: revert;
+  display: inline-block;
+  width: 1.470em;
+  margin-left: -1.961em;
+  font-family: $heading-font-family;
+  position: absolute;
+  text-align: right;
+}
+
+ol li li:before {
+  content: counters(li, ".") " ";
+}
+
+ul, ol, menu {
+  ul, ol, menu {
+    padding-left: $md-size;
+    margin-bottom: 0.421rem;
+  }
+}
+
+dl {
+  dt {
+    font-family: $heading-font-family;
+    font-size: $h5-font-size;
+    color: $medium-gray;
+    letter-spacing: $medium-letter-spacing;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin-bottom: $xs-size;
+  }
 }
 
 // Blockquotes.
 blockquote {
-  background-color: $highlight-color;
-  padding: $inner-padding;
+  background-color: $success;
   border-radius: $border-radius;
   color: $medium-gray;
   font-size: $md-size;
   margin-top: $md-size;
   margin-bottom: $lg-size;
   font-family: $heading-font-family;
+
+  h1, h2, h3, h4, h5 {
+    font-family: $body-font-family;
+    border-bottom: solid 2px;
+    display: inline-block;
+  }
 
   p {
     font-size: $md-size;
@@ -159,7 +249,7 @@ blockquote {
 
     &::before {
       content: '—';
-      margin-right: 0.25rem;
+      margin-right: 0.26rem;
     }
   }
 }
@@ -179,23 +269,28 @@ figure {
   }
 
   figcaption {
-    font-size: $xs-size;
-    color: $medium-gray;
-    margin-top: 0.25rem;
-    font-family: $heading-font-family;
+    margin-top: 0.26rem;
+    font-size: $figure-caption-font-size;
+    color: $figure-caption-color;
+    font-family: $figure-caption-font-family;
 
     code {
-      font-size: $xs-size;
+      font-family: $code-font-family;
+      font-size: $code-font-size;
     }
   }
 
   .table-wrapper {
     padding: $inner-padding;
-    background-color: $highlight-color;
+    background-color: $success;
     border-radius: $border-radius;
   }
 
-  &.full {
+  &.cmp__figure-full {
+    img {
+      border-radius: 0;
+    }
+
     figcaption {
       text-align: center;
     }
@@ -206,90 +301,156 @@ figure {
 table {
   caption-side: bottom;
   width: 100%;
-  font-size: $sm-size;
-  font-family: $heading-font-family;
+  font-size: $table-font-size;
+  font-family: $table-font-family;
   border-collapse: collapse;
   margin-top: $md-size;
   margin-bottom: $lg-size;
 
   caption {
     text-align: left;
-    font-size: $xs-size;
-    color: $medium-gray;
-    font-family: $heading-font-family;
+    font-size: $table-caption-font-size;
+    color: $table-caption-color;
+    font-family: $table-caption-font-family;
   }
 
   td, th {
-    line-height: 1.4;
-
-    &.center {
-      text-align: center;
-    }
-
-    &.right {
-      text-align: right;
-    }
+    line-height: $table-line-height;
   }
 
   thead {
     tr {
       th {
-        border-bottom: solid 1px $light-gray;
+        border-bottom: solid 1px $gray;
         text-align: left;
       }
     }
   }
 }
 
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-// Pre and Code elements
+// Pre, Code & Var elements
 pre {
   code {
     line-height: $code-line-height;
-    font-family: $mono-font-family;
-    font-size: $xs-size;
+    font-family: $code-font-family;
+    font-size: $code-font-size;
     letter-spacing: normal;
+    border-radius: $border-radius;
 
     &.hljs {
       padding: 0;
-      background: transparent;
+      background-color: $code-bg-color;
     }
   }
 }
 
-label {
-  font-family: $heading-font-family;
-  font-weight: bold;
-  font-size: $xs-size;
+var, kbd {
+  font-family: $code-font-family;
+  font-style: normal;
+  color: $var-color;
+  background-color: $var-bg-color;
+  letter-spacing: $small-letter-spacing;
+  border-radius: $border-radius;
+  font-size: $var-font-size;
+  padding: 0 0.146rem;
+}
+
+// Abbr, Acronym.
+abbr, acronym {
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: $medium-letter-spacing;
+  text-decoration: none;
+
+  &:after {
+    content: '†';
+    font-size: $special-char-font-size;
+    position: relative;
+    top: -0.618em;
+  }
+}
+
+// Definition.
+dfn {
+  font-style: italic;
+}
+
+// Superscript & Subscript.
+sup, sub {
+  font-size: $special-char-font-size;
+}
+
+// Small.
+small {
+  font-size: 0.825rem;
+}
+
+// Datetimes.
+time {
+  font-family: $heading-font-family;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: $medium-letter-spacing;
+}
+
+// Strong, data etc.
+strong, data {
+  font-weight: bold;
+}
+
+// Italic.
+i {
+  font-style: italic;
+}
+
+// Highlight.
+mark {
+  background-color: $mark-bg-color;
+}
+
+// Address element.
+address {
+  font-style: italic;
+}
+
+// Form elements.
+// Labels.
+label {
+  font-family: $label-font-family;
+  font-size: $label-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: $label-letter-spacing;
   color: $medium-gray;
 }
 
-input[type="text"], input[type="search"], textarea {
-  font-family: $heading-font-family;
-  font-size: $xs-size;
+// Input Textboxes and Textareas.
+input[type="text"], input[type="email"], input[type="search"], textarea {
+  width: 100%;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
   line-height: $code-line-height;
   padding: $input-padding;
-  width: 100%;
-  border: solid 1px #ccc;
+  border: solid 2px $input-border-color;
+  transition: all $medium-speed;
+  outline: none;
+  color: $dark-gray;
+
+  &:focus, &:active {
+    outline: none;
+    border-color: $brand-color;
+  }
 }
 
+// Buttons.
 button, [type="button"], [type="submit"] {
   cursor: pointer;
-  font-family: $heading-font-family;
-  font-size: $xs-size;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
   padding: $button-padding;
-  background-color: $body-color;
-  color: $white;
+  background-color: $button-bg-color;
+  color: $button-text-color;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: $medium-letter-spacing;
   border: none;
 }
 
@@ -314,357 +475,224 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.icon {
-  width: 12px;
-  height: 12px;
-  display: inline-block;
-  background-repeat: no-repeat;
-
-  &.calendar {
-    background-image: url('assets/calendar.svg');
-  }
-
-  &.tag {
-    background-image: url('assets/tag.svg');
-  }
-
-  &.comment {
-    background-image: url('assets/comment.svg');
-  }
-
-  &.search {
-    background-image: url('assets/search.svg');
-  }
-}
-
-// Layout elements
-.header, .footer {
+.cmp__form-control {
   display: flex;
+  flex-direction: row;
+  margin-bottom: $lg-size;
   align-items: center;
-  height: $xl-size;
-  padding: 0 $md-size;
-  font-size: $small-font-size;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: $light-gray;
-  font-family: $heading-font-family;
-}
+  background-color: $light-gray;
 
-// Header
-.header {
-  margin-top: 0.25rem;
-
-  a {
-    border-bottom: none;
-    font-family: $heading-font-family;
-  }
-
-  .logo {
+  label {
+    min-width: 6.225rem;
     display: flex;
     align-items: center;
-
-    span {
-      transition: all 0.5s;
-      margin-left: 0.25rem
-    }
-
-    &:hover {
-      span {
-        letter-spacing: 3px;
-        color: $body-color;
-      }
-
-      img {
-        width: 3rem;
-      }
-    }
-  }
-
-  nav {
-    margin-left: auto;
-
-    a {
-      line-height: 1;
-      transition: color 0.5s;
-      font-size: 0.75rem;
-
-      &:hover {
-        color: $body-color;
-      }
-    }
-
-    @media only screen and (min-width: $breakpoint1) {
-      a {
-        font-size: $xs-size;
-      }
-    }
-
-    ul {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      align-items: center;
-
-      li {
-        margin-left: 0;
-        margin-right: 0.6875rem;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        .search-form {
-          display: flex;
-          align-items: center;
-
-          input {
-            border: none;
-            border-bottom: solid 1px $light-gray;
-            padding: 0;
-            line-height: 1;
-            color: $light-gray;
-            padding-bottom: 0.25rem;
-            display: none;
-
-            &:focus, &:active {
-              outline: none;
-            }
-          }
-
-          @media only screen and (min-width: $breakpoint5) {
-            input {
-              display: block;
-            }
-          }
-        }
-      }
-
-      @media only screen and (min-width: $breakpoint1) {
-        li {
-          margin-right: $md-size;
-        }
-      }
-    }
-
-    &.search-active {
-      flex-grow: 1;
-      margin-left: 1rem;
-
-      .search-form {
-        input {
-          display: block;
-        }
-      }
-
-      ul li:not(:first-child) {
-        display: none;
-      }
-
-      ul li:first-child {
-        width: 100%;
-      }
-    }
+    justify-content: flex-end;
+    margin-right: $sm-size;
   }
 }
 
-.main {
-  margin-top: 3.84rem;
+// Icons.
+.cmp__icon {
+  width: $icon-width;
+  height: $icon-width;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
 
-  article {
-    margin-bottom: $xl-size;
+// Horizontal line.
+hr {
+  margin: $xl-size 0;
+  border: 0;
+  border-bottom: 1px solid $light-gray;
+  position: relative;
+}
 
-    article {
-      margin-left: auto;
-      margin-right: auto;
-    }
+hr:before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  top: -5px;
+  width: 20%;
+  background-color: $brand-color;
+  height: 10px;
+  z-index: 1;
+  display: block;
+}
 
-    > * {
-      margin-left: $lg-size;
-      margin-right: $lg-size;
-    }
+// Widgets.
+.cmp__widget {
+  background-color: $dim-gray;
+  border-radius: $border-radius;
+  padding: $lg-size $xl-size;
 
-    @media only screen and (min-width: $breakpoint4) {
-      > * {
-        max-width: $container-width;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .full {
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .right, .left {
-      width: calc((100% + 42rem) / 2);
-      max-width: 100%;
-    }
-
-    .left {
-      margin-left: 0;
-    }
-
-    .right {
-      margin-right: 0;
-    }
-
-    header {
-      position: relative;
-
-      .title-and-meta {
-        .post-meta {
-          font-size: $xs-size;
-          color: $light-gray;
-          font-family: $heading-font-family;
-
-          > div {
-            margin-bottom: 5px;
-            margin-right: 0;
-            display: flex;
-            align-items: center;
-
-            .icon {
-              margin-right: 0.25rem;
-            }
-          }
-
-          .author {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
-
-            img {
-              border-radius: 50%;
-              opacity: 0.8;
-              width: 30px;
-            }
-
-            span {
-              font-size: $small-font-size;
-              color: $light-gray;
-              font-family: $heading-font-family;
-              margin-left: 0.25rem;
-
-              &.role {
-                margin-top: 0;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                background-color: $dim-gray;
-                padding: 1px 5px;
-                font-size: 0.58rem;
-                border-radius: 3px;
-              }
-            }
-          }
-
-          @media only screen and (min-width: $breakpoint3) {
-            .author {
-              position: absolute;
-              top: $md-size;
-              left: -7.5rem;
-              flex-direction: column;
-
-              img {
-                width: 80px;
-              }
-
-              span {
-                margin-top: 0.25rem;
-                margin-left: 0;
-              }
-            }
-          }
-
-          ul, li {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: inline;
-          }
-
-          a {
-            border-bottom: none;
-            transition: color 0.5s;
-
-            &:hover {
-              color: $body-color;
-            }
-          }
-
-          .tagged-in {
-            font-style: italic;
-
-            li {
-              margin-right: 0.125rem;
-            }
-          }
-
-          .posted-date {
-            span {
-              font-variant: small-caps;
-            }
-          }
-        }
-
-        @media only screen and (min-width: $breakpoint2) {
-          .post-meta {
-            display: flex;
-
-            > div {
-              margin-bottom: 0;
-            }
-
-            > div:not(:last-child) {
-              margin-right: $md-size;
-            }
-
-            .author {
-              align-items: center;
-            }
-
-            .posted-date .date {
-              min-width: 6.58rem;
-            }
-
-            .total-comments a {
-              min-width: 5.25rem;
-            }
-          }
-        }
-      }
-    }
-
-    > p:first-of-type {
-      font-size: $lead-para-font-size;
-    }
-
-    .continue-reading {
-      text-align: right;
-      font-size: $xs-size;
-      color: $light-gray;
-      font-family: $heading-font-family;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.5s;
-
-      &:hover {
-        color: $body-color;
-      }
-    }
-
-    .poster-image {
-      margin-top: 0.25rem;
-
-      img {
-        border-radius: 3px;
-      }
-    }
+  h5 {
+    margin-top: 0;
+    color: $gray;
+    text-transform: uppercase;
+    letter-spacing: $medium-letter-spacing;
+    border-bottom: solid 1px $light-border;
+    padding-bottom: $xs-size;
   }
 }
 
-.footer {
-  justify-content: flex-end;
+// Status Colors.
+.cmp__status-success {
+  background-color: $success;
+}
+
+.cmp__status-warn {
+  background-color: $warn;
+}
+
+.cmp__status-error {
+  background-color: $error;
+}
+
+// Selection Color.
+::selection {
+  text-shadow: none;
+  color: $white;
+  background: $brand-color;
+}
+
+// Floats.
+.cmp__float-left {
+  float: left;
+}
+
+.cmp__float-right {
+  float: right;
+}
+
+.cmp__float-left:after, .cmp__float-right:after {
+  clear: both;
+  height: 0;
+  width: 100%;
+  content: '';
+  display: block;
+}
+
+.cmp__clear {
+  clear: both;
+}
+
+// Create re-usable paddings and margins.
+.cmp__no-margin {
+  margin: 0;
+}
+
+.cmp__no-pad {
+  padding: 0;
+}
+
+$sizes: (
+  "xs": $xs-size,
+  "sm": $sm-size,
+  "md": $md-size,
+  "lg": $lg-size,
+  "xl": $xl-size,
+  "xxl": $xxl-size,
+  "xxxl": $xxxl-size
+);
+
+@each $name, $size in $sizes {
+
+  // Paddings.
+  .cmp__pad-#{$name} {
+    padding: #{$size};
+  }
+
+  .cmp__pad-hor-#{$name} {
+    padding-left: #{$size};
+    padding-right: #{$size};
+  }
+
+  .cmp__pad-ver-#{$name} {
+    padding-top: #{$size};
+    padding-bottom: #{$size};
+  }
+
+  .cmp__pad-left-#{$name} {
+    padding-left: #{$size};
+  }
+
+  .cmp__pad-right-#{$name} {
+    padding-right: #{$size};
+  }
+
+  .cmp__pad-top-#{$name} {
+    padding-top: #{$size};
+  }
+
+  .cmp__pad-bottom-#{$name} {
+    padding-bottom: #{$size};
+  }
+
+  // Margins.
+  .cmp__mar-#{$name} {
+    margin: #{$size};
+  }
+
+  .cmp__mar-hor-#{$name} {
+    margin-left: #{$size};
+    margin-right: #{$size};
+  }
+
+  .cmp__mar-ver-#{$name} {
+    margin-top: #{$size};
+    margin-bottom: #{$size};
+  }
+
+  .cmp__mar-left-#{$name} {
+    margin-left: #{$size};
+  }
+
+  .cmp__mar-right-#{$name} {
+    margin-right: #{$size};
+  }
+
+  .cmp__mar-top-#{$name} {
+    margin-top: #{$size};
+  }
+
+  .cmp__mar-bottom-#{$name} {
+    margin-bottom: #{$size};
+  }
+}
+
+// Color Classes.
+$colors: (
+  "brand": $brand-color,
+  "brand-dark": $brand-dark,
+  "brand-light": $brand-light,
+  "dark-gray": $dark-gray,
+  "medium-gray": $medium-gray,
+  "light-gray": $gray,
+  "dim-gray": $dim-gray,
+  "dark-border": $dark-border,
+  "light-border": $light-border,
+  "white-color": $white,
+  "black-color": $black,
+  "success-color": $success,
+  "warn-color": $warn,
+  "error-color": $error
+);
+
+@each $name, $color in $sizes {
+  .cmp__#{$name}-color {
+    color: $color;
+  }
+
+  .cmp__#{$name}-color-bg {
+    background-color: $color;
+  }
+}
+
+// Alignment classes.
+.cmp__right {
+  text-align: right;
+}
+
+.cmp__center {
+  text-align: center;
 }

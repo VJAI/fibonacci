@@ -1,23 +1,33 @@
-'use strict';
+const gulp = require('gulp'),
+	sass = require('gulp-sass')(require('sass')),
+	concat = require('gulp-concat'),
+	webserver = require('gulp-webserver');
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var webserver = require('gulp-webserver');
+const { src, dest, watch, series, parallel } = gulp;
+const scssFiles = './scss/*.scss';
 
-gulp.task('sass', function () {
-	return gulp.src(['./scss', '*.scss'].join('/'))
-	           .pipe(sass().on('error', sass.logError))
-	           .pipe(concat('fibonacci.css'))
-	           .pipe(gulp.dest('.'));
-});
+/**
+ * Compiles and concatenates SCSS files to a single CSS file.
+ */
+function compile() {
+	return src([scssFiles].join('/'))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(concat('fibonacci.css'))
+		.pipe(dest('.'));
+}
 
-gulp.task('watch', function () {
-	gulp.watch('./scss/*.scss', ['sass']);
-});
+/**
+ * Watch for any changes in SCSS files.
+ */
+function watchScss() {
+	return watch(scssFiles, series(compile));
+}
 
-gulp.task('server', ['sass', 'watch'], function () {
-	gulp.src('.').pipe(
+/**
+ * Starts a simple server to launch the app.
+ */
+function kickServer() {
+	return src('.').pipe(
 		webserver(
 			{
 				port: 4200,
@@ -27,6 +37,7 @@ gulp.task('server', ['sass', 'watch'], function () {
 			}
 		)
 	);
-});
+}
 
-gulp.task('default', ['server']);
+exports.compile = compile;
+exports.default = parallel(series(compile, kickServer), watchScss);

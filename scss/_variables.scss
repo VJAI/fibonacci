@@ -1,10 +1,35 @@
+// Generic Variables.
 // Font families.
 $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
 $mono-font-family:                  'Source Code Pro', monospace !default;
+$display-font-family:               'Amatic SC', cursive !default;
+
+// Colors.
+// Brand Colors.
+$brand-color:                       rgba(240, 72, 117, 1) !default;
+$brand-dark:                        darken($brand-color, 15%) !default;
+$brand-light:                       lighten($brand-color, 15%) !default;
+
+// Gray Variations.
+$dark-gray:                        rgba(51, 51, 51, 1) !default;
+$medium-gray:                       rgba(51, 51, 51, 0.8) !default;
+$gray:                              rgba(51, 51, 51, 0.5) !default;
+$light-gray:                        rgba(204, 204, 204, 0.5) !default;
+$dim-gray:                          rgba(247, 247, 247, 1) !default;
+$dark-border:                       rgb(135, 146, 163, 1) !default;
+$light-border:                      rgba(222, 225, 229, 1) !default;
+
+// Global colors.
+$white:                             rgba(255, 255, 255, 1) !default;
+$black:                             rgba(0, 0, 0, 1) !default;
+
+// Special colors.
+$success:                           rgba(241, 247, 234, 1) !default;
+$warn:                              rgba(252, 248, 220, 1) !default;
+$error:                             rgba(255, 238, 235, 1) !default;
 
 // Sizes.
-$base-size:                         var(--base-size) !default;
 $xs-size:                           var(--xs-size) !default;
 $sm-size:                           var(--sm-size) !default;
 $md-size:                           var(--md-size) !default;
@@ -12,44 +37,152 @@ $lg-size:                           var(--lg-size) !default;
 $xl-size:                           var(--xl-size) !default;
 $xxl-size:                          var(--xxl-size) !default;
 $xxxl-size:                         var(--xxxl-size) !default;
+
+// Font Sizes.
 $base-font-size:                    $md-size !default;
-$h1-font-size:                      $xxl-size !default;
-$h2-font-size:                      $xl-size !default;
-$h3-font-size:                      $lg-size !default;
-$h4-font-size:                      $base-font-size !default;
-$medium-font-size:                  $sm-size !default;
+$body-font-size:                    $base-font-size !default;
 $small-font-size:                   $xs-size !default;
-$lead-para-font-size:               1.2rem !default;
-$breakpoint1:                       480px;
-$breakpoint2:                       768px;
-$breakpoint3:                       1100px;
-$breakpoint4:                       836px;
-$breakpoint5:                       560px;
 
 // Line Heights.
 $base-line-height:                  1.5 !default;
-$heading-line-height:               0.85 !default;
-$table-line-height:                 1.4 !default;
-$code-line-height:                  1.2 !default;
+$medium-line-height:                1.4 !default;
+$small-line-height:                 1.2 !default;
+$xs-line-height:                    1 !default;
 
-$heading-spacing:                   -0.5px !default;
+// Spacings.
+$small-letter-spacing:              -0.5px !default;
+$medium-letter-spacing:             1px !default;
+$large-letter-spacing:              2px !default;
+$extra-large-letter-spacing:        3px !default;
 
-// Colors.
-$body-color:                        rgb(51, 51, 51) !default;
-$heading-color:                     inherit !default;
-$dim-gray:                          #f7f7f7 !default;
-$light-gray:                        rgba(51, 51, 51, 0.5) !default;
-$medium-gray:                       rgba(51, 51, 51, 0.8) !default;
-$highlight-color:                   rgb(241, 247, 234) !default;
-$border-color:                      rgb(135, 146, 163) !default;
-$white:                             rgb(255, 255, 255) !default;
-$black:                             rgb(0, 0, 0) !default;
+// Borders.
+$border-radius:                     3px !default;
 
 // Containers.
 $container-width:                   42rem !default;
 $inner-padding:                     $sm-size $lg-size !default;
-$input-padding:                     0.35rem 0.5rem !default;
-$button-padding:                    0.5rem 0.75rem !default;
 
-// Borders.
-$border-radius:                     3px !default;
+// Breakpoints.
+$mobile:                            480px !default;
+$tablet:                            768px !default;
+$desktop:                           1100px !default;
+$breakpoint1:                       836px !default;
+$breakpoint2:                       560px !default;
+
+// Paragraphs.
+$lead-para-font-size:               1.212rem !default;
+
+// Headings.
+$h1-font-size:                      $xxl-size !default;
+$h2-font-size:                      $xl-size !default;
+$h3-font-size:                      1.618rem !default;
+$h4-font-size:                      $lg-size !default;
+$h5-font-size:                      $base-font-size !default;
+$heading-line-height:               $xs-line-height !default;
+$heading-spacing:                   $small-letter-spacing !default;
+$heading-color:                     $medium-gray !default;
+$h1-border-width:                   6px !default;
+
+// Links.
+$link-color:                        $brand-color !default;
+$link-hover-color:                  $brand-dark !default;
+
+// Code.
+$code-font-family:                  $mono-font-family !default;
+$code-font-size:                    $small-font-size !default;
+$code-line-height:                  $small-line-height !default;
+$code-bg-color:                     rgba(247, 247, 247, 0.7) !default;
+$var-color:                         $medium-gray !default;
+$var-bg-color:                      #fff3bf !default;
+$var-font-size:                     0.9em !default;
+
+// Abbr & Acronym.
+$special-char-font-size:            0.618em !default;
+
+// Mark.
+$mark-bg-color:                     #ffff73 !default;
+
+// Labels.
+$label-font-family:                 $heading-font-family !default;
+$label-font-size:                   $small-font-size !default;
+$label-letter-spacing:              $medium-letter-spacing !default;
+
+// Inputs.
+$input-font-family:                 $heading-font-family !default;
+$input-font-size:                   $md-size !default;
+$input-padding:                     0.510rem !default;
+$input-border-color:                $light-gray !default;
+
+// Buttons.
+$button-font-family:                $heading-font-family !default;
+$button-font-size:                  $small-font-size !default;
+$button-padding:                    0.510rem 0.749rem !default;
+$button-text-color:                 $white !default;
+$button-bg-color:                   $brand-color !default;
+
+// Icons.
+$icon-width:                        16px !default;
+
+// Figures.
+$figure-caption-font-size:          $small-font-size !default;
+$figure-caption-color:              $gray !default;
+$figure-caption-font-family:        $heading-font-family !default;
+
+// Tables.
+$table-font-size:                   $sm-size !default;
+$table-font-family:                 $heading-font-family !default;
+$table-caption-font-size:           $small-font-size !default;
+$table-caption-color:               $gray !default;
+$table-caption-font-family:         $heading-font-family !default;
+$table-line-height:                 $medium-line-height !default;
+
+// Animations Speed.
+$medium-speed:                      0.5s !default;
+
+// Specific Variables.
+// Header Component.
+$header-height:                     $xl-size !default;
+
+// Logo Component.
+$logo-font-family:                  $display-font-family !default;
+$logo-font-size:                    $lg-size !default;
+$logo-rotate-speed:                 5s !default;
+$logo-name-width:                   4.664rem !default;
+
+// Navigation Component.
+$nav-font-family:                   $heading-font-family !default;
+$nav-font-size:                     0.749rem !default;
+$nav-link-spacing:                  0.680rem !default;
+$nav-link-icon-spacing:             0.146rem !default;
+$nav-active-border-width:           4px !default;
+
+// Footer Component.
+$footer-font-family:                $heading-font-family !default;
+$footer-font-size:                  $small-font-size !default;
+$footer-height:                     $xl-size !default;
+
+// Page Main Component.
+$page-content-top:                  3.84rem !default;
+$continue-reading-font-family:      $heading-font-family !default;
+$continue-reading-color:            $gray !default;
+$continue-reading-font-size:        $small-font-size !default;
+
+// Article.
+$article-meta-font-size:            $small-font-size !default;
+$article-meta-color:                $gray !default;
+$article-meta-font-family:          $heading-font-family !default;
+$article-author-pic-opacity:        0.8 !default;
+$article-author-role-font-size:     0.58rem !default;
+$article-author-role-font-color:    $dim-gray !default;
+$article-author-left-offset:        -7.546rem !default;
+$author-pic-default-width:          30px !default;
+$author-pic-large-screen-width:     80px !default;
+
+// Table Of Contents.
+$toc-bg-color:                      $dim-gray !default;
+
+
+// Utility Classes Variables.
+$drop-cap-font-size:                300% !default;
+$drop-cap-bg-color:                 $brand-color !default;
+$drop-cap-color:                    $white !default;

@@ -1,0 +1,124 @@
+%svg-common {
+	background: url("assets/sprites.svg") no-repeat;
+}
+
+.cmp__icon-calendar {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.cmp__icon-calendar-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-comment {
+	@extend %svg-common;
+	background-position: 33.333333333333336% 0;
+}
+
+.cmp__icon-comment-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-contact {
+	@extend %svg-common;
+	background-position: 0 50%;
+}
+
+.cmp__icon-contact-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-facebook {
+	@extend %svg-common;
+	background-position: 33.333333333333336% 50%;
+}
+
+.cmp__icon-facebook-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-github {
+	@extend %svg-common;
+	background-position: 66.66666666666667% 0;
+}
+
+.cmp__icon-github-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-home {
+	@extend %svg-common;
+	background-position: 66.66666666666667% 50%;
+}
+
+.cmp__icon-home-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-linkedin {
+	@extend %svg-common;
+	background-position: 0 100%;
+}
+
+.cmp__icon-linkedin-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-person {
+	@extend %svg-common;
+	background-position: 33.333333333333336% 100%;
+}
+
+.cmp__icon-person-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-search {
+	@extend %svg-common;
+	background-position: 66.66666666666667% 100%;
+}
+
+.cmp__icon-search-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-share {
+	@extend %svg-common;
+	background-position: 100% 0;
+}
+
+.cmp__icon-share-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-tag {
+	@extend %svg-common;
+	background-position: 100% 50%;
+}
+
+.cmp__icon-tag-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-twitter {
+	@extend %svg-common;
+	background-position: 100% 100%;
+}
+
+.cmp__icon-twitter-dims {
+	width: 16px;
+	height: 16px;
+}
+

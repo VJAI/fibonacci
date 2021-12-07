@@ -1,31 +1,32 @@
-.about {
-  article {
-    p {
-      font-size: $lead-para-font-size;
-      position: relative;
+.cmp__social-widget {
+  display: flex;
+  font-family: $heading-font-family;
+  font-size: $xs-size;
+  color: $gray;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: solid 1px $dim-gray;
+  border-bottom: solid 1px $dim-gray;
+  padding-top: $md-size;
+  padding-bottom: $md-size;
+
+  a {
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+
+    .cmp__icon {
+      margin-right: 0.236rem;
+    }
+
+    .cmp__social-text {
+      line-height: 1;
     }
   }
 
-  .social {
-    display: flex;
-    font-family: $heading-font-family;
-    font-size: $xs-size;
-    color: $light-gray;
-    justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-top: solid 1px $dim-gray;
-    border-bottom: solid 1px $dim-gray;
-    padding-top: $md-size;
-    padding-bottom: $md-size;
-
-    a {
-      border-bottom: none;
-    }
-
-    .separator {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-    }
+  .separator {
+    margin-left: 0.510rem;
+    margin-right: 0.510rem;
   }
 }

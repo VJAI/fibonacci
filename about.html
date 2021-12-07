@@ -1,78 +1,135 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%% About Page %%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
+	<title>fibonacci | About</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="fibonacci.css">
-	<link rel="stylesheet"
-	      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
-<body>
+<body class="cmp__blog">
 
-<header class="header">
-	<a href="index.html" class="logo">
-		<img src="assets/logo.png" style="width: 2rem;">
-		<span>fibonacci</span>
-	</a>
-	<nav>
+<!-- Blog Header Component -->
+<header class="cmp__blog-header">
+
+	<!-- Logo and Tag Line -->
+	<div class="cmp__blog-info">
+
+		<!-- Logo Component -->
+		<a class="cmp__blog-logo" href="index.html">
+			<img class="cmp__blog-logo-pic" src="assets/logo.png" alt="logo" style="width: 2rem;">
+			<span class="cmp__blog-name">fibonacci</span>
+		</a>
+
+		<span class="cmp__separator"></span>
+
+		<!-- Blog Tag Line -->
+		<div class="cmp__blog-tag-line">
+			<span>being pragmatic...</span>
+		</div>
+	</div>
+
+	<!-- Page Navigation Component -->
+	<nav class="cmp__blog-nav">
 		<ul>
 			<li>
-				<form class="search-form">
-					<input type="search" placeholder="Search...">
-					<span class="icon search"></span>
+				<form class="cmp__form cmp__search-form">
+					<label>
+						<input type="search" placeholder="Search...">
+					</label>
+					<span class="cmp__icon cmp__icon-search"></span>
 				</form>
 			</li>
 			<li>
-				<a href="index.html">home</a>
+				<a class="cmp__nav-link" href="index.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+					<span class="cmp__nav-link-text">home</span>
+				</a>
 			</li>
 			<li>
-				<a href="contact.html">contact</a>
+				<a class="cmp__nav-link" href="contact.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+					<span class="cmp__nav-link-text">contact</span>
+				</a>
 			</li>
-			<li>
-				<a href="about.html">about</a>
+			<li class="cmp__nav-active">
+				<a class="cmp__nav-link" href="about.html">
+					<span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+					<span class="cmp__nav-link-text">about</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
 </header>
 
-<main class="main about">
-	<article>
-		<header>
-			<h1>About Me</h1>
+<!-- Page Main Content Component -->
+<main class="cmp__blog-main">
+
+	<article id="cmp__about" class="cmp__blog-content cmp__article">
+
+		<!-- Page Title -->
+		<header class="cmp__article-header cmp__layout-switch">
+			<h1 class="cmp__blog-title">About Me</h1>
 		</header>
 
-		<figure class="full">
-			<img src="assets/author.jpg" alt="Author">
-		</figure>
-		
-		<p>
-			Hi, I&rsquo;m Triton. I was graduated as an Electronics Engineer way back in 2004. It's little late for me to know my destiny is written to play with code. I started my career in Software development 10 years back. I worked in numerous projects and got appreciation from many people. I spent most of the time in my career with Microsoft technology stack. Some of the frameworks I've good expertise with are: ASP.NET, ASP.NET MVC, ASP.NET Web API and WCF.
-		</p>
+		<!-- Page Content -->
+		<main class="cmp__article-content cmp__layout-switch">
 
-		<p>
-			After I discovered the beauty of JavaScript I moved to front-end development. Nowadays I spend most of the time learning and experimenting frameworks like Backbone, RequireJs, AngularJs, Grunt and Node.
-		</p>
+			<!-- Author Photo -->
+			<figure class="cmp__figure-full">
+				<img src="assets/author.jpg" alt="Author" />
+			</figure>
 
-		<div class="social">
-			<a href="#">
-				Facebook
-			</a>
-			<span class="separator">&bull;</span>
-			<a href="#">
-				LinkedIn
-			</a>
-			<span class="separator">&bull;</span>
-			<a href="#">
-				Twitter
-			</a>
-		</div>
+			<!-- Author Description -->
+			<p class="cmp__drop-cap">
+				Hi, I&rsquo;m <var>Triton Maxwell</var>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+
+			<p>
+				Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+			</p>
+
+			<p>
+				Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+			</p>
+		</main>
+
+		<footer class="cmp__article-footer cmp__layout-switch">
+			<!-- Social Links -->
+			<div class="cmp__social-widget">
+				<a href="#">
+					<span class="cmp__icon cmp__icon-facebook"></span>
+					<span class="cmp__social-text">Facebook</span>
+				</a>
+				<span class="separator">&bull;</span>
+				<a href="#">
+					<span class="cmp__icon cmp__icon-linkedin"></span>
+					<span class="cmp__social-text">LinkedIn</span>
+				</a>
+				<span class="separator">&bull;</span>
+				<a href="#">
+					<span class="cmp__icon cmp__icon-twitter"></span>
+					<span class="cmp__social-text">Twitter</span>
+				</a>
+				<span class="separator">&bull;</span>
+				<a href="#">
+					<span class="cmp__icon cmp__icon-github"></span>
+					<span class="cmp__social-text">Github</span>
+				</a>
+			</div>
+		</footer>
 	</article>
 </main>
 
-<footer class="footer">
-	&copy; 2018 &middot; All Rights Reserved
+<!-- Page Footer Component -->
+<footer class="cmp__blog-footer">
+	&copy; 2021 &middot; All Rights Reserved
 </footer>
+
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="fibonacci.js"></script>
 </body>
