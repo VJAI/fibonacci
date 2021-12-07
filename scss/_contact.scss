@@ -1,8 +1,50 @@
 .cmp__contact-form {
   padding: $md-size;
 
-  input[type="submit"] {
-    margin-left: auto;
-    display: block;
+  .cmp__form-control {
+    label {
+      display: none;
+    }
+
+    input, textarea {
+      border-left: none;
+    }
+  }
+
+  @media only screen and (min-width: $mobile) {
+    .cmp__form-control {
+      label {
+        display: inherit;
+      }
+
+      input, textarea {
+        border-left: initial;
+      }
+    }
+  }
+
+  .cmp__bottom-row {
+    display: flex;
+
+    p {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      margin: 0;
+      font-size: $small-font-size;
+      color: $gray;
+      align-self: flex-start;
+      line-height: 1;
+      margin-right: $md-size;
+
+      .cmp__icon {
+        margin-right: 0.236rem;
+      }
+    }
+
+    input[type="submit"] {
+      margin-left: auto;
+      display: block;
+    }
   }
 }

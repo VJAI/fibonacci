@@ -24,7 +24,7 @@
 
 .cmp__icon-contact {
 	@extend %svg-common;
-	background-position: 0 50%;
+	background-position: 0 33.333333333333336%;
 }
 
 .cmp__icon-contact-dims {
@@ -34,7 +34,7 @@
 
 .cmp__icon-facebook {
 	@extend %svg-common;
-	background-position: 33.333333333333336% 50%;
+	background-position: 33.333333333333336% 33.333333333333336%;
 }
 
 .cmp__icon-facebook-dims {
@@ -54,7 +54,7 @@
 
 .cmp__icon-home {
 	@extend %svg-common;
-	background-position: 66.66666666666667% 50%;
+	background-position: 66.66666666666667% 33.333333333333336%;
 }
 
 .cmp__icon-home-dims {
@@ -64,7 +64,7 @@
 
 .cmp__icon-linkedin {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 0 66.66666666666667%;
 }
 
 .cmp__icon-linkedin-dims {
@@ -74,7 +74,7 @@
 
 .cmp__icon-person {
 	@extend %svg-common;
-	background-position: 33.333333333333336% 100%;
+	background-position: 33.333333333333336% 66.66666666666667%;
 }
 
 .cmp__icon-person-dims {
@@ -84,7 +84,7 @@
 
 .cmp__icon-search {
 	@extend %svg-common;
-	background-position: 66.66666666666667% 100%;
+	background-position: 66.66666666666667% 66.66666666666667%;
 }
 
 .cmp__icon-search-dims {
@@ -102,9 +102,19 @@
 	height: 16px;
 }
 
+.cmp__icon-shield {
+	@extend %svg-common;
+	background-position: 100% 33.333333333333336%;
+}
+
+.cmp__icon-shield-dims {
+	width: 16px;
+	height: 16px;
+}
+
 .cmp__icon-tag {
 	@extend %svg-common;
-	background-position: 100% 50%;
+	background-position: 100% 66.66666666666667%;
 }
 
 .cmp__icon-tag-dims {
@@ -114,7 +124,7 @@
 
 .cmp__icon-twitter {
 	@extend %svg-common;
-	background-position: 100% 100%;
+	background-position: 0 100%;
 }
 
 .cmp__icon-twitter-dims {

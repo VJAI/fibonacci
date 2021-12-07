@@ -15,14 +15,15 @@
 
 // Page Footer Component.
 .cmp__blog-footer {
+  height: $footer-height;
   display: flex;
   align-items: center;
   padding: 0 $md-size;
-  color: $gray;
   font-family: $footer-font-family;
   font-size: $footer-font-size;
   letter-spacing: $large-letter-spacing;
-  height: $footer-height;
+  color: $medium-gray;
+  background-color: $light-gray;
   justify-content: flex-end;
   text-transform: uppercase;
 }
@@ -143,6 +144,7 @@
         height: 100%;
 
         input {
+          font-size: $small-font-size;
           border: none;
           border-bottom: solid 1px $gray;
           line-height: $xs-line-height;
@@ -182,7 +184,8 @@
 
 // Page Main Content Container.
 .cmp__blog-main {
-  margin-top: $page-content-top;
+  padding-top: $page-content-top;
+  padding-bottom: $page-content-bottom;
 
   // Page Content.
   .cmp__blog-content {

@@ -83,30 +83,40 @@
 				right spot! Please use the below contact form to send your query.
 			</p>
 
+			<p>
+				Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+			</p>
+
 			<form class="cmp__form cmp__contact-form" method="post">
 				<div class="cmp__form-container">
 
-					<div class="cmp__form-control">
+					<div class="cmp__form-control cmp__required">
 						<label for="Name">Name</label>
-						<input required type="text" name="Name" id="Name" maxlength="50" title="Name required">
+						<input required type="text" name="Name" id="Name" maxlength="50" title="Name required" placeholder="Enter Name">
 					</div>
 
-					<div class="cmp__form-control">
+					<div class="cmp__form-control cmp__required">
 						<label for="ReplyTo">E-mail</label>
-						<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required">
+						<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required" placeholder="Enter Email">
 					</div>
 
-					<div class="cmp__form-control">
+					<div class="cmp__form-control cmp__required">
 						<label for="subject">Subject</label>
-						<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required">
+						<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required" placeholder="Enter Subject">
 					</div>
 
-					<div class="cmp__form-control">
+					<div class="cmp__form-control cmp__required">
 						<label for="Body">Message</label>
-						<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50"></textarea>
+						<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50" placeholder="Enter Description"></textarea>
 					</div>
 
-					<input type="submit" name="submit" value="Send Message" id="submit">
+					<div class="cmp__bottom-row">
+						<p>
+							<span class="cmp__icon cmp__icon-shield"></span>
+							<span>Your email address will be not be shared anywhere!</span>
+						</p>
+						<input type="submit" name="submit" value="Send Message" id="submit">
+					</div>
 				</div>
 			</form>
 		</main>
