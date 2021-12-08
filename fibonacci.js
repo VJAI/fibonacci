@@ -1,17 +1,21 @@
 (function () {
-	// Handling Hamburger.
+	// Handling Navigation Menu For Small Screens.
 	var hamburger = document.querySelector('.cmp__hamburger'),
 		selectControl = document.querySelector('.cmp__hidden-menu');
 	
 	hamburger.addEventListener('click', function () {
-		selectControl.style.opacity = 1;
+		selectControl.click();
+	});
+	
+	hamburger.addEventListener('change', function (evt) {
+		window.location.href = selectControl.value;
 	});
 	
 	// Handling Search Input.
-	var x = window.matchMedia('screen and (min-width: 560px)');
+	var x = window.matchMedia('screen and (min-width: 768px)');
 	var nav = document.querySelector('.cmp__blog-nav');
 	var searchInput = document.querySelector('.cmp__search-form input');
-	var searchIcon = document.querySelector('.cmp__search-form span');
+	var searchIcon = document.querySelector('.cmp__search-form a');
 	
 	searchInput.addEventListener('click', function (e) {
 		e.stopPropagation();
