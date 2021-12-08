@@ -31,14 +31,20 @@ html, body {
   height: $footer-height;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 $md-size;
   font-family: $footer-font-family;
   font-size: $footer-font-size;
   letter-spacing: $large-letter-spacing;
   color: $medium-gray;
   background-color: $dim-gray;
-  justify-content: flex-end;
   text-transform: uppercase;
+}
+
+@media only screen and (min-width: $mobile) {
+  .cmp__blog-footer {
+    justify-content: flex-end;
+  }
 }
 
 // Blog Info.

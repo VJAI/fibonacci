@@ -289,12 +289,10 @@ blockquote {
 
 // Figures.
 figure {
-  margin-top: $md-size;
-  margin-bottom: $lg-size;
+  margin-block-start: $md-size;
+  margin-block-end: $lg-size;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
 
   &.cmp__figure-full {
     figcaption, caption {
@@ -316,28 +314,6 @@ figure {
       figcaption, caption {
         margin-left: $xl-size;
         margin-right: $xl-size;
-      }
-    }
-  }
-
-  &.cmp__responsive {
-    figcaption, caption {
-      margin-left: $lg-size;
-      margin-right: $lg-size;
-    }
-
-    img, .cmp__table-wrapper {
-      border-radius: 0;
-    }
-
-    @media only screen and (min-width: $mobile) {
-      figcaption, caption {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      img, .cmp__table-wrapper {
-        border-radius: $border-radius;
       }
     }
   }
@@ -367,6 +343,28 @@ figure {
     padding: $inner-padding;
     background-color: $success;
     overflow-x: auto;
+  }
+}
+
+figure.cmp__responsive, .cmp__responsive > figure {
+  figcaption, caption {
+    margin-left: $lg-size;
+    margin-right: $lg-size;
+  }
+
+  img, .cmp__table-wrapper {
+    border-radius: 0;
+  }
+
+  @media only screen and (min-width: $mobile) {
+    figcaption, caption {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    img, .cmp__table-wrapper {
+      border-radius: $border-radius;
+    }
   }
 }
 
@@ -706,7 +704,7 @@ $breakpoints: (
       float: right;
     }
 
-    .cmp__#{$name}float-left:after, .cmp__#{$name}float-right:after {
+    .cmp__#{$name}-float-left:after, .cmp__#{$name}-float-right:after {
       clear: both;
       height: 0;
       width: 100%;
@@ -804,77 +802,77 @@ $sizes: (
   }
 }
 
-@each $name, $breakpoint in $breakpoints {
+@each $breakpointname, $breakpoint in $breakpoints {
   @media only screen and (min-width: $breakpoint) {
-    .cmp__#{$name}-no-margin {
+    .cmp__#{$breakpointname}-no-margin {
       margin: 0;
     }
 
-    .cmp__#{$name}-no-pad {
+    .cmp__#{$breakpointname}-no-pad {
       padding: 0;
     }
 
     @each $name, $size in $sizes {
 
       // Paddings.
-      .cmp__#{$name}-pad-#{$name} {
+      .cmp__#{$breakpointname}-pad-#{$name} {
         padding: #{$size};
       }
 
-      .cmp__#{$name}-pad-hor-#{$name} {
+      .cmp__#{$breakpointname}-pad-hor-#{$name} {
         padding-left: #{$size};
         padding-right: #{$size};
       }
 
-      .cmp__#{$name}-pad-ver-#{$name} {
+      .cmp__#{$breakpointname}-pad-ver-#{$name} {
         padding-top: #{$size};
         padding-bottom: #{$size};
       }
 
-      .cmp__#{$name}-pad-left-#{$name} {
+      .cmp__#{$breakpointname}-pad-left-#{$name} {
         padding-left: #{$size};
       }
 
-      .cmp__#{$name}-pad-right-#{$name} {
+      .cmp__#{$breakpointname}-pad-right-#{$name} {
         padding-right: #{$size};
       }
 
-      .cmp__#{$name}-pad-top-#{$name} {
+      .cmp__#{$breakpointname}-pad-top-#{$name} {
         padding-top: #{$size};
       }
 
-      .cmp__#{$name}-pad-bottom-#{$name} {
+      .cmp__#{$breakpointname}-pad-bottom-#{$name} {
         padding-bottom: #{$size};
       }
 
       // Margins.
-      .cmp__#{$name}-mar-#{$name} {
+      .cmp__#{$breakpointname}-mar-#{$name} {
         margin: #{$size};
       }
 
-      .cmp__#{$name}-mar-hor-#{$name} {
+      .cmp__#{$breakpointname}-mar-hor-#{$name} {
         margin-left: #{$size};
         margin-right: #{$size};
       }
 
-      .cmp__#{$name}-mar-ver-#{$name} {
+      .cmp__#{$breakpointname}-mar-ver-#{$name} {
         margin-top: #{$size};
         margin-bottom: #{$size};
       }
 
-      .cmp__#{$name}-mar-left-#{$name} {
+      .cmp__#{$breakpointname}-mar-left-#{$name} {
         margin-left: #{$size};
       }
 
-      .cmp__#{$name}-mar-right-#{$name} {
+      .cmp__#{$breakpointname}-mar-right-#{$name} {
         margin-right: #{$size};
       }
 
-      .cmp__#{$name}-mar-top-#{$name} {
+      .cmp__#{$breakpointname}-mar-top-#{$name} {
         margin-top: #{$size};
       }
 
-      .cmp__#{$name}-mar-bottom-#{$name} {
+      .cmp__#{$breakpointname}-mar-bottom-#{$name} {
         margin-bottom: #{$size};
       }
     }
