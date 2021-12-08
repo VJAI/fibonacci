@@ -97,7 +97,7 @@ html, body {
     font-size: 0.618rem;
     position: absolute;
     top: 1.781rem;
-    left: 3.174rem;
+    left: 3.494rem;
   }
 }
 
@@ -166,11 +166,13 @@ html, body {
         color: $brand-color;
       }
 
-      &:not(.cmp__hamburger) {
+      &:not(.cmp__hamburger-link) {
         display: none;
       }
 
-      &.cmp__hamburger {
+      &.cmp__hamburger-link {
+        padding: 0;
+
         .cmp__nav-link {
           position: relative;
 
@@ -241,20 +243,24 @@ html, body {
     }
 
     @media only screen and (min-width: $mobile) {
-      li:not(.cmp__hamburger) {
+      li:not(.cmp__hamburger-link) {
         display: flex;
       }
 
-      .cmp__hamburger {
+      .cmp__hamburger-link {
         display: none;
       }
     }
   }
 
-  &.search-active {
-    .cmp__search-form {
-      input {
-        display: block;
+  &.cmp__search-active {
+    .cmp__search-link {
+      display: flex;
+
+      .cmp__search-form {
+        input {
+          display: block;
+        }
       }
     }
 
