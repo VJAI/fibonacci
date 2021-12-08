@@ -1,21 +1,32 @@
 (function () {
-	// Handling Navigation Menu For Small Screens.
-	var hamburger = document.querySelector('.cmp__hamburger'),
-		selectControl = document.querySelector('.cmp__hidden-menu');
+	var hamburger = document.querySelector('.cmp__hamburger-link'),
+		selectControl = document.querySelector('.cmp__hidden-menu'),
+		nav = document.querySelector('.cmp__blog-nav'),
+		searchInput = document.querySelector('.cmp__search-form input'),
+		searchIcon = document.querySelector('.cmp__search-form a');
+	
+	var x = window.matchMedia('screen and (min-width: 768px)');
 	
 	hamburger.addEventListener('click', function () {
 		selectControl.click();
 	});
 	
 	hamburger.addEventListener('change', function (evt) {
+		var page = selectControl.value;
+		
+		if (!page) {
+			return;
+		}
+		
+		if (page === 'search') {
+			nav.classList.add('cmp__search-active');
+			document.body.addEventListener('click', documentClickHandler);
+			searchInput.focus();
+			return;
+		}
+		
 		window.location.href = selectControl.value;
 	});
-	
-	// Handling Search Input.
-	var x = window.matchMedia('screen and (min-width: 768px)');
-	var nav = document.querySelector('.cmp__blog-nav');
-	var searchInput = document.querySelector('.cmp__search-form input');
-	var searchIcon = document.querySelector('.cmp__search-form a');
 	
 	searchInput.addEventListener('click', function (e) {
 		e.stopPropagation();
@@ -25,7 +36,6 @@
 	x.addListener(f);
 	
 	function f(x) {
-		
 		if (x.matches) {
 			searchIcon.removeEventListener('click', searchIconClickHandler);
 		} else {
@@ -34,7 +44,7 @@
 	}
 	
 	function searchIconClickHandler(e) {
-		nav.classList.add('search-active');
+		nav.classList.add('cmp__search-active');
 		document.body.addEventListener('click', documentClickHandler);
 		searchInput.focus();
 		e.stopPropagation();
@@ -45,7 +55,8 @@
 			return;
 		}
 		
-		nav.classList.remove('search-active');
+		nav.classList.remove('cmp__search-active');
+		selectControl.value = null;
 		document.body.removeEventListener('click', documentClickHandler);
 	}
 })();
