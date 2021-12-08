@@ -15,7 +15,7 @@ A simplistic read-friendly blog template built with golden ratio.
 
 ## Development
 
-Fork the repo or download the source-code and then open the terminal at the root of the project and run,
+Available in npm as "fibonacci-blog-template". You can also fork the repo or download the source-code and then open the terminal at the root of the project and run,
 
 ```
 npm install
