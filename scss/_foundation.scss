@@ -623,6 +623,12 @@ input[type="search"]::-webkit-search-results-decoration {
   height: $icon-width;
   display: inline-block;
   background-repeat: no-repeat;
+
+  &.cmp__icon-hamburger {
+    width: $lg-size;
+    height: $lg-size;
+    background: url("assets/icons/hamburger.svg");
+  }
 }
 
 // Widgets.

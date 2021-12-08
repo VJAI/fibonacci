@@ -78,6 +78,9 @@ html, body {
       margin-left: 0.26rem;
       letter-spacing: $large-letter-spacing;
       width: $logo-name-width;
+      line-height: 1;
+      position: relative;
+      top: -5px;
     }
   }
 
@@ -93,7 +96,7 @@ html, body {
   .cmp__blog-tag-line {
     font-size: 0.618rem;
     position: absolute;
-    top: 2rem;
+    top: 1.781rem;
     left: 3.174rem;
   }
 }
@@ -101,6 +104,12 @@ html, body {
 @media only screen and (min-width: $tablet) {
   .cmp__blog-info {
     flex-direction: row;
+
+    a.cmp__blog-logo {
+      .cmp__blog-name {
+        position: static;
+      }
+    }
 
     .cmp__separator {
       display: block;
@@ -136,6 +145,7 @@ html, body {
     li {
       padding: 0 $nav-link-spacing;
       height: 100%;
+      position: relative;
 
       &:before {
         display: none;
@@ -146,9 +156,31 @@ html, body {
       }
 
       // Active State.
-      &.cmp__nav-active {
+      &.cmp__nav-active::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         border-top: solid $nav-active-border-width $brand-color;
         color: $brand-color;
+      }
+
+      &:not(.cmp__hamburger) {
+        display: none;
+      }
+
+      &.cmp__hamburger {
+        .cmp__nav-link {
+          position: relative;
+
+          .cmp__hidden-menu {
+            position: absolute;
+            width: $lg-size;
+            height: $lg-size;
+            opacity: 0;
+          }
+        }
       }
 
       // Nav Link.
@@ -208,14 +240,6 @@ html, body {
       }
     }
 
-    li:not(.cmp__hamburger) {
-      display: none;
-    }
-
-    .cmp__hidden-menu {
-      opacity: 0;
-    }
-
     @media only screen and (min-width: $mobile) {
       li:not(.cmp__hamburger) {
         display: flex;
@@ -228,10 +252,7 @@ html, body {
   }
 
   &.search-active {
-    flex-grow: 1;
-    margin-left: $md-size;
-
-    .search-form {
+    .cmp__search-form {
       input {
         display: block;
       }
