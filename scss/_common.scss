@@ -22,6 +22,8 @@ html, body {
   color: $gray;
   height: $header-height;
   position: relative;
+  background-color: $dim-gray;
+  box-shadow: 0 1px 4px 0 $light-gray;
 }
 
 // Page Footer Component.
@@ -34,7 +36,7 @@ html, body {
   font-size: $footer-font-size;
   letter-spacing: $large-letter-spacing;
   color: $medium-gray;
-  background-color: $light-gray;
+  background-color: $dim-gray;
   justify-content: flex-end;
   text-transform: uppercase;
 }
@@ -44,7 +46,6 @@ html, body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 0.26rem;
 
   // Logo Component
   a.cmp__blog-logo {
@@ -141,6 +142,7 @@ html, body {
       // Active State.
       &.cmp__nav-active {
         border-top: solid $nav-active-border-width $brand-color;
+        color: $brand-color;
       }
 
       // Nav Link.
@@ -189,6 +191,7 @@ html, body {
           color: $gray;
           padding: 0 0 0.260rem;
           display: none;
+          background-color: $dim-gray;
         }
 
         @media only screen and (min-width: $tablet) {
@@ -359,8 +362,10 @@ html, body {
               margin-bottom: 0;
             }
 
-            > div:not(:last-child) {
-              margin-right: $md-size;
+            > div:not(:first-child):not(:last-child):after {
+              content: '|';
+              margin-left: $xs-size;
+              margin-right: $xs-size;
             }
 
             .cmp__article-author {
@@ -391,18 +396,10 @@ html, body {
 
         // Figure element.
         figure {
-          img {
-            border-radius: $border-radius;
-          }
-
           // Full width.
           &.cmp__figure-full {
             max-width: 100%;
             @include horizontal-center;
-
-            img {
-              border-radius: 0;
-            }
           }
         }
 
@@ -458,13 +455,8 @@ html, body {
 
         // Article element.
         .cmp__page-element {
-          max-width: 100%;
           margin-top: $md-size;
           margin-bottom: $lg-size;
-
-          figure {
-            max-width: 100%;
-          }
         }
       }
 
@@ -499,23 +491,26 @@ html, body {
     margin-right: $lg-size;
   }
 
-  > ul, > ol, > menu {
-    padding-left: $md-size;
+  .cmp__responsive {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  @media only screen and (min-width: $mobile) {
+    border-radius: $border-radius;
   }
 
   @media only screen and (min-width: $tablet) {
-    > * {
+    > *, .cmp__responsive {
       margin-left: $xl-size;
       margin-right: $xl-size;
-    }
-
-    > ul, > ol, > menu {
-      padding-left: 0;
     }
   }
 
   @media only screen and (min-width: $breakpoint1) {
-    > * {
+    > *, .cmp__responsive {
       max-width: $container-width;
       @include horizontal-center;
     }

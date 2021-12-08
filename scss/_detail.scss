@@ -87,6 +87,11 @@
 
       .cmp__comment {
         display: flex;
+        align-items: flex-start;
+
+        .cmp__comment-by {
+          margin-top: $lg-size;
+        }
 
         .cmp__comment-detail {
           .cmp__commented-date {
