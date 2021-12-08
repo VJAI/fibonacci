@@ -12,7 +12,7 @@ $brand-dark:                        darken($brand-color, 15%) !default;
 $brand-light:                       lighten($brand-color, 15%) !default;
 
 // Gray Variations.
-$dark-gray:                        rgba(51, 51, 51, 1) !default;
+$dark-gray:                         rgba(51, 51, 51, 1) !default;
 $medium-gray:                       rgba(51, 51, 51, 0.8) !default;
 $gray:                              rgba(51, 51, 51, 0.5) !default;
 $light-gray:                        rgba(204, 204, 204, 0.5) !default;
@@ -161,7 +161,7 @@ $medium-speed:                      0.5s !default;
 
 // Specific Variables.
 // Header Component.
-$header-height:                     $xl-size !default;
+$header-height:                     2.618rem !default;
 
 // Logo Component.
 $logo-font-family:                  $display-font-family !default;

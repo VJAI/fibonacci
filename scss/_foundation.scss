@@ -24,7 +24,7 @@
   2.618 2.882 3.174 3.494 3.847 4.236 4.664 5.135 5.654 6.225
  */
 
-// Medium and Small Screens.
+// Sizes for Mobile Devices.
 :root {
   --base-size: 16px;
   --xs-size: 0.825rem;
@@ -37,8 +37,8 @@
   font-size: var(--base-size);
 }
 
-// Large and Extra Large Screens
-@media only screen and (min-width: $mobile) {
+// Sizes for Tablet, Desktop and Large Devices.
+@media only screen and (min-width: $tablet) {
   :root {
     --base-size: 19px;
     --xs-size: 0.749rem;
@@ -106,7 +106,7 @@ h1, .h1 {
     content: '';
     border-bottom: solid $h1-border-width $dark-border;
     margin-top: $xl-size;
-    width: 40%;
+    width: 42%;
   }
 }
 
@@ -159,13 +159,32 @@ a:hover, .link:hover {
 ul,
 ol,
 menu {
-  padding-left: 0;
-  list-style: none;
+  padding-left: $md-size;
   margin-top: 0;
   margin-bottom: $md-size;
   position: relative;
+  list-style: none;
+
+  ul, ol, menu {
+    margin-bottom: 0.421rem;
+  }
 }
 
+@media only screen and (min-width: $mobile) {
+  ul,
+  ol,
+  menu {
+    padding-left: 0;
+
+    ul,
+    ol,
+    menu {
+      padding-left: $md-size;
+    }
+  }
+}
+
+// Un-ordered lists.
 ul li:before, menu li:before {
   content: "\25A0";
   color: $brand-color;
@@ -176,6 +195,7 @@ ul li:before, menu li:before {
   position: absolute;
 }
 
+// Ordered lists.
 ol {
   counter-reset: li;
 }
@@ -196,13 +216,6 @@ ol li li:before {
   content: counters(li, ".") " ";
 }
 
-ul, ol, menu {
-  ul, ol, menu {
-    padding-left: $md-size;
-    margin-bottom: 0.421rem;
-  }
-}
-
 // Detail Lists.
 dl {
   // Title.
@@ -217,17 +230,18 @@ dl {
   // Description.
   dd {
     margin-bottom: $xs-size;
+    margin-inline-start: $md-size;
   }
 }
 
 // Blockquotes.
 blockquote {
+  font-family: $bquote-content-font-family;
   background-color: $bquote-bg-color;
+  color: $bquote-color;
   border-radius: $border-radius;
-  color: $medium-gray;
   margin-top: $md-size;
   margin-bottom: $lg-size;
-  font-family: $bquote-content-font-family;
 
   h1, h2, h3, h4, h5 {
     font-family: $bquote-title-font-family;
@@ -254,12 +268,79 @@ blockquote {
       margin-right: 0.26rem;
     }
   }
+
+  &.cmp__responsive {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    @media only screen and (min-width: $mobile) {
+      border-radius: $border-radius;
+      margin-left: $lg-size;
+      margin-right: $lg-size;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      margin-left: $xl-size;
+      margin-right: $xl-size;
+    }
+  }
 }
 
 // Figures.
 figure {
   margin-top: $md-size;
   margin-bottom: $lg-size;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  &.cmp__figure-full {
+    figcaption, caption {
+      margin-left: $lg-size;
+      margin-right: $lg-size;
+    }
+
+    img, .cmp__table-wrapper {
+      border-radius: 0;
+    }
+
+    @media only screen and (min-width: $mobile) {
+      figcaption {
+        text-align: center;
+      }
+    }
+
+    @media only screen and (min-width: $tablet) {
+      figcaption, caption {
+        margin-left: $xl-size;
+        margin-right: $xl-size;
+      }
+    }
+  }
+
+  &.cmp__responsive {
+    figcaption, caption {
+      margin-left: $lg-size;
+      margin-right: $lg-size;
+    }
+
+    img, .cmp__table-wrapper {
+      border-radius: 0;
+    }
+
+    @media only screen and (min-width: $mobile) {
+      figcaption, caption {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      img, .cmp__table-wrapper {
+        border-radius: $border-radius;
+      }
+    }
+  }
 
   img {
     display: block;
@@ -273,8 +354,8 @@ figure {
   figcaption {
     margin-top: 0.26rem;
     font-size: $figure-caption-font-size;
-    color: $figure-caption-color;
     font-family: $figure-caption-font-family;
+    color: $figure-caption-color;
 
     code {
       font-family: $code-font-family;
@@ -282,35 +363,34 @@ figure {
     }
   }
 
-  .table-wrapper {
+  .cmp__table-wrapper {
     padding: $inner-padding;
     background-color: $success;
-    border-radius: $border-radius;
+    overflow-x: auto;
   }
+}
 
-  &.cmp__figure-full {
-    img {
-      border-radius: 0;
-    }
-
-    figcaption {
-      text-align: center;
+@media only screen and (min-width: $mobile) {
+  figure {
+    &:not(.cmp__figure-full) {
+      figcaption {
+        text-align: left;
+      }
     }
   }
 }
 
 // Tables.
 table {
-  caption-side: bottom;
   width: 100%;
   font-size: $table-font-size;
   font-family: $table-font-family;
-  border-collapse: collapse;
   margin-top: $md-size;
   margin-bottom: $lg-size;
+  border-collapse: collapse;
+  caption-side: bottom;
 
   caption {
-    text-align: left;
     font-size: $table-caption-font-size;
     color: $table-caption-color;
     font-family: $table-caption-font-family;
@@ -462,7 +542,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
   &:focus, &:active {
     outline: none;
-    border-color: $brand-color;
+    border-color: $medium-gray;
   }
 }
 
@@ -516,14 +596,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .cmp__form-control {
   display: flex;
   flex-direction: column;
-  margin-bottom: $lg-size;
   align-items: flex-start;
-
-  &.cmp__required {
-    input, textarea {
-      border-left: solid 4px $brand-color;
-    }
-  }
+  margin-bottom: $lg-size;
 
   label {
     display: flex;
@@ -537,14 +611,6 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-direction: row;
     background-color: $form-control-bg-color;
     align-items: center;
-
-    &.cmp__required {
-      border-left: solid 4px $brand-color;
-
-      input, textarea {
-        border-left: solid 2px $input-border-color;
-      }
-    }
 
     label {
       min-width: 6.225rem;
@@ -565,7 +631,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .cmp__widget {
   background-color: $widget-bg-color;
   border-radius: $border-radius;
-  padding: $lg-size $xl-size;
+  padding: $lg-size;
 
   h5 {
     margin-top: 0;
@@ -574,6 +640,12 @@ input[type="search"]::-webkit-search-results-decoration {
     letter-spacing: $medium-letter-spacing;
     border-bottom: solid 1px $light-border;
     padding-bottom: $xs-size;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .cmp__widget {
+    padding: $lg-size $xl-size;
   }
 }
 
@@ -597,6 +669,12 @@ input[type="search"]::-webkit-search-results-decoration {
   background: $brand-color;
 }
 
+$breakpoints: (
+  "mob": $mobile,
+  "tab": $tablet,
+  "desktop": $desktop
+);
+
 // Floats.
 .cmp__float-left {
   float: left;
@@ -618,15 +696,31 @@ input[type="search"]::-webkit-search-results-decoration {
   clear: both;
 }
 
+@each $name, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    .cmp__#{$name}-float-left {
+      float: left;
+    }
+
+    .cmp__#{$name}float-right {
+      float: right;
+    }
+
+    .cmp__#{$name}float-left:after, .cmp__#{$name}float-right:after {
+      clear: both;
+      height: 0;
+      width: 100%;
+      content: '';
+      display: block;
+    }
+
+    .cmp__#{$name}-clear {
+      clear: both;
+    }
+  }
+}
+
 // Create re-usable paddings and margins.
-.cmp__no-margin {
-  margin: 0;
-}
-
-.cmp__no-pad {
-  padding: 0;
-}
-
 $sizes: (
   "xs": $xs-size,
   "sm": $sm-size,
@@ -636,6 +730,14 @@ $sizes: (
   "xxl": $xxl-size,
   "xxxl": $xxxl-size
 );
+
+.cmp__no-margin {
+  margin: 0;
+}
+
+.cmp__no-pad {
+  padding: 0;
+}
 
 @each $name, $size in $sizes {
 
@@ -699,6 +801,83 @@ $sizes: (
 
   .cmp__mar-bottom-#{$name} {
     margin-bottom: #{$size};
+  }
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    .cmp__#{$name}-no-margin {
+      margin: 0;
+    }
+
+    .cmp__#{$name}-no-pad {
+      padding: 0;
+    }
+
+    @each $name, $size in $sizes {
+
+      // Paddings.
+      .cmp__#{$name}-pad-#{$name} {
+        padding: #{$size};
+      }
+
+      .cmp__#{$name}-pad-hor-#{$name} {
+        padding-left: #{$size};
+        padding-right: #{$size};
+      }
+
+      .cmp__#{$name}-pad-ver-#{$name} {
+        padding-top: #{$size};
+        padding-bottom: #{$size};
+      }
+
+      .cmp__#{$name}-pad-left-#{$name} {
+        padding-left: #{$size};
+      }
+
+      .cmp__#{$name}-pad-right-#{$name} {
+        padding-right: #{$size};
+      }
+
+      .cmp__#{$name}-pad-top-#{$name} {
+        padding-top: #{$size};
+      }
+
+      .cmp__#{$name}-pad-bottom-#{$name} {
+        padding-bottom: #{$size};
+      }
+
+      // Margins.
+      .cmp__#{$name}-mar-#{$name} {
+        margin: #{$size};
+      }
+
+      .cmp__#{$name}-mar-hor-#{$name} {
+        margin-left: #{$size};
+        margin-right: #{$size};
+      }
+
+      .cmp__#{$name}-mar-ver-#{$name} {
+        margin-top: #{$size};
+        margin-bottom: #{$size};
+      }
+
+      .cmp__#{$name}-mar-left-#{$name} {
+        margin-left: #{$size};
+      }
+
+      .cmp__#{$name}-mar-right-#{$name} {
+        margin-right: #{$size};
+      }
+
+      .cmp__#{$name}-mar-top-#{$name} {
+        margin-top: #{$size};
+      }
+
+      .cmp__#{$name}-mar-bottom-#{$name} {
+        margin-bottom: #{$size};
+      }
+    }
   }
 }
 
