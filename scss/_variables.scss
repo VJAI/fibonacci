@@ -63,11 +63,12 @@ $container-width:                   42rem !default;
 $inner-padding:                     $sm-size $lg-size !default;
 
 // Breakpoints.
-$mobile:                            480px !default;
-$tablet:                            768px !default;
-$desktop:                           1100px !default;
-$breakpoint1:                       836px !default;
-$breakpoint2:                       560px !default;
+$mobile:                            576px !default; // Small devices (landscape phones, 576px and up).
+$tablet:                            768px !default; // Medium devices (tablets, 768px and up).
+$desktop:                           992px !default; // Large devices (desktops, 992px and up).
+
+$breakpoint1:                       878px !default;  // Custom one.
+$breakpoint2:                       1100px !default; // Custom one.
 
 // Paragraphs.
 $lead-para-font-size:               1.212rem !default;

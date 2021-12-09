@@ -15,18 +15,20 @@
       .cmp__icon {
         display: none;
       }
-
-      @media only screen and (min-width: $mobile) {
-        .cmp__icon {
-          display: block;
-          margin-right: 0.236rem;
-        }
-      }
     }
 
     input[type="submit"] {
       margin-left: auto;
       display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: $mobile) {
+  .cmp__contact-form .cmp__bottom-row p {
+    .cmp__icon {
+      display: block;
+      margin-right: 0.236rem;
     }
   }
 }

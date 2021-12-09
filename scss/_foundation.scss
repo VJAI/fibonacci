@@ -53,13 +53,16 @@
 
 // Global Overrides.
 html, body {
+  box-sizing: border-box;
+
   margin: 0;
   padding: 0;
+
   font-family: $body-font-family;
   font-size: $body-font-size;
   line-height: $base-line-height;
+
   color: $dark-gray;
-  box-sizing: border-box;
 }
 
 // CSS Resets.
@@ -71,6 +74,7 @@ html, body {
 p, .para {
   margin-top: 0;
   margin-bottom: $md-size;
+
   font-size: $body-font-size;
 }
 
@@ -84,6 +88,7 @@ h6, .h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
+
   color: $heading-color;
 
   a:link,
@@ -96,9 +101,11 @@ h6, .h6 {
 }
 
 h1, .h1 {
-  font-size: $h1-font-size;
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
+
+  font-size: $h1-font-size;
+
   color: $brand-color;
 
   &::after {
@@ -111,31 +118,34 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: $h2-font-size;
   margin-top: 1.781rem;
   margin-bottom: $md-size;
+
+  font-size: $h2-font-size;
 }
 
 h3, .h3 {
-  font-size: $h3-font-size;
   margin-top: $lg-size;
   margin-bottom: $sm-size;
+
+  font-size: $h3-font-size;
 }
 
 h4, .h4 {
-  font-size: $h4-font-size;
   margin-top: $lg-size;
   margin-bottom: $xs-size;
+
+  font-size: $h4-font-size;
 }
 
 h5, .h5 {
-  font-size: $h5-font-size;
   margin-bottom: $xs-size;
+  font-size: $h5-font-size;
 }
 
 h6, .h6 {
-  font-size: $small-font-size;
   margin-bottom: $xs-size;
+  font-size: $small-font-size;
 }
 
 // Links.
@@ -159,10 +169,12 @@ a:hover, .link:hover {
 ul,
 ol,
 menu {
+  position: relative;
+
   padding-left: $md-size;
   margin-top: 0;
   margin-bottom: $md-size;
-  position: relative;
+
   list-style: none;
 
   ul, ol, menu {
@@ -170,29 +182,17 @@ menu {
   }
 }
 
-@media only screen and (min-width: $mobile) {
-  ul,
-  ol,
-  menu {
-    padding-left: 0;
-
-    ul,
-    ol,
-    menu {
-      padding-left: $md-size;
-    }
-  }
-}
-
 // Un-ordered lists.
 ul li:before, menu li:before {
   content: "\25A0";
-  color: $brand-color;
-  font-weight: bold;
+  position: absolute;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
-  position: absolute;
+
+  font-weight: bold;
+
+  color: $brand-color;
 }
 
 // Ordered lists.
@@ -201,14 +201,17 @@ ol {
 }
 
 ol li:before {
+  display: inline-block;
+  position: absolute;
+  width: 1.470em;
+  margin-left: -1.961em;
+
+  font-family: $heading-font-family;
+
   content: counter(li) ".";
   counter-increment: li;
   counter-reset: revert;
-  display: inline-block;
-  width: 1.470em;
-  margin-left: -1.961em;
-  font-family: $heading-font-family;
-  position: absolute;
+
   text-align: right;
 }
 
@@ -222,9 +225,9 @@ dl {
   dt {
     font-family: $heading-font-family;
     font-size: $h5-font-size;
-    color: $medium-gray;
     letter-spacing: $medium-letter-spacing;
     text-transform: uppercase;
+    color: $medium-gray;
   }
 
   // Description.
@@ -236,17 +239,19 @@ dl {
 
 // Blockquotes.
 blockquote {
-  font-family: $bquote-content-font-family;
-  background-color: $bquote-bg-color;
-  color: $bquote-color;
-  border-radius: $border-radius;
   margin-top: $md-size;
   margin-bottom: $lg-size;
 
+  font-family: $bquote-content-font-family;
+
+  background-color: $bquote-bg-color;
+  color: $bquote-color;
+  border-radius: $border-radius;
+
   h1, h2, h3, h4, h5 {
+    display: inline-block;
     font-family: $bquote-title-font-family;
     border-bottom: solid 2px;
-    display: inline-block;
   }
 
   p {
@@ -259,9 +264,9 @@ blockquote {
   }
 
   cite {
-    text-align: right;
     display: block;
     font-size: $cite-font-size;
+    text-align: right;
 
     &::before {
       content: '—';
@@ -270,20 +275,9 @@ blockquote {
   }
 
   &.cmp__responsive {
-    border-radius: 0;
     margin-left: 0;
     margin-right: 0;
-
-    @media only screen and (min-width: $mobile) {
-      border-radius: $border-radius;
-      margin-left: $lg-size;
-      margin-right: $lg-size;
-    }
-
-    @media only screen and (min-width: $tablet) {
-      margin-left: $xl-size;
-      margin-right: $xl-size;
-    }
+    border-radius: 0;
   }
 }
 
@@ -302,19 +296,6 @@ figure {
 
     img, .cmp__table-wrapper {
       border-radius: 0;
-    }
-
-    @media only screen and (min-width: $mobile) {
-      figcaption {
-        text-align: center;
-      }
-    }
-
-    @media only screen and (min-width: $tablet) {
-      figcaption, caption {
-        margin-left: $xl-size;
-        margin-right: $xl-size;
-      }
     }
   }
 
@@ -355,43 +336,24 @@ figure.cmp__responsive, .cmp__responsive > figure {
   img, .cmp__table-wrapper {
     border-radius: 0;
   }
-
-  @media only screen and (min-width: $mobile) {
-    figcaption, caption {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    img, .cmp__table-wrapper {
-      border-radius: $border-radius;
-    }
-  }
-}
-
-@media only screen and (min-width: $mobile) {
-  figure {
-    &:not(.cmp__figure-full) {
-      figcaption {
-        text-align: left;
-      }
-    }
-  }
 }
 
 // Tables.
 table {
   width: 100%;
-  font-size: $table-font-size;
-  font-family: $table-font-family;
   margin-top: $md-size;
   margin-bottom: $lg-size;
+
+  font-size: $table-font-size;
+  font-family: $table-font-family;
+
   border-collapse: collapse;
   caption-side: bottom;
 
   caption {
     font-size: $table-caption-font-size;
-    color: $table-caption-color;
     font-family: $table-caption-font-family;
+    color: $table-caption-color;
   }
 
   td, th {
@@ -413,11 +375,12 @@ pre {
   margin: 0;
 
   code {
-    line-height: $code-line-height;
     font-family: $code-font-family;
     font-size: $code-font-size;
-    border-radius: $border-radius;
+    line-height: $code-line-height;
     letter-spacing: normal;
+
+    border-radius: $border-radius;
 
     &.hljs {
       padding: 0;
@@ -427,27 +390,29 @@ pre {
 }
 
 var, kbd {
+  padding: 0 0.146rem;
+
   font-family: $code-font-family;
+  font-size: $var-font-size;
   font-style: normal;
+  letter-spacing: $small-letter-spacing;
+
   color: $var-color;
   background-color: $var-bg-color;
-  letter-spacing: $small-letter-spacing;
   border-radius: $border-radius;
-  font-size: $var-font-size;
-  padding: 0 0.146rem;
 }
 
 // Abbr, Acronym.
 abbr, acronym {
-  text-transform: uppercase;
   letter-spacing: $medium-letter-spacing;
+  text-transform: uppercase;
   text-decoration: none;
 
   &:after {
     content: '†';
-    font-size: $special-char-font-size;
     position: relative;
     top: -0.618em;
+    font-size: $special-char-font-size;
   }
 }
 
@@ -496,12 +461,12 @@ address {
 
 // Horizontal line.
 hr {
-  margin: $xxl-size 0;
-  border: 0;
   height: 1px;
-  background: $hr-bg;
+  margin: $xxl-size 0;
   position: relative;
   overflow: visible;
+  border: 0;
+  background: $hr-bg;
 }
 
 hr:before {
@@ -529,14 +494,18 @@ label {
 // Input Textboxes and Textareas.
 input[type="text"], input[type="email"], input[type="search"], textarea {
   width: 100%;
+  padding: $input-padding;
+
   font-family: $input-font-family;
   font-size: $input-font-size;
   line-height: $input-line-height;
-  padding: $input-padding;
+
+
   border: solid 2px $input-border-color;
-  transition: all $medium-speed;
   color: $input-text-color;
   outline: none;
+
+  transition: all $medium-speed;
 
   &:focus, &:active {
     outline: none;
@@ -546,15 +515,18 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
 // Buttons.
 button, [type="button"], [type="submit"] {
-  cursor: pointer;
+  padding: $button-padding;
+
   font-family: $button-font-family;
   font-size: $button-font-size;
-  padding: $button-padding;
-  background-color: $button-bg-color;
-  color: $button-text-color;
   text-transform: uppercase;
   letter-spacing: $medium-letter-spacing;
+
+  background-color: $button-bg-color;
+  color: $button-text-color;
   border: none;
+  cursor: pointer;
+
   transition: all $medium-speed;
 
   &:focus, &:active, &:hover {
@@ -598,22 +570,8 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-bottom: $lg-size;
 
   label {
-    display: flex;
-    align-items: center;
+    @include flex-ver-center;
     justify-content: flex-end;
-  }
-}
-
-@media only screen and (min-width: $tablet) {
-  .cmp__form-control {
-    flex-direction: row;
-    background-color: $form-control-bg-color;
-    align-items: center;
-
-    label {
-      min-width: 6.225rem;
-      margin-right: $sm-size;
-    }
   }
 }
 
@@ -633,23 +591,19 @@ input[type="search"]::-webkit-search-results-decoration {
 
 // Widgets.
 .cmp__widget {
+  padding: $lg-size;
   background-color: $widget-bg-color;
   border-radius: $border-radius;
-  padding: $lg-size;
 
   h5 {
+    padding-bottom: $xs-size;
     margin-top: 0;
+
     color: $gray;
+
     text-transform: uppercase;
     letter-spacing: $medium-letter-spacing;
     border-bottom: solid 1px $light-border;
-    padding-bottom: $xs-size;
-  }
-}
-
-@media only screen and (min-width: $tablet) {
-  .cmp__widget {
-    padding: $lg-size $xl-size;
   }
 }
 
@@ -689,11 +643,11 @@ $breakpoints: (
 }
 
 .cmp__float-left:after, .cmp__float-right:after {
-  clear: both;
-  height: 0;
-  width: 100%;
   content: '';
   display: block;
+  height: 0;
+  width: 100%;
+  clear: both;
 }
 
 .cmp__clear {
@@ -711,11 +665,11 @@ $breakpoints: (
     }
 
     .cmp__#{$name}-float-left:after, .cmp__#{$name}-float-right:after {
-      clear: both;
-      height: 0;
-      width: 100%;
       content: '';
       display: block;
+      height: 0;
+      width: 100%;
+      clear: both;
     }
 
     .cmp__#{$name}-clear {
@@ -920,4 +874,74 @@ $colors: (
 
 .cmp__center {
   text-align: center;
+}
+
+@media only screen and (min-width: $mobile) {
+  blockquote.cmp__responsive {
+    margin-left: $lg-size;
+    margin-right: $lg-size;
+    border-radius: $border-radius;
+  }
+
+  figure.cmp__figure-full {
+    figcaption, caption {
+      text-align: center;
+    }
+  }
+
+  figure.cmp__responsive, .cmp__responsive > figure {
+    figcaption, caption {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    img, .cmp__table-wrapper {
+      border-radius: $border-radius;
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  ul,
+  ol,
+  menu {
+    padding-left: 0;
+
+    ul,
+    ol,
+    menu {
+      padding-left: $md-size;
+    }
+  }
+
+  blockquote {
+    &.cmp__responsive {
+      margin-left: $xl-size;
+      margin-right: $xl-size;
+    }
+  }
+
+  figure {
+    &.cmp__figure-full {
+      figcaption, caption {
+        margin-left: $xl-size;
+        margin-right: $xl-size;
+      }
+    }
+  }
+
+  .cmp__form-control {
+    flex-direction: row;
+    align-items: center;
+    background-color: $form-control-bg-color;
+
+    label {
+      min-width: 6.225rem;
+      margin-right: $sm-size;
+    }
+  }
+
+  .cmp__widget {
+    padding: $lg-size $xl-size;
+  }
 }

@@ -1,9 +1,4 @@
-// Mixins.
-@mixin horizontal-center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
+// Make the page take minimum viewport height.
 html, body {
   min-height: 100vh;
 }
@@ -16,47 +11,25 @@ html, body {
 
 // Page Header.
 .cmp__blog-header {
-  display: flex;
-  align-items: center;
-  padding: 0 $md-size;
-  color: $gray;
-  height: $header-height;
   position: relative;
+  @include flex-ver-center;
+
+  height: $header-height;
+  padding: 0 $md-size;
+
+  color: $gray;
   background-color: $dim-gray;
   box-shadow: 0 1px 4px 0 $light-gray;
 }
 
-// Page Footer Component.
-.cmp__blog-footer {
-  height: $footer-height;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 $md-size;
-  font-family: $footer-font-family;
-  font-size: $footer-font-size;
-  letter-spacing: $large-letter-spacing;
-  color: $medium-gray;
-  background-color: $dim-gray;
-  text-transform: uppercase;
-}
-
-@media only screen and (min-width: $mobile) {
-  .cmp__blog-footer {
-    justify-content: flex-end;
-  }
-}
-
 // Blog Info.
 .cmp__blog-info {
-  display: flex;
-  align-items: center;
+  @include flex-ver-center;
   flex-direction: column;
 
-  // Logo Component
+  // Logo Component.
   a.cmp__blog-logo {
-    display: flex;
-    align-items: center;
+    @include flex-ver-center;
     border-bottom: none;
 
     &:hover {
@@ -72,80 +45,61 @@ html, body {
 
     // Logo Name.
     .cmp__blog-name {
+      position: relative;
+      width: $logo-name-width;
+      margin-left: 0.26rem;
+      top: -5px;
+
       font-family: $logo-font-family;
       font-size: $logo-font-size;
-      transition: all $medium-speed;
-      margin-left: 0.26rem;
+      line-height: $xs-line-height;
       letter-spacing: $large-letter-spacing;
-      width: $logo-name-width;
-      line-height: 1;
-      position: relative;
-      top: -5px;
+
+      transition: all $medium-speed;
     }
   }
 
   // Separator.
   .cmp__separator {
-    margin: 0 $sm-size;
-    border-right: solid 1px;
-    height: 1.618rem;
     display: none;
+    margin: 0 $sm-size;
+    height: 1.618rem;
+    border-right: solid 1px;
   }
 
   // Tag Line.
   .cmp__blog-tag-line {
-    font-size: 0.618rem;
     position: absolute;
     top: 1.781rem;
     left: 3.494rem;
+    font-size: 0.618rem;
   }
 }
 
-@media only screen and (min-width: $tablet) {
-  .cmp__blog-info {
-    flex-direction: row;
-
-    a.cmp__blog-logo {
-      .cmp__blog-name {
-        position: static;
-      }
-    }
-
-    .cmp__separator {
-      display: block;
-    }
-
-    .cmp__blog-tag-line {
-      font-size: $xs-size;
-      position: relative;
-      left: 0;
-      top: 3px;
-    }
-  }
-}
-
-// Page Navigation Component
+// Page Navigation Component.
 .cmp__blog-nav {
-  margin-left: auto;
-  font-family: $nav-font-family;
-  display: flex;
-  align-items: center;
+  @include flex-ver-center;
   height: 100%;
+  margin-left: auto;
+
+  font-family: $nav-font-family;
 
   // Nav List.
   ul {
+    height: 100%;
     display: flex;
+    align-items: center;
+
     margin: 0;
     padding: 0;
+
     list-style: none;
-    align-items: center;
-    height: 100%;
 
     // Nav List Item.
     li {
-      padding: 0 $nav-link-spacing;
       height: 100%;
       position: relative;
+      padding: 0 $nav-link-spacing;
 
       &:before {
         display: none;
@@ -158,10 +112,12 @@ html, body {
       // Active State.
       &.cmp__nav-active::after {
         content: '';
+
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+
         border-top: solid $nav-active-border-width $brand-color;
         color: $brand-color;
       }
@@ -187,13 +143,14 @@ html, body {
 
       // Nav Link.
       a {
-        line-height: $xs-line-height;
-        font-size: $nav-font-size;
-        border-bottom: none;
-        letter-spacing: $large-letter-spacing;
-        display: flex;
-        align-items: center;
+        @include flex-ver-center;
         height: 100%;
+
+        font-size: $nav-font-size;
+        line-height: $xs-line-height;
+        letter-spacing: $large-letter-spacing;
+
+        border-bottom: none;
 
         .cmp__nav-link-icon {
           margin-right: $nav-link-icon-spacing;
@@ -203,56 +160,30 @@ html, body {
           display: none;
           line-height: $xs-line-height;
         }
-
-        @media only screen and (min-width: $desktop) {
-          .cmp__nav-link-text {
-            display: block;
-          }
-        }
-      }
-
-      @media only screen and (min-width: $mobile) {
-        a {
-          font-size: $xs-size;
-        }
       }
 
       // Search form.
       .cmp__search-form {
-        display: flex;
-        align-items: center;
+        @include flex-ver-center;
         height: 100%;
 
         input {
+          display: none;
+          padding: 0 0 0.260rem;
+
           font-size: $small-font-size;
+          line-height: $xs-line-height;
+
           border: none;
           border-bottom: solid 1px $gray;
-          line-height: $xs-line-height;
           color: $gray;
-          padding: 0 0 0.260rem;
-          display: none;
           background-color: $dim-gray;
         }
-
-        @media only screen and (min-width: $tablet) {
-          input {
-            display: block;
-          }
-        }
-      }
-    }
-
-    @media only screen and (min-width: $mobile) {
-      li:not(.cmp__hamburger-link) {
-        display: flex;
-      }
-
-      .cmp__hamburger-link {
-        display: none;
       }
     }
   }
 
+  // When the search is active show the search textbox.
   &.cmp__search-active {
     .cmp__search-link {
       display: flex;
@@ -309,10 +240,9 @@ html, body {
           }
 
           > div {
+            @include flex-ver-center;
             margin-bottom: 5px;
             margin-right: 0;
-            display: flex;
-            align-items: center;
 
             .cmp__icon {
               margin-right: 0.26rem;
@@ -337,30 +267,14 @@ html, body {
 
               &.cmp__article-author-role {
                 margin-top: 0;
+                padding: 1px 5px;
+
+                font-size: $article-author-role-font-size;
                 text-transform: uppercase;
                 letter-spacing: $medium-letter-spacing;
+
                 background-color: $article-author-role-font-color;
-                padding: 1px 5px;
-                font-size: $article-author-role-font-size;
                 border-radius: $border-radius;
-              }
-            }
-          }
-
-          @media only screen and (min-width: $desktop) {
-            .cmp__article-author {
-              position: absolute;
-              top: -3.847rem;
-              left: $article-author-left-offset;
-              flex-direction: column;
-
-              .cmp__article-author-pic {
-                width: $author-pic-large-screen-width;
-              }
-
-              span {
-                margin-top: 0.26rem;
-                margin-left: 0;
               }
             }
           }
@@ -385,27 +299,6 @@ html, body {
             }
           }
         }
-
-        // Article Meta Info for Tablet size and more.
-        @media only screen and (min-width: $tablet) {
-          .cmp__article-meta {
-            display: flex;
-
-            > div {
-              margin-bottom: 0;
-            }
-
-            > div:not(:first-child):not(:last-child):after {
-              content: '|';
-              margin-left: $xs-size;
-              margin-right: $xs-size;
-            }
-
-            .cmp__article-author {
-              align-items: center;
-            }
-          }
-        }
       }
 
       // Article Content.
@@ -417,13 +310,19 @@ html, body {
         a:hover,
         a:focus,
         a:active {
-          color: $link-color;
           border-bottom: none;
           text-decoration: none;
           transition: all $medium-speed;
         }
 
-        a:hover {
+        a:link {
+          color: $link-color;
+        }
+
+        a:visited,
+        a:hover,
+        a:focus,
+        a:active {
           color: $link-hover-color;
         }
 
@@ -445,25 +344,29 @@ html, body {
         // Table of contents.
         .cmp__toc {
           padding: $lg-size $xl-size;
-          background-color: $dim-gray;
           margin-bottom: $xl-size;
+
+          background-color: $dim-gray;
           border-radius: $border-radius;
 
           h5 {
-            text-transform: uppercase;
+            padding-bottom: $xs-size;
+            margin-bottom: $sm-size;
+            text-align: center;
+
             letter-spacing: 0.5px;
+            text-transform: uppercase;
+
             color: $brand-color;
             border-bottom: solid 1px $light-border;
-            padding-bottom: $xs-size;
-            text-align: center;
-            margin-bottom: $sm-size;
           }
 
           ol {
             padding-left: $md-size;
-            text-transform: uppercase;
-            letter-spacing: $medium-letter-spacing;
+
             font-size: $sm-size;
+            letter-spacing: $medium-letter-spacing;
+            text-transform: uppercase;
 
             a {
               color: $gray;
@@ -501,11 +404,13 @@ html, body {
         // Contine reading link.
         .cmp__article-continue-reading {
           text-align: right;
-          font-size: $continue-reading-font-size;
-          color: $continue-reading-color;
+
           font-family: $continue-reading-font-family;
-          text-transform: uppercase;
+          font-size: $continue-reading-font-size;
           letter-spacing: $medium-letter-spacing;
+          text-transform: uppercase;
+
+          color: $continue-reading-color;
 
           &:hover {
             color: $brand-color;
@@ -525,43 +430,43 @@ html, body {
   }
 
   .cmp__responsive {
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
     border-radius: 0;
-    max-width: 100%;
-  }
-
-  @media only screen and (min-width: $mobile) {
-    border-radius: $border-radius;
-  }
-
-  @media only screen and (min-width: $tablet) {
-    > *, .cmp__responsive {
-      margin-left: $xl-size;
-      margin-right: $xl-size;
-    }
-  }
-
-  @media only screen and (min-width: $breakpoint1) {
-    > *, .cmp__responsive {
-      max-width: $container-width;
-      @include horizontal-center;
-    }
   }
 }
 
 // Makes the first big and stand out.
 .cmp__drop-cap:first-letter {
-  font-size: $drop-cap-font-size;
-  font-weight: bold;
-  line-height: $xs-line-height;
   float: left;
+
   padding: 0.510rem;
   margin-top:  0.382rem;
   margin-right: 0.382rem;
+
+  font-size: $drop-cap-font-size;
+  font-weight: bold;
+  line-height: $xs-line-height;
+
   background-color: $drop-cap-bg-color;
   color: $drop-cap-color;
   border-radius: $border-radius;
+}
+
+// Page Footer Component.
+.cmp__blog-footer {
+  height: $footer-height;
+  @include flex_center;
+  padding: 0 $md-size;
+
+  font-family: $footer-font-family;
+  font-size: $footer-font-size;
+  letter-spacing: $large-letter-spacing;
+  text-transform: uppercase;
+
+  color: $medium-gray;
+  background-color: $dim-gray;
 }
 
 // Animations.
@@ -571,5 +476,175 @@ html, body {
   }
   to {
     transform: rotate(359deg);
+  }
+}
+
+// Media Queries.
+@media only screen and (min-width: $mobile) {
+
+  // Navigation.
+  .cmp__blog-nav {
+    ul {
+      li {
+        &:not(.cmp__hamburger-link) {
+          display: flex;
+        }
+
+        &.cmp__hamburger-link {
+          display: none;
+        }
+
+        a {
+          font-size: $xs-size;
+        }
+      }
+    }
+  }
+
+  // Responsive Article Content.
+  .cmp__layout-switch {
+    .cmp__responsive {
+      border-radius: $border-radius;
+    }
+  }
+
+  // Footer.
+  .cmp__blog-footer {
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+
+  // Blog Logo, tag and other stuff.
+  .cmp__blog-info {
+    flex-direction: row;
+
+    a.cmp__blog-logo {
+      .cmp__blog-name {
+        position: static;
+      }
+    }
+
+    .cmp__separator {
+      display: block;
+    }
+
+    .cmp__blog-tag-line {
+      font-size: $xs-size;
+      position: relative;
+      left: 0;
+      top: 3px;
+    }
+  }
+
+  // Navigation.
+  .cmp__blog-nav {
+    ul li .cmp__search-form input {
+      display: block;
+    }
+  }
+
+  // Article Meta Changes.
+  .cmp__blog-main {
+    .cmp__blog-content {
+      .cmp__article, &.cmp__article {
+        .cmp__article-header {
+          .cmp__article-meta {
+            display: flex;
+
+            > div {
+              margin-bottom: 0;
+            }
+
+            > div:not(:first-child):not(:last-child):after {
+              content: '|';
+              margin-left: $xs-size;
+              margin-right: $xs-size;
+            }
+
+            .cmp__article-author {
+              align-items: center;
+
+              &:after {
+                content: '|';
+                margin-left: $xs-size;
+                margin-right: $xs-size;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Article Content.
+  .cmp__layout-switch {
+    > *, .cmp__responsive {
+      margin-left: $xl-size;
+      margin-right: $xl-size;
+    }
+  }
+}
+
+@media only screen and (min-width: $breakpoint1) {
+
+  // Responsive Article Content.
+  .cmp__layout-switch {
+    > *, .cmp__responsive {
+      max-width: $container-width;
+      @include horizontal-center;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+
+  // Navigation.
+  .cmp__blog-nav {
+    ul {
+      li {
+        a {
+          .cmp__nav-link-text {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $breakpoint2) {
+
+  // Article Meta.
+  .cmp__blog-main {
+    .cmp__blog-content {
+      .cmp__article, &.cmp__article {
+        .cmp__article-header {
+          .cmp__article-meta {
+            .cmp__article-author {
+              position: absolute;
+              top: -2.160rem;
+              left: $article-author-left-offset;
+              flex-direction: column;
+
+              &:after {
+                content: '';
+                margin: 0;
+              }
+
+              .cmp__article-author-pic {
+                width: $author-pic-large-screen-width;
+              }
+
+              span {
+                margin-top: 0.26rem;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
