@@ -273,9 +273,11 @@ h1, .h1 {
 h1::after, .h1::after {
   display: block;
   content: "";
-  border-bottom: solid 6px #8792a3;
-  margin-top: var(--xl-size);
   width: 42%;
+  height: 6px;
+  margin-top: var(--xl-size);
+  background-color: #8792a3;
+  border-radius: 3px;
 }
 
 h2, .h2 {
@@ -412,11 +414,6 @@ blockquote cite::before {
   content: "—";
   margin-right: 0.26rem;
 }
-blockquote.cmp__responsive {
-  margin-left: 0;
-  margin-right: 0;
-  border-radius: 0;
-}
 
 figure {
   margin-block-start: var(--md-size);
@@ -452,14 +449,6 @@ figure .cmp__table-wrapper {
   padding: var(--sm-size) var(--lg-size);
   background-color: #f1f7ea;
   overflow-x: auto;
-}
-
-figure.cmp__responsive figcaption, figure.cmp__responsive caption, .cmp__responsive > figure figcaption, .cmp__responsive > figure caption {
-  margin-left: var(--lg-size);
-  margin-right: var(--lg-size);
-}
-figure.cmp__responsive img, figure.cmp__responsive .cmp__table-wrapper, .cmp__responsive > figure img, .cmp__responsive > figure .cmp__table-wrapper {
-  border-radius: 0;
 }
 
 table {
@@ -726,7 +715,7 @@ input[type=search]::-webkit-search-results-decoration {
     float: left;
   }
 
-  .cmp__mobfloat-right {
+  .cmp__mob-float-right {
     float: right;
   }
 
@@ -747,7 +736,7 @@ input[type=search]::-webkit-search-results-decoration {
     float: left;
   }
 
-  .cmp__tabfloat-right {
+  .cmp__tab-float-right {
     float: right;
   }
 
@@ -768,7 +757,7 @@ input[type=search]::-webkit-search-results-decoration {
     float: left;
   }
 
-  .cmp__desktopfloat-right {
+  .cmp__desktop-float-right {
     float: right;
   }
 
@@ -2563,25 +2552,6 @@ input[type=search]::-webkit-search-results-decoration {
   text-align: center;
 }
 
-@media only screen and (min-width: 576px) {
-  blockquote.cmp__responsive {
-    margin-left: var(--lg-size);
-    margin-right: var(--lg-size);
-    border-radius: 3px;
-  }
-
-  figure.cmp__figure-full figcaption, figure.cmp__figure-full caption {
-    text-align: center;
-  }
-
-  figure.cmp__responsive figcaption, figure.cmp__responsive caption, .cmp__responsive > figure figcaption, .cmp__responsive > figure caption {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  figure.cmp__responsive img, figure.cmp__responsive .cmp__table-wrapper, .cmp__responsive > figure img, .cmp__responsive > figure .cmp__table-wrapper {
-    border-radius: 3px;
-  }
-}
 @media only screen and (min-width: 768px) {
   ul,
 ol,
@@ -2598,16 +2568,6 @@ menu ul,
 menu ol,
 menu menu {
     padding-left: var(--md-size);
-  }
-
-  blockquote.cmp__responsive {
-    margin-left: var(--xl-size);
-    margin-right: var(--xl-size);
-  }
-
-  figure.cmp__figure-full figcaption, figure.cmp__figure-full caption {
-    margin-left: var(--xl-size);
-    margin-right: var(--xl-size);
   }
 
   .cmp__form-control {
@@ -2944,6 +2904,13 @@ html, body {
   margin-right: 0;
   border-radius: 0;
 }
+.cmp__layout-switch .cmp__responsive figcaption, .cmp__layout-switch .cmp__responsive caption {
+  margin-left: var(--lg-size);
+  margin-right: var(--lg-size);
+}
+.cmp__layout-switch .cmp__responsive img, .cmp__layout-switch .cmp__responsive .cmp__table-wrapper {
+  border-radius: 0;
+}
 
 .cmp__drop-cap:first-letter {
   float: left;
@@ -2993,6 +2960,15 @@ html, body {
   }
 
   .cmp__layout-switch .cmp__responsive {
+    margin-left: var(--lg-size);
+    margin-right: var(--lg-size);
+    border-radius: 3px;
+  }
+  .cmp__layout-switch .cmp__responsive figcaption, .cmp__layout-switch .cmp__responsive caption {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .cmp__layout-switch .cmp__responsive img, .cmp__layout-switch .cmp__responsive .cmp__table-wrapper {
     border-radius: 3px;
   }
 

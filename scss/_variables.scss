@@ -3,7 +3,7 @@
 $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
 $mono-font-family:                  'Source Code Pro', monospace !default;
-$display-font-family:               'Amatic SC', cursive !default;
+$logo-font-family:                  'Amatic SC', cursive !default;
 
 // Colors.
 // Brand Colors.
@@ -82,7 +82,8 @@ $h5-font-size:                      $base-font-size !default;
 $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $small-letter-spacing !default;
 $heading-color:                     $medium-gray !default;
-$h1-border-width:                   6px !default;
+$h1-border-width:                   42% !default;
+$h1-border-height:                  6px !default;
 
 // Links.
 $link-color:                        $brand-color !default;
@@ -165,7 +166,7 @@ $medium-speed:                      0.5s !default;
 $header-height:                     2.882rem !default;
 
 // Logo Component.
-$logo-font-family:                  $display-font-family !default;
+$logo-font-family:                  $logo-font-family !default;
 $logo-font-size:                    $lg-size !default;
 $logo-rotate-speed:                 5s !default;
 $logo-name-width:                   4.664rem !default;

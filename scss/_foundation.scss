@@ -111,9 +111,11 @@ h1, .h1 {
   &::after {
     display: block;
     content: '';
-    border-bottom: solid $h1-border-width $dark-border;
+    width: $h1-border-width;
+    height: $h1-border-height;
     margin-top: $xl-size;
-    width: 42%;
+    background-color: $dark-border;
+    border-radius: $border-radius;
   }
 }
 
@@ -273,12 +275,6 @@ blockquote {
       margin-right: 0.26rem;
     }
   }
-
-  &.cmp__responsive {
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 0;
-  }
 }
 
 // Figures.
@@ -324,17 +320,6 @@ figure {
     padding: $inner-padding;
     background-color: $success;
     overflow-x: auto;
-  }
-}
-
-figure.cmp__responsive, .cmp__responsive > figure {
-  figcaption, caption {
-    margin-left: $lg-size;
-    margin-right: $lg-size;
-  }
-
-  img, .cmp__table-wrapper {
-    border-radius: 0;
   }
 }
 
@@ -660,7 +645,7 @@ $breakpoints: (
       float: left;
     }
 
-    .cmp__#{$name}float-right {
+    .cmp__#{$name}-float-right {
       float: right;
     }
 
@@ -876,31 +861,6 @@ $colors: (
   text-align: center;
 }
 
-@media only screen and (min-width: $mobile) {
-  blockquote.cmp__responsive {
-    margin-left: $lg-size;
-    margin-right: $lg-size;
-    border-radius: $border-radius;
-  }
-
-  figure.cmp__figure-full {
-    figcaption, caption {
-      text-align: center;
-    }
-  }
-
-  figure.cmp__responsive, .cmp__responsive > figure {
-    figcaption, caption {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    img, .cmp__table-wrapper {
-      border-radius: $border-radius;
-    }
-  }
-}
-
 @media only screen and (min-width: $tablet) {
   ul,
   ol,
@@ -911,22 +871,6 @@ $colors: (
     ol,
     menu {
       padding-left: $md-size;
-    }
-  }
-
-  blockquote {
-    &.cmp__responsive {
-      margin-left: $xl-size;
-      margin-right: $xl-size;
-    }
-  }
-
-  figure {
-    &.cmp__figure-full {
-      figcaption, caption {
-        margin-left: $xl-size;
-        margin-right: $xl-size;
-      }
     }
   }
 

@@ -434,6 +434,15 @@ html, body {
     margin-left: 0;
     margin-right: 0;
     border-radius: 0;
+
+    figcaption, caption {
+      margin-left: $lg-size;
+      margin-right: $lg-size;
+    }
+
+    img, .cmp__table-wrapper {
+      border-radius: 0;
+    }
   }
 }
 
@@ -504,7 +513,18 @@ html, body {
   // Responsive Article Content.
   .cmp__layout-switch {
     .cmp__responsive {
+      margin-left: $lg-size;
+      margin-right: $lg-size;
       border-radius: $border-radius;
+
+      figcaption, caption {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      img, .cmp__table-wrapper {
+        border-radius: $border-radius;
+      }
     }
   }
 
