@@ -6,6 +6,10 @@ $mono-font-family:                  'Source Code Pro', monospace !default;
 $logo-font-family:                  'Amatic SC', cursive !default;
 
 // Colors.
+// Global.
+$white:                             rgba(255, 255, 255, 1) !default;
+$black:                             rgba(0, 0, 0, 1) !default;
+
 // Brand Colors.
 $brand-color:                       rgba(240, 72, 117, 1) !default;
 $brand-dark:                        darken($brand-color, 15%) !default;
@@ -17,12 +21,7 @@ $medium-gray:                       rgba(51, 51, 51, 0.8) !default;
 $gray:                              rgba(51, 51, 51, 0.5) !default;
 $light-gray:                        rgba(204, 204, 204, 0.5) !default;
 $dim-gray:                          rgba(247, 247, 247, 1) !default;
-$dark-border:                       rgb(135, 146, 163, 1) !default;
-$light-border:                      rgba(222, 225, 229, 1) !default;
-
-// Global colors.
-$white:                             rgba(255, 255, 255, 1) !default;
-$black:                             rgba(0, 0, 0, 1) !default;
+$blue-gray:                         rgba(135, 146, 163, 1) !default;
 
 // Special colors.
 $success:                           rgba(241, 247, 234, 1) !default;
@@ -50,7 +49,8 @@ $small-line-height:                 1.2 !default;
 $xs-line-height:                    1 !default;
 
 // Spacings.
-$small-letter-spacing:              -0.5px !default;
+$extra-small-letter-spacing:        -0.5px !default;
+$small-letter-spacing:              0.5px !default;
 $medium-letter-spacing:             1px !default;
 $large-letter-spacing:              2px !default;
 $extra-large-letter-spacing:        3px !default;
@@ -60,7 +60,8 @@ $border-radius:                     3px !default;
 
 // Containers.
 $container-width:                   42rem !default;
-$inner-padding:                     $sm-size $lg-size !default;
+$medium-padding:                    $lg-size $xl-size !default;
+$small-padding:                     $sm-size $lg-size !default;
 
 // Breakpoints.
 $mobile:                            576px !default; // Small devices (landscape phones, 576px and up).
@@ -80,7 +81,7 @@ $h3-font-size:                      1.618rem !default;
 $h4-font-size:                      $lg-size !default;
 $h5-font-size:                      $base-font-size !default;
 $heading-line-height:               $xs-line-height !default;
-$heading-spacing:                   $small-letter-spacing !default;
+$heading-spacing:                   $extra-small-letter-spacing !default;
 $heading-color:                     $medium-gray !default;
 $h1-border-width:                   42% !default;
 $h1-border-height:                  6px !default;
@@ -95,14 +96,14 @@ $code-font-size:                    $small-font-size !default;
 $code-line-height:                  $small-line-height !default;
 $code-bg-color:                     rgba(247, 247, 247, 0.7) !default;
 $var-color:                         $medium-gray !default;
-$var-bg-color:                      #fff3bf !default;
+$var-bg-color:                      rgba(255, 243, 191, 1) !default;
 $var-font-size:                     0.9em !default;
 
 // Abbr & Acronym.
 $special-char-font-size:            0.618em !default;
 
 // Mark.
-$mark-bg-color:                     #ffff73 !default;
+$mark-bg-color:                     rgba(255, 255, 115, 1) !default;
 
 // Blockquote.
 $bquote-bg-color:                   $success !default;
@@ -180,7 +181,7 @@ $nav-active-border-width:           4px !default;
 
 // Footer Component.
 $footer-font-family:                $heading-font-family !default;
-$footer-font-size:                  $small-font-size !default;
+$footer-font-size:                  0.618rem !default;
 $footer-height:                     4.236rem !default;
 
 // Page Main Component.

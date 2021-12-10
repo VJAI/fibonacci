@@ -71,7 +71,7 @@ html, body {
 }
 
 // Paragraphs.
-p, .para {
+p, .cmp__para {
   margin-top: 0;
   margin-bottom: $md-size;
 
@@ -79,12 +79,12 @@ p, .para {
 }
 
 // Headings.
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h1, .cmp__h1,
+h2, .cmp__h2,
+h3, .cmp__h3,
+h4, .cmp__h4,
+h5, .cmp__h5,
+h6, .cmp__h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
   letter-spacing: $heading-spacing;
@@ -100,7 +100,7 @@ h6, .h6 {
   }
 }
 
-h1, .h1 {
+h1, .cmp__h1 {
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
 
@@ -114,38 +114,38 @@ h1, .h1 {
     width: $h1-border-width;
     height: $h1-border-height;
     margin-top: $xl-size;
-    background-color: $dark-border;
+    background-color: $blue-gray;
     border-radius: $border-radius;
   }
 }
 
-h2, .h2 {
+h2, .cmp__h2 {
   margin-top: 1.781rem;
   margin-bottom: $md-size;
 
   font-size: $h2-font-size;
 }
 
-h3, .h3 {
+h3, .cmp__h3 {
   margin-top: $lg-size;
   margin-bottom: $sm-size;
 
   font-size: $h3-font-size;
 }
 
-h4, .h4 {
+h4, .cmp__h4 {
   margin-top: $lg-size;
   margin-bottom: $xs-size;
 
   font-size: $h4-font-size;
 }
 
-h5, .h5 {
+h5, .cmp__h5 {
   margin-bottom: $xs-size;
   font-size: $h5-font-size;
 }
 
-h6, .h6 {
+h6, .cmp__h6 {
   margin-bottom: $xs-size;
   font-size: $small-font-size;
 }
@@ -156,14 +156,14 @@ a:visited,
 a:hover,
 a:focus,
 a:active,
-.link {
+.cmp__link {
   color: inherit;
   border-bottom: dotted 1px;
   text-decoration: none;
   transition: all $medium-speed;
 }
 
-a:hover, .link:hover {
+a:hover, .cmp__link:hover {
   color: $brand-color;
 }
 
@@ -284,17 +284,6 @@ figure {
   margin-inline-start: 0;
   margin-inline-end: 0;
 
-  &.cmp__figure-full {
-    figcaption, caption {
-      margin-left: $lg-size;
-      margin-right: $lg-size;
-    }
-
-    img, .cmp__table-wrapper {
-      border-radius: 0;
-    }
-  }
-
   img {
     display: block;
     width: 100%;
@@ -317,7 +306,7 @@ figure {
   }
 
   .cmp__table-wrapper {
-    padding: $inner-padding;
+    padding: $small-padding;
     background-color: $success;
     overflow-x: auto;
   }
@@ -380,7 +369,7 @@ var, kbd {
   font-family: $code-font-family;
   font-size: $var-font-size;
   font-style: normal;
-  letter-spacing: $small-letter-spacing;
+  letter-spacing: $extra-small-letter-spacing;
 
   color: $var-color;
   background-color: $var-bg-color;
@@ -577,6 +566,7 @@ input[type="search"]::-webkit-search-results-decoration {
 // Widgets.
 .cmp__widget {
   padding: $lg-size;
+  margin-bottom: $xl-size;
   background-color: $widget-bg-color;
   border-radius: $border-radius;
 
@@ -588,7 +578,23 @@ input[type="search"]::-webkit-search-results-decoration {
 
     text-transform: uppercase;
     letter-spacing: $medium-letter-spacing;
-    border-bottom: solid 1px $light-border;
+    border-bottom: solid 1px $light-gray;
+  }
+
+  ul {
+    li {
+      margin-bottom: 0.510rem;
+    }
+
+    &.cmp__inline-list {
+      li {
+        display: inline-block;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
   }
 }
 
@@ -612,13 +618,49 @@ input[type="search"]::-webkit-search-results-decoration {
   background: $brand-color;
 }
 
+// Alignment classes.
+.cmp__right {
+  text-align: right;
+}
+
+.cmp__center {
+  text-align: center;
+}
+
+// Constants.
 $breakpoints: (
   "mob": $mobile,
   "tab": $tablet,
-  "desktop": $desktop
+  "desk": $desktop
 );
 
-// Floats.
+$sizes: (
+  "xs": $xs-size,
+  "sm": $sm-size,
+  "md": $md-size,
+  "lg": $lg-size,
+  "xl": $xl-size,
+  "xxl": $xxl-size,
+  "xxxl": $xxxl-size
+);
+
+$colors: (
+  "brand": $brand-color,
+  "brand-dark": $brand-dark,
+  "brand-light": $brand-light,
+  "dark-gray": $dark-gray,
+  "medium-gray": $medium-gray,
+  "light-gray": $gray,
+  "dim-gray": $dim-gray,
+  "blue-gray": $blue-gray,
+  "white-color": $white,
+  "black-color": $black,
+  "success-color": $success,
+  "warn-color": $warn,
+  "error-color": $error
+);
+
+// Floats & Responsive Floats.
 .cmp__float-left {
   float: left;
 }
@@ -663,17 +705,7 @@ $breakpoints: (
   }
 }
 
-// Create re-usable paddings and margins.
-$sizes: (
-  "xs": $xs-size,
-  "sm": $sm-size,
-  "md": $md-size,
-  "lg": $lg-size,
-  "xl": $xl-size,
-  "xxl": $xxl-size,
-  "xxxl": $xxxl-size
-);
-
+// Responsive paddings and margins.
 .cmp__no-margin {
   margin: 0;
 }
@@ -825,23 +857,6 @@ $sizes: (
 }
 
 // Color Classes.
-$colors: (
-  "brand": $brand-color,
-  "brand-dark": $brand-dark,
-  "brand-light": $brand-light,
-  "dark-gray": $dark-gray,
-  "medium-gray": $medium-gray,
-  "light-gray": $gray,
-  "dim-gray": $dim-gray,
-  "dark-border": $dark-border,
-  "light-border": $light-border,
-  "white-color": $white,
-  "black-color": $black,
-  "success-color": $success,
-  "warn-color": $warn,
-  "error-color": $error
-);
-
 @each $name, $color in $sizes {
   .cmp__#{$name}-color {
     color: $color;
@@ -852,15 +867,30 @@ $colors: (
   }
 }
 
-// Alignment classes.
-.cmp__right {
-  text-align: right;
+// Responsive Layouts.
+.cmp__flex {
+  display: flex;
+  flex-direction: row;
 }
 
-.cmp__center {
-  text-align: center;
+.cmp__flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
+@each $breakpointname, $breakpoint in $breakpoints {
+  .cmp__#{$breakpointname}-flex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cmp__#{$breakpointname}-flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Media Queries.
 @media only screen and (min-width: $tablet) {
   ul,
   ol,
@@ -886,6 +916,6 @@ $colors: (
   }
 
   .cmp__widget {
-    padding: $lg-size $xl-size;
+    padding: $medium-padding;
   }
 }
