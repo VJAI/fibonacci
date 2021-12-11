@@ -1,5 +1,5 @@
 (function () {
-	var hamburger = document.querySelector('.cmp__hamburger-link'),
+	var hamburger = document.querySelector('.cmp__hamburger-link .cmp__nav-link'),
 		selectControl = document.querySelector('.cmp__hidden-menu'),
 		nav = document.querySelector('.cmp__blog-nav'),
 		searchInput = document.querySelector('.cmp__search-form input'),

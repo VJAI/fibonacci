@@ -32,9 +32,19 @@
 	height: 16px;
 }
 
-.cmp__icon-facebook {
+.cmp__icon-eye {
 	@extend %svg-common;
 	background-position: 33.333333333333336% 33.333333333333336%;
+}
+
+.cmp__icon-eye-dims {
+	width: 16px;
+	height: 16px;
+}
+
+.cmp__icon-facebook {
+	@extend %svg-common;
+	background-position: 66.66666666666667% 0;
 }
 
 .cmp__icon-facebook-dims {
@@ -44,7 +54,7 @@
 
 .cmp__icon-github {
 	@extend %svg-common;
-	background-position: 66.66666666666667% 0;
+	background-position: 66.66666666666667% 33.333333333333336%;
 }
 
 .cmp__icon-github-dims {
@@ -54,7 +64,7 @@
 
 .cmp__icon-hamburger {
 	@extend %svg-common;
-	background-position: 66.66666666666667% 33.333333333333336%;
+	background-position: 0 66.66666666666667%;
 }
 
 .cmp__icon-hamburger-dims {
@@ -64,7 +74,7 @@
 
 .cmp__icon-home {
 	@extend %svg-common;
-	background-position: 0 66.66666666666667%;
+	background-position: 33.333333333333336% 66.66666666666667%;
 }
 
 .cmp__icon-home-dims {
@@ -74,7 +84,7 @@
 
 .cmp__icon-linkedin {
 	@extend %svg-common;
-	background-position: 33.333333333333336% 66.66666666666667%;
+	background-position: 66.66666666666667% 66.66666666666667%;
 }
 
 .cmp__icon-linkedin-dims {
@@ -84,7 +94,7 @@
 
 .cmp__icon-person {
 	@extend %svg-common;
-	background-position: 66.66666666666667% 66.66666666666667%;
+	background-position: 100% 0;
 }
 
 .cmp__icon-person-dims {
@@ -94,7 +104,7 @@
 
 .cmp__icon-search {
 	@extend %svg-common;
-	background-position: 100% 0;
+	background-position: 100% 33.333333333333336%;
 }
 
 .cmp__icon-search-dims {
@@ -104,7 +114,7 @@
 
 .cmp__icon-share {
 	@extend %svg-common;
-	background-position: 100% 33.333333333333336%;
+	background-position: 100% 66.66666666666667%;
 }
 
 .cmp__icon-share-dims {
@@ -114,7 +124,7 @@
 
 .cmp__icon-shield {
 	@extend %svg-common;
-	background-position: 100% 66.66666666666667%;
+	background-position: 0 100%;
 }
 
 .cmp__icon-shield-dims {
@@ -124,7 +134,7 @@
 
 .cmp__icon-tag {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 33.333333333333336% 100%;
 }
 
 .cmp__icon-tag-dims {
@@ -134,7 +144,7 @@
 
 .cmp__icon-twitter {
 	@extend %svg-common;
-	background-position: 33.333333333333336% 100%;
+	background-position: 66.66666666666667% 100%;
 }
 
 .cmp__icon-twitter-dims {

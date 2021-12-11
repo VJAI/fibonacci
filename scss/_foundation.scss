@@ -167,6 +167,10 @@ a:hover, .cmp__link:hover {
   color: $brand-color;
 }
 
+a:focus-visible {
+  outline-color: $brand-color;
+}
+
 // Lists.
 ul,
 ol,
@@ -483,7 +487,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
   &:focus, &:active {
     outline: none;
-    border-color: $medium-gray;
+    border-color: $brand-color;
   }
 }
 
