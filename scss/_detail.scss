@@ -110,3 +110,19 @@
     }
   }
 }
+
+.cmp__archives, .cmp__tags {
+  ul li a {
+    span {
+      font-size: $small-font-size;
+      color: $gray;
+      transition: color $medium-speed;
+    }
+
+    &:hover {
+      span {
+        color: $brand-color;
+      }
+    }
+  }
+}

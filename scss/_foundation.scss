@@ -593,6 +593,7 @@ input[type="search"]::-webkit-search-results-decoration {
     &.cmp__inline-list {
       li {
         display: inline-block;
+        margin-right: 0.236rem;
 
         &:before {
           display: none;
