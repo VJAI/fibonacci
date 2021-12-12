@@ -12,6 +12,7 @@ html, body {
 // Page Header.
 .cmp__blog-header {
   position: relative;
+  z-index: 2;
   @include flex-ver-center;
 
   height: $header-height;
@@ -153,6 +154,9 @@ html, body {
 
         border-bottom: none;
 
+        &:hover {
+        }
+
         cmp-icon {
           margin-right: $nav-link-icon-spacing;
         }
@@ -213,6 +217,7 @@ html, body {
 
 // Page Main Content Container.
 .cmp__blog-main {
+  position: relative;
   flex: 1 1 auto;
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
@@ -350,6 +355,9 @@ html, body {
 
         // Figure element.
         figure {
+          position: relative;
+          z-index: 2;
+
           // Full width.
           &.cmp__figure-full {
             max-width: 100%;
@@ -430,7 +438,7 @@ html, body {
 
   background-color: $dim-gray;
   border-radius: $border-radius;
-  box-shadow: $thin-box-shadow;
+  box-shadow: $box-shadow;
 
   h5 {
     padding-bottom: $xs-size;
@@ -498,7 +506,7 @@ button.cmp__share-it-btn {
     margin-right: $lg-size;
   }
 
-  img, .cmp__table-wrapper {
+  img, .cmp__table-wrapper, .cmp__widget {
     border-radius: 0;
   }
 }
@@ -601,7 +609,7 @@ button.cmp__share-it-btn {
       margin-right: 0;
     }
 
-    img, .cmp__table-wrapper {
+    img, .cmp__table-wrapper, .cmp__widget {
       border-radius: $border-radius;
     }
   }
@@ -688,14 +696,12 @@ button.cmp__share-it-btn {
   .cmp__responsive-flex {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     > * {
       flex-grow: 1;
-      min-width: 50%;
-    }
-
-    > *:not(:last-child) {
-      margin-right: $xl-size;
+      width: 47%;
+      max-width: 47%;
     }
   }
 }

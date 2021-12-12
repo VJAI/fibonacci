@@ -253,7 +253,7 @@ blockquote {
   background-color: $bquote-bg-color;
   color: $bquote-color;
   border-radius: $border-radius;
-  box-shadow: $medium-box-shadow;
+  box-shadow: $box-shadow;
 
   h1, h2, h3, h4, h5 {
     display: inline-block;
@@ -292,7 +292,8 @@ figure {
   img {
     display: block;
     width: 100%;
-    box-shadow: $medium-box-shadow;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
   }
 
   table {
@@ -314,7 +315,8 @@ figure {
   .cmp__table-wrapper {
     padding: $small-padding;
     background-color: $success;
-    box-shadow: $medium-box-shadow;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
     overflow-x: auto;
   }
 }
@@ -362,7 +364,7 @@ pre {
     letter-spacing: normal;
 
     border-radius: $border-radius;
-    box-shadow: $thin-box-shadow;
+    box-shadow: $box-shadow;
 
     &.hljs {
       padding: 0;
@@ -592,7 +594,7 @@ cmp-icon {
   margin-bottom: $xl-size;
   background-color: $widget-bg-color;
   border-radius: $border-radius;
-  box-shadow: $medium-box-shadow;
+  box-shadow: $box-shadow;
 
   h5 {
     padding-bottom: $xs-size;
@@ -605,7 +607,9 @@ cmp-icon {
     border-bottom: solid 1px $light-gray;
   }
 
-  ul {
+  ul, ol, menu {
+    margin-bottom: 0;
+
     li {
       margin-bottom: 0.510rem;
     }
