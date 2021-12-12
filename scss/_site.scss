@@ -216,6 +216,7 @@ html, body {
   flex: 1 1 auto;
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
+  background: url("assets/background.png");
 
   // Page Content.
   .cmp__blog-content {
@@ -429,6 +430,7 @@ html, body {
 
   background-color: $dim-gray;
   border-radius: $border-radius;
+  box-shadow: $thin-box-shadow;
 
   h5 {
     padding-bottom: $xs-size;

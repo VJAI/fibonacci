@@ -341,6 +341,7 @@ blockquote {
   background-color: #f1f7ea;
   color: rgba(51, 51, 51, 0.8);
   border-radius: 3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5 {
   display: inline-block;
@@ -373,6 +374,7 @@ figure {
 figure img {
   display: block;
   width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 figure table {
   margin: 0;
@@ -390,6 +392,7 @@ figure figcaption code {
 figure .cmp__table-wrapper {
   padding: var(--sm-size) var(--lg-size);
   background-color: #f1f7ea;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow-x: auto;
 }
 
@@ -424,6 +427,7 @@ pre code {
   line-height: 1.2;
   letter-spacing: normal;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 pre code.hljs {
   padding: 0;
@@ -616,6 +620,7 @@ cmp-icon > * svg:hover *[data-hover-behavior=white] {
   margin-bottom: var(--xl-size);
   background-color: #f7f7f7;
   border-radius: 3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .cmp__widget h5 {
   padding-bottom: var(--xs-size);
@@ -2752,6 +2757,7 @@ html, body {
   flex: 1 1 auto;
   padding-top: 3.847rem;
   padding-bottom: 6.225rem;
+  background: url("assets/background.png");
 }
 .cmp__blog-main .cmp__blog-content {
   margin-bottom: var(--xl-size);
@@ -2902,6 +2908,7 @@ html, body {
   margin-bottom: var(--xl-size);
   background-color: #f7f7f7;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 .cmp__toc h5 {
   padding-bottom: var(--xs-size);
