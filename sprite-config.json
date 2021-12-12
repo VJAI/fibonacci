@@ -1,6 +1,6 @@
 {
   "mode": {
-    "css": {
+    "symbol": {
       "dest": "assets",
       "prefix": ".cmp__icon-%s",
       "sprite": "sprites.svg",

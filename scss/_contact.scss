@@ -12,7 +12,7 @@
       line-height: $xs-line-height;
       margin-right: $md-size;
 
-      .cmp__icon {
+      cmp-icon {
         display: none;
       }
     }
@@ -26,7 +26,7 @@
 
 @media only screen and (min-width: $mobile) {
   .cmp__contact-form .cmp__bottom-row p {
-    .cmp__icon {
+    cmp-icon {
       display: block;
       margin-right: 0.236rem;
     }

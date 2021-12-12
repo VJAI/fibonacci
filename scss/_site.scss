@@ -153,7 +153,7 @@ html, body {
 
         border-bottom: none;
 
-        .cmp__nav-link-icon {
+        cmp-icon {
           margin-right: $nav-link-icon-spacing;
         }
 
@@ -253,7 +253,7 @@ html, body {
             margin-bottom: 5px;
             margin-right: 0;
 
-            .cmp__icon {
+            cmp-icon {
               margin-right: 0.26rem;
             }
           }
@@ -296,6 +296,14 @@ html, body {
           .cmp__article-date {
             span {
               font-variant: small-caps;
+            }
+          }
+
+          // Share controls.
+          .cmp__article-share {
+            > div {
+              display: flex;
+              align-items: center;
             }
           }
 
@@ -646,7 +654,7 @@ button.cmp__share-it-btn {
               margin-bottom: 0;
             }
 
-            > div:not(:first-child):not(:last-child):after {
+            > *:not(:first-child):not(:last-child):after {
               content: '|';
               margin-left: $xs-size;
               margin-right: $xs-size;

@@ -43,25 +43,25 @@
             <input type="search" placeholder="Search...">
           </label>
           <a href="#">
-            <span class="cmp__icon cmp__icon-search"></span>
+            <cmp-icon name="search"></cmp-icon>
           </a>
         </form>
       </li>
       <li class="cmp__nav-active">
         <a class="cmp__nav-link" href="index.html">
-          <span class="cmp__nav-link-icon cmp__icon cmp__icon-home"></span>
+          <cmp-icon name="home"></cmp-icon>
           <span class="cmp__nav-link-text">home</span>
         </a>
       </li>
       <li>
         <a class="cmp__nav-link" href="contact.html">
-          <span class="cmp__nav-link-icon cmp__icon cmp__icon-contact"></span>
+          <cmp-icon name="contact"></cmp-icon>
           <span class="cmp__nav-link-text">contact</span>
         </a>
       </li>
       <li>
         <a class="cmp__nav-link" href="about.html">
-          <span class="cmp__nav-link-icon cmp__icon cmp__icon-person"></span>
+          <cmp-icon name="person"></cmp-icon>
           <span class="cmp__nav-link-text">about</span>
         </a>
       </li>
@@ -73,7 +73,7 @@
             <option value="contact.html"> Contact</option>
             <option value="search"> Search</option>
           </select>
-          <span class="cmp__nav-link-icon cmp__icon cmp__icon-hamburger"></span>
+          <cmp-icon name="hamburger"></cmp-icon>
         </a>
       </li>
     </ul>
@@ -106,32 +106,34 @@
 
         <!-- Posted Date -->
         <div class="cmp__article-date">
-          <span class="cmp__icon cmp__icon-calendar"></span>
+          <cmp-icon name="calendar"></cmp-icon>
           <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
         </div>
 
         <!-- Comments -->
-        <div class="cmp__article-total-comments">
-          <span class="cmp__icon cmp__icon-comment"></span>
-          <a class="cmp__article-comments-link" href="#">100 Comments</a>
-        </div>
+        <a class="cmp__article-total-comments" href="#">
+          <cmp-icon name="comment"></cmp-icon>
+          <span>100 Comments</span>
+        </a>
 
         <!-- Share Controls -->
         <div class="cmp__article-share">
-          <span class="cmp__icon cmp__icon-share"></span>
-          <a class="cmp__article-shares-link" href="#">5 Shares</a>
+          <div>
+            <cmp-icon name="share"></cmp-icon>
+            <span>5 Shares</span>
+          </div>
           <button class="cmp__share-it-btn">Share It!</button>
         </div>
 
         <!-- Page Views -->
         <div class="cmp__article-views">
-          <span class="cmp__icon cmp__icon-eye"></span>
-          <a class="cmp__article-views-link" href="#">1K Views</a>
+          <cmp-icon name="eye"></cmp-icon>
+          <span>1K Views</span>
         </div>
 
         <!-- Tags -->
         <div class="cmp__article-tags">
-          <span class="cmp__icon cmp__icon-tag"></span>
+          <cmp-icon name="tag"></cmp-icon>
           <ul class="cmp__article-tags-list">
             <li>
               <a href="#">#javascript</a>

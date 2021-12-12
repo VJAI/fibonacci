@@ -554,16 +554,31 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 // Icons.
-.cmp__icon {
-  width: $icon-width;
-  height: $icon-width;
-  display: inline-block;
-  background-repeat: no-repeat;
+cmp-icon {
+  width: 16px;
+  height: 16px;
 
-  &.cmp__icon-hamburger {
-    width: $lg-size;
-    height: $lg-size;
-    background: url("assets/icons/hamburger.svg");
+  > * {
+    width: inherit;
+    height: inherit;
+
+    svg {
+      fill: currentColor;
+      width: inherit;
+      height: inherit;
+
+      * {
+        pointer-events: none;
+      }
+    }
+
+    svg:hover *[data-hover-behavior=color] {
+      fill: currentColor;
+    }
+
+    svg:hover *[data-hover-behavior=white] {
+      fill: white;
+    }
   }
 }
 
