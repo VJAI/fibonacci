@@ -195,6 +195,8 @@ menu {
 
   list-style: none;
 
+  color: inherit;
+
   ul, ol, menu {
     margin-bottom: 0.421rem;
   }
@@ -223,6 +225,7 @@ ol li:before {
   position: absolute;
   width: 1.470em;
   margin-left: -1.961em;
+  text-align: right;
 
   font-family: $heading-font-family;
 
@@ -230,7 +233,7 @@ ol li:before {
   counter-increment: li;
   counter-reset: revert;
 
-  text-align: right;
+  color: inherit;
 }
 
 ol li li:before {

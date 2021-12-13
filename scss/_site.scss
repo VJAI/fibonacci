@@ -377,8 +377,10 @@ html, body {
 
         // Table of contents.
         .cmp__toc {
+          color: $gray;
+
           ol li a {
-            color: $gray;
+            color: inherit;
             transition: color $medium-speed;
 
             &:hover {
