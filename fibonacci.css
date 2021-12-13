@@ -5,6 +5,11 @@
   height: 16px;
 }
 
+.cmp__icon-collection-dims {
+  width: 16px;
+  height: 16px;
+}
+
 .cmp__icon-comment-dims {
   width: 16px;
   height: 16px;
@@ -51,6 +56,11 @@
 }
 
 .cmp__icon-search-dims {
+  width: 16px;
+  height: 16px;
+}
+
+.cmp__icon-send-dims {
   width: 16px;
   height: 16px;
 }
@@ -553,20 +563,27 @@ input[type=text]:focus, input[type=text]:active, input[type=email]:focus, input[
 }
 
 button, [type=button], [type=submit] {
+  display: flex;
+  align-items: center;
   padding: 0.51rem 0.749rem;
   font-family: "Source Sans Pro", sans-serif;
   font-size: var(--xs-size);
   text-transform: uppercase;
   letter-spacing: 1px;
+  border-radius: 3px;
   background-color: #f04875;
   color: white;
   border: none;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   transition: all 0.5s;
 }
 button:focus, button:active, button:hover, [type=button]:focus, [type=button]:active, [type=button]:hover, [type=submit]:focus, [type=submit]:active, [type=submit]:hover {
   background-color: #da1247;
   outline: none;
+}
+button cmp-icon, [type=button] cmp-icon, [type=submit] cmp-icon {
+  margin-right: 0.26rem;
 }
 
 /* clears the 'X' from Internet Explorer */
@@ -3333,8 +3350,12 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   border-bottom: none;
   margin-bottom: var(--xs-size);
 }
+.cmp__social-widget a:hover cmp-icon {
+  transform: scale(1.5);
+}
 .cmp__social-widget a cmp-icon {
   margin-right: 0.382rem;
+  transition: transform 0.25s;
 }
 .cmp__social-widget a .cmp__social-text {
   line-height: 1;
@@ -3373,14 +3394,33 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
 .cmp__contact-form .cmp__bottom-row p cmp-icon {
   display: none;
 }
-.cmp__contact-form .cmp__bottom-row input[type=submit] {
+.cmp__contact-form .cmp__bottom-row button {
   margin-left: auto;
-  display: block;
+}
+.cmp__contact-form .cmp__bottom-row button:hover cmp-icon {
+  animation: arrow-move-up-right 0.5s linear infinite;
+}
+.cmp__contact-form .cmp__bottom-row button cmp-icon {
+  position: relative;
 }
 
 @media only screen and (min-width: 576px) {
   .cmp__contact-form .cmp__bottom-row p cmp-icon {
     display: block;
     margin-right: 0.236rem;
+  }
+}
+@keyframes arrow-move-up-right {
+  0% {
+    top: 0;
+    right: 0;
+  }
+  50% {
+    top: -3px;
+    right: -3px;
+  }
+  100% {
+    top: 0;
+    right: 0;
   }
 }

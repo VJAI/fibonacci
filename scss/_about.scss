@@ -18,8 +18,15 @@
     border-bottom: none;
     margin-bottom: $xs-size;
 
+    &:hover {
+      cmp-icon {
+        transform: scale(1.5);
+      }
+    }
+
     cmp-icon {
       margin-right: 0.382rem;
+      transition: transform $fast-speed;
     }
 
     .cmp__social-text {

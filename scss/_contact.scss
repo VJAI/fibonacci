@@ -17,9 +17,18 @@
       }
     }
 
-    input[type="submit"] {
+    button {
       margin-left: auto;
-      display: block;
+
+      &:hover {
+        cmp-icon {
+          animation: arrow-move-up-right $medium-speed linear infinite;
+        }
+      }
+
+      cmp-icon {
+        position: relative;
+      }
     }
   }
 }
@@ -30,5 +39,20 @@
       display: block;
       margin-right: 0.236rem;
     }
+  }
+}
+
+@keyframes arrow-move-up-right {
+  0% {
+    top: 0;
+    right: 0;
+  }
+  50% {
+    top: -3px;
+    right: -3px;
+  }
+  100% {
+    top: 0;
+    right: 0;
   }
 }

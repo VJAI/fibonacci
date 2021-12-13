@@ -514,6 +514,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
 // Buttons.
 button, [type="button"], [type="submit"] {
+  @include flex-ver-center;
   padding: $button-padding;
 
   font-family: $button-font-family;
@@ -521,16 +522,22 @@ button, [type="button"], [type="submit"] {
   text-transform: uppercase;
   letter-spacing: $medium-letter-spacing;
 
+  border-radius: $border-radius;
   background-color: $button-bg-color;
   color: $button-text-color;
   border: none;
   cursor: pointer;
+  box-shadow: $box-shadow;
 
   transition: all $medium-speed;
 
   &:focus, &:active, &:hover {
     background-color: $brand-dark;
     outline: none;
+  }
+
+  cmp-icon {
+    margin-right: 0.26rem;
   }
 }
 
