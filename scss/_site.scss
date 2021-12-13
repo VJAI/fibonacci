@@ -11,8 +11,6 @@ html, body {
 
 // Page Header.
 .cmp__blog-header {
-  position: relative;
-  z-index: 2;
   @include flex-ver-center;
 
   height: $header-height;
@@ -110,16 +108,18 @@ html, body {
       }
 
       // Active State.
-      &.cmp__nav-active::after {
-        content: '';
+      &.cmp__nav-active {
+        a::before {
+          content: '';
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          width: 100%;
 
-        border-top: solid $nav-active-border-width $brand-color;
-        color: $brand-color;
+          border-top: solid $nav-active-border-width $brand-color;
+        }
       }
 
       &:not(.cmp__hamburger-link) {
@@ -144,6 +144,8 @@ html, body {
 
       // Nav Link.
       a {
+        position: relative;
+        z-index: 1;
         @include flex-ver-center;
         height: 100%;
         padding: 0 $nav-link-spacing;
@@ -153,8 +155,11 @@ html, body {
         letter-spacing: $large-letter-spacing;
 
         border-bottom: none;
+        transition: all $medium-speed;
 
         &:hover {
+          background-color: $brand-color;
+          color: $white;
         }
 
         cmp-icon {
@@ -217,7 +222,6 @@ html, body {
 
 // Page Main Content Container.
 .cmp__blog-main {
-  position: relative;
   flex: 1 1 auto;
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
@@ -355,9 +359,6 @@ html, body {
 
         // Figure element.
         figure {
-          position: relative;
-          z-index: 2;
-
           // Full width.
           &.cmp__figure-full {
             max-width: 100%;
@@ -413,6 +414,8 @@ html, body {
 
         // Contine reading link.
         .cmp__article-continue-reading {
+          display: inline-flex;
+          align-items: center;
           text-align: right;
 
           font-family: $continue-reading-font-family;
@@ -422,8 +425,18 @@ html, body {
 
           color: $continue-reading-color;
 
+          &:after {
+            position: relative;
+            content: '→';
+            margin-left: 0.146rem;
+          }
+
           &:hover {
             color: $brand-color;
+          }
+
+          &:hover:after {
+            animation: arrow-move-right $medium-speed linear infinite;
           }
         }
       }
@@ -516,7 +529,7 @@ button.cmp__share-it-btn {
   float: left;
 
   padding: 0.510rem;
-  margin-top:  0.382rem;
+  margin-top: 0.382rem;
   margin-right: 0.382rem;
 
   font-size: $drop-cap-font-size;
@@ -542,10 +555,41 @@ button.cmp__share-it-btn {
 
   > * {
     flex-grow: 1;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  .cmp__older-posts {
+    a {
+      &:before {
+        position: relative;
+        content: '≪';
+        margin-right: 0.146rem;
+      }
+
+      &:hover:before {
+        animation: arrow-move-left $medium-speed linear infinite;
+      }
+    }
   }
 
   .cmp__newer-posts {
     text-align: right;
+
+    a {
+      &:after {
+        position: relative;
+        content: '≫';
+        margin-left: 0.146rem;
+      }
+
+      &:hover:after {
+        animation: arrow-move-right $medium-speed linear infinite;
+      }
+    }
   }
 }
 
@@ -763,5 +807,30 @@ button.cmp__share-it-btn {
         }
       }
     }
+  }
+}
+
+// Animations.
+@keyframes arrow-move-left {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -3px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes arrow-move-right {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: -3px;
+  }
+  100% {
+    right: 0;
   }
 }

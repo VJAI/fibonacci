@@ -101,12 +101,24 @@ h6, .cmp__h6 {
 }
 
 h1, .cmp__h1 {
+  position: relative;
   margin-top: $xl-size;
   margin-bottom: $xxxl-size;
 
   font-size: $h1-font-size;
 
   color: $brand-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: calc($h1-border-width + 5px);
+    width: 10px;
+    height: 10px;
+    background-color: $blue-gray;
+    border-radius: 50%;
+  }
 
   &::after {
     display: block;

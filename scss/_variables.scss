@@ -86,7 +86,7 @@ $h5-font-size:                      $base-font-size !default;
 $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $extra-small-letter-spacing !default;
 $heading-color:                     $medium-gray !default;
-$h1-border-width:                   42% !default;
+$h1-border-width:                   36% !default;
 $h1-border-height:                  6px !default;
 
 // Links.
@@ -164,6 +164,7 @@ $table-line-height:                 $medium-line-height !default;
 
 // Animations Speed.
 $medium-speed:                      0.5s !default;
+$fast-speed:                        0.25s !default;
 
 // Specific Variables.
 // Header Component.
