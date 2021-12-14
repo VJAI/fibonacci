@@ -112,12 +112,13 @@ h1, .cmp__h1 {
   &::before {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: calc($h1-border-width + 5px);
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: $blue-gray;
     border-radius: 50%;
+    transition: left $fast-speed;
   }
 
   &::after {
@@ -128,6 +129,10 @@ h1, .cmp__h1 {
     margin-top: $xl-size;
     background-color: $blue-gray;
     border-radius: $border-radius;
+  }
+
+  &:hover::before {
+    left: calc($h1-border-width + 10px);
   }
 }
 
@@ -648,6 +653,19 @@ cmp-content-scale {
     height: 2px;
     background-color: $brand-color;
     transition: width $medium-speed;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 0;
+      width: 10px;
+      height: 4px;
+      background-color: $brand-color;
+      transform: rotate(15deg);
+      border-radius: 5px;
+      box-shadow: 0 1px 3px $brand-light;
+    }
   }
 }
 

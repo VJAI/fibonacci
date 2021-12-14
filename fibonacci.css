@@ -229,12 +229,13 @@ h1, .cmp__h1 {
 h1::before, .cmp__h1::before {
   content: "";
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: calc(36% + 5px);
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: #8792a3;
   border-radius: 50%;
+  transition: left 0.25s;
 }
 h1::after, .cmp__h1::after {
   display: block;
@@ -244,6 +245,9 @@ h1::after, .cmp__h1::after {
   margin-top: var(--xl-size);
   background-color: #8792a3;
   border-radius: 3px;
+}
+h1:hover::before, .cmp__h1:hover::before {
+  left: calc(36% + 10px);
 }
 
 h2, .cmp__h2 {
@@ -679,6 +683,18 @@ cmp-content-scale .cmp__scroll-progress {
   height: 2px;
   background-color: #f04875;
   transition: width 0.5s;
+}
+cmp-content-scale .cmp__scroll-progress::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 10px;
+  height: 4px;
+  background-color: #f04875;
+  transform: rotate(15deg);
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #f68faa;
 }
 
 .cmp__widget {
@@ -2893,7 +2909,8 @@ html, body {
   font-size: 0.58rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #f7f7f7;
+  color: white;
+  background-color: #b5db56;
   border-radius: 3px;
 }
 .cmp__blog-main .cmp__blog-content .cmp__article .cmp__article-header .cmp__article-meta .cmp__article-author:hover, .cmp__blog-main .cmp__blog-content.cmp__article .cmp__article-header .cmp__article-meta .cmp__article-author:hover {
