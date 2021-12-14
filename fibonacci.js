@@ -1,9 +1,11 @@
 (function () {
   const hamburger = document.querySelector('.cmp__hamburger-link a'),
     selectControl = document.querySelector('.cmp__hidden-menu'),
+    header = document.querySelector('.cmp__blog-header'),
     nav = document.querySelector('.cmp__blog-nav'),
     searchInput = document.querySelector('.cmp__search-form input'),
-    searchIcon = document.querySelector('.cmp__search-form a');
+    searchIcon = document.querySelector('.cmp__search-form a'),
+    contentScale = document.querySelector('cmp-content-scale');
   
   const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
   
@@ -60,6 +62,40 @@
     document.body.removeEventListener('click', documentClickHandler);
   }
   
+  const sticky = header.offsetHeight;
+  window.addEventListener('scroll', function () {
+    if (!contentScale) {
+      return;
+    }
+    
+    if (window.pageYOffset >= sticky) {
+      contentScale.classList.add('cmp__sticky')
+    } else {
+      contentScale.classList.remove('cmp__sticky');
+    }
+  
+    setScrollProgress();
+  });
+  
+  window.addEventListener('resize', function () {
+    setScrollProgress();
+  });
+  
+  function setScrollProgress() {
+    const articleContent = document.querySelector('.cmp__article-content');
+    const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
+    const articleScrollHeight = articleContent.scrollHeight;
+    const articleOffsetTop = articleContent.offsetTop;
+  
+    if (window.scrollY <= articleOffsetTop) {
+      scrollProgress.style.width = '0';
+      return;
+    }
+  
+    const percentScrolled = parseInt(((window.scrollY - articleOffsetTop)  / articleScrollHeight) * 100, 10);
+    scrollProgress.style.width = `${percentScrolled}%`;
+  }
+  
   const iconTemplate = document.createElement('template');
   iconTemplate.innerHTML = `<div class="svg-wrap">
     <svg viewBox="0 0 16 16" width="16" height="16">
@@ -111,4 +147,176 @@
   }
   
   window.customElements.define('cmp-icon', IconElement);
+  
+  const contentScaleTemplate = document.createElement('template');
+  contentScaleTemplate.innerHTML = `
+    <div class="cmp__bar"></div>
+    <div class="cmp__ticks-container">
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+          <div class="cmp__tick"></div>
+        </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+      <div class="cmp__tick">
+        <div class="cmp__ticks-container">
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+            <div class="cmp__tick"></div>
+          </div>
+      </div>
+    </div>
+    <div class="cmp__scroll-progress"></div>`;
+  
+  // Content scroll indicator web component.
+  class ContentScaleElement extends HTMLElement {
+    
+    constructor() {
+      super();
+      this.appendChild(contentScaleTemplate.content.cloneNode(true));
+    }
+  }
+  
+  window.customElements.define('cmp-content-scale', ContentScaleElement);
+  
+  // Boot function.
+  function init() {
+    if (contentScale) {
+      const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
+      scrollProgress.classList.add('cmp__no-transition');
+      setTimeout(() => {
+        setScrollProgress();
+        scrollProgress.classList.remove('cmp__no-transition');
+      });
+    }
+  }
+  
+  init();
 })();

@@ -556,6 +556,7 @@ input[type=text], input[type=email], input[type=search], textarea {
   color: rgba(51, 51, 51, 0.8);
   outline: none;
   transition: all 0.5s;
+  -webkit-appearance: textfield;
 }
 input[type=text]:focus, input[type=text]:active, input[type=email]:focus, input[type=email]:active, input[type=search]:focus, input[type=search]:active, textarea:focus, textarea:active {
   outline: none;
@@ -647,6 +648,39 @@ cmp-icon > * svg:hover *[data-hover-behavior=white] {
   fill: white;
 }
 
+cmp-content-scale {
+  position: relative;
+}
+cmp-content-scale .cmp__bar {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(204, 204, 204, 0.5);
+}
+cmp-content-scale .cmp__ticks-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+cmp-content-scale .cmp__ticks-container .cmp__tick {
+  flex-grow: 1;
+  height: 8px;
+  border-right: solid 1px rgba(179, 179, 179, 0.5);
+}
+cmp-content-scale .cmp__ticks-container .cmp__tick .cmp__tick {
+  height: 4px;
+}
+cmp-content-scale .cmp__ticks-container .cmp__tick:nth-child(10) {
+  border-right: none;
+}
+cmp-content-scale .cmp__scroll-progress {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f04875;
+  transition: width 0.5s;
+}
+
 .cmp__widget {
   padding: var(--lg-size);
   margin-bottom: var(--xl-size);
@@ -700,6 +734,16 @@ cmp-icon > * svg:hover *[data-hover-behavior=white] {
 
 .cmp__center {
   text-align: center;
+}
+
+.cmp__sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.cmp__no-transition {
+  transition: none !important;
 }
 
 .cmp__float-left {
@@ -2990,11 +3034,11 @@ html, body {
 }
 
 button.cmp__share-it-btn {
-  padding: 0;
+  padding: 0.146rem;
+  margin-left: 0.315rem;
   font-size: 0.618rem;
   background-color: transparent;
   color: rgba(51, 51, 51, 0.5);
-  margin-left: 0.315rem;
 }
 button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__share-it-btn:hover {
   background-color: transparent;

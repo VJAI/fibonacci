@@ -505,6 +505,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
   outline: none;
 
   transition: all $medium-speed;
+  -webkit-appearance: textfield;
 
   &:focus, &:active {
     outline: none;
@@ -610,6 +611,46 @@ cmp-icon {
   }
 }
 
+// Content scale.
+cmp-content-scale {
+  position: relative;
+
+  .cmp__bar {
+    width: 100%;
+    height: 2px;
+    background-color: $light-gray;
+  }
+
+  .cmp__ticks-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .cmp__tick {
+      flex-grow: 1;
+      height: 8px;
+      border-right: solid 1px darken($light-gray, 10%);
+
+      .cmp__tick {
+        height: 4px;
+      }
+
+      &:nth-child(10) {
+        border-right: none;
+      }
+    }
+  }
+
+  .cmp__scroll-progress {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background-color: $brand-color;
+    transition: width $medium-speed;
+  }
+}
+
 // Widgets.
 .cmp__widget {
   padding: $lg-size;
@@ -676,6 +717,18 @@ cmp-icon {
 
 .cmp__center {
   text-align: center;
+}
+
+// Sticky.
+.cmp__sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+// Other Classes.
+.cmp__no-transition {
+  transition: none !important;
 }
 
 // Constants.

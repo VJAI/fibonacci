@@ -490,11 +490,11 @@ html, body {
 
 // Share Button
 button.cmp__share-it-btn {
-  padding: 0;
+  padding: 0.146rem;
+  margin-left: 0.315rem;
   font-size: 0.618rem;
   background-color: transparent;
   color: $article-meta-color;
-  margin-left: 0.315rem;
 
   &:focus, &:active, &:hover {
     background-color: transparent;
