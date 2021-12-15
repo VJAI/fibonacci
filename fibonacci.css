@@ -2780,6 +2780,9 @@ menu menu {
     padding: var(--lg-size) var(--xl-size);
   }
 
+  cmp-image {
+    min-height: 100px;
+  }
   cmp-image .cmp__image-info cmp-icon[name=image] {
     width: 80px;
     height: 80px;

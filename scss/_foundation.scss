@@ -1156,6 +1156,8 @@ $colors: (
   }
 
   cmp-image {
+    min-height: 100px;
+
     .cmp__image-info {
       cmp-icon[name="image"] {
         width: 80px;
