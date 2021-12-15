@@ -316,6 +316,10 @@ figure {
     box-shadow: $box-shadow;
   }
 
+  cmp-image {
+    border-radius: $border-radius;
+  }
+
   table {
     margin: 0;
   }
@@ -622,8 +626,8 @@ cmp-content-scale {
 
   .cmp__bar {
     width: 100%;
-    height: 2px;
-    background-color: $light-gray;
+    height: $content-scale-height;
+    background-color: $content-scale-bg;
   }
 
   .cmp__ticks-container {
@@ -633,11 +637,11 @@ cmp-content-scale {
 
     .cmp__tick {
       flex-grow: 1;
-      height: 8px;
-      border-right: solid 1px darken($light-gray, 10%);
+      height: $tick-max-height;
+      border-right: solid 1px $tick-color;
 
       .cmp__tick {
-        height: 4px;
+        height: $tick-min-height;
       }
 
       &:nth-child(10) {
@@ -650,8 +654,8 @@ cmp-content-scale {
     position: absolute;
     top: 0;
     width: 0;
-    height: 2px;
-    background-color: $brand-color;
+    height: $content-scale-height;
+    background-color: $scale-progress-bg;
     transition: width $medium-speed;
 
     &::after {
@@ -661,10 +665,105 @@ cmp-content-scale {
       right: 0;
       width: 10px;
       height: 4px;
-      background-color: $brand-color;
+      background-color: $scale-progress-bg;
       transform: rotate(15deg);
       border-radius: 5px;
-      box-shadow: 0 1px 3px $brand-light;
+      box-shadow: 0 1px 3px $scale-progress-bg-shadow;
+    }
+  }
+}
+
+// Image Progress.
+cmp-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dim-gray;
+
+  &.cmp__image-loaded {
+    cmp-progress, .cmp__image-info {
+      display: none;
+    }
+  }
+
+  &.cmp__image-error {
+    cmp-progress {
+      display: none;
+    }
+  }
+
+  .cmp__image-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cmp-icon[name="image"] {
+      color: darken($light-gray, 15%);
+    }
+
+    .cmp__status-text {
+      font-family: $heading-font-family;
+      font-size: $small-font-size;
+      color: darken($light-gray, 15%);
+    }
+  }
+
+  cmp-progress {
+    position: absolute;
+
+    &.cmp__first {
+      top: 20%;
+    }
+
+    &.cmp__last {
+      bottom: 20%;
+    }
+  }
+
+  img {
+    transition: filter $snail-speed;
+  }
+}
+
+// Progress.
+cmp-progress {
+  .cmp__squares-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .cmp__square {
+      width: $sm-size;
+      height: $sm-size;
+      background-color: $brand-light;
+      border-radius: 2px;
+      animation: color_change 1s linear infinite;
+
+      &:first-child {
+        animation-delay: 200ms;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 400ms;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 600ms;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 800ms;
+      }
+
+      &:last-child {
+        animation-delay: 1s;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0.26rem;
+      }
     }
   }
 }
@@ -1039,5 +1138,20 @@ $colors: (
 
   .cmp__widget {
     padding: $medium-padding;
+  }
+}
+
+@keyframes color_change {
+  0% {
+    background-color: $brand-light;
+  }
+  10% {
+    background-color: $brand-color;
+  }
+  20% {
+    background-color: $brand-light;
+  }
+  100% {
+    background-color: $brand-light;
   }
 }

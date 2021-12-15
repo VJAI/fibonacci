@@ -7,6 +7,7 @@
     searchIcon = document.querySelector('.cmp__search-form a'),
     contentScale = document.querySelector('cmp-content-scale');
   
+  //***** Search *****//
   const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
   
   hamburger.addEventListener('click', function () {
@@ -62,6 +63,8 @@
     document.body.removeEventListener('click', documentClickHandler);
   }
   
+  
+  //***** Content Scroll *****//
   const sticky = header.offsetHeight;
   window.addEventListener('scroll', function () {
     if (!contentScale) {
@@ -96,6 +99,10 @@
     scrollProgress.style.width = `${percentScrolled}%`;
   }
   
+  
+  //***** Re-usable web components *****//
+  
+  // Icon Web Component.
   const iconTemplate = document.createElement('template');
   iconTemplate.innerHTML = `<div class="svg-wrap">
     <svg viewBox="0 0 16 16" width="16" height="16">
@@ -103,7 +110,6 @@
     </svg>
   </div>`;
   
-  // Icon Web Component.
   class IconElement extends HTMLElement {
     
     get name() {
@@ -148,6 +154,7 @@
   
   window.customElements.define('cmp-icon', IconElement);
   
+  // Content scroll indicator web component.
   const contentScaleTemplate = document.createElement('template');
   contentScaleTemplate.innerHTML = `
     <div class="cmp__bar"></div>
@@ -295,7 +302,6 @@
     </div>
     <div class="cmp__scroll-progress"></div>`;
   
-  // Content scroll indicator web component.
   class ContentScaleElement extends HTMLElement {
     
     constructor() {
@@ -305,6 +311,115 @@
   }
   
   window.customElements.define('cmp-content-scale', ContentScaleElement);
+  
+  // Gracefully renders images.
+  const imageElementTemplate = document.createElement('template');
+  imageElementTemplate.innerHTML = `
+    <div class="cmp__image-info">
+      <cmp-icon name="image" size="80"></cmp-icon>
+      <span class="cmp__status-text"></span>
+    </div>
+    <cmp-progress class="cmp__first"></cmp-progress>
+    <cmp-progress class="cmp__last"></cmp-progress>
+  `;
+  
+  class ImageElement extends HTMLElement {
+    
+    get src() {
+      return this.getAttribute('src');
+    }
+  
+    set src(value) {
+      this.setAttribute('src', value);
+    }
+  
+    get alt() {
+      return this.getAttribute('alt');
+    }
+  
+    set alt(value) {
+      this.setAttribute('alt', value);
+    }
+  
+    get width() {
+      return this.getAttribute('width');
+    }
+    
+    set width(value) {
+      this.setAttribute('width', value);
+    }
+  
+    get height() {
+      return this.getAttribute('height');
+    }
+  
+    set height(value) {
+      this.setAttribute('height', value);
+    }
+  
+    get responsive() {
+      return this.getAttribute('responsive');
+    }
+  
+    set responsive(value) {
+      this.setAttribute('responsive', value);
+    }
+  
+    static get observedAttributes() {
+      return ['src', 'alt', 'width', 'height', 'responsive'];
+    }
+  
+    constructor() {
+      super();
+      this.appendChild(imageElementTemplate.content.cloneNode(true));
+    }
+    
+    connectedCallback() {
+      const statusElement = document.querySelector('.cmp__status-text');
+      
+      this.style.width = this.width;
+      this.style.aspectRatio = this.width / this.height;
+  
+      statusElement.innerHTML = this.alt;
+      
+      const img = document.createElement('img');
+      img.style.filter = 'blur(4px)';
+      img.addEventListener('load', () => {
+        this.classList.add('cmp__image-loaded');
+        this.appendChild(img);
+        setTimeout(() => {
+          img.style.filter = 'blur(0)';
+        }, 500);
+      });
+      img.addEventListener('error', () => {
+        this.classList.add('cmp__image-error');
+        statusElement.innerHTML = 'Failed to load image';
+      });
+      img.src = this.src;
+    }
+  }
+  
+  window.customElements.define('cmp-image', ImageElement);
+  
+  // Progress element.
+  const progressTemplate = document.createElement('template');
+  progressTemplate.innerHTML = `<div class="cmp__squares-container">
+    <div class="cmp__square"></div>
+    <div class="cmp__square"></div>
+    <div class="cmp__square"></div>
+    <div class="cmp__square"></div>
+    <div class="cmp__square"></div>
+  </div>`;
+  
+  class SquaresProgressElement extends HTMLElement {
+    
+    constructor() {
+      super();
+      this.appendChild(progressTemplate.content.cloneNode(true));
+    }
+  }
+  
+  window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // Boot function.
   function init() {

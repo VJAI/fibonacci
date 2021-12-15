@@ -22,7 +22,7 @@ $gray:                              rgba(51, 51, 51, 0.5) !default;
 $light-gray:                        rgba(204, 204, 204, 0.5) !default;
 $dim-gray:                          rgba(247, 247, 247, 1) !default;
 $blue-gray:                         rgba(135, 146, 163, 1) !default;
-$yellow-green:                      #b5db56 !default;
+$yellow-green:                      rgba(181, 219, 86, 1) !default;
 
 // Special colors.
 $success:                           rgba(241, 247, 234, 1) !default;
@@ -166,6 +166,7 @@ $table-line-height:                 $medium-line-height !default;
 // Animations Speed.
 $medium-speed:                      0.5s !default;
 $fast-speed:                        0.25s !default;
+$snail-speed:                       5s !default;
 
 // Specific Variables.
 // Header Component.
@@ -187,7 +188,8 @@ $nav-active-border-width:           4px !default;
 // Footer Component.
 $footer-font-family:                $heading-font-family !default;
 $footer-font-size:                  0.618rem !default;
-$footer-height:                     4.236rem !default;
+$footer-credits-font-size:          0.421rem !default;
+$footer-height:                     4.664rem !default;
 
 // Page Main Component.
 $page-content-top:                  3.847rem !default;
@@ -212,6 +214,15 @@ $widget-bg-color:                   $dim-gray !default;
 
 // Table Of Contents.
 $toc-bg-color:                      $widget-bg-color !default;
+
+// Content scale.
+$content-scale-height:              2px !default;
+$content-scale-bg:                  $light-gray !default;
+$tick-max-height:                   8px !default;
+$tick-min-height:                   4px !default;
+$tick-color:                        darken($light-gray, 10%) !default;
+$scale-progress-bg:                 $brand-color !default;
+$scale-progress-bg-shadow:          $brand-light !default;
 
 // Utility Classes Variables.
 $drop-cap-font-size:                300% !default;

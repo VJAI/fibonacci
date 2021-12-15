@@ -156,7 +156,7 @@
     <main class="cmp__article-content cmp__auto-layout">
 
       <figure class="cmp__article-poster cmp__figure-full">
-        <img src="assets/blog_resources/agriculture-apple-blur-wide.png" alt="Alt Text">
+        <cmp-image src="assets/blog_resources/agriculture-apple-blur-wide.jpeg" alt="A beautiful photo of an apple" width="1500" height="770"></cmp-image>
         <figcaption class="cmp__center">Fig 1. A beautiful photo of an apple taken from the beautiful place Kashmir. Source: <i>https://unsplash.com</i>
         </figcaption>
       </figure>
@@ -405,7 +405,7 @@
       </p>
 
       <figure class="cmp__responsive">
-        <img src="assets/blog_resources/agriculture-apple-blur.jpg" alt="Alt Text"/>
+        <cmp-image src="assets/blog_resources/agriculture-apple-blur.jpeg" alt="A beautiful photo of an apple" width="1500" height="961"></cmp-image>
         <figcaption>Fig 2. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
         </figcaption>
       </figure>
@@ -419,7 +419,7 @@
 
       <div class="cmp__page-element cmp__responsive">
         <figure class="cmp__tab-float-left cmp__tab-mar-right-sm cmp__tab-no-margin">
-          <img src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="Alt Text" />
+          <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" width="400" height="517"></cmp-image>
           <figcaption>Fig 3. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
           </figcaption>
         </figure>
@@ -448,7 +448,7 @@
 
       <div class="cmp__page-element cmp__responsive">
         <figure class="cmp__tab-float-right cmp__tab-mar-left-sm">
-          <img src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="Alt Text" />
+          <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" width="400" height="517"></cmp-image>
           <figcaption>Fig 4. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
           </figcaption>
         </figure>
@@ -985,7 +985,13 @@ export default new Emitter();</code></pre>
 
 <!-- Page Footer Component -->
 <footer class="cmp__blog-footer">
-  &copy; 2021 &middot; All Rights Reserved
+  <section class="cmp__footer-left">
+    <div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+    <div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+  </section>
+  <section class="cmp__footer-right">
+    <div>&copy; 2021 &middot; All Rights Reserved</div>
+  </section>
 </footer>
 
 <script>hljs.initHighlightingOnLoad();</script>
