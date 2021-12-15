@@ -770,6 +770,18 @@ cmp-progress {
   }
 }
 
+// Simple decorative element.
+cmp-words-fall {
+  position: relative;
+  overflow: hidden;
+
+  .cmp__word {
+    white-space: nowrap;
+    position: absolute;
+    animation: falling_word 2s linear;
+  }
+}
+
 // Widgets.
 .cmp__widget {
   padding: $lg-size;
@@ -1184,5 +1196,17 @@ $colors: (
   }
   100% {
     background-color: $brand-light;
+  }
+}
+
+@keyframes falling_word {
+  from {
+    top: 0;
+    opacity: 0.7;
+  }
+
+  to {
+    top: calc(3.847rem + $xl-size);
+    opacity: 0;
   }
 }

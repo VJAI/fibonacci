@@ -1,1 +1,15 @@
-// Nothing here for now!
+.cmp__blog-main {
+  &.cmp__no-space-top {
+    padding-top: 0;
+
+    .cmp__blog-content {
+      h1 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+cmp-words-fall {
+  height: calc(3.847rem + $xl-size);
+}

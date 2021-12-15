@@ -85,6 +85,10 @@
   });
   
   function setScrollProgress() {
+    if (!contentScale) {
+      return;
+    }
+    
     const articleContent = document.querySelector('.cmp__article-content');
     const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
     const articleScrollHeight = articleContent.scrollHeight;
@@ -424,7 +428,125 @@
   
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
-  // Boot function.
+  
+  // Simple decorative element to attract users.
+  const wordsFallTemplate = document.createElement('template');
+  wordsFallTemplate.innerHTML = ``;
+  
+  class WordsFallElement extends HTMLElement {
+    
+    _wordsCloud = [
+      'html',
+      'CSS',
+      'JS',
+      'C#',
+      '.NET',
+      'SQL',
+      'python',
+      'ASP.NET MVC',
+      'progressive web development',
+      'Angular',
+      'React',
+      'backbone',
+      'meteorjs',
+      'fibonacci',
+      'UX',
+      'front-end',
+      'firebase',
+      'XML',
+      'Android',
+      'Mobile Development',
+      'Docker',
+      'kubernetes',
+      'Azure Cloud',
+      'Salesforce',
+      'CRM dynamics',
+      'AI',
+      'Data Analytics',
+      'Big Data',
+      'cordova',
+      'jQuery',
+      'web components'
+    ];
+    
+    _colors = [
+      '#f04875',
+      '#93c225',
+      '#8792a3',
+      '#ebd63b',
+      '#517ee8'
+    ];
+    
+    _sizes = [
+      '0.908rem',
+      '1rem',
+      '1.335rem',
+      '1.961rem',
+      '2.160rem'
+    ];
+  
+    _interval = 500;
+    
+    _intervalId = null;
+    
+    _noOfLanes = 10;
+    
+    get wordsCloud() {
+      return this._wordsCloud;
+    }
+    
+    set wordsCloud(value) {
+      this._wordsCloud = value;
+    }
+    
+    get interval() {
+      return this._interval;
+    }
+    
+    set interval(value) {
+      this._interval = value;
+    }
+    
+    constructor() {
+      super();
+      this.appendChild(wordsFallTemplate.content.cloneNode(true));
+    }
+    
+    _getRandomNo(max) {
+      return ~~(Math.random() * max);
+    }
+    
+    _pickWord() {
+      const word = this._wordsCloud[this._getRandomNo(this._wordsCloud.length)],
+        lane = this._getRandomNo(this._noOfLanes),
+        color = this._colors[this._getRandomNo(this._colors.length)],
+        size = this._sizes[this._getRandomNo(this._sizes.length)];
+      
+      const wordElement = document.createElement('div');
+      wordElement.classList.add('cmp__word');
+      wordElement.innerHTML = word;
+      wordElement.style.left = `${lane * 10}%`;
+      wordElement.style.color = color;
+      wordElement.style.fontSize = size;
+      wordElement.addEventListener('animationend', () => wordElement.remove());
+      this.appendChild(wordElement);
+    }
+    
+    connectedCallback() {
+      this._intervalId = setInterval(() => this._pickWord(), this._interval);
+    }
+    
+    disconnectedCallback() {
+      if (this._intervalId) {
+        window.clearInterval(this._intervalId);
+        this._intervalId = null;
+      }
+    }
+  }
+  
+  window.customElements.define('cmp-words-fall', WordsFallElement);
+  
+  //**** Boot function ****/
   function init() {
     if (contentScale) {
       const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
