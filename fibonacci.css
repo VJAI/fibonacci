@@ -780,6 +780,7 @@ cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
 
 cmp-words-fall {
   position: relative;
+  display: block;
   overflow: hidden;
 }
 cmp-words-fall .cmp__word {
@@ -2883,8 +2884,10 @@ html, body {
 .cmp__blog-nav {
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
   height: 100%;
-  margin-left: auto;
+  margin-left: var(--lg-size);
   font-family: "Source Sans Pro", sans-serif;
 }
 .cmp__blog-nav ul {
@@ -3467,8 +3470,7 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
 .cmp__blog-main.cmp__no-space-top .cmp__blog-content h1 {
   margin-top: 0;
 }
-
-cmp-words-fall {
+.cmp__blog-main cmp-words-fall {
   height: calc(3.847rem + var(--xl-size));
 }
 

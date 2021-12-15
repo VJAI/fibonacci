@@ -773,6 +773,7 @@ cmp-progress {
 // Simple decorative element.
 cmp-words-fall {
   position: relative;
+  display: block;
   overflow: hidden;
 
   .cmp__word {

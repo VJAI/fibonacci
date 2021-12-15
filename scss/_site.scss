@@ -78,8 +78,10 @@ html, body {
 // Page Navigation Component.
 .cmp__blog-nav {
   @include flex-ver-center;
+  flex-grow: 1;
+  justify-content: flex-end;
   height: 100%;
-  margin-left: auto;
+  margin-left: var(--lg-size);
 
   font-family: $nav-font-family;
 
