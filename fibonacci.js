@@ -139,9 +139,12 @@
     
     attributeChangedCallback(attrName) {
       if (attrName === 'size') {
-        const size = this.size || 16;
-        this.style.width = `${size}px`;
-        this.style.height = `${size}px`;
+        if (this.size) {
+          this.style.width = `${this.size}px`;
+          this.style.height = `${this.size}px`;
+        } else {
+          this.style.width = this.style.height = 'auto';
+        }
       }
       
       if (attrName === 'name') {
@@ -316,7 +319,7 @@
   const imageElementTemplate = document.createElement('template');
   imageElementTemplate.innerHTML = `
     <div class="cmp__image-info">
-      <cmp-icon name="image" size="80"></cmp-icon>
+      <cmp-icon name="image"></cmp-icon>
       <span class="cmp__status-text"></span>
     </div>
     <cmp-progress class="cmp__first"></cmp-progress>

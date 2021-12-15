@@ -701,6 +701,8 @@ cmp-image {
 
     cmp-icon[name="image"] {
       color: darken($light-gray, 15%);
+      width: 48px;
+      height: 48px;
     }
 
     .cmp__status-text {
@@ -714,11 +716,11 @@ cmp-image {
     position: absolute;
 
     &.cmp__first {
-      top: 20%;
+      top: $lg-size;
     }
 
     &.cmp__last {
-      bottom: 20%;
+      display: none;
     }
   }
 
@@ -735,8 +737,8 @@ cmp-progress {
     align-items: center;
 
     .cmp__square {
-      width: $sm-size;
-      height: $sm-size;
+      width: 0.680rem;
+      height: 0.680rem;
       background-color: $brand-light;
       border-radius: 2px;
       animation: color_change 1s linear infinite;
@@ -1138,6 +1140,35 @@ $colors: (
 
   .cmp__widget {
     padding: $medium-padding;
+  }
+
+  cmp-image {
+    .cmp__image-info {
+      cmp-icon[name="image"] {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    cmp-progress {
+      &.cmp__first {
+        top: 20%;
+      }
+
+      &.cmp__last {
+        display: block;
+        bottom: 20%;
+      }
+    }
+  }
+
+  cmp-progress {
+    .cmp__squares-container {
+      .cmp__square {
+        width: $sm-size;
+        height: $sm-size;
+      }
+    }
   }
 }
 

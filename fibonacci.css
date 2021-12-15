@@ -726,6 +726,8 @@ cmp-image .cmp__image-info {
 }
 cmp-image .cmp__image-info cmp-icon[name=image] {
   color: rgba(166, 166, 166, 0.5);
+  width: 48px;
+  height: 48px;
 }
 cmp-image .cmp__image-info .cmp__status-text {
   font-family: "Source Sans Pro", sans-serif;
@@ -736,13 +738,13 @@ cmp-image cmp-progress {
   position: absolute;
 }
 cmp-image cmp-progress.cmp__first {
-  top: 20%;
+  top: var(--lg-size);
 }
 cmp-image cmp-progress.cmp__last {
-  bottom: 20%;
+  display: none;
 }
 cmp-image img {
-  transition: filter 5s;
+  transition: filter 3s;
 }
 
 cmp-progress .cmp__squares-container {
@@ -751,8 +753,8 @@ cmp-progress .cmp__squares-container {
   align-items: center;
 }
 cmp-progress .cmp__squares-container .cmp__square {
-  width: var(--sm-size);
-  height: var(--sm-size);
+  width: 0.68rem;
+  height: 0.68rem;
   background-color: #f68faa;
   border-radius: 2px;
   animation: color_change 1s linear infinite;
@@ -2765,6 +2767,23 @@ menu menu {
 
   .cmp__widget {
     padding: var(--lg-size) var(--xl-size);
+  }
+
+  cmp-image .cmp__image-info cmp-icon[name=image] {
+    width: 80px;
+    height: 80px;
+  }
+  cmp-image cmp-progress.cmp__first {
+    top: 20%;
+  }
+  cmp-image cmp-progress.cmp__last {
+    display: block;
+    bottom: 20%;
+  }
+
+  cmp-progress .cmp__squares-container .cmp__square {
+    width: var(--sm-size);
+    height: var(--sm-size);
   }
 }
 @keyframes color_change {
