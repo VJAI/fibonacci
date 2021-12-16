@@ -791,7 +791,7 @@ cmp-words-fall .cmp__word {
   animation: falling_word 2s linear;
   color: #f04875;
   font-family: "Gugi", cursive;
-  text-shadow: 0 -2px 3px rgba(204, 204, 204, 0.5), 0 -15px 4px rgba(204, 204, 204, 0.5), 0 -30px 6px rgba(204, 204, 204, 0.5), 0 -45px 9px rgba(204, 204, 204, 0.5), 0 -60px 11px rgba(204, 204, 204, 0.5);
+  text-shadow: 0 -2px 3px rgba(204, 204, 204, 0.5), 0 -15px 4px rgba(204, 204, 204, 0.5), 0 -30px 6px rgba(204, 204, 204, 0.5);
 }
 
 .cmp__widget {

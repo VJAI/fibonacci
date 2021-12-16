@@ -1,109 +1,4 @@
 (function () {
-  const hamburger = document.querySelector('.cmp__hamburger-link a'),
-    selectControl = document.querySelector('.cmp__hidden-menu'),
-    header = document.querySelector('.cmp__blog-header'),
-    nav = document.querySelector('.cmp__blog-nav'),
-    searchInput = document.querySelector('.cmp__search-form input'),
-    searchIcon = document.querySelector('.cmp__search-form a'),
-    contentScale = document.querySelector('cmp-content-scale');
-  
-  //***** Search *****//
-  const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
-  
-  hamburger.addEventListener('click', function () {
-    selectControl.click();
-  });
-  
-  hamburger.addEventListener('change', function (evt) {
-    const page = selectControl.value;
-    
-    if (!page) {
-      return;
-    }
-    
-    if (page === 'search') {
-      nav.classList.add('cmp__search-active');
-      document.body.addEventListener('click', documentClickHandler);
-      searchInput.focus();
-      return;
-    }
-    
-    window.location.href = selectControl.value;
-  });
-  
-  searchInput.addEventListener('click', function (e) {
-    e.stopPropagation();
-  });
-  
-  mediaChangeHandler(mediaQuery);
-  mediaQuery.addListener(mediaChangeHandler);
-  
-  function mediaChangeHandler(quertList) {
-    if (quertList.matches) {
-      searchIcon.removeEventListener('click', searchIconClickHandler);
-    } else {
-      searchIcon.addEventListener('click', searchIconClickHandler);
-    }
-  }
-  
-  function searchIconClickHandler(e) {
-    nav.classList.add('cmp__search-active');
-    document.body.addEventListener('click', documentClickHandler);
-    searchInput.focus();
-    e.stopPropagation();
-  }
-  
-  function documentClickHandler(e) {
-    if (e.currentTarget === searchInput || e.currentTarget === searchIcon) {
-      return;
-    }
-    
-    nav.classList.remove('cmp__search-active');
-    selectControl.value = null;
-    document.body.removeEventListener('click', documentClickHandler);
-  }
-  
-  
-  //***** Content Scroll *****//
-  const sticky = header.offsetHeight;
-  window.addEventListener('scroll', function () {
-    if (!contentScale) {
-      return;
-    }
-    
-    if (window.pageYOffset >= sticky) {
-      contentScale.classList.add('cmp__sticky')
-    } else {
-      contentScale.classList.remove('cmp__sticky');
-    }
-    
-    setScrollProgress();
-  });
-  
-  window.addEventListener('resize', function () {
-    setScrollProgress();
-  });
-  
-  function setScrollProgress() {
-    if (!contentScale) {
-      return;
-    }
-    
-    const articleContent = document.querySelector('.cmp__article-content');
-    const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
-    const articleScrollHeight = articleContent.scrollHeight;
-    const articleOffsetTop = articleContent.offsetTop;
-    
-    if (window.scrollY <= articleOffsetTop) {
-      scrollProgress.style.width = '0';
-      return;
-    }
-    
-    const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
-    scrollProgress.style.width = `${percentScrolled}%`;
-  }
-  
-  
   //***** Re-usable web components *****//
   
   // Icon Web Component.
@@ -425,122 +320,23 @@
   
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
-  
   // Simple decorative element to attract users.
   const wordsFallTemplate = document.createElement('template');
   wordsFallTemplate.innerHTML = ``;
   
   class WordsFallElement extends HTMLElement {
     
-    get wordsCloud() {
-      return this._wordsCloud;
-    }
-    
-    set wordsCloud(value) {
-      this._wordsCloud = value;
-    }
-    
-    get colors() {
-      return this._colors;
-    }
-    
-    set colors(value) {
-      this._colors = value;
-    }
-    
-    get sizes() {
-      return this._sizes;
-    }
-    
-    set sizes(value) {
-      this._sizes = value;
-    }
-    
-    get interval() {
-      return this._interval;
-    }
-    
-    set interval(value) {
-      this._interval = value;
-    }
-    
-    get totalPopulation() {
-      return this._totalPopulation;
-    }
-    
-    set totalPopulation(value) {
-      this._totalPopulation = value;
-    }
-    
-    get animDurations() {
-      return this._animDurations;
-    }
-    
-    set animDurations(value) {
-      this._animDurations = value;
-    }
-    
     constructor() {
       super();
-      
-      this._wordsCloud = [
-        'html',
-        'CSS',
-        'JS',
-        'C#',
-        '.NET',
-        'SQL',
-        'python',
-        'ASP.NET MVC',
-        'progressive web development',
-        'Angular',
-        'React',
-        'backbone',
-        'meteorjs',
-        'fibonacci',
-        'UX',
-        'front-end',
-        'firebase',
-        'XML',
-        'Android',
-        'Mobile Development',
-        'Docker',
-        'kubernetes',
-        'Azure Cloud',
-        'Salesforce',
-        'CRM dynamics',
-        'AI',
-        'Data Analytics',
-        'Big Data',
-        'cordova',
-        'jQuery',
-        'web components'
-      ];
-      this._colors = [
-        '#f04875',
-        '#93c225',
-        '#8792a3',
-        '#ebd63b',
-        '#517ee8'
-      ];
-      this._sizes = [
-        '0.908rem',
-        '1rem',
-        '1.335rem',
-        '1.961rem',
-        '2.160rem'
-      ];
-      this._animDurations = [
-        1,
-        1.5,
-        2,
-        3,
-        5
-      ];
+
+      this._wordsCloud = [];
+      this._colors = [ '#f04875', '#93c225', '#8792a3', '#ebd63b', '#517ee8' ];
+      this._sizes = [ '0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem' ];
+      this._animDurations = [ 1, 1.5, 2, 3, 5 ];
       this._interval = 500;
       this._intervalId = null;
-      this._noOfLanes = 10;
-      this._totalPopulation = 10;
+      this._noOfLanes = 12;
+      this._totalPopulation = 20;
       this._population = 0;
       
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
@@ -549,11 +345,11 @@
     }
     
     _startTimer() {
-      if (this._intervalId) {
+      if (this._intervalId || this._wordsCloud.length === 0) {
         return;
       }
       
-      this._intervalId = setInterval(() => this._pickWord(), this._interval);
+      this._intervalId = setInterval(() => this._pickWords(), this._interval);
     }
     
     _stopTimer() {
@@ -569,7 +365,7 @@
       return ~~(Math.random() * max);
     }
     
-    _pickWord() {
+    _pickWords() {
       if (this._population >= this._totalPopulation) {
         return;
       }
@@ -598,12 +394,41 @@
     connectedCallback() {
       window.addEventListener('focus', this._startTimer);
       window.addEventListener('blur', this._stopTimer);
-      this._startTimer();
     }
     
     disconnectedCallback() {
       window.removeEventListener('focus', this._startTimer);
       window.removeEventListener('blur', this._stopTimer);
+      this._stopTimer();
+    }
+  
+    init(args) {
+      const {
+        wordsCloud,
+        sizes,
+        colors,
+        animDurations,
+        interval,
+        totalPopulation,
+        noOfLanes
+      } = args;
+    
+      Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
+      Array.isArray(sizes) && (this._sizes = sizes);
+      Array.isArray(colors) && (this._colors = colors);
+      Array.isArray(animDurations) && (this._animDurations = animDurations);
+      typeof interval === 'number' && (this._interval = interval);
+      typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
+      typeof noOfLanes === 'number' && (this._noOfLanes = noOfLanes);
+      this._stopTimer();
+      this._startTimer();
+    }
+    
+    activate() {
+      this._startTimer();
+    }
+    
+    deactivate() {
       this._stopTimer();
     }
   }
@@ -612,6 +437,172 @@
   
   //**** Boot function ****/
   function init() {
+    const hamburger = document.querySelector('.cmp__hamburger-link a'),
+      selectControl = document.querySelector('.cmp__hidden-menu'),
+      header = document.querySelector('.cmp__blog-header'),
+      nav = document.querySelector('.cmp__blog-nav'),
+      searchInput = document.querySelector('.cmp__search-form input'),
+      searchIcon = document.querySelector('.cmp__search-form a'),
+      contentScale = document.querySelector('cmp-content-scale'),
+      wordsFall = document.querySelector('cmp-words-fall'),
+      blogContent = document.querySelector('.cmp__blog-content');
+    
+    function mediaChangeHandler(queryList) {
+      let wordsFallArgs;
+      
+      if (queryList.matches) {
+        wordsFallArgs = {
+          noOfLanes: 12,
+          totalPopulation: 20,
+          sizes: [ '0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem' ]
+        };
+        searchIcon.removeEventListener('click', searchIconClickHandler);
+      } else {
+        wordsFallArgs = {
+          noOfLanes: 6,
+          totalPopulation: 10,
+          sizes: [ '0.825rem', '0.908rem', '1rem', '1.212rem']
+        };
+        searchIcon.addEventListener('click', searchIconClickHandler);
+      }
+  
+      if (wordsFall) {
+        wordsFall.init({
+          ...wordsFallArgs,
+          wordsCloud: [
+            'html',
+            'CSS',
+            'JS',
+            'C#',
+            '.NET',
+            'SQL',
+            'python',
+            'ASP.NET MVC',
+            'progressive web development',
+            'Angular',
+            'React',
+            'backbone',
+            'meteorjs',
+            'fibonacci',
+            'UX',
+            'front-end',
+            'firebase',
+            'XML',
+            'Android',
+            'Mobile Development',
+            'Docker',
+            'kubernetes',
+            'Azure Cloud',
+            'Salesforce',
+            'CRM dynamics',
+            'AI',
+            'Data Analytics',
+            'Big Data',
+            'cordova',
+            'jQuery',
+            'web components'
+          ]
+        });
+        if (window.scrollY >= blogContent.offsetTop - 40) {
+          wordsFall.deactivate();
+        } else {
+          wordsFall.activate();
+        }
+      }
+    }
+  
+    function searchIconClickHandler(e) {
+      nav.classList.add('cmp__search-active');
+      document.body.addEventListener('click', documentClickHandler);
+      searchInput.focus();
+      e.stopPropagation();
+    }
+  
+    function documentClickHandler(e) {
+      if (e.currentTarget === searchInput || e.currentTarget === searchIcon) {
+        return;
+      }
+    
+      nav.classList.remove('cmp__search-active');
+      selectControl.value = null;
+      document.body.removeEventListener('click', documentClickHandler);
+    }
+  
+    function setScrollProgress() {
+      if (!contentScale) {
+        return;
+      }
+    
+      const articleContent = document.querySelector('.cmp__article-content');
+      const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
+      const articleScrollHeight = articleContent.scrollHeight;
+      const articleOffsetTop = articleContent.offsetTop;
+    
+      if (window.scrollY <= articleOffsetTop) {
+        scrollProgress.style.width = '0';
+        return;
+      }
+    
+      const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
+      scrollProgress.style.width = `${percentScrolled}%`;
+    }
+  
+    hamburger.addEventListener('click', function () {
+      selectControl.click();
+    });
+  
+    hamburger.addEventListener('change', function (evt) {
+      const page = selectControl.value;
+    
+      if (!page) {
+        return;
+      }
+    
+      if (page === 'search') {
+        nav.classList.add('cmp__search-active');
+        document.body.addEventListener('click', documentClickHandler);
+        searchInput.focus();
+        return;
+      }
+    
+      window.location.href = selectControl.value;
+    });
+  
+    searchInput.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+    
+    const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
+    mediaChangeHandler(mediaQuery);
+    mediaQuery.addListener(mediaChangeHandler);
+    
+    const sticky = header.offsetHeight;
+    window.addEventListener('scroll', function () {
+      // Handling Content Scale.
+      if (contentScale) {
+        if (window.pageYOffset >= sticky) {
+          contentScale.classList.add('cmp__sticky')
+        } else {
+          contentScale.classList.remove('cmp__sticky');
+        }
+  
+        setScrollProgress();
+      }
+      
+      // Wordsfall component.
+      if (wordsFall) {
+        if (window.scrollY >= blogContent.offsetTop - 40) {
+          wordsFall.deactivate();
+        } else {
+          wordsFall.activate();
+        }
+      }
+    });
+  
+    window.addEventListener('resize', function () {
+      setScrollProgress();
+    });
+    
     if (contentScale) {
       const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
       scrollProgress.classList.add('cmp__no-transition');
