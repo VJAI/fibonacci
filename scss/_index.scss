@@ -9,7 +9,35 @@
     }
   }
 
+  .cmp__blog-content {
+    .cmp__article, &.cmp__article {
+      .cmp__article-header {
+        .cmp__article-meta {
+          .cmp__tab-hide {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
   cmp-words-fall {
     height: calc(3.847rem + $xl-size);
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .cmp__blog-main {
+    .cmp__blog-content {
+      .cmp__article, &.cmp__article {
+        .cmp__article-header {
+          .cmp__article-meta {
+            .cmp__tab-hide {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
   }
 }
