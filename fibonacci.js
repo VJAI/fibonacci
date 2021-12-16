@@ -335,7 +335,7 @@
       this._animDurations = [ 1, 1.5, 2, 3, 5 ];
       this._interval = 500;
       this._intervalId = null;
-      this._noOfLanes = 12;
+      this._noOfLanes = 10;
       this._totalPopulation = 20;
       this._population = 0;
       
@@ -452,14 +452,12 @@
       
       if (queryList.matches) {
         wordsFallArgs = {
-          noOfLanes: 12,
           totalPopulation: 20,
           sizes: [ '0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem' ]
         };
         searchIcon.removeEventListener('click', searchIconClickHandler);
       } else {
         wordsFallArgs = {
-          noOfLanes: 6,
           totalPopulation: 10,
           sizes: [ '0.825rem', '0.908rem', '1rem', '1.212rem']
         };
