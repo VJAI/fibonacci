@@ -432,74 +432,6 @@
   
   class WordsFallElement extends HTMLElement {
     
-    _wordsCloud = [
-      'html',
-      'CSS',
-      'JS',
-      'C#',
-      '.NET',
-      'SQL',
-      'python',
-      'ASP.NET MVC',
-      'progressive web development',
-      'Angular',
-      'React',
-      'backbone',
-      'meteorjs',
-      'fibonacci',
-      'UX',
-      'front-end',
-      'firebase',
-      'XML',
-      'Android',
-      'Mobile Development',
-      'Docker',
-      'kubernetes',
-      'Azure Cloud',
-      'Salesforce',
-      'CRM dynamics',
-      'AI',
-      'Data Analytics',
-      'Big Data',
-      'cordova',
-      'jQuery',
-      'web components'
-    ];
-    
-    _colors = [
-      '#f04875',
-      '#93c225',
-      '#8792a3',
-      '#ebd63b',
-      '#517ee8'
-    ];
-    
-    _sizes = [
-      '0.908rem',
-      '1rem',
-      '1.335rem',
-      '1.961rem',
-      '2.160rem'
-    ];
-    
-    _animDurations = [
-      1,
-      1.5,
-      2,
-      3,
-      5
-    ];
-    
-    _interval = 500;
-    
-    _intervalId = null;
-    
-    _noOfLanes = 10;
-    
-    _totalPopulation = 10;
-    
-    _population = 0;
-    
     get wordsCloud() {
       return this._wordsCloud;
     }
@@ -550,6 +482,67 @@
     
     constructor() {
       super();
+      
+      this._wordsCloud = [
+        'html',
+        'CSS',
+        'JS',
+        'C#',
+        '.NET',
+        'SQL',
+        'python',
+        'ASP.NET MVC',
+        'progressive web development',
+        'Angular',
+        'React',
+        'backbone',
+        'meteorjs',
+        'fibonacci',
+        'UX',
+        'front-end',
+        'firebase',
+        'XML',
+        'Android',
+        'Mobile Development',
+        'Docker',
+        'kubernetes',
+        'Azure Cloud',
+        'Salesforce',
+        'CRM dynamics',
+        'AI',
+        'Data Analytics',
+        'Big Data',
+        'cordova',
+        'jQuery',
+        'web components'
+      ];
+      this._colors = [
+        '#f04875',
+        '#93c225',
+        '#8792a3',
+        '#ebd63b',
+        '#517ee8'
+      ];
+      this._sizes = [
+        '0.908rem',
+        '1rem',
+        '1.335rem',
+        '1.961rem',
+        '2.160rem'
+      ];
+      this._animDurations = [
+        1,
+        1.5,
+        2,
+        3,
+        5
+      ];
+      this._interval = 500;
+      this._intervalId = null;
+      this._noOfLanes = 10;
+      this._totalPopulation = 10;
+      this._population = 0;
+      
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
       this._startTimer = this._startTimer.bind(this);
       this._stopTimer = this._stopTimer.bind(this);
