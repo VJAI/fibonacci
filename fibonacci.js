@@ -76,7 +76,7 @@
     } else {
       contentScale.classList.remove('cmp__sticky');
     }
-  
+    
     setScrollProgress();
   });
   
@@ -93,13 +93,13 @@
     const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
     const articleScrollHeight = articleContent.scrollHeight;
     const articleOffsetTop = articleContent.offsetTop;
-  
+    
     if (window.scrollY <= articleOffsetTop) {
       scrollProgress.style.width = '0';
       return;
     }
-  
-    const percentScrolled = parseInt(((window.scrollY - articleOffsetTop)  / articleScrollHeight) * 100, 10);
+    
+    const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
     scrollProgress.style.width = `${percentScrolled}%`;
   }
   
@@ -335,19 +335,19 @@
     get src() {
       return this.getAttribute('src');
     }
-  
+    
     set src(value) {
       this.setAttribute('src', value);
     }
-  
+    
     get alt() {
       return this.getAttribute('alt');
     }
-  
+    
     set alt(value) {
       this.setAttribute('alt', value);
     }
-  
+    
     get width() {
       return this.getAttribute('width');
     }
@@ -355,27 +355,27 @@
     set width(value) {
       this.setAttribute('width', value);
     }
-  
+    
     get height() {
       return this.getAttribute('height');
     }
-  
+    
     set height(value) {
       this.setAttribute('height', value);
     }
-  
+    
     get responsive() {
       return this.getAttribute('responsive');
     }
-  
+    
     set responsive(value) {
       this.setAttribute('responsive', value);
     }
-  
+    
     static get observedAttributes() {
       return ['src', 'alt', 'width', 'height', 'responsive'];
     }
-  
+    
     constructor() {
       super();
       this.appendChild(imageElementTemplate.content.cloneNode(true));
@@ -481,12 +481,24 @@
       '1.961rem',
       '2.160rem'
     ];
-  
+    
+    _animDurations = [
+      1,
+      1.5,
+      2,
+      3,
+      5
+    ];
+    
     _interval = 500;
     
     _intervalId = null;
     
     _noOfLanes = 10;
+    
+    _totalPopulation = 10;
+    
+    _population = 0;
     
     get wordsCloud() {
       return this._wordsCloud;
@@ -494,6 +506,22 @@
     
     set wordsCloud(value) {
       this._wordsCloud = value;
+    }
+    
+    get colors() {
+      return this._colors;
+    }
+    
+    set colors(value) {
+      this._colors = value;
+    }
+    
+    get sizes() {
+      return this._sizes;
+    }
+    
+    set sizes(value) {
+      this._sizes = value;
     }
     
     get interval() {
@@ -504,9 +532,44 @@
       this._interval = value;
     }
     
+    get totalPopulation() {
+      return this._totalPopulation;
+    }
+    
+    set totalPopulation(value) {
+      this._totalPopulation = value;
+    }
+    
+    get animDurations() {
+      return this._animDurations;
+    }
+    
+    set animDurations(value) {
+      this._animDurations = value;
+    }
+    
     constructor() {
       super();
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
+      this._startTimer = this._startTimer.bind(this);
+      this._stopTimer = this._stopTimer.bind(this);
+    }
+    
+    _startTimer() {
+      if (this._intervalId) {
+        return;
+      }
+      
+      this._intervalId = setInterval(() => this._pickWord(), this._interval);
+    }
+    
+    _stopTimer() {
+      if (!this._intervalId) {
+        return;
+      }
+      
+      clearInterval(this._intervalId);
+      this._intervalId = null;
     }
     
     _getRandomNo(max) {
@@ -514,10 +577,15 @@
     }
     
     _pickWord() {
-      const word = this._wordsCloud[this._getRandomNo(this._wordsCloud.length)],
+      if (this._population >= this._totalPopulation) {
+        return;
+      }
+      
+      const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
         lane = this._getRandomNo(this._noOfLanes),
-        color = this._colors[this._getRandomNo(this._colors.length)],
-        size = this._sizes[this._getRandomNo(this._sizes.length)];
+        color = this._colors[ this._getRandomNo(this._colors.length) ],
+        size = this._sizes[ this._getRandomNo(this._sizes.length) ],
+        animDuration = this._animDurations[ this._getRandomNo(this._animDurations.length) ];
       
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
@@ -525,19 +593,25 @@
       wordElement.style.left = `${lane * 10}%`;
       wordElement.style.color = color;
       wordElement.style.fontSize = size;
-      wordElement.addEventListener('animationend', () => wordElement.remove());
+      wordElement.style.animationDuration = `${animDuration}s`;
+      wordElement.addEventListener('animationend', () => {
+        wordElement.remove();
+        this._population--;
+      });
       this.appendChild(wordElement);
+      this._population++;
     }
     
     connectedCallback() {
-      this._intervalId = setInterval(() => this._pickWord(), this._interval);
+      window.addEventListener('focus', this._startTimer);
+      window.addEventListener('blur', this._stopTimer);
+      this._startTimer();
     }
     
     disconnectedCallback() {
-      if (this._intervalId) {
-        window.clearInterval(this._intervalId);
-        this._intervalId = null;
-      }
+      window.removeEventListener('focus', this._startTimer);
+      window.removeEventListener('blur', this._stopTimer);
+      this._stopTimer();
     }
   }
   

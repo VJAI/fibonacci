@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700|Gugi");
 .cmp__icon-calendar-dims {
   width: 16px;
   height: 16px;
@@ -712,7 +712,7 @@ cmp-image {
   display: flex;
   align-items: center;
   background-color: #f7f7f7;
-  min-height: 120px;
+  min-height: 180px;
 }
 cmp-image.cmp__image-loaded cmp-progress, cmp-image.cmp__image-loaded .cmp__image-info {
   display: none;
@@ -789,6 +789,9 @@ cmp-words-fall .cmp__word {
   white-space: nowrap;
   position: absolute;
   animation: falling_word 2s linear;
+  color: #f04875;
+  font-family: "Gugi", cursive;
+  text-shadow: 0 -2px 3px rgba(204, 204, 204, 0.5), 0 -15px 4px rgba(204, 204, 204, 0.5), 0 -30px 6px rgba(204, 204, 204, 0.5), 0 -45px 9px rgba(204, 204, 204, 0.5), 0 -60px 11px rgba(204, 204, 204, 0.5);
 }
 
 .cmp__widget {
@@ -2782,9 +2785,6 @@ menu menu {
     padding: var(--lg-size) var(--xl-size);
   }
 
-  cmp-image {
-    min-height: 100px;
-  }
   cmp-image .cmp__image-info cmp-icon[name=image] {
     width: 80px;
     height: 80px;
