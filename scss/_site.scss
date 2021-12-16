@@ -270,6 +270,10 @@ html, body {
             }
           }
 
+          .cmp__tab-hide {
+            display: none;
+          }
+
           // Author Info.
           .cmp__article-author {
             display: flex;
@@ -736,6 +740,10 @@ button.cmp__share-it-btn {
               margin-left: $xs-size;
               margin-right: $xs-size;
               color: $light-gray;
+            }
+
+            .cmp__tab-hide {
+              display: flex;
             }
 
             .cmp__article-author {
