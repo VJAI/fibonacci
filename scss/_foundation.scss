@@ -676,10 +676,9 @@ cmp-content-scale {
 // Image Progress.
 cmp-image {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   background-color: $dim-gray;
+  min-height: 120px;
 
   &.cmp__image-loaded {
     cmp-progress, .cmp__image-info {

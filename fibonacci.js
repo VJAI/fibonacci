@@ -382,11 +382,8 @@
     }
     
     connectedCallback() {
-      const statusElement = document.querySelector('.cmp__status-text');
-      
-      this.style.width = this.width;
       this.style.aspectRatio = this.width / this.height;
-  
+      const statusElement = document.querySelector('.cmp__status-text');
       statusElement.innerHTML = this.alt;
       
       const img = document.createElement('img');
