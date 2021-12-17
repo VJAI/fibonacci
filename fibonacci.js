@@ -328,7 +328,7 @@
       this._interval = 500;
       this._intervalId = null;
       this._noOfLanes = 10;
-      this._totalPopulation = 20;
+      this._totalPopulation = 25;
       this._population = 0;
       
       const wordsFallTemplate = document.createElement('template');
@@ -450,13 +450,13 @@
       
       if (queryList.matches) {
         wordsFallArgs = {
-          totalPopulation: 20,
+          totalPopulation: 25,
           sizes: ['0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem']
         };
         searchIcon.removeEventListener('click', searchIconClickHandler);
       } else {
         wordsFallArgs = {
-          totalPopulation: 10,
+          totalPopulation: 15,
           sizes: ['0.825rem', '0.908rem', '1rem', '1.212rem']
         };
         searchIcon.addEventListener('click', searchIconClickHandler);
