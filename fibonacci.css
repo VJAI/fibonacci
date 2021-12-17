@@ -2859,9 +2859,6 @@ html, body {
 .cmp__blog-info a.cmp__blog-logo:hover .cmp__blog-name {
   letter-spacing: 3px;
 }
-.cmp__blog-info a.cmp__blog-logo .cmp__blog-logo-pic {
-  animation: rotation 5s linear infinite;
-}
 .cmp__blog-info a.cmp__blog-logo .cmp__blog-name {
   position: relative;
   width: 4.664rem;

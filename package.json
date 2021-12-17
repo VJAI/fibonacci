@@ -1,6 +1,6 @@
 {
   "name": "fibonacci-blog-template",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "scripts": {
     "start": "gulp",
