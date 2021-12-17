@@ -2,13 +2,6 @@
   //***** Re-usable web components *****//
   
   // Icon Web Component.
-  const iconTemplate = document.createElement('template');
-  iconTemplate.innerHTML = `<div class="svg-wrap">
-    <svg viewBox="0 0 16 16" width="16" height="16">
-      <use></use>
-    </svg>
-  </div>`;
-  
   class IconElement extends HTMLElement {
     
     get name() {
@@ -33,6 +26,12 @@
     
     constructor() {
       super();
+      const iconTemplate = document.createElement('template');
+      iconTemplate.innerHTML = `<div class="svg-wrap">
+        <svg viewBox="0 0 16 16" width="16" height="16">
+          <use></use>
+        </svg>
+      </div>`;
       this.appendChild(iconTemplate.content.cloneNode(true));
     }
     
@@ -57,157 +56,156 @@
   window.customElements.define('cmp-icon', IconElement);
   
   // Content scroll indicator web component.
-  const contentScaleTemplate = document.createElement('template');
-  contentScaleTemplate.innerHTML = `
-    <div class="cmp__bar"></div>
-    <div class="cmp__ticks-container">
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-          <div class="cmp__tick"></div>
-        </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-      <div class="cmp__tick">
-        <div class="cmp__ticks-container">
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-            <div class="cmp__tick"></div>
-          </div>
-      </div>
-    </div>
-    <div class="cmp__scroll-progress"></div>`;
-  
   class ContentScaleElement extends HTMLElement {
     
     constructor() {
       super();
+      const contentScaleTemplate = document.createElement('template');
+      contentScaleTemplate.innerHTML = `
+        <div class="cmp__bar"></div>
+        <div class="cmp__ticks-container">
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+              <div class="cmp__tick"></div>
+            </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+          <div class="cmp__tick">
+            <div class="cmp__ticks-container">
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+                <div class="cmp__tick"></div>
+              </div>
+          </div>
+        </div>
+        <div class="cmp__scroll-progress"></div>`;
       this.appendChild(contentScaleTemplate.content.cloneNode(true));
     }
   }
@@ -215,16 +213,6 @@
   window.customElements.define('cmp-content-scale', ContentScaleElement);
   
   // Gracefully renders images.
-  const imageElementTemplate = document.createElement('template');
-  imageElementTemplate.innerHTML = `
-    <div class="cmp__image-info">
-      <cmp-icon name="image"></cmp-icon>
-      <span class="cmp__status-text"></span>
-    </div>
-    <cmp-progress class="cmp__first"></cmp-progress>
-    <cmp-progress class="cmp__last"></cmp-progress>
-  `;
-  
   class ImageElement extends HTMLElement {
     
     get src() {
@@ -273,6 +261,14 @@
     
     constructor() {
       super();
+      const imageElementTemplate = document.createElement('template');
+      imageElementTemplate.innerHTML = `
+        <div class="cmp__image-info">
+          <cmp-icon name="image"></cmp-icon>
+          <span class="cmp__status-text"></span>
+        </div>
+        <cmp-progress class="cmp__first"></cmp-progress>
+        <cmp-progress class="cmp__last"></cmp-progress>`;
       this.appendChild(imageElementTemplate.content.cloneNode(true));
     }
     
@@ -301,19 +297,18 @@
   window.customElements.define('cmp-image', ImageElement);
   
   // Progress element.
-  const progressTemplate = document.createElement('template');
-  progressTemplate.innerHTML = `<div class="cmp__squares-container">
-    <div class="cmp__square"></div>
-    <div class="cmp__square"></div>
-    <div class="cmp__square"></div>
-    <div class="cmp__square"></div>
-    <div class="cmp__square"></div>
-  </div>`;
-  
   class SquaresProgressElement extends HTMLElement {
     
     constructor() {
       super();
+      const progressTemplate = document.createElement('template');
+      progressTemplate.innerHTML = `<div class="cmp__squares-container">
+        <div class="cmp__square"></div>
+        <div class="cmp__square"></div>
+        <div class="cmp__square"></div>
+        <div class="cmp__square"></div>
+        <div class="cmp__square"></div>
+      </div>`;
       this.appendChild(progressTemplate.content.cloneNode(true));
     }
   }
@@ -321,24 +316,22 @@
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // Simple decorative element to attract users.
-  const wordsFallTemplate = document.createElement('template');
-  wordsFallTemplate.innerHTML = ``;
-  
   class WordsFallElement extends HTMLElement {
     
     constructor() {
       super();
-
+      
       this._wordsCloud = [];
-      this._colors = [ '#f04875', '#93c225', '#8792a3', '#ebd63b', '#517ee8' ];
-      this._sizes = [ '0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem' ];
-      this._animDurations = [ 1, 1.5, 2, 3, 5 ];
+      this._colors = ['#f04875', '#93c225', '#8792a3', '#ebd63b', '#517ee8'];
+      this._sizes = ['0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem'];
+      this._animDurations = [1, 1.5, 2, 3, 5];
       this._interval = 500;
       this._intervalId = null;
       this._noOfLanes = 10;
       this._totalPopulation = 20;
       this._population = 0;
       
+      const wordsFallTemplate = document.createElement('template');
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
       this._startTimer = this._startTimer.bind(this);
       this._stopTimer = this._stopTimer.bind(this);
@@ -379,7 +372,7 @@
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
-      wordElement.style.left = `${lane * 10}%`;
+      wordElement.style.left = `${(lane - 1) * 10}%`;
       wordElement.style.color = color;
       wordElement.style.fontSize = size;
       wordElement.style.animationDuration = `${animDuration}s`;
@@ -401,7 +394,7 @@
       window.removeEventListener('blur', this._stopTimer);
       this._stopTimer();
     }
-  
+    
     init(args) {
       const {
         wordsCloud,
@@ -412,7 +405,7 @@
         totalPopulation,
         noOfLanes
       } = args;
-    
+      
       Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
       Array.isArray(sizes) && (this._sizes = sizes);
       Array.isArray(colors) && (this._colors = colors);
@@ -446,6 +439,11 @@
       contentScale = document.querySelector('cmp-content-scale'),
       wordsFall = document.querySelector('cmp-words-fall'),
       blogContent = document.querySelector('.cmp__blog-content');
+  
+    let sticky = header.offsetHeight;
+  
+    const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
+    mediaQuery.addListener(mediaChangeHandler);
     
     function mediaChangeHandler(queryList) {
       let wordsFallArgs;
@@ -453,17 +451,17 @@
       if (queryList.matches) {
         wordsFallArgs = {
           totalPopulation: 20,
-          sizes: [ '0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem' ]
+          sizes: ['0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem']
         };
         searchIcon.removeEventListener('click', searchIconClickHandler);
       } else {
         wordsFallArgs = {
           totalPopulation: 10,
-          sizes: [ '0.825rem', '0.908rem', '1rem', '1.212rem']
+          sizes: ['0.825rem', '0.908rem', '1rem', '1.212rem']
         };
         searchIcon.addEventListener('click', searchIconClickHandler);
       }
-  
+      
       if (wordsFall) {
         wordsFall.init({
           ...wordsFallArgs,
@@ -508,74 +506,69 @@
         }
       }
     }
-  
+    
     function searchIconClickHandler(e) {
       nav.classList.add('cmp__search-active');
       document.body.addEventListener('click', documentClickHandler);
       searchInput.focus();
       e.stopPropagation();
     }
-  
+    
+    function handleChangeInputClick(e) {
+      e.stopPropagation();
+    }
+    
     function documentClickHandler(e) {
       if (e.currentTarget === searchInput || e.currentTarget === searchIcon) {
         return;
       }
-    
+      
       nav.classList.remove('cmp__search-active');
       selectControl.value = null;
       document.body.removeEventListener('click', documentClickHandler);
     }
-  
+    
     function setScrollProgress() {
       if (!contentScale) {
         return;
       }
-    
+      
       const articleContent = document.querySelector('.cmp__article-content');
       const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
       const articleScrollHeight = articleContent.scrollHeight;
       const articleOffsetTop = articleContent.offsetTop;
-    
+      
       if (window.scrollY <= articleOffsetTop) {
         scrollProgress.style.width = '0';
         return;
       }
-    
+      
       const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
       scrollProgress.style.width = `${percentScrolled}%`;
     }
-  
-    hamburger.addEventListener('click', function () {
-      selectControl.click();
-    });
-  
-    hamburger.addEventListener('change', function (evt) {
-      const page = selectControl.value;
     
+    function handleSelectChange() {
+      const page = selectControl.value;
+  
       if (!page) {
         return;
       }
-    
+  
       if (page === 'search') {
         nav.classList.add('cmp__search-active');
         document.body.addEventListener('click', documentClickHandler);
         searchInput.focus();
         return;
       }
-    
-      window.location.href = selectControl.value;
-    });
   
-    searchInput.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
+      window.location.href = selectControl.value;
+    }
     
-    const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
-    mediaChangeHandler(mediaQuery);
-    mediaQuery.addListener(mediaChangeHandler);
-    
-    const sticky = header.offsetHeight;
-    window.addEventListener('scroll', function () {
+    function handleHamburgerClick() {
+      selectControl.click();
+    }
+  
+    function handleWindowScroll() {
       // Handling Content Scale.
       if (contentScale) {
         if (window.pageYOffset >= sticky) {
@@ -583,10 +576,10 @@
         } else {
           contentScale.classList.remove('cmp__sticky');
         }
-  
+    
         setScrollProgress();
       }
-      
+  
       // Wordsfall component.
       if (wordsFall) {
         if (window.scrollY >= blogContent.offsetTop - 40) {
@@ -595,15 +588,25 @@
           wordsFall.activate();
         }
       }
-    });
-  
-    window.addEventListener('resize', function () {
-      setScrollProgress();
-    });
+    }
     
+    function handleWindowResize() {
+      sticky = header.offsetHeight;
+      setScrollProgress();
+    }
+  
+    hamburger.addEventListener('click', handleHamburgerClick);
+    hamburger.addEventListener('change', handleSelectChange);
+    searchInput.addEventListener('click', handleChangeInputClick);
+    window.addEventListener('scroll', handleWindowScroll);
+    window.addEventListener('resize', handleWindowResize);
+  
+    mediaChangeHandler(mediaQuery);
+  
     if (contentScale) {
       const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
       scrollProgress.classList.add('cmp__no-transition');
+    
       setTimeout(() => {
         setScrollProgress();
         scrollProgress.classList.remove('cmp__no-transition');
