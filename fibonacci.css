@@ -662,6 +662,8 @@ cmp-icon > * svg:hover *[data-hover-behavior=white] {
 
 cmp-content-scale {
   position: relative;
+  overflow: hidden;
+  z-index: 10000;
 }
 cmp-content-scale .cmp__bar {
   width: 100%;
@@ -695,14 +697,15 @@ cmp-content-scale .cmp__scroll-progress {
 cmp-content-scale .cmp__scroll-progress::after {
   content: "";
   position: absolute;
-  top: -1px;
+  overflow: hidden;
+  top: -5px;
   right: 0;
-  width: 10px;
-  height: 4px;
+  width: 16px;
+  height: 8px;
   background-color: #f04875;
   transform: rotate(15deg);
   border-radius: 5px;
-  box-shadow: 0 1px 3px #f68faa;
+  box-shadow: 2px 1px 3px #f68faa;
 }
 
 cmp-image {
@@ -746,7 +749,7 @@ cmp-image cmp-progress.cmp__last {
   display: none;
 }
 cmp-image img {
-  transition: filter 3s;
+  transition: filter 2s;
 }
 
 cmp-progress .cmp__squares-container {
@@ -784,15 +787,17 @@ cmp-words-fall {
   position: relative;
   display: block;
   overflow: hidden;
+  max-width: 42rem;
+  margin: 0 auto;
 }
 cmp-words-fall .cmp__word {
   white-space: nowrap;
   position: absolute;
   animation: falling_word 2s linear;
-  color: #f04875;
+  color: #8792a3;
   font-family: "Londrina Shadow", cursive;
   font-weight: bold;
-  text-shadow: 0 -2px 3px rgba(204, 204, 204, 0.5), 0 -15px 4px rgba(204, 204, 204, 0.5), 0 -30px 6px rgba(204, 204, 204, 0.5);
+  text-shadow: 0 -10px 10px rgba(204, 204, 204, 0.5);
 }
 
 .cmp__widget {
@@ -2818,11 +2823,14 @@ menu menu {
   }
 }
 @keyframes falling_word {
-  from {
+  0% {
     top: 0;
+    opacity: 0.2;
+  }
+  10% {
     opacity: 0.9;
   }
-  to {
+  100% {
     top: calc(3.847rem + var(--xl-size));
     opacity: 0;
   }
@@ -3505,16 +3513,6 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
 #cmp__blog_detail .cmp__article-header .cmp__article-meta {
   position: relative;
 }
-@media only screen and (min-width: 1100px) {
-  #cmp__blog_detail .cmp__article-header .cmp__article-meta .cmp__article-author {
-    top: -5.654rem;
-  }
-}
-@media only screen and (min-width: 576px) {
-  #cmp__blog_detail .cmp__article-header {
-    top: -1.8rem;
-  }
-}
 
 .cmp__comments .cmp__comment-by {
   margin-right: 0.51rem;
@@ -3597,6 +3595,11 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   color: #f04875;
 }
 
+@media only screen and (min-width: 1100px) {
+  #cmp__blog_detail .cmp__article-header .cmp__article-meta .cmp__article-author {
+    top: -5.654rem;
+  }
+}
 .cmp__social-widget {
   display: flex;
   flex-direction: column;

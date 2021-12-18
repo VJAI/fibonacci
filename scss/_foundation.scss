@@ -623,6 +623,8 @@ cmp-icon {
 // Content scale.
 cmp-content-scale {
   position: relative;
+  overflow: hidden;
+  z-index: 10000;
 
   .cmp__bar {
     width: 100%;
@@ -661,14 +663,15 @@ cmp-content-scale {
     &::after {
       content: "";
       position: absolute;
-      top: -1px;
+      overflow: hidden;
+      top: -5px;
       right: 0;
-      width: 10px;
-      height: 4px;
+      width: 16px;
+      height: 8px;
       background-color: $scale-progress-bg;
       transform: rotate(15deg);
       border-radius: 5px;
-      box-shadow: 0 1px 3px $scale-progress-bg-shadow;
+      box-shadow: 2px 1px 3px $scale-progress-bg-shadow;
     }
   }
 }
@@ -774,17 +777,17 @@ cmp-words-fall {
   position: relative;
   display: block;
   overflow: hidden;
+  max-width: 42rem;
+  margin: 0 auto;
 
   .cmp__word {
     white-space: nowrap;
     position: absolute;
     animation: falling_word 2s linear;
-    color: $brand-color;
+    color: $blue-gray;
     font-family: $display-font-family;
     font-weight: bold;
-    text-shadow: 0 -2px 3px $light-gray,
-                 0 -15px 4px $light-gray,
-                 0 -30px 6px $light-gray;
+    text-shadow: 0 -10px 10px $light-gray;
   }
 }
 
@@ -1206,12 +1209,16 @@ $colors: (
 }
 
 @keyframes falling_word {
-  from {
+  0% {
     top: 0;
+    opacity: 0.2;
+  }
+
+  10% {
     opacity: 0.9;
   }
 
-  to {
+  100% {
     top: calc(3.847rem + $xl-size);
     opacity: 0;
   }

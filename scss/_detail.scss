@@ -6,16 +6,6 @@
 
     .cmp__article-meta {
       position: relative;
-
-      @media only screen and (min-width: 1100px) {
-        .cmp__article-author {
-          top: -5.654rem;
-        }
-      }
-    }
-
-    @media only screen and (min-width: $mobile) {
-      top: -1.8rem;
     }
   }
 }
@@ -122,6 +112,18 @@
     &:hover {
       span {
         color: $brand-color;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $breakpoint2) {
+  #cmp__blog_detail {
+    .cmp__article-header {
+      .cmp__article-meta {
+        .cmp__article-author {
+          top: -5.654rem;
+        }
       }
     }
   }

@@ -52,7 +52,6 @@
       }
     }
   }
-  
   window.customElements.define('cmp-icon', IconElement);
   
   // Content scroll indicator web component.
@@ -209,7 +208,6 @@
       this.appendChild(contentScaleTemplate.content.cloneNode(true));
     }
   }
-  
   window.customElements.define('cmp-content-scale', ContentScaleElement);
   
   // Gracefully renders images.
@@ -292,8 +290,11 @@
       });
       img.src = this.src;
     }
+    
+    attributeChangedCallback() {
+      // Not handled!
+    }
   }
-  
   window.customElements.define('cmp-image', ImageElement);
   
   // Progress element.
@@ -312,7 +313,6 @@
       this.appendChild(progressTemplate.content.cloneNode(true));
     }
   }
-  
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // Simple decorative element to attract users.
@@ -322,13 +322,12 @@
       super();
       
       this._wordsCloud = [];
-      this._colors = ['#f04875', '#93c225', '#8792a3', '#ebd63b', '#517ee8'];
-      this._sizes = ['0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem'];
-      this._animDurations = [1, 1.5, 2, 3, 5];
-      this._interval = 500;
+      this._sizes = ['1.212rem', '1.470rem', '1.781rem'];
+      this._animDurations = [3];
+      this._interval = 750;
       this._intervalId = null;
       this._noOfLanes = 10;
-      this._totalPopulation = 25;
+      this._totalPopulation = 15;
       this._population = 0;
       
       const wordsFallTemplate = document.createElement('template');
@@ -362,18 +361,16 @@
       if (this._population >= this._totalPopulation) {
         return;
       }
-      
+  
       const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
-        lane = this._getRandomNo(this._noOfLanes),
-        color = this._colors[ this._getRandomNo(this._colors.length) ],
+        lane = this._getRandomNo(10),
         size = this._sizes[ this._getRandomNo(this._sizes.length) ],
         animDuration = this._animDurations[ this._getRandomNo(this._animDurations.length) ];
-      
+  
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
       wordElement.style.left = `${(lane - 1) * 10}%`;
-      wordElement.style.color = color;
       wordElement.style.fontSize = size;
       wordElement.style.animationDuration = `${animDuration}s`;
       wordElement.addEventListener('animationend', () => {
@@ -402,8 +399,7 @@
         colors,
         animDurations,
         interval,
-        totalPopulation,
-        noOfLanes
+        totalPopulation
       } = args;
       
       Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
@@ -412,7 +408,6 @@
       Array.isArray(animDurations) && (this._animDurations = animDurations);
       typeof interval === 'number' && (this._interval = interval);
       typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
-      typeof noOfLanes === 'number' && (this._noOfLanes = noOfLanes);
       this._stopTimer();
       this._startTimer();
     }
@@ -450,14 +445,14 @@
       
       if (queryList.matches) {
         wordsFallArgs = {
-          totalPopulation: 25,
-          sizes: ['0.908rem', '1rem', '1.212rem', '1.470rem', '1.781rem']
+          totalPopulation: 15,
+          sizes: ['1.212rem', '1.470rem', '1.781rem']
         };
         searchIcon.removeEventListener('click', searchIconClickHandler);
       } else {
         wordsFallArgs = {
-          totalPopulation: 15,
-          sizes: ['0.825rem', '0.908rem', '1rem', '1.212rem']
+          totalPopulation: 10,
+          sizes: ['1rem', '1.212rem', '1.470rem']
         };
         searchIcon.addEventListener('click', searchIconClickHandler);
       }
@@ -540,10 +535,12 @@
       
       if (window.scrollY <= articleOffsetTop) {
         scrollProgress.style.width = '0';
+        scrollProgress.style.display = 'none';
         return;
       }
       
       const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
+      scrollProgress.style.display = 'block';
       scrollProgress.style.width = `${percentScrolled}%`;
     }
     
