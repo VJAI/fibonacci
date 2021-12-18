@@ -888,8 +888,6 @@ cmp-words-fall {
   position: relative;
   display: block;
   overflow: hidden;
-  max-width: 42rem;
-  margin: 0 auto;
 }
 cmp-words-fall .cmp__word {
   white-space: nowrap;

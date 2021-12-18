@@ -370,7 +370,7 @@
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
-      wordElement.style.left = `${(lane - 1) * 10}%`;
+      wordElement.style.left = `${lane * 10}%`;
       wordElement.style.fontSize = size;
       wordElement.style.animationDuration = `${animDuration}s`;
       wordElement.addEventListener('animationend', () => {
