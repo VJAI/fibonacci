@@ -52,6 +52,7 @@
       }
     }
   }
+  
   window.customElements.define('cmp-icon', IconElement);
   
   // Content scroll indicator web component.
@@ -208,6 +209,7 @@
       this.appendChild(contentScaleTemplate.content.cloneNode(true));
     }
   }
+  
   window.customElements.define('cmp-content-scale', ContentScaleElement);
   
   // Gracefully renders images.
@@ -295,6 +297,7 @@
       // Not handled!
     }
   }
+  
   window.customElements.define('cmp-image', ImageElement);
   
   // Progress element.
@@ -313,6 +316,7 @@
       this.appendChild(progressTemplate.content.cloneNode(true));
     }
   }
+  
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // Simple decorative element to attract users.
@@ -361,12 +365,12 @@
       if (this._population >= this._totalPopulation) {
         return;
       }
-  
+      
       const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
         lane = this._getRandomNo(10),
         size = this._sizes[ this._getRandomNo(this._sizes.length) ],
         animDuration = this._animDurations[ this._getRandomNo(this._animDurations.length) ];
-  
+      
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
@@ -434,9 +438,9 @@
       contentScale = document.querySelector('cmp-content-scale'),
       wordsFall = document.querySelector('cmp-words-fall'),
       blogContent = document.querySelector('.cmp__blog-content');
-  
+    
     let sticky = header.offsetHeight;
-  
+    
     const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
     mediaQuery.addListener(mediaChangeHandler);
     
@@ -462,8 +466,8 @@
           google: {
             families: ['Londrina Shadow']
           },
-          timeout:5000,
-          fontactive: function() {
+          timeout: 5000,
+          fontactive: function () {
             wordsFall.init({
               ...wordsFallArgs,
               wordsCloud: [
@@ -536,43 +540,49 @@
         return;
       }
       
-      const articleContent = document.querySelector('.cmp__article-content');
-      const scrollProgress = contentScale.querySelector('.cmp__scroll-progress')
-      const articleScrollHeight = articleContent.scrollHeight;
-      const articleOffsetTop = articleContent.offsetTop;
+      const articleContent = document.querySelector('.cmp__article-content'),
+        scrollProgress = contentScale.querySelector('.cmp__scroll-progress'),
+        articleScrollHeight = articleContent.scrollHeight,
+        articleOffsetTop = articleContent.offsetTop;
       
-      if (window.scrollY <= articleOffsetTop) {
+      let percentScrolled = ((window.scrollY + (window.innerHeight / 2) - articleOffsetTop) / articleScrollHeight) * 100;
+      if (percentScrolled > 0 && percentScrolled < 1) {
+        percentScrolled = 1;
+      } else if (percentScrolled > 99) {
+        percentScrolled = 105;
+      }
+      
+      if (percentScrolled <= 0) {
         scrollProgress.style.width = '0';
         scrollProgress.style.display = 'none';
         return;
       }
       
-      const percentScrolled = parseInt(((window.scrollY - articleOffsetTop) / articleScrollHeight) * 100, 10);
       scrollProgress.style.display = 'block';
       scrollProgress.style.width = `${percentScrolled}%`;
     }
     
     function handleSelectChange() {
       const page = selectControl.value;
-  
+      
       if (!page) {
         return;
       }
-  
+      
       if (page === 'search') {
         nav.classList.add('cmp__search-active');
         document.body.addEventListener('click', documentClickHandler);
         searchInput.focus();
         return;
       }
-  
+      
       window.location.href = selectControl.value;
     }
     
     function handleHamburgerClick() {
       selectControl.click();
     }
-  
+    
     function handleWindowScroll() {
       // Handling Content Scale.
       if (contentScale) {
@@ -581,10 +591,10 @@
         } else {
           contentScale.classList.remove('cmp__sticky');
         }
-    
+        
         setScrollProgress();
       }
-  
+      
       // Wordsfall component.
       if (wordsFall) {
         if (window.scrollY >= blogContent.offsetTop - 40) {
@@ -599,19 +609,19 @@
       sticky = header.offsetHeight;
       setScrollProgress();
     }
-  
+    
     hamburger.addEventListener('click', handleHamburgerClick);
     hamburger.addEventListener('change', handleSelectChange);
     searchInput.addEventListener('click', handleChangeInputClick);
     window.addEventListener('scroll', handleWindowScroll);
     window.addEventListener('resize', handleWindowResize);
-  
+    
     mediaChangeHandler(mediaQuery);
-  
+    
     if (contentScale) {
       const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
       scrollProgress.classList.add('cmp__no-transition');
-    
+      
       setTimeout(() => {
         setScrollProgress();
         scrollProgress.classList.remove('cmp__no-transition');
