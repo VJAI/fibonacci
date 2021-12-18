@@ -458,47 +458,55 @@
       }
       
       if (wordsFall) {
-        wordsFall.init({
-          ...wordsFallArgs,
-          wordsCloud: [
-            'html',
-            'CSS',
-            'JS',
-            'C#',
-            '.NET',
-            'SQL',
-            'python',
-            'ASP.NET MVC',
-            'progressive web development',
-            'Angular',
-            'React',
-            'backbone',
-            'meteorjs',
-            'fibonacci',
-            'UX',
-            'front-end',
-            'firebase',
-            'XML',
-            'Android',
-            'Mobile Development',
-            'Docker',
-            'kubernetes',
-            'Azure Cloud',
-            'Salesforce',
-            'CRM dynamics',
-            'AI',
-            'Data Analytics',
-            'Big Data',
-            'cordova',
-            'jQuery',
-            'web components'
-          ]
+        WebFont.load({
+          google: {
+            families: ['Londrina Shadow']
+          },
+          timeout:5000,
+          fontactive: function() {
+            wordsFall.init({
+              ...wordsFallArgs,
+              wordsCloud: [
+                'html',
+                'CSS',
+                'JS',
+                'C#',
+                '.NET',
+                'SQL',
+                'python',
+                'ASP.NET MVC',
+                'progressive web development',
+                'Angular',
+                'React',
+                'backbone',
+                'meteorjs',
+                'fibonacci',
+                'UX',
+                'front-end',
+                'firebase',
+                'XML',
+                'Android',
+                'Mobile Development',
+                'Docker',
+                'kubernetes',
+                'Azure Cloud',
+                'Salesforce',
+                'CRM dynamics',
+                'AI',
+                'Data Analytics',
+                'Big Data',
+                'cordova',
+                'jQuery',
+                'web components'
+              ]
+            });
+            if (window.scrollY >= blogContent.offsetTop - 40) {
+              wordsFall.deactivate();
+            } else {
+              wordsFall.activate();
+            }
+          },
         });
-        if (window.scrollY >= blogContent.offsetTop - 40) {
-          wordsFall.deactivate();
-        } else {
-          wordsFall.activate();
-        }
       }
     }
     

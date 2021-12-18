@@ -2,7 +2,7 @@
 // Font families.
 $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
-$mono-font-family:                  'Source Code Pro', monospace !default;
+$mono-font-family:                  'Space Mono', monospace !default;
 $logo-font-family:                  'Amatic SC', cursive !default;
 $display-font-family:               'Londrina Shadow', cursive !default;
 
@@ -103,6 +103,18 @@ $code-bg-color:                     rgba(247, 247, 247, 0.7) !default;
 $var-color:                         $medium-gray !default;
 $var-bg-color:                      rgba(255, 243, 191, 1) !default;
 $var-font-size:                     0.9em !default;
+
+// highlight.js variables.
+$highlight-bg-color:                $code-bg-color !default;
+$hightlight-code-color:             $medium-gray !default;
+$hightlight-comment-color:          $gray !default;
+$hightlight-punc-color:             #444a !default;
+$hightlight-tag-color:              #444 !default;
+$hightlight-selector-color:         #ce65ab !default;
+$hightlight-section-title-color:    #7c71ba !default;
+$hightlight-literal-color:          #78a960 !default;
+$hightlight-code-color:             #1f7199 !default;
+$hightlight-meta-string-color:      #4d99bf !default;
 
 // Abbr & Acronym.
 $special-char-font-size:            0.618em !default;

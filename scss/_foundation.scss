@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Source+Code+Pro|Amatic+SC:wght@700|Londrina+Shadow');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Space+Mono|Amatic+SC:wght@700');
 @import '../assets/sprite';
 
 /**
@@ -380,8 +380,10 @@ table {
 // Pre, Code & Var elements
 pre {
   margin: 0;
+  position: relative;
 
   code {
+    overflow-x: auto;
     font-family: $code-font-family;
     font-size: $code-font-size;
     line-height: $code-line-height;
@@ -390,11 +392,110 @@ pre {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
 
-    &.hljs {
-      padding: 0;
-      background-color: $code-bg-color;
+    &::after {
+      @include flex_center;
+      height: 1rem;
+      position: absolute;
+      top: -0.5rem;
+      right: 0.5rem;
+      padding: 0 0.26rem;
+      content: attr(data-language);
+
+      font-family: $heading-font-family;
+      font-size: 0.680rem;
+      text-transform: uppercase;
+
+      color: $white;
+      background-color: darken($light-gray, 10%);
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
     }
   }
+}
+
+// Highlight.js
+.hljs {
+  padding: 0;
+  background: $code-bg-color;
+  color: $medium-gray;
+}
+
+.hljs-comment {
+  color: $hightlight-comment-color;
+}
+
+.hljs-punctuation,
+.hljs-tag {
+  color: $hightlight-punc-color;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+  color: $hightlight-tag-color;
+}
+
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  font-weight: 700;
+}
+
+.hljs-deletion,
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+  color: $hightlight-selector-color;
+}
+
+.hljs-section,
+.hljs-title {
+  color: $hightlight-section-title-color;
+  font-weight: 700;
+}
+
+.hljs-link,
+.hljs-operator,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: $hightlight-selector-color;
+}
+
+.hljs-literal {
+  color: $hightlight-literal-color;
+}
+
+.hljs-addition,
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+  color: $hightlight-code-color;
+}
+
+.hljs-meta {
+  color: $hightlight-code-color;
+}
+
+.hljs-meta .hljs-string {
+  color: $hightlight-meta-string-color;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
 }
 
 var, kbd {
