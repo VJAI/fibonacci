@@ -541,25 +541,30 @@
       }
       
       const articleContent = document.querySelector('.cmp__article-content'),
-        scrollProgress = contentScale.querySelector('.cmp__scroll-progress'),
-        articleScrollHeight = articleContent.scrollHeight,
-        articleOffsetTop = articleContent.offsetTop;
+        scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
       
-      let percentScrolled = ((window.scrollY + (window.innerHeight / 2) - articleOffsetTop) / articleScrollHeight) * 100;
-      if (percentScrolled > 0 && percentScrolled < 1) {
-        percentScrolled = 1;
-      } else if (percentScrolled > 99) {
-        percentScrolled = 105;
+      const winHeight = window.innerHeight,
+        computedRect = articleContent.getBoundingClientRect(),
+        howMuchYouHaveSeen = winHeight - computedRect.top,
+        pctScrolled = Math.floor(howMuchYouHaveSeen / computedRect.height * 100);
+      
+      let adjustedPctScrolled;
+      if (pctScrolled < 3) {
+        adjustedPctScrolled = 0;
+      } else if (pctScrolled >= 100) {
+        adjustedPctScrolled = 102;
+      } else {
+        adjustedPctScrolled = pctScrolled;
       }
-      
-      if (percentScrolled <= 0) {
+  
+      if (adjustedPctScrolled === 0) {
         scrollProgress.style.width = '0';
         scrollProgress.style.display = 'none';
         return;
       }
-      
+  
       scrollProgress.style.display = 'block';
-      scrollProgress.style.width = `${percentScrolled}%`;
+      scrollProgress.style.width = `${adjustedPctScrolled}%`;
     }
     
     function handleSelectChange() {
