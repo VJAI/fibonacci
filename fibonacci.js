@@ -542,15 +542,16 @@
         winHeight = window.innerHeight,
         computedRect = articleContent.getBoundingClientRect(),
         howMuchYouHaveSeen = winHeight - computedRect.top,
-        pctScrolled = Math.floor(howMuchYouHaveSeen / computedRect.height * 100);
+        pctScrolled = howMuchYouHaveSeen / computedRect.height * 100,
+        delta = 100;
       
       let adjustedPctScrolled;
-      if (scrollTop <= 100 || pctScrolled < 3) {
+      if (scrollTop <= delta || pctScrolled < 1) {
         adjustedPctScrolled = 0;
-      } else if (howMuchYouHaveSeen > computedRect.height + 100) {
+      } else if (howMuchYouHaveSeen > computedRect.height + delta) {
         adjustedPctScrolled = 105;
       } else {
-        adjustedPctScrolled = pctScrolled;
+        adjustedPctScrolled = Math.floor(pctScrolled);
       }
   
       if (adjustedPctScrolled === 0) {
