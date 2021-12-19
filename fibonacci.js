@@ -552,7 +552,7 @@
       if (pctScrolled < 3) {
         adjustedPctScrolled = 0;
       } else if (pctScrolled >= 100) {
-        adjustedPctScrolled = 102;
+        adjustedPctScrolled = 105;
       } else {
         adjustedPctScrolled = pctScrolled;
       }
