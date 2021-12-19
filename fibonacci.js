@@ -538,15 +538,16 @@
       const articleContent = document.querySelector('.cmp__article-content'),
         scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
       
-      const winHeight = window.innerHeight,
+      const scrollTop = window.scrollY,
+        winHeight = window.innerHeight,
         computedRect = articleContent.getBoundingClientRect(),
         howMuchYouHaveSeen = winHeight - computedRect.top,
         pctScrolled = Math.floor(howMuchYouHaveSeen / computedRect.height * 100);
       
       let adjustedPctScrolled;
-      if (pctScrolled <= 3) {
+      if (scrollTop <= 100 || pctScrolled < 3) {
         adjustedPctScrolled = 0;
-      } else if (pctScrolled >= 100) {
+      } else if (howMuchYouHaveSeen > computedRect.height + 100) {
         adjustedPctScrolled = 105;
       } else {
         adjustedPctScrolled = pctScrolled;
