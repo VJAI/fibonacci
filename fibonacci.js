@@ -327,10 +327,9 @@
       
       this._wordsCloud = [];
       this._sizes = ['1.212rem', '1.470rem', '1.781rem'];
-      this._animDurations = [3];
-      this._interval = 750;
+      this._interval = 500;
       this._intervalId = null;
-      this._noOfLanes = 10;
+      this._lanes = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
       this._totalPopulation = 15;
       this._population = 0;
       
@@ -367,16 +366,14 @@
       }
       
       const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
-        lane = this._getRandomNo(10),
-        size = this._sizes[ this._getRandomNo(this._sizes.length) ],
-        animDuration = this._animDurations[ this._getRandomNo(this._animDurations.length) ];
+        lane = this._lanes[ this._getRandomNo(this._lanes.length) ],
+        size = this._sizes[ this._getRandomNo(this._sizes.length) ];
       
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
       wordElement.style.left = `${lane * 10}%`;
       wordElement.style.fontSize = size;
-      wordElement.style.animationDuration = `${animDuration}s`;
       wordElement.addEventListener('animationend', () => {
         wordElement.remove();
         this._population--;
@@ -401,7 +398,6 @@
         wordsCloud,
         sizes,
         colors,
-        animDurations,
         interval,
         totalPopulation
       } = args;
@@ -409,7 +405,6 @@
       Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
       Array.isArray(sizes) && (this._sizes = sizes);
       Array.isArray(colors) && (this._colors = colors);
-      Array.isArray(animDurations) && (this._animDurations = animDurations);
       typeof interval === 'number' && (this._interval = interval);
       typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
       this._stopTimer();
@@ -549,7 +544,7 @@
         pctScrolled = Math.floor(howMuchYouHaveSeen / computedRect.height * 100);
       
       let adjustedPctScrolled;
-      if (pctScrolled < 3) {
+      if (pctScrolled <= 3) {
         adjustedPctScrolled = 0;
       } else if (pctScrolled >= 100) {
         adjustedPctScrolled = 105;
@@ -558,8 +553,8 @@
       }
   
       if (adjustedPctScrolled === 0) {
-        scrollProgress.style.width = '0';
         scrollProgress.style.display = 'none';
+        scrollProgress.style.width = '0%';
         return;
       }
   
