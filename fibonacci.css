@@ -2940,7 +2940,7 @@ html, body {
 }
 
 .cmp__blog {
-  transition: filter 0.5s;
+  transition: filter 0.25s;
   filter: blur(0px);
 }
 .cmp__blog.cmp__site-loading {

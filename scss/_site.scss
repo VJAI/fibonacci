@@ -4,7 +4,7 @@ html, body {
 }
 
 .cmp__blog {
-  transition: filter $medium-speed;
+  transition: filter $fast-speed;
   filter: blur(0px);
 
   &.cmp__site-loading {

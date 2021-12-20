@@ -438,7 +438,8 @@
       hamburger = document.querySelector('.cmp__hamburger-link a'),
       contentScale = document.querySelector('cmp-content-scale'),
       wordsFall = document.querySelector('cmp-words-fall'),
-      blogContent = document.querySelector('.cmp__blog-content');
+      blogContent = document.querySelector('.cmp__blog-content'),
+      startTime = performance.now();
     
     const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
     mediaQuery.addListener(mediaChangeHandler);
@@ -504,7 +505,17 @@
     }
     
     function handeOnLoad() {
-      document.body.classList.remove('cmp__site-loading', 'cmp__no-transition');
+      const endTime = performance.now(),
+        diff = (endTime - startTime) / 1000;
+
+      if (diff > 2) {
+        document.body.classList.remove('cmp__site-loading', 'cmp__no-transition');
+        return;
+      }
+      
+      setTimeout(() => {
+        document.body.classList.remove('cmp__site-loading', 'cmp__no-transition');
+      }, 100);
     }
     
     hamburger.addEventListener('click', () => selectControl.click());
@@ -556,10 +567,9 @@
       if (window.scrollY < blogContent.offsetTop - 40) {
         wordsFall.activate();
       }
-      
-      document.body.classList.add('cmp__site-loading', 'cmp__no-transition');
     }
   
+    document.body.classList.add('cmp__site-loading', 'cmp__no-transition');
     mediaChangeHandler(mediaQuery);
   }
   
