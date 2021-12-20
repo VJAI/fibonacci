@@ -897,6 +897,7 @@ cmp-words-fall .cmp__word {
   font-family: "Londrina Shadow", cursive;
   font-weight: bold;
   text-shadow: 0 -10px 10px rgba(204, 204, 204, 0.5);
+  user-select: none;
 }
 
 .cmp__widget {

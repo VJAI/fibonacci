@@ -887,6 +887,7 @@ cmp-words-fall {
     font-family: $display-font-family;
     font-weight: bold;
     text-shadow: 0 -10px 10px $light-gray;
+    user-select: none;
   }
 }
 

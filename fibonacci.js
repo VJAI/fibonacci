@@ -1,4 +1,5 @@
 (function () {
+  
   //***** Re-usable web components *****//
   
   // Icon Web Component.
@@ -52,7 +53,6 @@
       }
     }
   }
-  
   window.customElements.define('cmp-icon', IconElement);
   
   // Content scroll indicator web component.
@@ -63,153 +63,86 @@
       const contentScaleTemplate = document.createElement('template');
       contentScaleTemplate.innerHTML = `
         <div class="cmp__bar"></div>
-        <div class="cmp__ticks-container">
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-              <div class="cmp__tick"></div>
-            </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-          <div class="cmp__tick">
-            <div class="cmp__ticks-container">
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-                <div class="cmp__tick"></div>
-              </div>
-          </div>
-        </div>
+        <div class="cmp__ticks-container"></div>
         <div class="cmp__scroll-progress"></div>`;
       this.appendChild(contentScaleTemplate.content.cloneNode(true));
+      
+      const ticksContainer = this.querySelector('.cmp__ticks-container');
+      for (let i = 0; i < 10; i++) {
+        const tickEl = document.createElement('div');
+        tickEl.classList.add('cmp__tick');
+        ticksContainer.appendChild(tickEl);
+        const childTickContainerEl = document.createElement('div');
+        childTickContainerEl.classList.add('cmp__ticks-container');
+        tickEl.appendChild(childTickContainerEl);
+        
+        for (let i = 0; i < 10; i++) {
+          const tickEl = document.createElement('div');
+          tickEl.classList.add('cmp__tick');
+          childTickContainerEl.appendChild(tickEl);
+        }
+      }
+      
+      this._handleScroll = this._handleScroll.bind(this);
+      this._handleResize = this._handleResize.bind(this);
+      this._scrollProgress = this.querySelector('.cmp__scroll-progress');
+      this._winHeight = window.innerHeight;
+    }
+    
+    _setScrollProgress() {
+      const winScrollTop = window.scrollY,
+        computedRect = this._articleContent.getBoundingClientRect(),
+        amountScrolled = this._winHeight - computedRect.top,
+        pctScrolled = amountScrolled / computedRect.height * 100,
+        delta = 100;
+  
+      let adjustedPctScrolled;
+      if (winScrollTop <= delta || pctScrolled < 1) {
+        adjustedPctScrolled = 0;
+      } else if (amountScrolled > computedRect.height + delta) {
+        adjustedPctScrolled = 105;
+      } else {
+        adjustedPctScrolled = Math.floor(pctScrolled);
+      }
+  
+      if (adjustedPctScrolled === 0) {
+        this._scrollProgress.style.display = 'none';
+        this._scrollProgress.style.width = '0%';
+        return;
+      }
+  
+      this._scrollProgress.style.display = 'block';
+      this._scrollProgress.style.width = `${adjustedPctScrolled}%`;
+    }
+  
+    _handleResize() {
+      this._winHeight = window.innerHeight;
+      this._setScrollProgress();
+    }
+  
+    _handleScroll() {
+      this._setScrollProgress();
+    }
+    
+    connectedCallback() {
+      window.addEventListener('resize', this._handleResize);
+      window.addEventListener('scroll', this._handleScroll);
+    }
+    
+    disconnectedCallback() {
+      window.removeEventListener('resize', this._handleResize);
+      window.removeEventListener('scroll', this._handleScroll);
+    }
+    
+    setContent(contentEl) {
+      this._articleContent = contentEl;
+      this._scrollProgress.classList.add('cmp__no-transition');
+      setTimeout(() => {
+        this._setScrollProgress();
+        this._scrollProgress.classList.remove('cmp__no-transition');
+      });
     }
   }
-  
   window.customElements.define('cmp-content-scale', ContentScaleElement);
   
   // Gracefully renders images.
@@ -297,7 +230,6 @@
       // Not handled!
     }
   }
-  
   window.customElements.define('cmp-image', ImageElement);
   
   // Progress element.
@@ -316,7 +248,6 @@
       this.appendChild(progressTemplate.content.cloneNode(true));
     }
   }
-  
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // Simple decorative element to attract users.
@@ -332,11 +263,18 @@
       this._lanes = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
       this._totalPopulation = 15;
       this._population = 0;
+      this._isCustomFontLoaded = false;
+      this._enabled = false;
+      
+      this._startTimer = this._startTimer.bind(this);
+      this._stopTimer = this._stopTimer.bind(this);
+      this._mediaChangeHandler = this._mediaChangeHandler.bind(this);
+  
+      this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');
+      this._mediaQuery.addListener(this._mediaChangeHandler);
       
       const wordsFallTemplate = document.createElement('template');
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
-      this._startTimer = this._startTimer.bind(this);
-      this._stopTimer = this._stopTimer.bind(this);
     }
     
     _startTimer() {
@@ -344,7 +282,7 @@
         return;
       }
       
-      this._intervalId = setInterval(() => this._pickWords(), this._interval);
+      this._intervalId = setInterval(() => this._pickWord(), this._interval);
     }
     
     _stopTimer() {
@@ -356,11 +294,25 @@
       this._intervalId = null;
     }
     
+    _getPopulationAndSizesForMedia(queryList) {
+      return queryList.matches ? {
+        totalPopulation: 15,
+        sizes: ['1.212rem', '1.470rem', '1.781rem']
+      } : {
+        totalPopulation: 10,
+        sizes: ['1rem', '1.212rem', '1.470rem']
+      };
+    }
+  
+    _mediaChangeHandler(queryList) {
+      this.reset(this._getPopulationAndSizesForMedia(queryList));
+    }
+    
     _getRandomNo(max) {
       return ~~(Math.random() * max);
     }
     
-    _pickWords() {
+    _pickWord() {
       if (this._population >= this._totalPopulation) {
         return;
       }
@@ -382,130 +334,90 @@
       this._population++;
     }
     
-    connectedCallback() {
-      window.addEventListener('focus', this._startTimer);
-      window.addEventListener('blur', this._stopTimer);
-    }
-    
-    disconnectedCallback() {
-      window.removeEventListener('focus', this._startTimer);
-      window.removeEventListener('blur', this._stopTimer);
-      this._stopTimer();
-    }
-    
-    init(args) {
+    _setArgs(args) {
       const {
         wordsCloud,
         sizes,
-        colors,
-        interval,
         totalPopulation
       } = args;
-      
+    
       Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
       Array.isArray(sizes) && (this._sizes = sizes);
-      Array.isArray(colors) && (this._colors = colors);
-      typeof interval === 'number' && (this._interval = interval);
       typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
-      this._stopTimer();
-      this._startTimer();
+    }
+    
+    connectedCallback() {
+      window.addEventListener('focus', this._startTimer);
+      window.addEventListener('blur', this._stopTimer);
+      window.addEventListener('scroll', this._handleScroll);
+    }
+    
+    disconnectedCallback() {
+      this.deactivate();
+      window.removeEventListener('focus', this._startTimer);
+      window.removeEventListener('blur', this._stopTimer);
+      window.removeEventListener('scroll', this._handleScroll);
+      this._mediaQuery.removeListener(this._mediaChangeHandler);
+    }
+    
+    init(args) {
+      const updatedArgs = {...args, ...this._getPopulationAndSizesForMedia(this._mediaQuery) };
+      this._setArgs(updatedArgs);
+    }
+    
+    reset(args) {
+      this.deactivate();
+      this._setArgs(args);
+      this._enabled && this.activate();
     }
     
     activate() {
-      this._startTimer();
+      this._enabled = true;
+      
+      if (this._isCustomFontLoaded) {
+        this._startTimer();
+        return;
+      }
+  
+      WebFont.load({
+        google: {
+          families: ['Londrina Shadow']
+        },
+        timeout: 5000,
+        fontactive: () => {
+          this._isCustomFontLoaded = true;
+          this._enabled && this._startTimer();
+        }
+      });
     }
     
     deactivate() {
+      this._enabled = false;
       this._stopTimer();
     }
   }
-  
   window.customElements.define('cmp-words-fall', WordsFallElement);
   
   //**** Boot function ****/
   function init() {
-    const hamburger = document.querySelector('.cmp__hamburger-link a'),
-      selectControl = document.querySelector('.cmp__hidden-menu'),
-      header = document.querySelector('.cmp__blog-header'),
+    const header = document.querySelector('.cmp__blog-header'),
       nav = document.querySelector('.cmp__blog-nav'),
+      selectControl = document.querySelector('.cmp__hidden-menu'),
       searchInput = document.querySelector('.cmp__search-form input'),
       searchIcon = document.querySelector('.cmp__search-form a'),
+      hamburger = document.querySelector('.cmp__hamburger-link a'),
       contentScale = document.querySelector('cmp-content-scale'),
       wordsFall = document.querySelector('cmp-words-fall'),
       blogContent = document.querySelector('.cmp__blog-content');
-    
-    let sticky = header.offsetHeight;
     
     const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
     mediaQuery.addListener(mediaChangeHandler);
     
     function mediaChangeHandler(queryList) {
-      let wordsFallArgs;
-      
       if (queryList.matches) {
-        wordsFallArgs = {
-          totalPopulation: 15,
-          sizes: ['1.212rem', '1.470rem', '1.781rem']
-        };
         searchIcon.removeEventListener('click', searchIconClickHandler);
       } else {
-        wordsFallArgs = {
-          totalPopulation: 10,
-          sizes: ['1rem', '1.212rem', '1.470rem']
-        };
         searchIcon.addEventListener('click', searchIconClickHandler);
-      }
-      
-      if (wordsFall) {
-        WebFont.load({
-          google: {
-            families: ['Londrina Shadow']
-          },
-          timeout: 5000,
-          fontactive: function () {
-            wordsFall.init({
-              ...wordsFallArgs,
-              wordsCloud: [
-                'html',
-                'CSS',
-                'JS',
-                'C#',
-                '.NET',
-                'SQL',
-                'python',
-                'ASP.NET MVC',
-                'progressive web development',
-                'Angular',
-                'React',
-                'backbone',
-                'meteorjs',
-                'fibonacci',
-                'UX',
-                'front-end',
-                'firebase',
-                'XML',
-                'Android',
-                'Mobile Development',
-                'Docker',
-                'kubernetes',
-                'Azure Cloud',
-                'Salesforce',
-                'CRM dynamics',
-                'AI',
-                'Data Analytics',
-                'Big Data',
-                'cordova',
-                'jQuery',
-                'web components'
-              ]
-            });
-            if (window.scrollY >= blogContent.offsetTop - 40) {
-              wordsFall.deactivate();
-            } else {
-              wordsFall.activate();
-            }
-          },
-        });
       }
     }
     
@@ -513,10 +425,6 @@
       nav.classList.add('cmp__search-active');
       document.body.addEventListener('click', documentClickHandler);
       searchInput.focus();
-      e.stopPropagation();
-    }
-    
-    function handleChangeInputClick(e) {
       e.stopPropagation();
     }
     
@@ -528,40 +436,6 @@
       nav.classList.remove('cmp__search-active');
       selectControl.value = null;
       document.body.removeEventListener('click', documentClickHandler);
-    }
-    
-    function setScrollProgress() {
-      if (!contentScale) {
-        return;
-      }
-      
-      const articleContent = document.querySelector('.cmp__article-content'),
-        scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
-      
-      const scrollTop = window.scrollY,
-        winHeight = window.innerHeight,
-        computedRect = articleContent.getBoundingClientRect(),
-        howMuchYouHaveSeen = winHeight - computedRect.top,
-        pctScrolled = howMuchYouHaveSeen / computedRect.height * 100,
-        delta = 100;
-      
-      let adjustedPctScrolled;
-      if (scrollTop <= delta || pctScrolled < 1) {
-        adjustedPctScrolled = 0;
-      } else if (howMuchYouHaveSeen > computedRect.height + delta) {
-        adjustedPctScrolled = 105;
-      } else {
-        adjustedPctScrolled = Math.floor(pctScrolled);
-      }
-  
-      if (adjustedPctScrolled === 0) {
-        scrollProgress.style.display = 'none';
-        scrollProgress.style.width = '0%';
-        return;
-      }
-  
-      scrollProgress.style.display = 'block';
-      scrollProgress.style.width = `${adjustedPctScrolled}%`;
     }
     
     function handleSelectChange() {
@@ -581,23 +455,15 @@
       window.location.href = selectControl.value;
     }
     
-    function handleHamburgerClick() {
-      selectControl.click();
-    }
-    
     function handleWindowScroll() {
-      // Handling Content Scale.
       if (contentScale) {
-        if (window.pageYOffset >= sticky) {
+        if (window.pageYOffset >= header.offsetHeight) {
           contentScale.classList.add('cmp__sticky')
         } else {
           contentScale.classList.remove('cmp__sticky');
         }
-        
-        setScrollProgress();
       }
-      
-      // Wordsfall component.
+  
       if (wordsFall) {
         if (window.scrollY >= blogContent.offsetTop - 40) {
           wordsFall.deactivate();
@@ -607,28 +473,57 @@
       }
     }
     
-    function handleWindowResize() {
-      sticky = header.offsetHeight;
-      setScrollProgress();
-    }
-    
-    hamburger.addEventListener('click', handleHamburgerClick);
+    hamburger.addEventListener('click', () => selectControl.click());
     hamburger.addEventListener('change', handleSelectChange);
-    searchInput.addEventListener('click', handleChangeInputClick);
     window.addEventListener('scroll', handleWindowScroll);
-    window.addEventListener('resize', handleWindowResize);
-    
-    mediaChangeHandler(mediaQuery);
     
     if (contentScale) {
-      const scrollProgress = contentScale.querySelector('.cmp__scroll-progress');
-      scrollProgress.classList.add('cmp__no-transition');
-      
-      setTimeout(() => {
-        setScrollProgress();
-        scrollProgress.classList.remove('cmp__no-transition');
-      });
+      contentScale.setContent(document.querySelector('.cmp__article-content'));
     }
+    
+    if (wordsFall) {
+      wordsFall.init({
+        wordsCloud: [
+          'html',
+          'CSS',
+          'JS',
+          'C#',
+          '.NET',
+          'SQL',
+          'python',
+          'ASP.NET MVC',
+          'progressive web development',
+          'Angular',
+          'React',
+          'backbone',
+          'meteorjs',
+          'fibonacci',
+          'UX',
+          'front-end',
+          'firebase',
+          'XML',
+          'Android',
+          'Mobile Development',
+          'Docker',
+          'kubernetes',
+          'Azure Cloud',
+          'Salesforce',
+          'CRM dynamics',
+          'AI',
+          'Data Analytics',
+          'Big Data',
+          'cordova',
+          'jQuery',
+          'web components'
+        ]
+      });
+      
+      if (window.scrollY < blogContent.offsetTop - 40) {
+        wordsFall.activate();
+      }
+    }
+  
+    mediaChangeHandler(mediaQuery);
   }
   
   init();
