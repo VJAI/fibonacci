@@ -809,6 +809,26 @@ cmp-content-scale .cmp__scroll-progress::after {
   box-shadow: 2px 1px 3px #f68faa;
 }
 
+cmp-color-dots .cmp__dots-container {
+  display: flex;
+  flex-direction: column;
+}
+cmp-color-dots .cmp__dots-container .cmp__dot {
+  width: 10px;
+  height: 10px;
+  background-color: #f04875;
+  margin-bottom: 3px;
+}
+cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(1) {
+  background-color: #44a6d4;
+}
+cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(3) {
+  background-color: #eded3e;
+}
+cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
+  background-color: #333333;
+}
+
 cmp-image {
   position: relative;
   display: flex;
@@ -2941,7 +2961,6 @@ html, body {
 
 .cmp__blog {
   transition: filter 0.25s;
-  filter: blur(0px);
 }
 .cmp__blog.cmp__site-loading {
   filter: blur(5px);
@@ -3428,6 +3447,12 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   justify-content: center;
   margin-top: var(--sm-size);
   font-size: 0.618rem;
+}
+
+cmp-color-dots {
+  position: fixed;
+  left: 5px;
+  bottom: 5px;
 }
 
 @keyframes rotation {

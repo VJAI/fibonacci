@@ -250,6 +250,22 @@
   }
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
+  // No use color dots.
+  class ColorDotsElement extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.createElement('template');
+      template.innerHTML = `<div class="cmp__dots-container">
+        <div class="cmp__dot"></div>
+        <div class="cmp__dot"></div>
+        <div class="cmp__dot"></div>
+        <div class="cmp__dot"></div>
+      </div>`;
+      this.appendChild(template.content.cloneNode(true));
+    }
+  }
+  window.customElements.define('cmp-color-dots', ColorDotsElement);
+  
   // Simple decorative element to attract users.
   class WordsFallElement extends HTMLElement {
     
@@ -270,6 +286,7 @@
       
       this._startTimer = this._startTimer.bind(this);
       this._stopTimer = this._stopTimer.bind(this);
+      this._handleResize = this._handleResize.bind(this);
       this._mediaChangeHandler = this._mediaChangeHandler.bind(this);
   
       this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');

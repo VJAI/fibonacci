@@ -777,6 +777,33 @@ cmp-content-scale {
   }
 }
 
+// Color dots.
+cmp-color-dots {
+  .cmp__dots-container {
+    display: flex;
+    flex-direction: column;
+
+    .cmp__dot {
+      width: 10px;
+      height: 10px;
+      background-color: $brand-color;
+      margin-bottom: 3px;
+
+      &:nth-child(1) {
+        background-color: #44a6d4;
+      }
+
+      &:nth-child(3) {
+        background-color: #eded3e;
+      }
+
+      &:nth-child(4) {
+        background-color: $dark-gray;
+      }
+    }
+  }
+}
+
 // Image Progress.
 cmp-image {
   position: relative;
