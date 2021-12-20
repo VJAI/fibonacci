@@ -261,6 +261,8 @@
       this._interval = 500;
       this._intervalId = null;
       this._lanes = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
+      this._zones = [1, 2, 3];
+      this._lastZone = null;
       this._totalPopulation = 15;
       this._population = 0;
       this._isCustomFontLoaded = false;
@@ -271,7 +273,6 @@
       this._mediaChangeHandler = this._mediaChangeHandler.bind(this);
   
       this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');
-      this._mediaQuery.addListener(this._mediaChangeHandler);
       
       const wordsFallTemplate = document.createElement('template');
       this.appendChild(wordsFallTemplate.content.cloneNode(true));
@@ -317,8 +318,26 @@
         return;
       }
       
+      const allowedZones = this._zones.filter(z => z !== this._lastZone);
+      this._lastZone = allowedZones[ this._getRandomNo(allowedZones.length) ];
+      let lanes;
+      
+      switch (this._lastZone) {
+        case 1:
+          lanes = this._lanes.filter(l => l < 3.5);
+          break;
+          
+        case 2:
+          lanes = this._lanes.filter(l => l >= 3.5 && l < 6.5);
+          break;
+          
+        default:
+          lanes = this._lanes.filter(l => l >= 6.5);
+          break;
+      }
+      
       const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
-        lane = this._lanes[ this._getRandomNo(this._lanes.length) ],
+        lane = lanes[ this._getRandomNo(lanes.length) ],
         size = this._sizes[ this._getRandomNo(this._sizes.length) ];
       
       const wordElement = document.createElement('div');
@@ -331,6 +350,11 @@
         this._population--;
       });
       this.appendChild(wordElement);
+      const worldElementRec = wordElement.getBoundingClientRect(),
+        diff = worldElementRec.right - this._compRec.right;
+      if (diff > 0) {
+        wordElement.style.left = `calc(${lane * 10}% - ${diff + 10}px)`;
+      }
       this._population++;
     }
     
@@ -346,17 +370,23 @@
       typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
     }
     
+    _handleResize() {
+      this._compRec = this.getBoundingClientRect();
+    }
+    
     connectedCallback() {
+      this._compRec = this.getBoundingClientRect();
       window.addEventListener('focus', this._startTimer);
       window.addEventListener('blur', this._stopTimer);
-      window.addEventListener('scroll', this._handleScroll);
+      window.addEventListener('resize', this._handleResize);
+      this._mediaQuery.addListener(this._mediaChangeHandler);
     }
     
     disconnectedCallback() {
       this.deactivate();
       window.removeEventListener('focus', this._startTimer);
       window.removeEventListener('blur', this._stopTimer);
-      window.removeEventListener('scroll', this._handleScroll);
+      window.addEventListener('resize', this._handleResize);
       this._mediaQuery.removeListener(this._mediaChangeHandler);
     }
     
