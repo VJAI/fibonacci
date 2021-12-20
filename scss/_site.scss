@@ -4,6 +4,15 @@ html, body {
 }
 
 .cmp__blog {
+  transition: filter $medium-speed;
+  filter: blur(0px);
+
+  &.cmp__site-loading {
+    filter: blur(5px);
+  }
+}
+
+.cmp__site-container {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;

@@ -503,9 +503,14 @@
       }
     }
     
+    function handeOnLoad() {
+      document.body.classList.remove('cmp__site-loading', 'cmp__no-transition');
+    }
+    
     hamburger.addEventListener('click', () => selectControl.click());
     hamburger.addEventListener('change', handleSelectChange);
     window.addEventListener('scroll', handleWindowScroll);
+    document.addEventListener('DOMContentLoaded', handeOnLoad);
     
     if (contentScale) {
       contentScale.setContent(document.querySelector('.cmp__article-content'));
@@ -551,6 +556,8 @@
       if (window.scrollY < blogContent.offsetTop - 40) {
         wordsFall.activate();
       }
+      
+      document.body.classList.add('cmp__site-loading', 'cmp__no-transition');
     }
   
     mediaChangeHandler(mediaQuery);

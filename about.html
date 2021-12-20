@@ -11,141 +11,145 @@
 </head>
 <body class="cmp__blog">
 
-<!-- Blog Header Component -->
-<header class="cmp__blog-header">
+<!-- Site Container -->
+<div class="cmp__site-container">
 
-	<!-- Logo and Tag Line -->
-	<div class="cmp__blog-info">
+	<!-- Blog Header Component -->
+	<header class="cmp__blog-header">
 
-		<!-- Logo Component -->
-		<a class="cmp__blog-logo" href="index.html">
-			<img class="cmp__blog-logo-pic" src="assets/logo.png" alt="logo" style="width: 2rem;">
-			<span class="cmp__blog-name">fibonacci</span>
-		</a>
+		<!-- Logo and Tag Line -->
+		<div class="cmp__blog-info">
 
-		<span class="cmp__separator"></span>
+			<!-- Logo Component -->
+			<a class="cmp__blog-logo" href="index.html">
+				<img class="cmp__blog-logo-pic" src="assets/logo.png" alt="logo" style="width: 2rem;">
+				<span class="cmp__blog-name">fibonacci</span>
+			</a>
 
-		<!-- Blog Tag Line -->
-		<div class="cmp__blog-tag-line">
-			<span>being pragmatic...</span>
-		</div>
-	</div>
+			<span class="cmp__separator"></span>
 
-	<!-- Page Navigation Component -->
-	<nav class="cmp__blog-nav">
-		<ul>
-			<li class="cmp__search-link">
-				<form class="cmp__form cmp__search-form">
-					<label>
-						<input type="search" placeholder="Search..."/>
-					</label>
-					<a href="#">
-						<cmp-icon name="search"></cmp-icon>
-					</a>
-				</form>
-			</li>
-			<li>
-				<a class="cmp__nav-link" href="index.html">
-					<cmp-icon name="home"></cmp-icon>
-					<span class="cmp__nav-link-text">home</span>
-				</a>
-			</li>
-			<li>
-				<a class="cmp__nav-link" href="contact.html">
-					<cmp-icon name="contact"></cmp-icon>
-					<span class="cmp__nav-link-text">contact</span>
-				</a>
-			</li>
-			<li class="cmp__nav-active">
-				<a class="cmp__nav-link" href="about.html">
-					<cmp-icon name="person"></cmp-icon>
-					<span class="cmp__nav-link-text">about</span>
-				</a>
-			</li>
-			<li class="cmp__hamburger-link">
-				<a class="cmp__nav-link" href="#">
-					<select class="cmp__hidden-menu">
-						<option value="index.html"> Home</option>
-						<option value="about.html" selected> About</option>
-						<option value="contact.html"> Contact</option>
-						<option value="search"> Search</option>
-					</select>
-					<cmp-icon name="hamburger"></cmp-icon>
-				</a>
-			</li>
-		</ul>
-	</nav>
-</header>
-
-<!-- Page Main Content Component -->
-<main class="cmp__blog-main">
-
-	<article id="cmp__about" class="cmp__blog-content cmp__article">
-
-		<!-- Page Title -->
-		<header class="cmp__article-header cmp__auto-layout">
-			<h1 class="cmp__blog-title">About Me</h1>
-		</header>
-
-		<!-- Page Content -->
-		<main class="cmp__article-content cmp__auto-layout">
-
-			<!-- Author Photo -->
-			<figure class="cmp__figure-full">
-				<cmp-image src="assets/author.jpeg" alt="Author Triton Maxwell" width="1500" height="871"></cmp-image>
-			</figure>
-
-			<!-- Author Description -->
-			<p class="cmp__drop-cap">
-				Hi, I&rsquo;m <var>Triton Maxwell</var>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-
-			<p>
-				Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
-			</p>
-
-			<p>
-				Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
-			</p>
-		</main>
-
-		<footer class="cmp__article-footer cmp__auto-layout">
-			<!-- Social Links -->
-			<div class="cmp__social-widget">
-				<a href="#">
-					<cmp-icon name="facebook"></cmp-icon>
-					<span class="cmp__social-text">Facebook</span>
-				</a>
-				<span class="separator">&bull;</span>
-				<a href="#">
-					<cmp-icon name="linkedin"></cmp-icon>
-					<span class="cmp__social-text">LinkedIn</span>
-				</a>
-				<span class="separator">&bull;</span>
-				<a href="#">
-					<cmp-icon name="twitter"></cmp-icon>
-					<span class="cmp__social-text">Twitter</span>
-				</a>
-				<span class="separator">&bull;</span>
-				<a href="#">
-					<cmp-icon name="github"></cmp-icon>
-					<span class="cmp__social-text">Github</span>
-				</a>
+			<!-- Blog Tag Line -->
+			<div class="cmp__blog-tag-line">
+				<span>being pragmatic...</span>
 			</div>
-		</footer>
-	</article>
-</main>
+		</div>
 
-<!-- Page Footer Component -->
-<footer class="cmp__blog-footer">
-	<section class="cmp__footer-left">
-		<div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
-		<div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
-	</section>
-	<section class="cmp__footer-right">
-		<div>&copy; 2021 &middot; All Rights Reserved</div>
-	</section>
-</footer>
+		<!-- Page Navigation Component -->
+		<nav class="cmp__blog-nav">
+			<ul>
+				<li class="cmp__search-link">
+					<form class="cmp__form cmp__search-form">
+						<label>
+							<input type="search" placeholder="Search..."/>
+						</label>
+						<a href="#">
+							<cmp-icon name="search"></cmp-icon>
+						</a>
+					</form>
+				</li>
+				<li>
+					<a class="cmp__nav-link" href="index.html">
+						<cmp-icon name="home"></cmp-icon>
+						<span class="cmp__nav-link-text">home</span>
+					</a>
+				</li>
+				<li>
+					<a class="cmp__nav-link" href="contact.html">
+						<cmp-icon name="contact"></cmp-icon>
+						<span class="cmp__nav-link-text">contact</span>
+					</a>
+				</li>
+				<li class="cmp__nav-active">
+					<a class="cmp__nav-link" href="about.html">
+						<cmp-icon name="person"></cmp-icon>
+						<span class="cmp__nav-link-text">about</span>
+					</a>
+				</li>
+				<li class="cmp__hamburger-link">
+					<a class="cmp__nav-link" href="#">
+						<select class="cmp__hidden-menu">
+							<option value="index.html"> Home</option>
+							<option value="about.html" selected> About</option>
+							<option value="contact.html"> Contact</option>
+							<option value="search"> Search</option>
+						</select>
+						<cmp-icon name="hamburger"></cmp-icon>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Page Main Content Component -->
+	<main class="cmp__blog-main">
+
+		<article id="cmp__about" class="cmp__blog-content cmp__article">
+
+			<!-- Page Title -->
+			<header class="cmp__article-header cmp__auto-layout">
+				<h1 class="cmp__blog-title">About Me</h1>
+			</header>
+
+			<!-- Page Content -->
+			<main class="cmp__article-content cmp__auto-layout">
+
+				<!-- Author Photo -->
+				<figure class="cmp__figure-full">
+					<cmp-image src="assets/author.jpeg" alt="Author Triton Maxwell" width="1500" height="871"></cmp-image>
+				</figure>
+
+				<!-- Author Description -->
+				<p class="cmp__drop-cap">
+					Hi, I&rsquo;m <var>Triton Maxwell</var>. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+
+				<p>
+					Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+				</p>
+
+				<p>
+					Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+				</p>
+			</main>
+
+			<footer class="cmp__article-footer cmp__auto-layout">
+				<!-- Social Links -->
+				<div class="cmp__social-widget">
+					<a href="#">
+						<cmp-icon name="facebook"></cmp-icon>
+						<span class="cmp__social-text">Facebook</span>
+					</a>
+					<span class="separator">&bull;</span>
+					<a href="#">
+						<cmp-icon name="linkedin"></cmp-icon>
+						<span class="cmp__social-text">LinkedIn</span>
+					</a>
+					<span class="separator">&bull;</span>
+					<a href="#">
+						<cmp-icon name="twitter"></cmp-icon>
+						<span class="cmp__social-text">Twitter</span>
+					</a>
+					<span class="separator">&bull;</span>
+					<a href="#">
+						<cmp-icon name="github"></cmp-icon>
+						<span class="cmp__social-text">Github</span>
+					</a>
+				</div>
+			</footer>
+		</article>
+	</main>
+
+	<!-- Page Footer Component -->
+	<footer class="cmp__blog-footer">
+		<section class="cmp__footer-left">
+			<div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+			<div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+		</section>
+		<section class="cmp__footer-right">
+			<div>&copy; 2021 &middot; All Rights Reserved</div>
+		</section>
+	</footer>
+</div>
 
 <script src="fibonacci.js"></script>
 </body>
