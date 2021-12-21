@@ -727,7 +727,7 @@ cmp-icon {
 cmp-content-scale {
   position: relative;
   overflow: hidden;
-  z-index: 10000;
+  z-index: $content-scale-index;
 
   .cmp__bar {
     width: 100%;
@@ -808,42 +808,39 @@ cmp-color-dots {
 
 // Ribbon.
 .cmp__ribbon {
+  --ribbon-height: #{$ribbon-small-screen-height};
+  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75);
   display: inline-block;
   position: relative;
-  height: $ribbon-height;
-  line-height: $ribbon-height;
+  height: var(--ribbon-height);
+  line-height: var(--ribbon-height);
   padding: 0 $xl-size;
 
   text-align: center;
-  font-family: $heading-font-family;
-  font-size: $small-font-size;
   text-transform: uppercase;
+  font-family: $heading-font-family;
+  font-size: 0.680rem;
   letter-spacing: $medium-letter-spacing;
 
   background: $ribbon-bg;
   color: $ribbon-color;
-  box-shadow: $box-shadow;
+  box-shadow: $ribbon-shadow;
 
   &::before, &::after {
     content: "";
     position: absolute;
-    border-style: solid;
-    border-color: $ribbon-bg-back;
-    border-top-width: calc($ribbon-height / 2);
-    border-bottom-width: calc($ribbon-height / 2);
-    border-left-width: calc($ribbon-height / 2);
-    border-right-width: calc($ribbon-height / 2);
+    border: solid calc(var(--ribbon-height) / 2) darken($purple-ribbon, 10%);
     z-index: -1;
-    bottom: -8px;
+    bottom: calc(-1 * var(--ribbon-bend-height));
   }
 
   &::before {
-    left: -22px;
+    left: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
     border-left-color: transparent;
   }
 
   &::after {
-    right: -22px;
+    right: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
     border-right-color: transparent;
   }
 
@@ -852,19 +849,19 @@ cmp-color-dots {
       content: "";
       position: absolute;
       display: block;
-      bottom: -$ribbon-bend-height;
+      bottom: calc(-1 * var(--ribbon-bend-height));
       border-style: solid;
-      border-color: $ribbon-bg-back transparent transparent transparent;
+      border-color: darken($purple-ribbon, 25%) transparent transparent transparent;
     }
 
     &::before {
       left: 0;
-      border-width: $ribbon-bend-height 0 0 $ribbon-bend-height;
+      border-width: var(--ribbon-bend-height) 0 0 var(--ribbon-bend-height);
     }
 
     &::after {
       right: 0;
-      border-width: $ribbon-bend-height $ribbon-bend-height 0 0;
+      border-width: var(--ribbon-bend-height) var(--ribbon-bend-height) 0 0;
     }
   }
 }
@@ -1382,6 +1379,11 @@ $colors: (
         height: $progress-square-large-width;
       }
     }
+  }
+
+  .cmp__ribbon {
+    --ribbon-height: #{$ribbon-height};
+    font-size: $small-font-size;
   }
 }
 

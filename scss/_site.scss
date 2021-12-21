@@ -454,8 +454,6 @@ html, body {
 
 // Table of contents.
 .cmp__toc {
-  position: relative;
-  z-index: 1;
   padding: $medium-padding;
   margin-bottom: $xl-size;
 
@@ -499,6 +497,8 @@ html, body {
 // Ribbon.
 .cmp__ribbon-container {
   @include flex_center;
+  position: relative;
+  z-index: 1;
   margin-top: 1rem;
   margin-bottom: 2.618rem;
 }
@@ -835,6 +835,13 @@ cmp-color-dots {
         margin-top: 0;
         font-size: $footer-font-size;
       }
+    }
+  }
+
+  // Ribbon.
+  .cmp__ribbon-container {
+    .cmp__ribbon {
+      width: 40%;
     }
   }
 }

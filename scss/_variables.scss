@@ -233,14 +233,15 @@ $toc-bg-color:                      $widget-bg-color !default;
 
 // Ribbons.
 $ribbon-height:                     30px !default;
-$ribbon-bend-height:                8px !default;
+$ribbon-small-screen-height:        24px !default;
 $ribbon-bg:                         $purple-ribbon !default;
-$ribbon-bg-back:                    darken($purple-ribbon, 10%) !default;
 $ribbon-color:                      $white !default;
+$ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
 
 // Content scale.
 $content-scale-height:              2px !default;
 $content-scale-bg:                  $light-gray !default;
+$content-scale-index:               500 !default;
 $tick-max-height:                   8px !default;
 $tick-min-height:                   4px !default;
 $tick-color:                        darken($light-gray, 10%) !default;
