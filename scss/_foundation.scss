@@ -611,6 +611,7 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
 
 
   border: solid 2px $input-border-color;
+  border-radius: $border-radius;
   color: $input-text-color;
   outline: none;
 
@@ -685,6 +686,7 @@ input[type="search"]::-webkit-search-results-decoration {
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: $lg-size;
+  border-radius: $border-radius;
 
   label {
     @include flex-ver-center;
@@ -800,6 +802,69 @@ cmp-color-dots {
       &:nth-child(4) {
         background-color: $dark-gray;
       }
+    }
+  }
+}
+
+// Ribbon.
+.cmp__ribbon {
+  display: inline-block;
+  position: relative;
+  height: $ribbon-height;
+  line-height: $ribbon-height;
+  padding: 0 $xl-size;
+
+  text-align: center;
+  font-family: $heading-font-family;
+  font-size: $small-font-size;
+  text-transform: uppercase;
+  letter-spacing: $medium-letter-spacing;
+
+  background: $ribbon-bg;
+  color: $ribbon-color;
+  box-shadow: $box-shadow;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: $ribbon-bg-back;
+    border-top-width: calc($ribbon-height / 2);
+    border-bottom-width: calc($ribbon-height / 2);
+    border-left-width: calc($ribbon-height / 2);
+    border-right-width: calc($ribbon-height / 2);
+    z-index: -1;
+    bottom: -8px;
+  }
+
+  &::before {
+    left: -22px;
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: -22px;
+    border-right-color: transparent;
+  }
+
+  .cmp__ribbon-content {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -$ribbon-bend-height;
+      border-style: solid;
+      border-color: $ribbon-bg-back transparent transparent transparent;
+    }
+
+    &::before {
+      left: 0;
+      border-width: $ribbon-bend-height 0 0 $ribbon-bend-height;
+    }
+
+    &::after {
+      right: 0;
+      border-width: $ribbon-bend-height $ribbon-bend-height 0 0;
     }
   }
 }
@@ -1000,35 +1065,35 @@ cmp-words-fall {
 
 // Constants.
 $breakpoints: (
-  "mob": $mobile,
-  "tab": $tablet,
-  "desk": $desktop
+        "mob": $mobile,
+        "tab": $tablet,
+        "desk": $desktop
 );
 
 $sizes: (
-  "xs": $xs-size,
-  "sm": $sm-size,
-  "md": $md-size,
-  "lg": $lg-size,
-  "xl": $xl-size,
-  "xxl": $xxl-size,
-  "xxxl": $xxxl-size
+        "xs": $xs-size,
+        "sm": $sm-size,
+        "md": $md-size,
+        "lg": $lg-size,
+        "xl": $xl-size,
+        "xxl": $xxl-size,
+        "xxxl": $xxxl-size
 );
 
 $colors: (
-  "brand": $brand-color,
-  "brand-dark": $brand-dark,
-  "brand-light": $brand-light,
-  "dark-gray": $dark-gray,
-  "medium-gray": $medium-gray,
-  "light-gray": $gray,
-  "dim-gray": $dim-gray,
-  "blue-gray": $blue-gray,
-  "white-color": $white,
-  "black-color": $black,
-  "success-color": $success,
-  "warn-color": $warn,
-  "error-color": $error
+        "brand": $brand-color,
+        "brand-dark": $brand-dark,
+        "brand-light": $brand-light,
+        "dark-gray": $dark-gray,
+        "medium-gray": $medium-gray,
+        "light-gray": $gray,
+        "dim-gray": $dim-gray,
+        "blue-gray": $blue-gray,
+        "white-color": $white,
+        "black-color": $black,
+        "success-color": $success,
+        "warn-color": $warn,
+        "error-color": $error
 );
 
 // Floats & Responsive Floats.

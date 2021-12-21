@@ -23,12 +23,15 @@ $gray:                              rgba(51, 51, 51, 0.5) !default;
 $light-gray:                        rgba(204, 204, 204, 0.5) !default;
 $dim-gray:                          rgba(247, 247, 247, 1) !default;
 $blue-gray:                         rgba(135, 146, 163, 1) !default;
-$yellow-green:                      rgba(181, 219, 86, 1) !default;
 
 // Special colors.
 $success:                           rgba(241, 247, 234, 1) !default;
 $warn:                              rgba(252, 248, 220, 1) !default;
 $error:                             rgba(255, 238, 235, 1) !default;
+
+// Other Colors.
+$yellow-green:                      rgba(181, 219, 86, 1) !default;
+$purple-ribbon:                     #ba89b6 !default;
 
 // Sizes.
 $xs-size:                           var(--xs-size) !default;
@@ -227,6 +230,13 @@ $widget-bg-color:                   $dim-gray !default;
 
 // Table Of Contents.
 $toc-bg-color:                      $widget-bg-color !default;
+
+// Ribbons.
+$ribbon-height:                     30px !default;
+$ribbon-bend-height:                8px !default;
+$ribbon-bg:                         $purple-ribbon !default;
+$ribbon-bg-back:                    darken($purple-ribbon, 10%) !default;
+$ribbon-color:                      $white !default;
 
 // Content scale.
 $content-scale-height:              2px !default;

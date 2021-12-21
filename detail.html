@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
   <link rel="stylesheet" type="text/css" href="fibonacci.css">
 </head>
-<body class="cmp__blog">
+<body class="cmp__blog cmp__site-loading cmp__no-transition">
 
 <!-- Site Container -->
 <div class="cmp__site-container">
@@ -158,13 +158,21 @@
       <main class="cmp__article-content cmp__auto-layout">
 
         <figure class="cmp__article-poster cmp__figure-full">
-          <cmp-image src="assets/blog_resources/agriculture-apple-blur-wide.jpeg" alt="A beautiful photo of an apple" width="1500" height="770"></cmp-image>
-          <figcaption class="cmp__center">Fig 1. A beautiful photo of an apple taken from the beautiful place Kashmir. Source: <i>https://unsplash.com</i>
+          <cmp-image src="assets/blog_resources/agriculture-apple-blur-wide.jpeg" alt="A beautiful photo of an apple"
+                     width="1500" height="770"></cmp-image>
+          <figcaption class="cmp__center">Fig 1. A beautiful photo of an apple taken from the beautiful place Kashmir.
+            Source: <i>https://unsplash.com</i>
           </figcaption>
         </figure>
 
         <div class="cmp__toc cmp__responsive">
-          <h5>Table Of Contents</h5>
+          <div class="cmp__ribbon-container">
+            <div class="cmp__ribbon">
+              <div class="cmp__ribbon-content">
+                Table Of Contents
+              </div>
+            </div>
+          </div>
           <ol>
             <li>
               <a href="#">Pellentesque at egestas elit</a>
@@ -235,11 +243,13 @@
         <p>
           Sed ut <a href="http://duckduckgo.com">perspiciatis</a> unde omnis iste natus error sit voluptatem accusantium
           doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
+          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Nemo
           enim ipsam <var>voluptatem</var> quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
           dolores eos
           qui
-          ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+          ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+          consectetur,
           adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
           voluptatem.
         </p>
@@ -249,7 +259,8 @@
         <p>
           At vero <abbr title="eligendi optio soluta">eos</abbr> et accusamus et iusto odio<sup>[2]</sup> dignissimos
           ducimus qui blanditiis praesentium voluptatum deleniti atque
-          corrupti<sub>5</sub> quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+          corrupti<sub>5</sub> quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique
           sunt in
           culpa
           qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
@@ -340,7 +351,8 @@
           <dd>Theory of Relativity, photoelectric effect and lots more</dd>
         </dl>
 
-        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__pad-bottom-sm cmp__pad-hor-lg cmp__responsive">
+        <blockquote cite="https://www.huxley.net/bnw/four.html"
+                    class="cmp__pad-bottom-sm cmp__pad-hor-lg cmp__responsive">
           <h4>Duis euismod luctus</h4>
           <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
             totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -363,7 +375,8 @@
           recusandae.
         </p>
 
-        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__status-warn cmp__pad-bottom-sm cmp__pad-hor-lg">
+        <blockquote cite="https://www.huxley.net/bnw/four.html"
+                    class="cmp__status-warn cmp__pad-bottom-sm cmp__pad-hor-lg">
           <h4>Duis euismod luctus</h4>
           <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
             totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -390,7 +403,8 @@
           Tel: +1 (123) 456 7890
         </address>
 
-        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__status-error cmp__pad-bottom-sm cmp__pad-hor-lg">
+        <blockquote cite="https://www.huxley.net/bnw/four.html"
+                    class="cmp__status-error cmp__pad-bottom-sm cmp__pad-hor-lg">
           <h4>Duis euismod luctus</h4>
           <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
             totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -407,7 +421,8 @@
         </p>
 
         <figure class="cmp__responsive">
-          <cmp-image src="assets/blog_resources/agriculture-apple-blur.jpeg" alt="A beautiful photo of an apple" width="1500" height="961"></cmp-image>
+          <cmp-image src="assets/blog_resources/agriculture-apple-blur.jpeg" alt="A beautiful photo of an apple"
+                     width="1500" height="961"></cmp-image>
           <figcaption>Fig 2. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
           </figcaption>
         </figure>
@@ -421,7 +436,8 @@
 
         <div class="cmp__page-element cmp__responsive">
           <figure class="cmp__tab-float-left cmp__tab-mar-right-sm cmp__tab-no-margin">
-            <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" width="400" height="517"></cmp-image>
+            <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple"
+                       width="400" height="517"></cmp-image>
             <figcaption>Fig 3. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
             </figcaption>
           </figure>
@@ -450,7 +466,8 @@
 
         <div class="cmp__page-element cmp__responsive">
           <figure class="cmp__tab-float-right cmp__tab-mar-left-sm">
-            <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" width="400" height="517"></cmp-image>
+            <cmp-image src="assets/blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple"
+                       width="400" height="517"></cmp-image>
             <figcaption>Fig 4. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
             </figcaption>
           </figure>
@@ -761,7 +778,8 @@ export default new Emitter();</code></pre>
                     just now
                   </div>
                   <div class="cmp__comment-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
                     dolore magna aliqua.
                   </div>
                   <div class="cmp__comment-reply">
@@ -782,7 +800,8 @@ export default new Emitter();</code></pre>
                     10 mins ago
                   </div>
                   <div class="cmp__comment-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
                     dolore magna aliqua.
                   </div>
                   <div class="cmp__comment-reply">

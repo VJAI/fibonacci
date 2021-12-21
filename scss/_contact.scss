@@ -13,7 +13,8 @@
       margin-right: $md-size;
 
       cmp-icon {
-        display: none;
+        display: block;
+        margin-right: 0.236rem;
       }
     }
 
@@ -29,15 +30,6 @@
       cmp-icon {
         position: relative;
       }
-    }
-  }
-}
-
-@media only screen and (min-width: $mobile) {
-  .cmp__contact-form .cmp__bottom-row p {
-    cmp-icon {
-      display: block;
-      margin-right: 0.236rem;
     }
   }
 }

@@ -454,6 +454,8 @@ html, body {
 
 // Table of contents.
 .cmp__toc {
+  position: relative;
+  z-index: 1;
   padding: $medium-padding;
   margin-bottom: $xl-size;
 
@@ -492,6 +494,13 @@ html, body {
       font-size: $xs-size;
     }
   }
+}
+
+// Ribbon.
+.cmp__ribbon-container {
+  @include flex_center;
+  margin-top: 1rem;
+  margin-bottom: 2.618rem;
 }
 
 // Share Button

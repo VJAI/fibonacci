@@ -585,8 +585,7 @@
         wordsFall.activate();
       }
     }
-  
-    document.body.classList.add('cmp__site-loading', 'cmp__no-transition');
+    
     mediaChangeHandler(mediaQuery);
   }
   
