@@ -343,6 +343,10 @@ figure {
     box-shadow: $box-shadow;
     overflow-x: auto;
   }
+
+  pre {
+    padding: $small-padding;
+  }
 }
 
 // Tables.
@@ -382,15 +386,25 @@ pre {
   margin: 0;
   position: relative;
 
+  background: $code-bg-color;
+  color: $medium-gray;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
   code {
     overflow-x: auto;
+    overflow-y: hidden;
+
     font-family: $code-font-family;
     font-size: $code-font-size;
     line-height: $code-line-height;
     letter-spacing: normal;
 
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
+    &.hljs {
+      padding: 0;
+      background: inherit;
+      color: inherit;
+    }
 
     &::after {
       @include flex_center;
@@ -414,12 +428,6 @@ pre {
 }
 
 // Highlight.js
-.hljs {
-  padding: 0;
-  background: $code-bg-color;
-  color: $medium-gray;
-}
-
 .hljs-comment {
   color: $hightlight-comment-color;
 }
@@ -1054,6 +1062,8 @@ cmp-words-fall {
       }
 
       &.cmp__inline-list {
+        padding-left: 0;
+
         li {
           display: inline-block;
           margin-right: 0.236rem;

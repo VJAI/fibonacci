@@ -432,6 +432,9 @@ figure .cmp__table-wrapper {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   overflow-x: auto;
 }
+figure pre {
+  padding: var(--sm-size) var(--lg-size);
+}
 
 table {
   width: 100%;
@@ -458,15 +461,23 @@ table thead tr th {
 pre {
   margin: 0;
   position: relative;
+  background: rgba(247, 247, 247, 0.7);
+  color: rgba(51, 51, 51, 0.8);
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 pre code {
   overflow-x: auto;
+  overflow-y: hidden;
   font-family: "Space Mono", monospace;
   font-size: var(--xs-size);
   line-height: 1.2;
   letter-spacing: normal;
-  border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+pre code.hljs {
+  padding: 0;
+  background: inherit;
+  color: inherit;
 }
 pre code::after {
   display: flex;
@@ -486,12 +497,6 @@ pre code::after {
   background-color: rgba(179, 179, 179, 0.5);
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-}
-
-.hljs {
-  padding: 0;
-  background: rgba(247, 247, 247, 0.7);
-  color: rgba(51, 51, 51, 0.8);
 }
 
 .hljs-comment {
@@ -896,8 +901,8 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   font-size: var(--xs-size);
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: rgba(204, 204, 204, 0.5);
-  color: rgba(51, 51, 51, 0.8);
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
 }
 .cmp__widget-ribbon .cmp__widget-ribbon-content::before {
   content: "";
@@ -905,7 +910,7 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   top: -6px;
   left: 0;
   height: 3px;
-  border: solid 3px rgba(153, 153, 153, 0.5);
+  border: solid 3px rgba(0, 0, 0, 0.5);
   border-left-color: transparent;
   border-top-color: transparent;
 }
@@ -914,7 +919,7 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   position: relative;
   right: calc(-1 * var(--xl-size));
   height: var(--xl-size);
-  border: calc(var(--xl-size) / 2) solid rgba(204, 204, 204, 0.5);
+  border: calc(var(--xl-size) / 2) solid rgba(51, 51, 51, 0.5);
   border-top-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -1031,6 +1036,9 @@ cmp-words-fall .cmp__word {
 }
 .cmp__widget .cmp__widget-body ul li, .cmp__widget .cmp__widget-body ol li, .cmp__widget .cmp__widget-body menu li {
   margin-bottom: 0.51rem;
+}
+.cmp__widget .cmp__widget-body ul.cmp__inline-list, .cmp__widget .cmp__widget-body ol.cmp__inline-list, .cmp__widget .cmp__widget-body menu.cmp__inline-list {
+  padding-left: 0;
 }
 .cmp__widget .cmp__widget-body ul.cmp__inline-list li, .cmp__widget .cmp__widget-body ol.cmp__inline-list li, .cmp__widget .cmp__widget-body menu.cmp__inline-list li {
   display: inline-block;
