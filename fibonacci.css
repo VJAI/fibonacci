@@ -1029,7 +1029,7 @@ cmp-words-fall .cmp__word {
   padding-top: var(--md-size);
 }
 .cmp__widget .cmp__widget-body {
-  padding: var(--lg-size) var(--xl-size);
+  padding: var(--sm-size) var(--lg-size);
 }
 .cmp__widget .cmp__widget-body ul, .cmp__widget .cmp__widget-body ol, .cmp__widget .cmp__widget-body menu {
   margin-bottom: 0;
@@ -3021,6 +3021,10 @@ menu menu {
   cmp-progress .cmp__squares-container .cmp__square {
     width: var(--sm-size);
     height: var(--sm-size);
+  }
+
+  .cmp__widget .cmp__widget-body {
+    padding: var(--lg-size) var(--xl-size);
   }
 
   .cmp__ribbon {

@@ -1052,7 +1052,7 @@ cmp-words-fall {
   }
 
   .cmp__widget-body {
-    padding: $medium-padding;
+    padding: $small-padding;
 
     ul, ol, menu {
       margin-bottom: 0;
@@ -1432,6 +1432,12 @@ $colors: (
         width: $progress-square-large-width;
         height: $progress-square-large-width;
       }
+    }
+  }
+
+  .cmp__widget {
+    .cmp__widget-body {
+      padding: $medium-padding;
     }
   }
 
