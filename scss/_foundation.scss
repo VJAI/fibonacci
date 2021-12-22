@@ -866,6 +866,58 @@ cmp-color-dots {
   }
 }
 
+// Widget Ribbon.
+.cmp__widget-ribbon {
+  display: inline-block;
+  min-width: $widget-ribbon-min-width;
+
+  .cmp__widget-ribbon-content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    left: -6px;
+    height: $widget-ribbon-height;
+    line-height: $widget-ribbon-height;
+    padding-left: $md-size;
+
+    font-family: $heading-font-family;
+    font-size: $small-font-size;
+    letter-spacing: $medium-letter-spacing;
+    text-transform: uppercase;
+
+    background-color: $widget-ribbon-bg;
+    color: $widget-ribbon-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      height: 3px;
+
+      border: solid 3px darken($widget-ribbon-bg, 20%);
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      right: calc(-1 * $xl-size);
+      height: $xl-size;
+
+      border: calc($xl-size / 2) solid $widget-ribbon-bg;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    span {
+      flex-grow: 1;
+    }
+  }
+}
+
 // Image Progress.
 cmp-image {
   position: relative;
@@ -982,37 +1034,33 @@ cmp-words-fall {
 
 // Widgets.
 .cmp__widget {
-  padding: $lg-size;
   margin-bottom: $xl-size;
   background-color: $widget-bg-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
-  h5 {
-    padding-bottom: $xs-size;
-    margin-top: 0;
-
-    color: $gray;
-
-    text-transform: uppercase;
-    letter-spacing: $medium-letter-spacing;
-    border-bottom: solid 1px $light-gray;
+  .cmp__widget-header {
+    padding-top: $md-size;
   }
 
-  ul, ol, menu {
-    margin-bottom: 0;
+  .cmp__widget-body {
+    padding: $medium-padding;
 
-    li {
-      margin-bottom: 0.510rem;
-    }
+    ul, ol, menu {
+      margin-bottom: 0;
 
-    &.cmp__inline-list {
       li {
-        display: inline-block;
-        margin-right: 0.236rem;
+        margin-bottom: 0.510rem;
+      }
 
-        &:before {
-          display: none;
+      &.cmp__inline-list {
+        li {
+          display: inline-block;
+          margin-right: 0.236rem;
+
+          &:before {
+            display: none;
+          }
         }
       }
     }
@@ -1346,10 +1394,6 @@ $colors: (
       min-width: 6.225rem;
       margin-right: $sm-size;
     }
-  }
-
-  .cmp__widget {
-    padding: $medium-padding;
   }
 
   cmp-image {

@@ -232,11 +232,16 @@ $widget-bg-color:                   $dim-gray !default;
 $toc-bg-color:                      $widget-bg-color !default;
 
 // Ribbons.
-$ribbon-height:                     30px !default;
-$ribbon-small-screen-height:        24px !default;
+$ribbon-height:                     1.618rem !default;
+$ribbon-small-screen-height:        1.470rem !default;
 $ribbon-bg:                         $purple-ribbon !default;
 $ribbon-color:                      $white !default;
 $ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
+
+$widget-ribbon-min-width:           200px !default;
+$widget-ribbon-height:              $xl-size !default;
+$widget-ribbon-bg:                  $light-gray !default;
+$widget-ribbon-color:               $medium-gray !default;
 
 // Content scale.
 $content-scale-height:              2px !default;

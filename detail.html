@@ -741,277 +741,319 @@ export default new Emitter();</code></pre>
 
         <!-- Related Posts Widget -->
         <section class="cmp__widget cmp__related-posts cmp__responsive">
-          <h5>Related Posts</h5>
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>Related Posts</span>
+              </div>
+            </div>
+          </div>
 
-          <ul>
-            <li>
-              <a href="#">Lorem ipsum dolor sit amet</a>
-            </li>
-            <li>
-              <a href="#">Sed ut perspiciatis unde omnis iste</a>
-            </li>
-            <li>
-              <a href="#">At vero eos et accusamus</a>
-            </li>
-            <li>
-              <a href="#">Temporibus autem quibusdam</a>
-            </li>
-            <li>
-              <a href="#">Ut enim ad minima veniam</a>
-            </li>
-          </ul>
+          <div class="cmp__widget-body">
+            <ul>
+              <li>
+                <a href="#">Lorem ipsum dolor sit amet</a>
+              </li>
+              <li>
+                <a href="#">Sed ut perspiciatis unde omnis iste</a>
+              </li>
+              <li>
+                <a href="#">At vero eos et accusamus</a>
+              </li>
+              <li>
+                <a href="#">Temporibus autem quibusdam</a>
+              </li>
+              <li>
+                <a href="#">Ut enim ad minima veniam</a>
+              </li>
+            </ul>
+          </div>
+
         </section>
 
         <!-- Comments Widget -->
         <section class="cmp__widget cmp__comments cmp__responsive">
-          <h5>Post Comment</h5>
-
-          <form class="cmp__form cmp__comments-form">
-            <div class="cmp__form-container">
-              <div class="cmp__comment-by">
-                <img src="assets/author_mini.png" width="50" alt="You"/>
-                <span>You</span>
-              </div>
-              <div class="cmp__form-control">
-                <textarea placeholder="Write not more than 500 characters..."></textarea>
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>Post Comment</span>
               </div>
             </div>
-          </form>
+          </div>
 
-          <h5>2 Comments</h5>
-
-          <ul class="cmp__comments-list">
-            <li>
-              <div class="cmp__comment">
+          <div class="cmp__widget-body">
+            <form class="cmp__form cmp__comments-form">
+              <div class="cmp__form-container">
                 <div class="cmp__comment-by">
-                  <img src="assets/martin.png" width="50" alt="Martin"/>
-                  <span>Martin</span>
+                  <img src="assets/author_mini.png" width="50" alt="You"/>
+                  <span>You</span>
                 </div>
-                <div class="cmp__comment-detail">
-                  <div class="cmp__commented-date">
-                    just now
-                  </div>
-                  <div class="cmp__comment-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua.
-                  </div>
-                  <div class="cmp__comment-reply">
-                    <button class="cmp__button">Reply</button>
-                  </div>
+                <div class="cmp__form-control">
+                  <textarea placeholder="Write not more than 500 characters..."></textarea>
                 </div>
               </div>
-            </li>
+            </form>
+          </div>
 
-            <li>
-              <div class="cmp__comment">
-                <div class="cmp__comment-by">
-                  <img src="assets/tanny.jpg" width="50" alt="Tanny"/>
-                  <span>Tanny</span>
-                </div>
-                <div class="cmp__comment-detail">
-                  <div class="cmp__commented-date">
-                    10 mins ago
-                  </div>
-                  <div class="cmp__comment-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua.
-                  </div>
-                  <div class="cmp__comment-reply">
-                    <button class="cmp__button">Reply</button>
-                  </div>
-                </div>
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>2 Comments</span>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          <div class="cmp__widget-body">
+            <ul class="cmp__comments-list">
+              <li>
+                <div class="cmp__comment">
+                  <div class="cmp__comment-by">
+                    <img src="assets/martin.png" width="50" alt="Martin"/>
+                    <span>Martin</span>
+                  </div>
+                  <div class="cmp__comment-detail">
+                    <div class="cmp__commented-date">
+                      just now
+                    </div>
+                    <div class="cmp__comment-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                    <div class="cmp__comment-reply">
+                      <button class="cmp__button">Reply</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cmp__comment">
+                  <div class="cmp__comment-by">
+                    <img src="assets/tanny.jpg" width="50" alt="Tanny"/>
+                    <span>Tanny</span>
+                  </div>
+                  <div class="cmp__comment-detail">
+                    <div class="cmp__commented-date">
+                      10 mins ago
+                    </div>
+                    <div class="cmp__comment-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                    <div class="cmp__comment-reply">
+                      <button class="cmp__button">Reply</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
         </section>
 
         <!-- Archives & Tags -->
         <div class="cmp__responsive cmp__responsive-flex">
           <section class="cmp__widget cmp__archives">
-            <h5>Archives</h5>
+            <div class="cmp__widget-header">
+              <div class="cmp__widget-ribbon">
+                <div class="cmp__widget-ribbon-content">
+                  <span>Archives</span>
+                </div>
+              </div>
+            </div>
 
-            <ul>
-              <li>
-                <a href="#">December 2021 <span>[4]</span></a>
-              </li>
-              <li>
-                <a href="#">November 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">October 2021 <span>[1]</span></a>
-              </li>
-              <li>
-                <a href="#">September 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">August 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">July 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">June 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">May 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">April 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">March 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">February 2021 <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">January 2021 <span>[2]</span></a>
-              </li>
-            </ul>
+            <div class="cmp__widget-body">
+              <ul>
+                <li>
+                  <a href="#">December 2021 <span>[4]</span></a>
+                </li>
+                <li>
+                  <a href="#">November 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">October 2021 <span>[1]</span></a>
+                </li>
+                <li>
+                  <a href="#">September 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">August 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">July 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">June 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">May 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">April 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">March 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">February 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">January 2021 <span>[2]</span></a>
+                </li>
+              </ul>
+            </div>
           </section>
 
           <section class="cmp__widget cmp__tags">
-            <h5>Tags</h5>
+            <div class="cmp__widget-header">
+              <div class="cmp__widget-ribbon">
+                <div class="cmp__widget-ribbon-content">
+                  <span>Tags</span>
+                </div>
+              </div>
+            </div>
 
-            <ul class="cmp__inline-list">
-              <li>
-                <a href="#">HTML <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">JavaScript <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSS <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSharp <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">.NET <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">ASP.NET MVC <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">SQL Server <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">Angular <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">React <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">HTML <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">JavaScript <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSS <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSharp <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">.NET <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">ASP.NET MVC <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">SQL Server <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">Angular <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">React <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">HTML <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">JavaScript <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSS <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSharp <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">.NET <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">ASP.NET MVC <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">SQL Server <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">Angular <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">React <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">HTML <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">JavaScript <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSS <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSharp <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">.NET <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">ASP.NET MVC <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">SQL Server <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">Angular <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">React <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">HTML <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">JavaScript <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSS <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">CSharp <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">.NET <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">ASP.NET MVC <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">SQL Server <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">Angular <span>[2]</span></a>
-              </li>
-              <li>
-                <a href="#">React <span>[2]</span></a>
-              </li>
-            </ul>
+            <div class="cmp__widget-body">
+              <ul class="cmp__inline-list">
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+              </ul>
+            </div>
           </section>
         </div>
       </div>
