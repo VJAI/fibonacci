@@ -887,7 +887,7 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
 
 .cmp__widget-ribbon {
   display: inline-block;
-  min-width: 200px;
+  min-width: 150px;
 }
 .cmp__widget-ribbon .cmp__widget-ribbon-content {
   display: flex;
@@ -901,8 +901,9 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   font-size: var(--xs-size);
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: rgba(51, 51, 51, 0.5);
-  color: white;
+  font-weight: bold;
+  background-color: rgba(204, 204, 204, 0.5);
+  color: rgba(51, 51, 51, 0.8);
 }
 .cmp__widget-ribbon .cmp__widget-ribbon-content::before {
   content: "";
@@ -910,7 +911,7 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   top: -6px;
   left: 0;
   height: 3px;
-  border: solid 3px rgba(0, 0, 0, 0.5);
+  border: solid 3px rgba(153, 153, 153, 0.5);
   border-left-color: transparent;
   border-top-color: transparent;
 }
@@ -919,7 +920,7 @@ cmp-color-dots .cmp__dots-container .cmp__dot:nth-child(4) {
   position: relative;
   right: calc(-1 * var(--xl-size));
   height: var(--xl-size);
-  border: calc(var(--xl-size) / 2) solid rgba(51, 51, 51, 0.5);
+  border: calc(var(--xl-size) / 2) solid rgba(204, 204, 204, 0.5);
   border-top-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -1011,11 +1012,10 @@ cmp-words-fall {
 cmp-words-fall .cmp__word {
   white-space: nowrap;
   position: absolute;
-  animation: falling_word 2s linear;
-  color: #8792a3;
-  font-family: "Londrina Shadow", cursive;
-  font-weight: bold;
-  text-shadow: 0 -10px 10px rgba(204, 204, 204, 0.5);
+  animation: falling_word 4s linear;
+  color: #ba89b6;
+  font-family: "Monofett", cursive;
+  letter-spacing: -1px;
   user-select: none;
 }
 
@@ -3031,6 +3031,10 @@ menu menu {
     --ribbon-height: 1.618rem;
     font-size: var(--xs-size);
   }
+
+  .cmp__widget-ribbon {
+    min-width: 200px;
+  }
 }
 @keyframes color_change {
   0% {
@@ -3049,7 +3053,7 @@ menu menu {
 @keyframes falling_word {
   0% {
     top: 0;
-    opacity: 0.2;
+    opacity: 0.5;
   }
   10% {
     opacity: 0.9;
@@ -3210,6 +3214,7 @@ html, body {
   font-size: var(--xs-size);
   line-height: 1;
   border: none;
+  border-radius: 0;
   border-bottom: solid 1px rgba(51, 51, 51, 0.5);
   color: rgba(51, 51, 51, 0.5);
   background-color: #f7f7f7;

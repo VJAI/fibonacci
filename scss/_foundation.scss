@@ -877,7 +877,7 @@ cmp-color-dots {
 // Widget Ribbon.
 .cmp__widget-ribbon {
   display: inline-block;
-  min-width: $widget-ribbon-min-width;
+  min-width: 150px;
 
   .cmp__widget-ribbon-content {
     display: flex;
@@ -892,6 +892,7 @@ cmp-color-dots {
     font-size: $small-font-size;
     letter-spacing: $medium-letter-spacing;
     text-transform: uppercase;
+    font-weight: bold;
 
     background-color: $widget-ribbon-bg;
     color: $widget-ribbon-color;
@@ -1031,11 +1032,10 @@ cmp-words-fall {
   .cmp__word {
     white-space: nowrap;
     position: absolute;
-    animation: falling_word 2s linear;
-    color: $blue-gray;
+    animation: falling_word 4s linear;
+    color: $purple-ribbon;
     font-family: $display-font-family;
-    font-weight: bold;
-    text-shadow: 0 -10px 10px $light-gray;
+    letter-spacing: -1px;
     user-select: none;
   }
 }
@@ -1445,6 +1445,10 @@ $colors: (
     --ribbon-height: #{$ribbon-height};
     font-size: $small-font-size;
   }
+
+  .cmp__widget-ribbon {
+    min-width: 200px;
+  }
 }
 
 @keyframes color_change {
@@ -1465,7 +1469,7 @@ $colors: (
 @keyframes falling_word {
   0% {
     top: 0;
-    opacity: 0.2;
+    opacity: 0.5;
   }
 
   10% {

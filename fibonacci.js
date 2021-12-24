@@ -53,6 +53,7 @@
       }
     }
   }
+  
   window.customElements.define('cmp-icon', IconElement);
   
   // Content scroll indicator web component.
@@ -95,7 +96,7 @@
         amountScrolled = this._winHeight - computedRect.top,
         pctScrolled = amountScrolled / computedRect.height * 100,
         delta = 100;
-  
+      
       let adjustedPctScrolled;
       if (winScrollTop <= delta || pctScrolled < 1) {
         adjustedPctScrolled = 0;
@@ -104,22 +105,22 @@
       } else {
         adjustedPctScrolled = Math.floor(pctScrolled);
       }
-  
+      
       if (adjustedPctScrolled === 0) {
         this._scrollProgress.style.display = 'none';
         this._scrollProgress.style.width = '0%';
         return;
       }
-  
+      
       this._scrollProgress.style.display = 'block';
       this._scrollProgress.style.width = `${adjustedPctScrolled}%`;
     }
-  
+    
     _handleResize() {
       this._winHeight = window.innerHeight;
       this._setScrollProgress();
     }
-  
+    
     _handleScroll() {
       this._setScrollProgress();
     }
@@ -143,6 +144,7 @@
       });
     }
   }
+  
   window.customElements.define('cmp-content-scale', ContentScaleElement);
   
   // Gracefully renders images.
@@ -230,6 +232,7 @@
       // Not handled!
     }
   }
+  
   window.customElements.define('cmp-image', ImageElement);
   
   // Progress element.
@@ -248,6 +251,7 @@
       this.appendChild(progressTemplate.content.cloneNode(true));
     }
   }
+  
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
   // No use color dots.
@@ -264,6 +268,7 @@
       this.appendChild(template.content.cloneNode(true));
     }
   }
+  
   window.customElements.define('cmp-color-dots', ColorDotsElement);
   
   // Simple decorative element to attract users.
@@ -273,12 +278,12 @@
       super();
       
       this._wordsCloud = [];
-      this._sizes = ['1.212rem', '1.470rem', '1.781rem'];
-      this._interval = 500;
+      this._sizes = ['1.212rem'];
+      this._colors = ['#ba89b6', '#a8c977', '#78c0cf', '#9591e3'];
+      this._interval = 1000;
       this._intervalId = null;
       this._lanes = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
-      this._zones = [1, 2, 3];
-      this._lastZone = null;
+      this._lastLaneIndex = null;
       this._totalPopulation = 15;
       this._population = 0;
       this._isCustomFontLoaded = false;
@@ -288,11 +293,8 @@
       this._stopTimer = this._stopTimer.bind(this);
       this._handleResize = this._handleResize.bind(this);
       this._mediaChangeHandler = this._mediaChangeHandler.bind(this);
-  
-      this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');
       
-      const wordsFallTemplate = document.createElement('template');
-      this.appendChild(wordsFallTemplate.content.cloneNode(true));
+      this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');
     }
     
     _startTimer() {
@@ -315,13 +317,13 @@
     _getPopulationAndSizesForMedia(queryList) {
       return queryList.matches ? {
         totalPopulation: 15,
-        sizes: ['1.212rem', '1.470rem', '1.781rem']
+        sizes: ['1.781rem']
       } : {
         totalPopulation: 10,
-        sizes: ['1rem', '1.212rem', '1.470rem']
+        sizes: ['1.212rem']
       };
     }
-  
+    
     _mediaChangeHandler(queryList) {
       this.reset(this._getPopulationAndSizesForMedia(queryList));
     }
@@ -335,33 +337,28 @@
         return;
       }
       
-      const allowedZones = this._zones.filter(z => z !== this._lastZone);
-      this._lastZone = allowedZones[ this._getRandomNo(allowedZones.length) ];
-      let lanes;
+      const allowedLanes = [...this._lanes];
       
-      switch (this._lastZone) {
-        case 1:
-          lanes = this._lanes.filter(l => l < 3.5);
-          break;
-          
-        case 2:
-          lanes = this._lanes.filter(l => l >= 3.5 && l < 6.5);
-          break;
-          
-        default:
-          lanes = this._lanes.filter(l => l >= 6.5);
-          break;
+      if (this._lastLaneIndex !== null) {
+        const startIndex = Math.max(0, this._lastLaneIndex - 2),
+          endIndex = Math.min(allowedLanes.length - 1, this._lastLaneIndex + 2);
+        
+        allowedLanes.splice(startIndex, (endIndex - startIndex) + 1);
       }
       
+      this._lastLaneIndex = this._getRandomNo(allowedLanes.length);
+      
       const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
-        lane = lanes[ this._getRandomNo(lanes.length) ],
-        size = this._sizes[ this._getRandomNo(this._sizes.length) ];
+        size = this._sizes[ this._getRandomNo(this._sizes.length) ],
+        color = this._colors[ this._getRandomNo(this._colors.length) ],
+        lane = allowedLanes[ this._lastLaneIndex ];
       
       const wordElement = document.createElement('div');
       wordElement.classList.add('cmp__word');
       wordElement.innerHTML = word;
       wordElement.style.left = `${lane * 10}%`;
       wordElement.style.fontSize = size;
+      wordElement.style.color = color;
       wordElement.addEventListener('animationend', () => {
         wordElement.remove();
         this._population--;
@@ -381,7 +378,7 @@
         sizes,
         totalPopulation
       } = args;
-    
+      
       Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
       Array.isArray(sizes) && (this._sizes = sizes);
       typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
@@ -408,7 +405,7 @@
     }
     
     init(args) {
-      const updatedArgs = {...args, ...this._getPopulationAndSizesForMedia(this._mediaQuery) };
+      const updatedArgs = { ...args, ...this._getPopulationAndSizesForMedia(this._mediaQuery) };
       this._setArgs(updatedArgs);
     }
     
@@ -425,10 +422,10 @@
         this._startTimer();
         return;
       }
-  
+      
       WebFont.load({
         google: {
-          families: ['Londrina Shadow']
+          families: ['Monofett']
         },
         timeout: 5000,
         fontactive: () => {
@@ -443,6 +440,7 @@
       this._stopTimer();
     }
   }
+  
   window.customElements.define('cmp-words-fall', WordsFallElement);
   
   //**** Boot function ****/
@@ -511,7 +509,7 @@
           contentScale.classList.remove('cmp__sticky');
         }
       }
-  
+      
       if (wordsFall) {
         if (window.scrollY >= blogContent.offsetTop - 40) {
           wordsFall.deactivate();
@@ -524,7 +522,7 @@
     function handeOnLoad() {
       const endTime = performance.now(),
         diff = (endTime - startTime) / 1000;
-
+      
       if (diff > 2) {
         document.body.classList.remove('cmp__site-loading', 'cmp__no-transition');
         return;

@@ -4,7 +4,7 @@ $body-font-family:                  'Source Serif Pro', serif !default;
 $heading-font-family:               'Source Sans Pro', sans-serif !default;
 $mono-font-family:                  'Space Mono', monospace !default;
 $logo-font-family:                  'Amatic SC', cursive !default;
-$display-font-family:               'Londrina Shadow', cursive !default;
+$display-font-family:               'Monofett', cursive !default;
 
 // Colors.
 // Global.
@@ -31,7 +31,7 @@ $error:                             rgba(255, 238, 235, 1) !default;
 
 // Other Colors.
 $yellow-green:                      rgba(181, 219, 86, 1) !default;
-$purple-ribbon:                     #ba89b6 !default;
+$purple-ribbon:                     rgba(186, 137, 182, 1) !default;
 
 // Sizes.
 $xs-size:                           var(--xs-size) !default;
@@ -238,10 +238,9 @@ $ribbon-bg:                         $purple-ribbon !default;
 $ribbon-color:                      $white !default;
 $ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
 
-$widget-ribbon-min-width:           200px !default;
 $widget-ribbon-height:              $xl-size !default;
-$widget-ribbon-bg:                  $gray !default;
-$widget-ribbon-color:               $white !default;
+$widget-ribbon-bg:                  $light-gray !default;
+$widget-ribbon-color:               $medium-gray !default;
 
 // Content scale.
 $content-scale-height:              2px !default;
