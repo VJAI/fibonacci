@@ -1023,6 +1023,34 @@ cmp-progress {
   }
 }
 
+// Simple decorative element.
+cmp-words-fall {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  .cmp__word {
+    position: absolute;
+    top: -100%;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+
+    font-family: $display-font-family;
+    font-size: 1.212rem;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    color: $light-gray;
+    background: linear-gradient(to bottom, transparent, lighten($light-gray, 30%));
+    background-size: calc(100%) calc(90%);
+
+    user-select: none;
+    white-space: nowrap;
+    animation: falling_word 4s linear;
+  }
+}
+
 // Widgets.
 .cmp__widget {
   margin-bottom: $xl-size;
@@ -1446,5 +1474,25 @@ $colors: (
   }
   100% {
     background-color: $progress-square-bg-color;
+  }
+}
+
+@keyframes falling_word {
+  0% {
+    top: -100%;
+    opacity: 0.5;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  80% {
+    opacity: 0.6;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
   }
 }
