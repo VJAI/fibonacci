@@ -1042,12 +1042,16 @@ cmp-words-fall {
     line-height: 1;
 
     color: $light-gray;
-    background: linear-gradient(to bottom, transparent, lighten($light-gray, 30%));
-    background-size: calc(100%) calc(90%);
+    transition: color $medium-speed;
+    cursor: pointer;
 
     user-select: none;
     white-space: nowrap;
     animation: falling_word 4s linear;
+
+    &:hover {
+      color: $purple-ribbon;
+    }
   }
 }
 

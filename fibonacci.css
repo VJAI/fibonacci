@@ -1020,11 +1020,14 @@ cmp-words-fall .cmp__word {
   letter-spacing: -1px;
   line-height: 1;
   color: rgba(204, 204, 204, 0.5);
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
-  background-size: 100% 90%;
+  transition: color 0.5s;
+  cursor: pointer;
   user-select: none;
   white-space: nowrap;
   animation: falling_word 4s linear;
+}
+cmp-words-fall .cmp__word:hover {
+  color: #ba89b6;
 }
 
 .cmp__widget {
