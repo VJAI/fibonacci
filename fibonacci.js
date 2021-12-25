@@ -271,178 +271,6 @@
   
   window.customElements.define('cmp-color-dots', ColorDotsElement);
   
-  // Simple decorative element to attract users.
-  class WordsFallElement extends HTMLElement {
-    
-    constructor() {
-      super();
-      
-      this._wordsCloud = [];
-      this._sizes = ['1.212rem'];
-      this._colors = ['#ba89b6', '#a8c977', '#78c0cf', '#9591e3'];
-      this._interval = 1000;
-      this._intervalId = null;
-      this._lanes = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
-      this._lastLaneIndex = null;
-      this._totalPopulation = 15;
-      this._population = 0;
-      this._isCustomFontLoaded = false;
-      this._enabled = false;
-      
-      this._startTimer = this._startTimer.bind(this);
-      this._stopTimer = this._stopTimer.bind(this);
-      this._handleResize = this._handleResize.bind(this);
-      this._mediaChangeHandler = this._mediaChangeHandler.bind(this);
-      
-      this._mediaQuery = window.matchMedia('screen and (min-width: 768px)');
-    }
-    
-    _startTimer() {
-      if (this._intervalId || this._wordsCloud.length === 0) {
-        return;
-      }
-      
-      this._intervalId = setInterval(() => this._pickWord(), this._interval);
-    }
-    
-    _stopTimer() {
-      if (!this._intervalId) {
-        return;
-      }
-      
-      clearInterval(this._intervalId);
-      this._intervalId = null;
-    }
-    
-    _getPopulationAndSizesForMedia(queryList) {
-      return queryList.matches ? {
-        totalPopulation: 15,
-        sizes: ['1.781rem']
-      } : {
-        totalPopulation: 10,
-        sizes: ['1.212rem']
-      };
-    }
-    
-    _mediaChangeHandler(queryList) {
-      this.reset(this._getPopulationAndSizesForMedia(queryList));
-    }
-    
-    _getRandomNo(max) {
-      return ~~(Math.random() * max);
-    }
-    
-    _pickWord() {
-      if (this._population >= this._totalPopulation) {
-        return;
-      }
-      
-      const allowedLanes = [...this._lanes];
-      
-      if (this._lastLaneIndex !== null) {
-        const startIndex = Math.max(0, this._lastLaneIndex - 2),
-          endIndex = Math.min(allowedLanes.length - 1, this._lastLaneIndex + 2);
-        
-        allowedLanes.splice(startIndex, (endIndex - startIndex) + 1);
-      }
-      
-      this._lastLaneIndex = this._getRandomNo(allowedLanes.length);
-      
-      const word = this._wordsCloud[ this._getRandomNo(this._wordsCloud.length) ],
-        size = this._sizes[ this._getRandomNo(this._sizes.length) ],
-        color = this._colors[ this._getRandomNo(this._colors.length) ],
-        lane = allowedLanes[ this._lastLaneIndex ];
-      
-      const wordElement = document.createElement('div');
-      wordElement.classList.add('cmp__word');
-      wordElement.innerHTML = word;
-      wordElement.style.left = `${lane * 10}%`;
-      wordElement.style.fontSize = size;
-      wordElement.style.color = color;
-      wordElement.addEventListener('animationend', () => {
-        wordElement.remove();
-        this._population--;
-      });
-      this.appendChild(wordElement);
-      const worldElementRec = wordElement.getBoundingClientRect(),
-        diff = worldElementRec.right - this._compRec.right;
-      if (diff > 0) {
-        wordElement.style.left = `calc(${lane * 10}% - ${diff + 10}px)`;
-      }
-      this._population++;
-    }
-    
-    _setArgs(args) {
-      const {
-        wordsCloud,
-        sizes,
-        totalPopulation
-      } = args;
-      
-      Array.isArray(wordsCloud) && (this._wordsCloud = wordsCloud);
-      Array.isArray(sizes) && (this._sizes = sizes);
-      typeof totalPopulation === 'number' && (this._totalPopulation = totalPopulation);
-    }
-    
-    _handleResize() {
-      this._compRec = this.getBoundingClientRect();
-    }
-    
-    connectedCallback() {
-      this._compRec = this.getBoundingClientRect();
-      window.addEventListener('focus', this._startTimer);
-      window.addEventListener('blur', this._stopTimer);
-      window.addEventListener('resize', this._handleResize);
-      this._mediaQuery.addListener(this._mediaChangeHandler);
-    }
-    
-    disconnectedCallback() {
-      this.deactivate();
-      window.removeEventListener('focus', this._startTimer);
-      window.removeEventListener('blur', this._stopTimer);
-      window.addEventListener('resize', this._handleResize);
-      this._mediaQuery.removeListener(this._mediaChangeHandler);
-    }
-    
-    init(args) {
-      const updatedArgs = { ...args, ...this._getPopulationAndSizesForMedia(this._mediaQuery) };
-      this._setArgs(updatedArgs);
-    }
-    
-    reset(args) {
-      this.deactivate();
-      this._setArgs(args);
-      this._enabled && this.activate();
-    }
-    
-    activate() {
-      this._enabled = true;
-      
-      if (this._isCustomFontLoaded) {
-        this._startTimer();
-        return;
-      }
-      
-      WebFont.load({
-        google: {
-          families: ['Monofett']
-        },
-        timeout: 5000,
-        fontactive: () => {
-          this._isCustomFontLoaded = true;
-          this._enabled && this._startTimer();
-        }
-      });
-    }
-    
-    deactivate() {
-      this._enabled = false;
-      this._stopTimer();
-    }
-  }
-  
-  window.customElements.define('cmp-words-fall', WordsFallElement);
-  
   //**** Boot function ****/
   function init() {
     const header = document.querySelector('.cmp__blog-header'),
@@ -452,7 +280,6 @@
       searchIcon = document.querySelector('.cmp__search-form a'),
       hamburger = document.querySelector('.cmp__hamburger-link a'),
       contentScale = document.querySelector('cmp-content-scale'),
-      wordsFall = document.querySelector('cmp-words-fall'),
       blogContent = document.querySelector('.cmp__blog-content'),
       startTime = performance.now();
     
@@ -509,14 +336,6 @@
           contentScale.classList.remove('cmp__sticky');
         }
       }
-      
-      if (wordsFall) {
-        if (window.scrollY >= blogContent.offsetTop - 40) {
-          wordsFall.deactivate();
-        } else {
-          wordsFall.activate();
-        }
-      }
     }
     
     function handeOnLoad() {
@@ -540,48 +359,6 @@
     
     if (contentScale) {
       contentScale.setContent(document.querySelector('.cmp__article-content'));
-    }
-    
-    if (wordsFall) {
-      wordsFall.init({
-        wordsCloud: [
-          'html',
-          'CSS',
-          'JS',
-          'C#',
-          '.NET',
-          'SQL',
-          'python',
-          'ASP.NET MVC',
-          'progressive web development',
-          'Angular',
-          'React',
-          'backbone',
-          'meteorjs',
-          'fibonacci',
-          'UX',
-          'front-end',
-          'firebase',
-          'XML',
-          'Android',
-          'Mobile Development',
-          'Docker',
-          'kubernetes',
-          'Azure Cloud',
-          'Salesforce',
-          'CRM dynamics',
-          'AI',
-          'Data Analytics',
-          'Big Data',
-          'cordova',
-          'jQuery',
-          'web components'
-        ]
-      });
-      
-      if (window.scrollY < blogContent.offsetTop - 40) {
-        wordsFall.activate();
-      }
     }
     
     mediaChangeHandler(mediaQuery);

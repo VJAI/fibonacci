@@ -1004,21 +1004,6 @@ cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
   margin-right: 0.26rem;
 }
 
-cmp-words-fall {
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-cmp-words-fall .cmp__word {
-  white-space: nowrap;
-  position: absolute;
-  animation: falling_word 4s linear;
-  color: #ba89b6;
-  font-family: "Monofett", cursive;
-  letter-spacing: -1px;
-  user-select: none;
-}
-
 .cmp__widget {
   margin-bottom: var(--xl-size);
   background-color: #f7f7f7;
@@ -3050,19 +3035,6 @@ menu menu {
     background-color: #f68faa;
   }
 }
-@keyframes falling_word {
-  0% {
-    top: 0;
-    opacity: 0.5;
-  }
-  10% {
-    opacity: 0.9;
-  }
-  100% {
-    top: calc(3.847rem + var(--xl-size));
-    opacity: 0;
-  }
-}
 html, body {
   min-height: 100vh;
 }
@@ -3746,17 +3718,8 @@ cmp-color-dots {
     right: 0;
   }
 }
-.cmp__blog-main.cmp__no-space-top {
-  padding-top: 0;
-}
-.cmp__blog-main.cmp__no-space-top .cmp__blog-content h1 {
-  margin-top: 0;
-}
 .cmp__blog-main .cmp__blog-content .cmp__article .cmp__article-header .cmp__article-meta .cmp__tab-hide, .cmp__blog-main .cmp__blog-content.cmp__article .cmp__article-header .cmp__article-meta .cmp__tab-hide {
   display: none;
-}
-.cmp__blog-main cmp-words-fall {
-  height: calc(3.847rem + var(--xl-size));
 }
 
 @media only screen and (min-width: 768px) {
