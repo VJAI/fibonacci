@@ -101,27 +101,31 @@
 					Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
 				</p>
 
-				<form class="cmp__form cmp__contact-form" method="post">
+				<form class="cmp__form cmp__contact-form" method="post" action="contact.html">
 					<div class="cmp__form-container">
 
 						<div class="cmp__form-control cmp__required">
 							<label for="Name">Name</label>
 							<input required type="text" name="Name" id="Name" maxlength="50" title="Name required" placeholder="Enter Name">
+							<div class="cmp__validation-icon"></div>
 						</div>
 
 						<div class="cmp__form-control cmp__required">
 							<label for="ReplyTo">E-mail</label>
 							<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required" placeholder="Enter Email">
+							<div class="cmp__validation-icon"></div>
 						</div>
 
 						<div class="cmp__form-control cmp__required">
 							<label for="subject">Subject</label>
 							<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required" placeholder="Enter Subject">
+							<div class="cmp__validation-icon"></div>
 						</div>
 
 						<div class="cmp__form-control cmp__required">
 							<label for="Body">Message</label>
 							<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50" placeholder="Enter Description"></textarea>
+							<div class="cmp__validation-icon"></div>
 						</div>
 
 						<div class="cmp__bottom-row">
@@ -129,7 +133,7 @@
 								<cmp-icon name="shield"></cmp-icon>
 								<span>Your email address will be not be shared anywhere!</span>
 							</p>
-							<button type="submit" name="submit" value="Send Message">
+							<button type="submit" name="submitBtn" value="Send Message">
 								<cmp-icon name="send" size="12"></cmp-icon>
 								<span>Send Message</span>
 							</button>
@@ -147,7 +151,7 @@
 			<div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
 		</section>
 		<section class="cmp__footer-right">
-			<div>&copy; 2021 &middot; All Rights Reserved</div>
+			<div>&copy; 2022 &middot; All Rights Reserved</div>
 		</section>
 	</footer>
 </div>

@@ -617,7 +617,6 @@ input[type="text"], input[type="email"], input[type="search"], textarea {
   font-size: $input-font-size;
   line-height: $input-line-height;
 
-
   border: solid 2px $input-border-color;
   border-radius: $border-radius;
   color: $input-text-color;
@@ -695,6 +694,7 @@ input[type="search"]::-webkit-search-results-decoration {
   align-items: flex-start;
   margin-bottom: $lg-size;
   border-radius: $border-radius;
+  position: relative;
 
   label {
     @include flex-ver-center;
@@ -704,30 +704,26 @@ input[type="search"]::-webkit-search-results-decoration {
 
 // Icons.
 cmp-icon {
+  @include flex_center;
   width: 16px;
   height: 16px;
 
-  > * {
+  svg {
+    fill: currentColor;
     width: inherit;
     height: inherit;
 
-    svg {
-      fill: currentColor;
-      width: inherit;
-      height: inherit;
-
-      * {
-        pointer-events: none;
-      }
+    * {
+      pointer-events: none;
     }
+  }
 
-    svg:hover *[data-hover-behavior=color] {
-      fill: currentColor;
-    }
+  svg:hover *[data-hover-behavior=color] {
+    fill: currentColor;
+  }
 
-    svg:hover *[data-hover-behavior=white] {
-      fill: white;
-    }
+  svg:hover *[data-hover-behavior=white] {
+    fill: white;
   }
 }
 
@@ -877,7 +873,7 @@ cmp-color-dots {
 // Widget Ribbon.
 .cmp__widget-ribbon {
   display: inline-block;
-  min-width: 150px;
+  min-width: 9.147rem;
 
   .cmp__widget-ribbon-content {
     display: flex;
@@ -1031,10 +1027,6 @@ cmp-words-fall {
 
   .cmp__word {
     position: absolute;
-    top: -100%;
-    display: flex;
-    align-items: flex-end;
-    height: 100%;
 
     font-family: $display-font-family;
     font-size: 1.212rem;
@@ -1047,10 +1039,10 @@ cmp-words-fall {
 
     user-select: none;
     white-space: nowrap;
-    animation: falling_word 4s linear;
+    animation: falling_word 6s linear;
 
     &:hover {
-      color: $purple-ribbon;
+      color: $medium-gray;
     }
   }
 }
@@ -1462,7 +1454,7 @@ $colors: (
   }
 
   .cmp__widget-ribbon {
-    min-width: 200px;
+    min-width: 11.089rem;
   }
 }
 
@@ -1496,7 +1488,7 @@ $colors: (
   }
 
   100% {
-    top: 0;
+    top: calc(3.847rem + $xl-size);
     opacity: 0;
   }
 }

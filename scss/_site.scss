@@ -276,36 +276,38 @@ html, body {
 
           // Author Info.
           .cmp__article-author {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
+            a {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
 
-            // Author Photo.
-            .cmp__article-author-pic {
-              border-radius: 50%;
-              opacity: $article-author-pic-opacity;
-              width: $author-pic-default-width;
-            }
-
-            span {
-              margin-left: 0.26rem;
-
-              &.cmp__article-author-role {
-                margin-top: 0;
-                padding: 1px 5px;
-
-                font-size: $article-author-role-font-size;
-                text-transform: uppercase;
-                letter-spacing: $medium-letter-spacing;
-
-                color: $white;
-                background-color: $yellow-green;
-                border-radius: $border-radius;
+              &:hover {
+                color: $article-meta-color;;
               }
-            }
 
-            &:hover {
-              color: $article-meta-color;;
+              // Author Photo.
+              .cmp__article-author-pic {
+                border-radius: 50%;
+                opacity: $article-author-pic-opacity;
+                width: $author-pic-default-width;
+              }
+
+              span {
+                margin-left: 0.26rem;
+
+                &.cmp__article-author-role {
+                  margin-top: 0;
+                  padding: 1px 5px;
+
+                  font-size: $article-author-role-font-size;
+                  text-transform: uppercase;
+                  letter-spacing: $medium-letter-spacing;
+
+                  color: $white;
+                  background-color: $yellow-green;
+                  border-radius: $border-radius;
+                }
+              }
             }
           }
 
@@ -313,6 +315,13 @@ html, body {
           .cmp__article-date {
             span {
               font-variant: small-caps;
+            }
+          }
+
+          // Total comments.
+          .cmp__article-total-comments {
+            a {
+              @include flex-ver-center;
             }
           }
 
@@ -776,7 +785,9 @@ cmp-color-dots {
             }
 
             .cmp__article-author {
-              align-items: center;
+              a {
+                align-items: center;
+              }
 
               &:after {
                 content: '|';
@@ -884,20 +895,23 @@ cmp-color-dots {
               position: absolute;
               top: -2.160rem;
               left: $article-author-left-offset;
-              flex-direction: column;
 
               &:after {
                 content: '';
                 margin: 0;
               }
 
-              .cmp__article-author-pic {
-                width: $author-pic-large-screen-width;
-              }
+              a {
+                flex-direction: column;
 
-              span {
-                margin-top: 0.26rem;
-                margin-left: 0;
+                .cmp__article-author-pic {
+                  width: $author-pic-large-screen-width;
+                }
+
+                span {
+                  margin-top: 0.26rem;
+                  margin-left: 0;
+                }
               }
             }
           }

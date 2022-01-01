@@ -25,31 +25,47 @@
       return ['name', 'size'];
     }
     
-    constructor() {
-      super();
-      const iconTemplate = document.createElement('template');
-      iconTemplate.innerHTML = `<div class="svg-wrap">
-        <svg viewBox="0 0 16 16" width="16" height="16">
+    _setIcon() {
+      const useElement = this.querySelector('use');
+      useElement.setAttribute('xlink:href', `./assets/sprites.svg#${this.name}`);
+      useElement.setAttribute('href', `./assets/sprites.svg#${this.name}`);
+    }
+    
+    _setSize() {
+      if (this.size) {
+        this.style.width = `${this.size}px`;
+        this.style.height = `${this.size}px`;
+      } else {
+        delete this.style.width;
+        delete this.style.height;
+      }
+    }
+    
+    connectedCallback() {
+      if (!this._rendered) {
+        const iconTemplate = document.createElement('template');
+        iconTemplate.innerHTML = `<svg viewBox="0 0 16 16" width="16" height="16">
           <use></use>
-        </svg>
-      </div>`;
-      this.appendChild(iconTemplate.content.cloneNode(true));
+        </svg>`;
+        this.appendChild(iconTemplate.content.cloneNode(true));
+        this._rendered = true;
+      }
+      
+      this._setIcon();
+      this._setSize();
     }
     
     attributeChangedCallback(attrName) {
+      if (!this._rendered) {
+        return;
+      }
+      
       if (attrName === 'size') {
-        if (this.size) {
-          this.style.width = `${this.size}px`;
-          this.style.height = `${this.size}px`;
-        } else {
-          this.style.width = this.style.height = 'auto';
-        }
+        this._setSize();
       }
       
       if (attrName === 'name') {
-        const useElement = this.querySelector('use');
-        useElement.setAttribute('xlink:href', `./assets/sprites.svg#${this.name}`);
-        useElement.setAttribute('href', `./assets/sprites.svg#${this.name}`);
+        this._setIcon();
       }
     }
   }
@@ -61,32 +77,8 @@
     
     constructor() {
       super();
-      const contentScaleTemplate = document.createElement('template');
-      contentScaleTemplate.innerHTML = `
-        <div class="cmp__bar"></div>
-        <div class="cmp__ticks-container"></div>
-        <div class="cmp__scroll-progress"></div>`;
-      this.appendChild(contentScaleTemplate.content.cloneNode(true));
-      
-      const ticksContainer = this.querySelector('.cmp__ticks-container');
-      for (let i = 0; i < 10; i++) {
-        const tickEl = document.createElement('div');
-        tickEl.classList.add('cmp__tick');
-        ticksContainer.appendChild(tickEl);
-        const childTickContainerEl = document.createElement('div');
-        childTickContainerEl.classList.add('cmp__ticks-container');
-        tickEl.appendChild(childTickContainerEl);
-        
-        for (let i = 0; i < 10; i++) {
-          const tickEl = document.createElement('div');
-          tickEl.classList.add('cmp__tick');
-          childTickContainerEl.appendChild(tickEl);
-        }
-      }
-      
       this._handleScroll = this._handleScroll.bind(this);
       this._handleResize = this._handleResize.bind(this);
-      this._scrollProgress = this.querySelector('.cmp__scroll-progress');
       this._winHeight = window.innerHeight;
     }
     
@@ -126,6 +118,34 @@
     }
     
     connectedCallback() {
+      if (!this._rendered) {
+        const contentScaleTemplate = document.createElement('template');
+        contentScaleTemplate.innerHTML = `
+        <div class="cmp__bar"></div>
+        <div class="cmp__ticks-container"></div>
+        <div class="cmp__scroll-progress"></div>`;
+        this.appendChild(contentScaleTemplate.content.cloneNode(true));
+        
+        const ticksContainer = this.querySelector('.cmp__ticks-container');
+        for (let i = 0; i < 10; i++) {
+          const tickEl = document.createElement('div');
+          tickEl.classList.add('cmp__tick');
+          ticksContainer.appendChild(tickEl);
+          const childTickContainerEl = document.createElement('div');
+          childTickContainerEl.classList.add('cmp__ticks-container');
+          tickEl.appendChild(childTickContainerEl);
+          
+          for (let i = 0; i < 10; i++) {
+            const tickEl = document.createElement('div');
+            tickEl.classList.add('cmp__tick');
+            childTickContainerEl.appendChild(tickEl);
+          }
+        }
+        
+        this._scrollProgress = this.querySelector('.cmp__scroll-progress');
+        this._rendered = true;
+      }
+      
       window.addEventListener('resize', this._handleResize);
       window.addEventListener('scroll', this._handleScroll);
     }
@@ -194,8 +214,11 @@
       return ['src', 'alt', 'width', 'height', 'responsive'];
     }
     
-    constructor() {
-      super();
+    connectedCallback() {
+      if (this._rendered) {
+        return;
+      }
+      
       const imageElementTemplate = document.createElement('template');
       imageElementTemplate.innerHTML = `
         <div class="cmp__image-info">
@@ -205,10 +228,9 @@
         <cmp-progress class="cmp__first"></cmp-progress>
         <cmp-progress class="cmp__last"></cmp-progress>`;
       this.appendChild(imageElementTemplate.content.cloneNode(true));
-    }
-    
-    connectedCallback() {
+      
       this.style.aspectRatio = this.width / this.height;
+      
       const statusElement = document.querySelector('.cmp__status-text');
       statusElement.innerHTML = this.alt;
       
@@ -226,6 +248,7 @@
         statusElement.innerHTML = 'Failed to load image';
       });
       img.src = this.src;
+      this._rendered = true;
     }
     
     attributeChangedCallback() {
@@ -238,8 +261,11 @@
   // Progress element.
   class SquaresProgressElement extends HTMLElement {
     
-    constructor() {
-      super();
+    connectedCallback() {
+      if (this._rendered) {
+        return;
+      }
+      
       const progressTemplate = document.createElement('template');
       progressTemplate.innerHTML = `<div class="cmp__squares-container">
         <div class="cmp__square"></div>
@@ -249,6 +275,7 @@
         <div class="cmp__square"></div>
       </div>`;
       this.appendChild(progressTemplate.content.cloneNode(true));
+      this._rendered = true;
     }
   }
   
@@ -256,8 +283,12 @@
   
   // No use color dots.
   class ColorDotsElement extends HTMLElement {
-    constructor() {
-      super();
+    
+    connectedCallback() {
+      if (this._rendered) {
+        return;
+      }
+      
       const template = document.createElement('template');
       template.innerHTML = `<div class="cmp__dots-container">
         <div class="cmp__dot"></div>
@@ -266,6 +297,7 @@
         <div class="cmp__dot"></div>
       </div>`;
       this.appendChild(template.content.cloneNode(true));
+      this._rendered = true;
     }
   }
   
@@ -351,7 +383,7 @@
       const word = this._wordsCloud[ this._lastWord++ ],
         size = this._sizes[ this._getRandomNo(this._sizes.length) ],
         lane = allowedLanes[ this._lastLaneIndex ];
-  
+      
       this._lastWord = this._lastWord >= this._wordsCloud.length ? 0 : this._lastWord;
       
       const wordElement = document.createElement('div');
