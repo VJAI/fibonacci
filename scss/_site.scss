@@ -15,6 +15,7 @@ html, body {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  min-height: 100vh;
 }
 
 // Page Header.
@@ -237,11 +238,69 @@ html, body {
   .cmp__blog-content {
     margin-bottom: $xl-size;
 
+    .cmp__page-title {
+      margin-top: $xl-size;
+      margin-bottom: $xxxl-size;
+
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      h1 {
+        position: relative;
+
+        color: $brand-color;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: calc($h1-border-width + 5px);
+          width: 8px;
+          height: 8px;
+          background-color: $blue-gray;
+          border-radius: 50%;
+          transition: left $fast-speed;
+        }
+
+        &::after {
+          display: block;
+          content: '';
+          width: $h1-border-width;
+          height: $h1-border-height;
+          margin-top: $xl-size;
+          background-color: $blue-gray;
+          border-radius: $border-radius;
+        }
+
+        &:hover::before {
+          left: calc($h1-border-width + 10px);
+        }
+      }
+
+      h4 {
+        display: inline;
+        padding-bottom: $xs-size;
+
+        text-transform: uppercase;
+        letter-spacing: $medium-letter-spacing;
+
+        color: $blue-gray;
+      }
+    }
+
     // Article.
     .cmp__article, &.cmp__article {
 
       // Article Header.
       .cmp__article-header {
+
+        .cmp__article-title {
+          .cmp__article-index {
+            color: $blue-gray;
+          }
+        }
 
         // Article Meta Info.
         .cmp__article-meta {
@@ -304,8 +363,12 @@ html, body {
                   letter-spacing: $medium-letter-spacing;
 
                   color: $white;
-                  background-color: $yellow-green;
+                  background-color: $article-author-admin-badge-color;
                   border-radius: $border-radius;
+
+                  &.cmp__article-author-guest {
+                    background-color: $article-author-guest-badge-color;
+                  }
                 }
               }
             }
@@ -731,6 +794,12 @@ cmp-color-dots {
       border-radius: $border-radius;
     }
   }
+}
+
+.cmp__big-text {
+  text-align: center;
+  font-size: 6.225rem;
+  color: $medium-gray;
 }
 
 @media only screen and (min-width: $tablet) {

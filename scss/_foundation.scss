@@ -101,39 +101,10 @@ h6, .cmp__h6 {
 }
 
 h1, .cmp__h1 {
-  position: relative;
   margin-top: $xl-size;
-  margin-bottom: $xxxl-size;
+  margin-bottom: $lg-size;
 
   font-size: $h1-font-size;
-
-  color: $brand-color;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: calc($h1-border-width + 5px);
-    width: 8px;
-    height: 8px;
-    background-color: $blue-gray;
-    border-radius: 50%;
-    transition: left $fast-speed;
-  }
-
-  &::after {
-    display: block;
-    content: '';
-    width: $h1-border-width;
-    height: $h1-border-height;
-    margin-top: $xl-size;
-    background-color: $blue-gray;
-    border-radius: $border-radius;
-  }
-
-  &:hover::before {
-    left: calc($h1-border-width + 10px);
-  }
 }
 
 h2, .cmp__h2 {
