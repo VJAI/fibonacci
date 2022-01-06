@@ -229,10 +229,55 @@ html, body {
 
 // Page Main Content Container.
 .cmp__blog-main {
+  position: relative;
   flex: 1 1 auto;
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
   background: url("assets/background.png");
+
+  // RSS subscription and today.
+  .cmp__subscribe, .cmp__today {
+    position: absolute;
+    top: $md-size;display: block;
+    padding: 0.315rem 0.260rem;
+
+    font-family: $heading-font-family;
+    font-size: $xs-size;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+
+    background-color: $light-gray;
+    color: $white;
+    border-bottom: none;
+  }
+
+  .cmp__today {
+    left: 0;
+  }
+
+  .cmp__subscribe {
+    right: 0;
+  }
+
+  // Go top.
+  .cmp__go-top {
+    position: absolute;
+    bottom: $sm-size;
+    right: $sm-size;
+    border-bottom: none;
+
+    cmp-icon {
+      color: $light-gray;
+      transition: color $medium-speed;
+    }
+
+    &:hover {
+      cmp-icon {
+        color: $gray;
+      }
+    }
+  }
 
   // Page Content.
   .cmp__blog-content {

@@ -486,7 +486,20 @@
       contentScale = document.querySelector('cmp-content-scale'),
       wordsFall = document.querySelector('cmp-words-fall'),
       blogContent = document.querySelector('.cmp__blog-content'),
+      goTop = document.querySelector('.cmp__go-top'),
       startTime = performance.now();
+  
+    if (goTop) {
+      goTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    
+        window.scroll({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
     
     const mediaQuery = window.matchMedia('screen and (min-width: 768px)');
     mediaQuery.addListener(mediaChangeHandler);

@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Amatic+SC:wght@700");
+.cmp__icon-arrow-up-circle-dims {
+  width: 16px;
+  height: 16px;
+}
+
 .cmp__icon-calendar-dims {
   width: 16px;
   height: 16px;
@@ -3249,10 +3254,44 @@ html, body {
 }
 
 .cmp__blog-main {
+  position: relative;
   flex: 1 1 auto;
   padding-top: 3.847rem;
   padding-bottom: 6.225rem;
   background: url("assets/background.png");
+}
+.cmp__blog-main .cmp__subscribe, .cmp__blog-main .cmp__today {
+  position: absolute;
+  top: var(--md-size);
+  display: block;
+  padding: 0.315rem 0.26rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: var(--xs-size);
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgba(204, 204, 204, 0.5);
+  color: white;
+  border-bottom: none;
+}
+.cmp__blog-main .cmp__today {
+  left: 0;
+}
+.cmp__blog-main .cmp__subscribe {
+  right: 0;
+}
+.cmp__blog-main .cmp__go-top {
+  position: absolute;
+  bottom: var(--sm-size);
+  right: var(--sm-size);
+  border-bottom: none;
+}
+.cmp__blog-main .cmp__go-top cmp-icon {
+  color: rgba(204, 204, 204, 0.5);
+  transition: color 0.5s;
+}
+.cmp__blog-main .cmp__go-top:hover cmp-icon {
+  color: rgba(51, 51, 51, 0.5);
 }
 .cmp__blog-main .cmp__blog-content {
   margin-bottom: var(--xl-size);
