@@ -3260,10 +3260,11 @@ html, body {
   padding-bottom: 6.225rem;
   background: url("assets/background.png");
 }
-.cmp__blog-main .cmp__subscribe, .cmp__blog-main .cmp__today {
+.cmp__blog-main a.cmp__subscribe {
   position: absolute;
   top: var(--md-size);
   display: block;
+  right: 0;
   padding: 0.315rem 0.26rem;
   font-family: "Source Sans Pro", sans-serif;
   font-size: var(--xs-size);
@@ -3274,11 +3275,8 @@ html, body {
   color: white;
   border-bottom: none;
 }
-.cmp__blog-main .cmp__today {
-  left: 0;
-}
-.cmp__blog-main .cmp__subscribe {
-  right: 0;
+.cmp__blog-main a.cmp__subscribe:hover {
+  background-color: #f04875;
 }
 .cmp__blog-main .cmp__go-top {
   position: absolute;

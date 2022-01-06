@@ -236,9 +236,11 @@ html, body {
   background: url("assets/background.png");
 
   // RSS subscription and today.
-  .cmp__subscribe, .cmp__today {
+  a.cmp__subscribe {
     position: absolute;
-    top: $md-size;display: block;
+    top: $md-size;
+    display: block;
+    right: 0;
     padding: 0.315rem 0.260rem;
 
     font-family: $heading-font-family;
@@ -250,14 +252,10 @@ html, body {
     background-color: $light-gray;
     color: $white;
     border-bottom: none;
-  }
 
-  .cmp__today {
-    left: 0;
-  }
-
-  .cmp__subscribe {
-    right: 0;
+    &:hover {
+      background-color: $brand-color;
+    }
   }
 
   // Go top.
