@@ -995,6 +995,7 @@ cmp-words-fall {
   position: relative;
   display: block;
   overflow: hidden;
+  z-index: 100;
 
   .cmp__word {
     position: absolute;

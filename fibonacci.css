@@ -1014,6 +1014,7 @@ cmp-words-fall {
   position: relative;
   display: block;
   overflow: hidden;
+  z-index: 100;
 }
 cmp-words-fall .cmp__word {
   position: absolute;
@@ -3266,6 +3267,7 @@ html, body {
   display: block;
   right: 0;
   padding: 0.315rem 0.26rem;
+  z-index: 200;
   font-family: "Source Sans Pro", sans-serif;
   font-size: var(--xs-size);
   line-height: 1;
@@ -3334,9 +3336,6 @@ html, body {
   padding-bottom: var(--xs-size);
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #8792a3;
-}
-.cmp__blog-main .cmp__blog-content .cmp__article .cmp__article-header .cmp__article-title .cmp__article-index, .cmp__blog-main .cmp__blog-content.cmp__article .cmp__article-header .cmp__article-title .cmp__article-index {
   color: #8792a3;
 }
 .cmp__blog-main .cmp__blog-content .cmp__article .cmp__article-header .cmp__article-meta, .cmp__blog-main .cmp__blog-content.cmp__article .cmp__article-header .cmp__article-meta {

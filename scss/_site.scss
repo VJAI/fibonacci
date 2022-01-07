@@ -242,6 +242,7 @@ html, body {
     display: block;
     right: 0;
     padding: 0.315rem 0.260rem;
+    z-index: 200;
 
     font-family: $heading-font-family;
     font-size: $xs-size;
@@ -338,12 +339,6 @@ html, body {
 
       // Article Header.
       .cmp__article-header {
-
-        .cmp__article-title {
-          .cmp__article-index {
-            color: $blue-gray;
-          }
-        }
 
         // Article Meta Info.
         .cmp__article-meta {
