@@ -235,13 +235,14 @@ dl {
 }
 
 // Blockquotes.
-blockquote {
+blockquote, .cmp__quote {
   margin-top: $md-size;
   margin-bottom: $lg-size;
 
   font-family: $bquote-content-font-family;
 
   background-color: $bquote-bg-color;
+  background-image: url("assets/background.png");
   color: $bquote-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
@@ -274,7 +275,7 @@ blockquote {
 }
 
 // Figures.
-figure {
+figure, .cmp__figure {
   margin-block-start: $md-size;
   margin-block-end: $lg-size;
   margin-inline-start: 0;
@@ -295,7 +296,7 @@ figure {
     margin: 0;
   }
 
-  figcaption {
+  figcaption, .cmp__figcaption {
     margin-top: 0.26rem;
     font-size: $figure-caption-font-size;
     font-family: $figure-caption-font-family;
@@ -357,7 +358,8 @@ pre {
   margin: 0;
   position: relative;
 
-  background: $code-bg-color;
+  background-color: $code-bg-color;
+  background-image: url("assets/background.png");
   color: $medium-gray;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
@@ -477,7 +479,7 @@ pre {
   font-weight: 700;
 }
 
-var, kbd {
+var, kbd, .cmp__code {
   padding: 0 0.146rem;
 
   font-family: $code-font-family;
@@ -491,7 +493,7 @@ var, kbd {
 }
 
 // Abbr, Acronym.
-abbr, acronym {
+abbr, acronym, .cmp__acronym {
   letter-spacing: $medium-letter-spacing;
   text-transform: uppercase;
   text-decoration: none;
@@ -515,12 +517,12 @@ sup, sub {
 }
 
 // Small.
-small {
+small, .cmp__small {
   font-size: 0.825rem;
 }
 
 // Datetimes.
-time {
+time, .cmp__time {
   font-family: $time-font-family;
   font-size: $time-font-size;
   letter-spacing: $medium-letter-spacing;
@@ -528,17 +530,17 @@ time {
 }
 
 // Strong, data etc.
-strong, data {
+strong, data, .cmp__strong {
   font-weight: bold;
 }
 
 // Italic.
-i {
+i, .cmp__italic {
   font-style: italic;
 }
 
 // Highlight.
-mark {
+mark, .cmp__mark {
   background-color: $mark-bg-color;
 }
 
@@ -750,33 +752,6 @@ cmp-content-scale {
       transform: rotate(15deg);
       border-radius: 5px;
       box-shadow: 2px 1px 3px $scale-progress-bg-shadow;
-    }
-  }
-}
-
-// Color dots.
-cmp-color-dots {
-  .cmp__dots-container {
-    display: flex;
-    flex-direction: column;
-
-    .cmp__dot {
-      width: 10px;
-      height: 10px;
-      background-color: $brand-color;
-      margin-bottom: 3px;
-
-      &:nth-child(1) {
-        background-color: #44a6d4;
-      }
-
-      &:nth-child(3) {
-        background-color: #eded3e;
-      }
-
-      &:nth-child(4) {
-        background-color: $dark-gray;
-      }
     }
   }
 }
@@ -1023,6 +998,7 @@ cmp-words-fall {
 .cmp__widget {
   margin-bottom: $xl-size;
   background-color: $widget-bg-color;
+  background-image: url("assets/background.png");
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
@@ -1057,6 +1033,10 @@ cmp-words-fall {
 }
 
 // Status Colors.
+.cmp__status-info {
+  background-color: $dim-gray;
+}
+
 .cmp__status-success {
   background-color: $success;
 }
@@ -1378,6 +1358,7 @@ $colors: (
     flex-direction: row;
     align-items: center;
     background-color: $form-control-bg-color;
+    background-image: url("assets/background.png");
 
     label {
       min-width: 6.225rem;

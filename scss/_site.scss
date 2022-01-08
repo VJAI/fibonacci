@@ -569,6 +569,7 @@ html, body {
   margin-bottom: $xl-size;
 
   background-color: $dim-gray;
+  background-image: url("assets/background.png");
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
@@ -776,13 +777,6 @@ button.cmp__share-it-btn {
       font-size: $footer-font-size;
     }
   }
-}
-
-// Useless color dots.
-cmp-color-dots {
-  position: fixed;
-  left: 5px;
-  bottom: 5px;
 }
 
 // Animations.
