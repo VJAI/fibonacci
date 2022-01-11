@@ -3518,6 +3518,11 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   margin-right: 0;
 }
 
+blockquote.cmp__responsive {
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .cmp__responsive {
   max-width: 100%;
   margin-left: 0;
@@ -3648,6 +3653,11 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   }
   .cmp__blog-nav ul li a {
     font-size: var(--xs-size);
+  }
+
+  blockquote.cmp__responsive {
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   }
 
   .cmp__responsive {

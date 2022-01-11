@@ -651,6 +651,13 @@ button.cmp__share-it-btn {
   }
 }
 
+blockquote {
+  &.cmp__responsive {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 .cmp__responsive {
   max-width: 100%;
   margin-left: 0;
@@ -833,6 +840,13 @@ button.cmp__share-it-btn {
   }
 
   // Responsive Article Content.
+  blockquote {
+    &.cmp__responsive {
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+    }
+  }
+
   .cmp__responsive {
     margin-left: $lg-size;
     margin-right: $lg-size;
