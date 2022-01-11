@@ -374,24 +374,22 @@ dl dd {
 blockquote, .cmp__quote {
   margin-top: var(--md-size);
   margin-bottom: var(--lg-size);
+  padding: var(--lg-size) var(--lg-size) var(--sm-size) var(--lg-size);
   font-family: "Source Sans Pro", sans-serif;
-  background-color: #f7f7f7;
-  background-image: url("assets/background.png");
+  background: url("assets/background.png") #f7f7f7;
   color: rgba(51, 51, 51, 0.8);
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
-blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, .cmp__quote h1, .cmp__quote h2, .cmp__quote h3, .cmp__quote h4, .cmp__quote h5 {
+blockquote h4, .cmp__quote h4 {
   display: inline-block;
+  margin-top: 0;
   font-family: "Source Serif Pro", serif;
   border-bottom: solid 2px;
 }
 blockquote p, .cmp__quote p {
   font-size: var(--md-size);
   hanging-punctuation: first;
-}
-blockquote p:last-of-type, .cmp__quote p:last-of-type {
-  margin-bottom: 0;
 }
 blockquote cite, .cmp__quote cite {
   display: block;
@@ -433,7 +431,7 @@ figure figcaption code, figure .cmp__figcaption code, .cmp__figure figcaption co
 }
 figure .cmp__table-wrapper, .cmp__figure .cmp__table-wrapper {
   padding: var(--sm-size) var(--lg-size);
-  background-color: #f1f7ea;
+  background: url("assets/background.png") #f1f7ea;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   overflow-x: auto;
@@ -467,8 +465,7 @@ table thead tr th {
 pre {
   margin: 0;
   position: relative;
-  background-color: rgba(247, 247, 247, 0.7);
-  background-image: url("assets/background.png");
+  background: url("assets/background.png") rgba(247, 247, 247, 0.7);
   color: rgba(51, 51, 51, 0.8);
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
@@ -671,7 +668,7 @@ label {
   color: rgba(51, 51, 51, 0.8);
 }
 
-input[type=text], input[type=email], input[type=search], textarea {
+input[type=text], input[type=email], input[type=search], input[type=number], textarea {
   width: 100%;
   padding: 0.51rem;
   font-family: "Source Sans Pro", sans-serif;
@@ -684,7 +681,7 @@ input[type=text], input[type=email], input[type=search], textarea {
   transition: all 0.5s;
   -webkit-appearance: textfield;
 }
-input[type=text]:focus, input[type=text]:active, input[type=email]:focus, input[type=email]:active, input[type=search]:focus, input[type=search]:active, textarea:focus, textarea:active {
+input[type=text]:focus, input[type=text]:active, input[type=email]:focus, input[type=email]:active, input[type=search]:focus, input[type=search]:active, input[type=number]:focus, input[type=number]:active, textarea:focus, textarea:active {
   outline: none;
   border-color: #f04875;
 }
@@ -753,6 +750,25 @@ input[type=search]::-webkit-search-results-decoration {
   justify-content: flex-end;
 }
 
+.cmp__sub {
+  margin-top: var(--md-size);
+  margin-bottom: var(--lg-size);
+  padding: var(--lg-size) var(--lg-size) var(--sm-size) var(--lg-size);
+  font-family: "Source Sans Pro", sans-serif;
+  background: url("assets/background.png") #f1f7ea;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+.cmp__sub h4, .cmp__sub h5 {
+  font-family: "Source Serif Pro", serif;
+}
+.cmp__sub h4 {
+  margin-top: 0;
+}
+.cmp__sub pre {
+  background-color: white;
+}
+
 cmp-icon {
   display: flex;
   justify-content: center;
@@ -779,28 +795,8 @@ cmp-icon svg:hover *[data-hover-behavior=white] {
 cmp-content-scale {
   position: relative;
   overflow: hidden;
-  z-index: 500;
-}
-cmp-content-scale .cmp__bar {
-  width: 100%;
   height: 2px;
-  background-color: rgba(204, 204, 204, 0.5);
-}
-cmp-content-scale .cmp__ticks-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-cmp-content-scale .cmp__ticks-container .cmp__tick {
-  flex-grow: 1;
-  height: 8px;
-  border-right: solid 1px rgba(179, 179, 179, 0.5);
-}
-cmp-content-scale .cmp__ticks-container .cmp__tick .cmp__tick {
-  height: 4px;
-}
-cmp-content-scale .cmp__ticks-container .cmp__tick:nth-child(10) {
-  border-right: none;
+  z-index: 500;
 }
 cmp-content-scale .cmp__scroll-progress {
   position: absolute;
@@ -809,19 +805,6 @@ cmp-content-scale .cmp__scroll-progress {
   height: 2px;
   background-color: #f04875;
   transition: width 0.5s;
-}
-cmp-content-scale .cmp__scroll-progress::after {
-  content: "";
-  position: absolute;
-  overflow: hidden;
-  top: -5px;
-  right: 0;
-  width: 16px;
-  height: 8px;
-  background-color: #f04875;
-  transform: rotate(15deg);
-  border-radius: 5px;
-  box-shadow: 2px 1px 3px #f68faa;
 }
 
 .cmp__ribbon {
@@ -990,29 +973,6 @@ cmp-progress .cmp__squares-container .cmp__square:last-child {
 }
 cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
   margin-right: 0.26rem;
-}
-
-cmp-words-fall {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  z-index: 100;
-}
-cmp-words-fall .cmp__word {
-  position: absolute;
-  font-family: "Monofett", cursive;
-  font-size: 1.212rem;
-  letter-spacing: -1px;
-  line-height: 1;
-  color: rgba(204, 204, 204, 0.5);
-  transition: color 0.5s;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  animation: falling_word 6s linear;
-}
-cmp-words-fall .cmp__word:hover {
-  color: rgba(51, 51, 51, 0.8);
 }
 
 .cmp__widget {
@@ -3001,13 +2961,15 @@ menu menu {
     flex-direction: row;
     align-items: center;
     background-color: rgba(204, 204, 204, 0.5);
-    background-image: url("assets/background.png");
   }
   .cmp__form-control label {
     min-width: 6.225rem;
     margin-right: var(--sm-size);
   }
 
+  cmp-image:not(.cmp__image-loaded) cmp-progress.cmp__last {
+    display: block;
+  }
   cmp-image .cmp__image-info cmp-icon[name=image] {
     width: 80px;
     height: 80px;
@@ -3016,7 +2978,6 @@ menu menu {
     top: 20%;
   }
   cmp-image cmp-progress.cmp__last {
-    display: block;
     bottom: 20%;
   }
 
@@ -3548,19 +3509,31 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   margin-left: var(--lg-size);
   margin-right: var(--lg-size);
 }
+.cmp__auto-layout .cmp__sub .cmp__responsive {
+  margin-left: 0;
+  margin-right: 0;
+}
+.cmp__auto-layout .cmp__sub figure figcaption, .cmp__auto-layout .cmp__sub figure caption {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 .cmp__responsive {
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
+}
+.cmp__responsive.cmp__toc, .cmp__responsive.cmp__widget, .cmp__responsive.cmp__sub {
   border-radius: 0;
+  box-shadow: none;
 }
 .cmp__responsive figcaption, .cmp__responsive caption {
   margin-left: var(--lg-size);
   margin-right: var(--lg-size);
 }
-.cmp__responsive img, .cmp__responsive .cmp__table-wrapper, .cmp__responsive .cmp__widget {
+.cmp__responsive img, .cmp__responsive .cmp__table-wrapper, .cmp__responsive pre, .cmp__responsive .cmp__widget {
   border-radius: 0;
+  box-shadow: none;
 }
 
 .cmp__drop-cap:first-letter {
@@ -3680,14 +3653,18 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   .cmp__responsive {
     margin-left: var(--lg-size);
     margin-right: var(--lg-size);
+  }
+  .cmp__responsive.cmp__toc, .cmp__responsive.cmp__widget, .cmp__responsive.cmp__sub {
     border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   }
   .cmp__responsive figcaption, .cmp__responsive caption {
     margin-left: 0;
     margin-right: 0;
   }
-  .cmp__responsive img, .cmp__responsive .cmp__table-wrapper, .cmp__responsive .cmp__widget {
+  .cmp__responsive img, .cmp__responsive .cmp__table-wrapper, .cmp__responsive pre, .cmp__responsive .cmp__widget {
     border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   }
 }
 .cmp__big-text {
@@ -3836,12 +3813,6 @@ button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__sha
   100% {
     right: 0;
   }
-}
-.cmp__blog-main.cmp__no-space-top {
-  padding-top: 0;
-}
-.cmp__blog-main.cmp__no-space-top .cmp__blog-content .cmp__page-title {
-  margin-top: 0;
 }
 .cmp__blog-main .cmp__blog-content .cmp__article .cmp__article-header .cmp__article-meta .cmp__tab-hide, .cmp__blog-main .cmp__blog-content.cmp__article .cmp__article-header .cmp__article-meta .cmp__tab-hide {
   display: none;

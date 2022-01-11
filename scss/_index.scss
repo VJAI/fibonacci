@@ -1,14 +1,4 @@
 .cmp__blog-main {
-  &.cmp__no-space-top {
-    padding-top: 0;
-
-    .cmp__blog-content {
-      .cmp__page-title {
-        margin-top: 0;
-      }
-    }
-  }
-
   .cmp__blog-content {
     .cmp__article, &.cmp__article {
       .cmp__article-header {

@@ -238,17 +238,18 @@ dl {
 blockquote, .cmp__quote {
   margin-top: $md-size;
   margin-bottom: $lg-size;
+  padding: $lg-size $lg-size $sm-size $lg-size;
 
   font-family: $bquote-content-font-family;
 
-  background-color: $bquote-bg-color;
-  background-image: url("assets/background.png");
+  background: url("assets/background.png") $bquote-bg-color;
   color: $bquote-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
-  h1, h2, h3, h4, h5 {
+  h4 {
     display: inline-block;
+    margin-top: 0;
     font-family: $bquote-title-font-family;
     border-bottom: solid 2px;
   }
@@ -256,10 +257,6 @@ blockquote, .cmp__quote {
   p {
     font-size: $md-size;
     hanging-punctuation: first;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
   }
 
   cite {
@@ -310,7 +307,7 @@ figure, .cmp__figure {
 
   .cmp__table-wrapper {
     padding: $small-padding;
-    background-color: $success;
+    background: url("assets/background.png") $success;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     overflow-x: auto;
@@ -358,8 +355,7 @@ pre {
   margin: 0;
   position: relative;
 
-  background-color: $code-bg-color;
-  background-image: url("assets/background.png");
+  background: url("assets/background.png") $code-bg-color;
   color: $medium-gray;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
@@ -582,7 +578,7 @@ label {
 }
 
 // Input Textboxes and Textareas.
-input[type="text"], input[type="email"], input[type="search"], textarea {
+input[type="text"], input[type="email"], input[type="search"], input[type="number"], textarea {
   width: 100%;
   padding: $input-padding;
 
@@ -675,6 +671,31 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+// Sub sections.
+.cmp__sub {
+  margin-top: $md-size;
+  margin-bottom: $lg-size;
+  padding: $lg-size $lg-size $sm-size $lg-size;
+
+  font-family: $sub-content-font-family;
+
+  background: url("assets/background.png") $sub-bg-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  h4, h5 {
+    font-family: $sub-title-font-family;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  pre {
+    background-color: $white;
+  }
+}
+
 // Icons.
 cmp-icon {
   @include flex_center;
@@ -704,33 +725,8 @@ cmp-icon {
 cmp-content-scale {
   position: relative;
   overflow: hidden;
+  height: $content-scale-height;
   z-index: $content-scale-index;
-
-  .cmp__bar {
-    width: 100%;
-    height: $content-scale-height;
-    background-color: $content-scale-bg;
-  }
-
-  .cmp__ticks-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    .cmp__tick {
-      flex-grow: 1;
-      height: $tick-max-height;
-      border-right: solid 1px $tick-color;
-
-      .cmp__tick {
-        height: $tick-min-height;
-      }
-
-      &:nth-child(10) {
-        border-right: none;
-      }
-    }
-  }
 
   .cmp__scroll-progress {
     position: absolute;
@@ -739,20 +735,6 @@ cmp-content-scale {
     height: $content-scale-height;
     background-color: $scale-progress-bg;
     transition: width $medium-speed;
-
-    &::after {
-      content: "";
-      position: absolute;
-      overflow: hidden;
-      top: -5px;
-      right: 0;
-      width: 16px;
-      height: 8px;
-      background-color: $scale-progress-bg;
-      transform: rotate(15deg);
-      border-radius: 5px;
-      box-shadow: 2px 1px 3px $scale-progress-bg-shadow;
-    }
   }
 }
 
@@ -961,35 +943,6 @@ cmp-progress {
       &:not(:last-child) {
         margin-right: 0.26rem;
       }
-    }
-  }
-}
-
-// Simple decorative element.
-cmp-words-fall {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  z-index: 100;
-
-  .cmp__word {
-    position: absolute;
-
-    font-family: $display-font-family;
-    font-size: 1.212rem;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    color: $light-gray;
-    transition: color $medium-speed;
-    cursor: pointer;
-
-    user-select: none;
-    white-space: nowrap;
-    animation: falling_word 6s linear;
-
-    &:hover {
-      color: $medium-gray;
     }
   }
 }
@@ -1358,7 +1311,6 @@ $colors: (
     flex-direction: row;
     align-items: center;
     background-color: $form-control-bg-color;
-    background-image: url("assets/background.png");
 
     label {
       min-width: 6.225rem;
@@ -1367,6 +1319,14 @@ $colors: (
   }
 
   cmp-image {
+    &:not(.cmp__image-loaded) {
+      cmp-progress {
+        &.cmp__last {
+          display: block;
+        }
+      }
+    }
+
     .cmp__image-info {
       cmp-icon[name="image"] {
         width: 80px;
@@ -1380,7 +1340,6 @@ $colors: (
       }
 
       &.cmp__last {
-        display: block;
         bottom: 20%;
       }
     }

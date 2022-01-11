@@ -32,6 +32,7 @@ $error:                             rgba(255, 238, 235, 1) !default;
 // Other Colors.
 $yellow-green:                      rgba(181, 219, 86, 1) !default;
 $purple-ribbon:                     rgba(186, 137, 182, 1) !default;
+$sunny-orange:                      #f2e03f !default;
 
 // Sizes.
 $xs-size:                           var(--xs-size) !default;
@@ -179,6 +180,11 @@ $table-caption-color:               $gray !default;
 $table-caption-font-family:         $heading-font-family !default;
 $table-line-height:                 $medium-line-height !default;
 
+// Sub.
+$sub-content-font-family:           $heading-font-family !default;
+$sub-title-font-family:             $body-font-family !default;
+$sub-bg-color:                      $success !default;
+
 // Animations Speed.
 $medium-speed:                      0.5s !default;
 $fast-speed:                        0.25s !default;
@@ -248,11 +254,7 @@ $widget-ribbon-color:               $medium-gray !default;
 $content-scale-height:              2px !default;
 $content-scale-bg:                  $light-gray !default;
 $content-scale-index:               500 !default;
-$tick-max-height:                   8px !default;
-$tick-min-height:                   4px !default;
-$tick-color:                        darken($light-gray, 10%) !default;
 $scale-progress-bg:                 $brand-color !default;
-$scale-progress-bg-shadow:          $brand-light !default;
 
 // Graceful image rendering component.
 $image-min-height:                  180px !default;
