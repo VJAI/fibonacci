@@ -28,7 +28,7 @@ npm start
 Use the below command to only compile the SCSS files.
 
 ```
-npm build
+npm run build
 ```
 
 ## Customization
@@ -37,14 +37,14 @@ You can customize the theme by re-defining the variables in `_variables.scss` fi
 
 Important SCSS variables.
 
-`$brand-color`
-`$body-font-family`
-`$heading-font-family`
+- `$brand-color`
+- `$body-font-family`
+- `$heading-font-family`
 
 ## Icons
 
-Icons are downloaded from (bootstrap)[https://icons.getbootstrap.com/]. Once the svg image is downloaded from the site 
-you need to update the `width` and `height` to `100%` and then run the below command to re-generate the sprite image.
+Icons are downloaded from [bootstrap](https://icons.getbootstrap.com/). Drop the svg file downloaded from the site to 
+"assets" folder and then update the `width` and `height` to `100%`. Run the below command to re-generate the sprite image.
 
 ```
 npm run sprites
@@ -59,13 +59,3 @@ MIT
 ## Questions & Feedback
 
 Please send email to vijay.prideparrot AT gmail.com.
-
-## Screenshots
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/home.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/detail.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/contact.png)
-
-![Screen Shot](https://github.com/VJAI/fibonacci/blob/master/docs/about.png)
