@@ -263,28 +263,6 @@
   
   window.customElements.define('cmp-progress', SquaresProgressElement);
   
-  // No use color dots.
-  class ColorDotsElement extends HTMLElement {
-    
-    connectedCallback() {
-      if (this._rendered) {
-        return;
-      }
-      
-      const template = document.createElement('template');
-      template.innerHTML = `<div class="cmp__dots-container">
-        <div class="cmp__dot"></div>
-        <div class="cmp__dot"></div>
-        <div class="cmp__dot"></div>
-        <div class="cmp__dot"></div>
-      </div>`;
-      this.appendChild(template.content.cloneNode(true));
-      this._rendered = true;
-    }
-  }
-  
-  window.customElements.define('cmp-color-dots', ColorDotsElement);
-  
   //**** Boot function ****/
   function init() {
     const header = document.querySelector('.cmp__blog-header'),

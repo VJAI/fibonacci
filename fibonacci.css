@@ -406,6 +406,7 @@ figure, .cmp__figure {
   margin-block-end: var(--lg-size);
   margin-inline-start: 0;
   margin-inline-end: 0;
+  max-width: 100%;
 }
 figure img, .cmp__figure img {
   display: block;
