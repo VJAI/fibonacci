@@ -3036,6 +3036,7 @@ html, body {
 
 .cmp__blog {
   transition: filter 0.25s;
+  background-color: #b82a50;
 }
 .cmp__blog.cmp__site-loading {
   filter: blur(5px);
@@ -3053,9 +3054,7 @@ html, body {
   align-items: center;
   height: 2.882rem;
   padding: 0 var(--md-size);
-  color: rgba(51, 51, 51, 0.5);
-  background-color: #f7f7f7;
-  box-shadow: 0 1px 4px 0 rgba(204, 204, 204, 0.5);
+  color: #e8e8e8;
 }
 
 .cmp__blog-info {
@@ -3129,7 +3128,7 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  border-top: solid 4px #f04875;
+  border-top: solid 4px #e8e8e8;
 }
 .cmp__blog-nav ul li:not(.cmp__hamburger-link) {
   display: none;
@@ -3161,8 +3160,8 @@ html, body {
   transition: all 0.5s;
 }
 .cmp__blog-nav ul li a:hover {
-  background-color: #f04875;
-  color: white;
+  background-color: #a32547;
+  color: #f7f7f7;
 }
 .cmp__blog-nav ul li a cmp-icon {
   margin-right: 0.146rem;
@@ -3183,13 +3182,16 @@ html, body {
   line-height: 1;
   border: none;
   border-radius: 0;
-  border-bottom: solid 1px rgba(51, 51, 51, 0.5);
-  color: rgba(51, 51, 51, 0.5);
-  background-color: #f7f7f7;
+  border-bottom: solid 1px #e8e8e8;
+  color: #e8e8e8;
+  background: transparent;
 }
 .cmp__blog-nav ul li .cmp__search-form input:focus, .cmp__blog-nav ul li .cmp__search-form input:active {
   outline: none;
-  border-color: #f04875;
+  border-color: #e8e8e8;
+}
+.cmp__blog-nav ul li .cmp__search-form input::placeholder {
+  color: #e8e8e8;
 }
 .cmp__blog-nav.cmp__search-active .cmp__search-link {
   display: flex;
@@ -3209,13 +3211,15 @@ html, body {
   flex: 1 1 auto;
   padding-top: 3.847rem;
   padding-bottom: 6.225rem;
-  background: url("assets/background.png");
+  background: url("assets/background.png") white;
+  border-top-right-radius: 50px;
+  box-shadow: #7a1c35 5px -5px 10px;
 }
 .cmp__blog-main a.cmp__subscribe {
   position: absolute;
   top: var(--md-size);
-  display: block;
-  right: 0;
+  display: none;
+  left: 0;
   padding: 0.315rem 0.26rem;
   z-index: 200;
   font-family: "Source Sans Pro", sans-serif;
@@ -3223,12 +3227,12 @@ html, body {
   line-height: 1;
   text-transform: uppercase;
   text-align: center;
-  background-color: rgba(204, 204, 204, 0.5);
+  background-color: #f04875;
   color: white;
   border-bottom: none;
 }
 .cmp__blog-main a.cmp__subscribe:hover {
-  background-color: #f04875;
+  background-color: #da1247;
 }
 .cmp__blog-main .cmp__go-top {
   position: absolute;
@@ -3256,18 +3260,10 @@ html, body {
 }
 .cmp__blog-main .cmp__blog-content .cmp__page-title h1 {
   position: relative;
-  color: #f04875;
-}
-.cmp__blog-main .cmp__blog-content .cmp__page-title h1::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: calc(36% + 5px);
-  width: 8px;
-  height: 8px;
-  background-color: #8792a3;
-  border-radius: 50%;
-  transition: left 0.25s;
+  font-variant: all-small-caps;
+  font-size: var(--xxxl-size);
+  letter-spacing: 1px;
+  color: #c2bcbe;
 }
 .cmp__blog-main .cmp__blog-content .cmp__page-title h1::after {
   display: block;
@@ -3275,8 +3271,7 @@ html, body {
   width: 36%;
   height: 6px;
   margin-top: var(--xl-size);
-  background-color: #8792a3;
-  border-radius: 3px;
+  background-color: #c2bcbe;
 }
 .cmp__blog-main .cmp__blog-content .cmp__page-title h1:hover::before {
   left: calc(36% + 10px);
@@ -3601,8 +3596,8 @@ blockquote.cmp__responsive {
   font-family: "Source Sans Pro", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(51, 51, 51, 0.5);
-  background-color: #f7f7f7;
+  color: #f7f7f7;
+  background-color: #b82a50;
 }
 .cmp__blog-footer::before {
   position: absolute;

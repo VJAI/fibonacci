@@ -5,6 +5,7 @@ html, body {
 
 .cmp__blog {
   transition: filter $fast-speed;
+  background-color: $brand-body;
 
   &.cmp__site-loading {
     filter: blur(5px);
@@ -25,9 +26,7 @@ html, body {
   height: $header-height;
   padding: 0 $md-size;
 
-  color: $gray;
-  background-color: $dim-gray;
-  box-shadow: 0 1px 4px 0 $light-gray;
+  color: $light-dim-gray;
 }
 
 // Blog Info.
@@ -124,7 +123,7 @@ html, body {
           left: 0;
           width: 100%;
 
-          border-top: solid $nav-active-border-width $brand-color;
+          border-top: solid $nav-active-border-width $light-dim-gray;
         }
       }
 
@@ -164,8 +163,8 @@ html, body {
         transition: all $medium-speed;
 
         &:hover {
-          background-color: $brand-color;
-          color: $white;
+          background-color: darken($brand-body, 5%);
+          color: $dim-gray;
         }
 
         cmp-icon {
@@ -192,13 +191,17 @@ html, body {
 
           border: none;
           border-radius: 0;
-          border-bottom: solid 1px $gray;
-          color: $gray;
-          background-color: $dim-gray;
+          border-bottom: solid 1px $light-dim-gray;
+          color: $light-dim-gray;
+          background: transparent;
 
           &:focus, &:active {
             outline: none;
-            border-color: $brand-color;
+            border-color: $light-dim-gray;
+          }
+
+          &::placeholder {
+            color: $light-dim-gray;
           }
         }
       }
@@ -233,14 +236,16 @@ html, body {
   flex: 1 1 auto;
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
-  background: url("assets/background.png");
+  background: url("assets/background.png") $white;
+  border-top-right-radius: 50px;
+  box-shadow: darken($brand-body, 15%) 5px -5px 10px;
 
   // RSS subscription and today.
   a.cmp__subscribe {
     position: absolute;
     top: $md-size;
-    display: block;
-    right: 0;
+    display: none;
+    left: 0;
     padding: 0.315rem 0.260rem;
     z-index: 200;
 
@@ -250,12 +255,12 @@ html, body {
     text-transform: uppercase;
     text-align: center;
 
-    background-color: $light-gray;
+    background-color: $brand-color;
     color: $white;
     border-bottom: none;
 
     &:hover {
-      background-color: $brand-color;
+      background-color: $brand-dark;
     }
   }
 
@@ -293,20 +298,11 @@ html, body {
 
       h1 {
         position: relative;
+        font-variant: all-small-caps;
+        font-size: $xxxl-size;
+        letter-spacing: $medium-letter-spacing;
 
-        color: $brand-color;
-
-        &::before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: calc($h1-border-width + 5px);
-          width: 8px;
-          height: 8px;
-          background-color: $blue-gray;
-          border-radius: 50%;
-          transition: left $fast-speed;
-        }
+        color: $brand-gray;
 
         &::after {
           display: block;
@@ -314,8 +310,7 @@ html, body {
           width: $h1-border-width;
           height: $h1-border-height;
           margin-top: $xl-size;
-          background-color: $blue-gray;
-          border-radius: $border-radius;
+          background-color: $brand-gray;
         }
 
         &:hover::before {
@@ -762,8 +757,8 @@ blockquote {
   letter-spacing: $large-letter-spacing;
   text-transform: uppercase;
 
-  color: $gray;
-  background-color: $dim-gray;
+  color: $dim-gray;
+  background-color: $brand-body;
 
   // https://www.youtube.com/watch?v=CGdEUmO4ZQQ
   &::before {
