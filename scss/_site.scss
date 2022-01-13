@@ -5,7 +5,7 @@ html, body {
 
 .cmp__blog {
   transition: filter $fast-speed;
-  background-color: $brand-body;
+  background-color: $site-body;
 
   &.cmp__site-loading {
     filter: blur(5px);
@@ -26,7 +26,7 @@ html, body {
   height: $header-height;
   padding: 0 $md-size;
 
-  color: $light-dim-gray;
+  color: $header-color;
 }
 
 // Blog Info.
@@ -123,7 +123,7 @@ html, body {
           left: 0;
           width: 100%;
 
-          border-top: solid $nav-active-border-width $light-dim-gray;
+          border-top: solid $nav-active-border-width $header-color;
         }
       }
 
@@ -163,7 +163,7 @@ html, body {
         transition: all $medium-speed;
 
         &:hover {
-          background-color: darken($brand-body, 5%);
+          background-color: darken($site-body, 5%);
           color: $dim-gray;
         }
 
@@ -191,17 +191,17 @@ html, body {
 
           border: none;
           border-radius: 0;
-          border-bottom: solid 1px $light-dim-gray;
-          color: $light-dim-gray;
+          border-bottom: solid 1px $header-color;
+          color: $header-color;
           background: transparent;
 
           &:focus, &:active {
             outline: none;
-            border-color: $light-dim-gray;
+            border-color: $header-color;
           }
 
           &::placeholder {
-            color: $light-dim-gray;
+            color: $header-color;
           }
         }
       }
@@ -237,8 +237,12 @@ html, body {
   padding-top: $page-content-top;
   padding-bottom: $page-content-bottom;
   background: url("assets/background.png") $white;
-  border-top-right-radius: 50px;
-  box-shadow: darken($brand-body, 15%) 5px -5px 10px;
+  border-top-right-radius: 1.618rem;
+  box-shadow: darken($site-body, 15%) -20px -5px 10px,
+              darken($site-body, 15%) 5px -5px 10px,
+              rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   // RSS subscription and today.
   a.cmp__subscribe {
@@ -289,7 +293,7 @@ html, body {
 
     .cmp__page-title {
       margin-top: $xl-size;
-      margin-bottom: $xxxl-size;
+      margin-bottom: 5.135rem;
 
       h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
@@ -298,8 +302,8 @@ html, body {
 
       h1 {
         position: relative;
-        font-variant: all-small-caps;
-        font-size: $xxxl-size;
+        font-size: $xxl-size;
+        text-transform: uppercase;
         letter-spacing: $medium-letter-spacing;
 
         color: $brand-gray;
@@ -308,7 +312,7 @@ html, body {
           display: block;
           content: '';
           width: $h1-border-width;
-          height: $h1-border-height;
+          height: 5px;
           margin-top: $xl-size;
           background-color: $brand-gray;
         }
@@ -325,7 +329,7 @@ html, body {
         text-transform: uppercase;
         letter-spacing: $medium-letter-spacing;
 
-        color: $blue-gray;
+        color: $brand-gray;
       }
     }
 
@@ -757,11 +761,11 @@ blockquote {
   letter-spacing: $large-letter-spacing;
   text-transform: uppercase;
 
-  color: $dim-gray;
-  background-color: $brand-body;
+  color: $header-color;
 
   // https://www.youtube.com/watch?v=CGdEUmO4ZQQ
   &::before {
+    display: none;
     position: absolute;
     content: '';
     top: 0;
@@ -904,7 +908,17 @@ blockquote {
 
   // Article Meta Changes.
   .cmp__blog-main {
+    border-top-right-radius: 2.618rem;
+
     .cmp__blog-content {
+      .cmp__page-title {
+        h1 {
+          &::after {
+            height: 6px;
+          }
+        }
+      }
+
       .cmp__article, &.cmp__article {
         .cmp__article-header {
           .cmp__article-meta {

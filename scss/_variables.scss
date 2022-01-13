@@ -12,9 +12,9 @@ $black:                             rgba(0, 0, 0, 1) !default;
 
 // Brand Colors.
 $brand-color:                       rgba(240, 72, 117, 1) !default;
-$brand-dark:                        darken($brand-color, 15%) !default;
 $brand-light:                       lighten($brand-color, 15%) !default;
-$brand-body:                        rgba(184, 42, 80, 1) !default;
+$brand-dark:                        darken($brand-color, 15%) !default;
+$site-body:                         rgba(184, 42, 80, 1) !default;
 
 // Gray Variations.
 $dark-gray:                         rgba(51, 51, 51, 1) !default;
@@ -22,9 +22,7 @@ $medium-gray:                       rgba(51, 51, 51, 0.8) !default;
 $gray:                              rgba(51, 51, 51, 0.5) !default;
 $light-gray:                        rgba(204, 204, 204, 0.5) !default;
 $dim-gray:                          rgba(247, 247, 247, 1) !default;
-$blue-gray:                         rgba(135, 146, 163, 1) !default;
 $brand-gray:                        rgba(194, 188, 190, 1) !default;
-$light-dim-gray:                    rgba(232, 232, 232, 1) !default;
 
 // Special colors.
 $success:                           rgba(241, 247, 234, 1) !default;
@@ -95,7 +93,6 @@ $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $extra-small-letter-spacing !default;
 $heading-color:                     $medium-gray !default;
 $h1-border-width:                   36% !default;
-$h1-border-height:                  6px !default;
 
 // Links.
 $link-color:                        $brand-color !default;
@@ -195,6 +192,7 @@ $snail-speed:                       2s !default;
 // Specific Variables.
 // Header Component.
 $header-height:                     2.882rem !default;
+$header-color:                      rgba(232, 232, 232, 1) !default;
 
 // Logo Component.
 $logo-font-family:                  $logo-font-family !default;
