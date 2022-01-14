@@ -5,7 +5,7 @@ html, body {
 
 .cmp__blog {
   transition: filter $fast-speed;
-  background-color: $site-body;
+  background-color: $brand-body;
 
   &.cmp__site-loading {
     filter: blur(5px);
@@ -38,6 +38,7 @@ html, body {
   a.cmp__blog-logo {
     @include flex-ver-center;
     border-bottom: none;
+    color: $header-color;
 
     &:hover {
       .cmp__blog-name {
@@ -163,7 +164,7 @@ html, body {
         transition: all $medium-speed;
 
         &:hover {
-          background-color: darken($site-body, 5%);
+          background-color: darken($brand-body, 5%);
           color: $dim-gray;
         }
 
@@ -238,33 +239,52 @@ html, body {
   padding-bottom: $page-content-bottom;
   background: url("assets/background.png") $white;
   border-top-right-radius: 1.618rem;
-  box-shadow: darken($site-body, 15%) -20px -5px 10px,
-              darken($site-body, 15%) 5px -5px 10px,
-              rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: darken($brand-body, 15%) -20px -5px 10px,
+  darken($brand-body, 15%) 5px -5px 10px,
+  rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
-  // RSS subscription and today.
+  // RSS subscription.
   a.cmp__subscribe {
     position: absolute;
-    top: $md-size;
-    display: none;
-    left: 0;
-    padding: 0.315rem 0.260rem;
-    z-index: 200;
+    left: 5%;
+    top: 0;
+    padding: 0 0 $md-size 0;
+    width: $xl-size;
 
-    font-family: $heading-font-family;
-    font-size: $xs-size;
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-
-    background-color: $brand-color;
-    color: $white;
     border-bottom: none;
 
-    &:hover {
-      background-color: $brand-dark;
+    div {
+      display: block;
+      padding: 0.260rem 0;
+      line-height: 1;
+      text-align: center;
+
+      background: $rss-ribbon-bg;
+      background: linear-gradient(darken($rss-ribbon-bg, 5%) 0%, $rss-ribbon-bg 100%);
+
+      span {
+        font-size: $sm-size;
+        background-color: $rss-ribbon-color;
+        color: transparent;
+        text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+      }
+    }
+
+    span:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-left: calc($xl-size / 2) solid $rss-ribbon-bg;
+      border-right: calc($xl-size / 2) solid $rss-ribbon-bg;
+      border-bottom: $md-size solid transparent;
     }
   }
 
@@ -305,6 +325,7 @@ html, body {
         font-size: $xxl-size;
         text-transform: uppercase;
         letter-spacing: $medium-letter-spacing;
+        word-spacing: 0.382rem;
 
         color: $brand-gray;
 
@@ -376,10 +397,6 @@ html, body {
               display: flex;
               flex-direction: row;
               align-items: flex-end;
-
-              &:hover {
-                color: $article-meta-color;;
-              }
 
               // Author Photo.
               .cmp__article-author-pic {
@@ -761,7 +778,7 @@ blockquote {
   letter-spacing: $large-letter-spacing;
   text-transform: uppercase;
 
-  color: $header-color;
+  color: $footer-color;
 
   // https://www.youtube.com/watch?v=CGdEUmO4ZQQ
   &::before {
@@ -949,6 +966,25 @@ blockquote {
               }
             }
           }
+        }
+      }
+    }
+
+    a.cmp__subscribe {
+      padding-bottom: $lg-size;
+      width: $xxl-size;
+
+      div {
+        line-height: 1.2;
+
+        span {
+          font-size: $md-size;
+        }
+
+        span:after {
+          border-left: calc($xxl-size / 2) solid $rss-ribbon-bg;
+          border-right: calc($xxl-size / 2) solid $rss-ribbon-bg;
+          border-bottom: $lg-size solid transparent;
         }
       }
     }
