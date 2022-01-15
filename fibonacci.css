@@ -148,8 +148,8 @@
   --sm-size: 0.908rem;
   --md-size: 1rem;
   --lg-size: 1.335rem;
-  --xl-size: 1.961rem;
-  --xxl-size: 2.618rem;
+  --xl-size: 1.781rem;
+  --xxl-size: 2.378rem;
   font-size: var(--base-size);
 }
 
@@ -160,7 +160,7 @@
     --sm-size: 0.825rem;
     --md-size: 1rem;
     --lg-size: 1.335rem;
-    --xl-size: 2.160rem;
+    --xl-size: 1.961rem;
     --xxl-size: 2.882rem;
   }
 }
@@ -277,13 +277,21 @@ h4, .cmp__h4 {
 }
 
 h5, .cmp__h5 {
+  margin-top: var(--lg-size);
   margin-bottom: var(--xs-size);
   font-size: var(--md-size);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(51, 51, 51, 0.5);
 }
 
 h6, .cmp__h6 {
+  margin-top: var(--lg-size);
   margin-bottom: var(--xs-size);
   font-size: var(--xs-size);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(51, 51, 51, 0.5);
 }
 
 a:link,
@@ -898,6 +906,12 @@ cmp-content-scale .cmp__scroll-progress {
 }
 .cmp__widget-ribbon .cmp__widget-ribbon-content span {
   flex-grow: 1;
+  background-color: rgba(51, 51, 51, 0.8);
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 
 cmp-image {

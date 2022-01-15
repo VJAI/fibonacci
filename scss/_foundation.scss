@@ -31,8 +31,8 @@
   --sm-size: 0.908rem;
   --md-size: 1rem;
   --lg-size: 1.335rem;
-  --xl-size: 1.961rem;
-  --xxl-size: 2.618rem;
+  --xl-size: 1.781rem;
+  --xxl-size: 2.378rem;
   font-size: var(--base-size);
 }
 
@@ -44,7 +44,7 @@
     --sm-size: 0.825rem;
     --md-size: 1rem;
     --lg-size: 1.335rem;
-    --xl-size: 2.160rem;
+    --xl-size: 1.961rem;
     --xxl-size: 2.882rem;
   }
 }
@@ -127,13 +127,25 @@ h4, .cmp__h4 {
 }
 
 h5, .cmp__h5 {
+  margin-top: $lg-size;
   margin-bottom: $xs-size;
+
   font-size: $h5-font-size;
+  text-transform: uppercase;
+  letter-spacing: $small-letter-spacing;
+
+  color: $gray;
 }
 
 h6, .cmp__h6 {
+  margin-top: $lg-size;
   margin-bottom: $xs-size;
+
   font-size: $small-font-size;
+  text-transform: uppercase;
+  letter-spacing: $small-letter-spacing;
+
+  color: $gray;
 }
 
 // Links.
@@ -847,6 +859,12 @@ cmp-content-scale {
 
     span {
       flex-grow: 1;
+      background-color: $medium-gray;
+      color: transparent;
+      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
     }
   }
 }

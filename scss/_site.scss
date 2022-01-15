@@ -3,6 +3,7 @@ html, body {
   min-height: 100vh;
 }
 
+// Site Body.
 .cmp__blog {
   transition: filter $fast-speed;
   background-color: $brand-body;
@@ -12,6 +13,7 @@ html, body {
   }
 }
 
+// Site Main Container.
 .cmp__site-container {
   display: flex;
   flex-direction: column;
@@ -240,10 +242,10 @@ html, body {
   background: url("assets/background.png") $white;
   border-top-right-radius: 1.618rem;
   box-shadow: darken($brand-body, 15%) -20px -5px 10px,
-  darken($brand-body, 15%) 5px -5px 10px,
-  rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+              darken($brand-body, 15%) 5px -5px 10px,
+              rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   // RSS subscription.
   a.cmp__subscribe {
