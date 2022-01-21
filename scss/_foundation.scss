@@ -18,7 +18,7 @@
   --md-size: #{fibFuncs.font_size(0)};
   --lg-size: #{fibFuncs.font_size(3)};
   --xl-size: #{fibFuncs.font_size(6)};
-  --xxl-size: #{fibFuncs.font_size(9)};
+  --xxl-size: #{fibFuncs.font_size(8)};
   font-size: var(--base-size);
 }
 
@@ -31,7 +31,7 @@
     --md-size: #{fibFuncs.font_size(0)};
     --lg-size: #{fibFuncs.font_size(3)};
     --xl-size: #{fibFuncs.font_size(7)};
-    --xxl-size: #{fibFuncs.font_size(11)};
+    --xxl-size: #{fibFuncs.font_size(10)};
   }
 }
 

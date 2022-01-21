@@ -29,7 +29,7 @@
   --md-size: 1rem;
   --lg-size: 1.335rem;
   --xl-size: 1.781rem;
-  --xxl-size: 2.378rem;
+  --xxl-size: 2.16rem;
   font-size: var(--base-size);
 }
 
@@ -41,7 +41,7 @@
     --md-size: 1rem;
     --lg-size: 1.335rem;
     --xl-size: 1.961rem;
-    --xxl-size: 2.882rem;
+    --xxl-size: 2.618rem;
   }
 }
 html, body {
@@ -2803,7 +2803,7 @@ a.cmp__subscribe {
 a.cmp__subscribe div {
   display: block;
   padding: 0.26rem 0;
-  line-height: 1;
+  line-height: 0.8;
   text-align: center;
   background-image: linear-gradient(rgba(191, 191, 191, 0.5) 0%, rgba(204, 204, 204, 0.5) 100%);
 }
@@ -2886,7 +2886,7 @@ a.cmp__subscribe span:after {
   position: relative;
   font-size: var(--xxl-size);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   word-spacing: 0.382rem;
   color: #c2bcbe;
 }
@@ -2923,6 +2923,8 @@ a.cmp__subscribe span:after {
   margin-left: 0.26rem;
 }
 .cmp__article-author a span.cmp__article-author-role {
+  position: relative;
+  top: -3px;
   margin-top: 0;
   padding: 1px 5px;
   font-size: 0.561rem;
@@ -3306,6 +3308,9 @@ blockquote.cmp__responsive {
 
   .cmp__article-author a {
     align-items: center;
+  }
+  .cmp__article-author a span.cmp__article-author-role {
+    position: static;
   }
   .cmp__article-author:after {
     content: "|";

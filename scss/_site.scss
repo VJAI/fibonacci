@@ -261,7 +261,7 @@ a.cmp__subscribe {
   div {
     display: block;
     padding: fibFuncs.font_size(-14) 0;
-    line-height: 1;
+    line-height: 0.8;
     text-align: center;
 
     background-image: linear-gradient(darken(fibVars.$rss-ribbon-bg, 5%) 0%, fibVars.$rss-ribbon-bg 100%);
@@ -362,7 +362,7 @@ a.cmp__subscribe {
 
     font-size: fibVars.$xxl-size;
     text-transform: uppercase;
-    letter-spacing: fibVars.$medium-letter-spacing;
+    letter-spacing: 0.5px;
     word-spacing: fibFuncs.font_size(-10);
 
     color: fibVars.$brand-gray;
@@ -408,6 +408,8 @@ a.cmp__subscribe {
       margin-left: fibFuncs.font_size(-14);
 
       &.cmp__article-author-role {
+        position: relative;
+        top: -3px;
         margin-top: 0;
         padding: 1px 5px;
 
@@ -926,6 +928,12 @@ blockquote {
   .cmp__article-author {
     a {
       align-items: center;
+
+      span {
+        &.cmp__article-author-role {
+          position: static;
+        }
+      }
     }
 
     &:after {
