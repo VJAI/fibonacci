@@ -587,7 +587,7 @@ button, [type=button], [type=submit] {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 3px;
-  background: linear-gradient(45deg, #f04875, #b82a50) #f04875;
+  background-image: linear-gradient(45deg, #f04875, #b82a50);
   color: white;
   border: none;
   cursor: pointer;
@@ -595,7 +595,6 @@ button, [type=button], [type=submit] {
   transition: all 0.5s;
 }
 button:focus, button:active, button:hover, [type=button]:focus, [type=button]:active, [type=button]:hover, [type=submit]:focus, [type=submit]:active, [type=submit]:hover {
-  background-color: #da1247;
   outline: none;
 }
 button cmp-icon, [type=button] cmp-icon, [type=submit] cmp-icon {
@@ -2806,8 +2805,7 @@ a.cmp__subscribe div {
   padding: 0.26rem 0;
   line-height: 1;
   text-align: center;
-  background: rgba(204, 204, 204, 0.5);
-  background: linear-gradient(rgba(191, 191, 191, 0.5) 0%, rgba(204, 204, 204, 0.5) 100%);
+  background-image: linear-gradient(rgba(191, 191, 191, 0.5) 0%, rgba(204, 204, 204, 0.5) 100%);
 }
 a.cmp__subscribe div span {
   font-size: var(--sm-size);
@@ -3399,7 +3397,7 @@ blockquote.cmp__responsive {
     flex-direction: column;
   }
   .cmp__article-author a .cmp__article-author-pic {
-    width: 80px;
+    width: 4.236rem;
   }
   .cmp__article-author a span {
     margin-top: 0.26rem;
@@ -3507,7 +3505,7 @@ blockquote.cmp__responsive {
   justify-content: flex-start;
 }
 .cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-reply .cmp__button {
-  padding: 0.25rem 0.75rem;
+  padding: 0.26rem 1.335rem;
   font-size: 0.618rem;
   background-color: transparent;
   color: rgba(51, 51, 51, 0.5);

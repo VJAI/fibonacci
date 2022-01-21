@@ -38,8 +38,7 @@
 // Global Overrides.
 html, body {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  @include fibMixins.no_spacing;
 
   font: {
     family: fibVars.$body-font-family;
@@ -662,7 +661,7 @@ button, [type="button"], [type="submit"] {
   letter-spacing: fibVars.$medium-letter-spacing;
 
   border-radius: fibVars.$border-radius;
-  background: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-body) fibVars.$button-bg-color;
+  background-image: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-body);
   color: fibVars.$button-text-color;
   border: none;
   cursor: pointer;
@@ -671,7 +670,6 @@ button, [type="button"], [type="submit"] {
   transition: all fibVars.$medium-speed;
 
   &:focus, &:active, &:hover {
-    background-color: fibVars.$brand-dark;
     outline: none;
   }
 
@@ -795,7 +793,7 @@ cmp-content-scale {
   &::before, &::after {
     content: "";
     position: absolute;
-    border: solid calc(var(--ribbon-height) / 2) darken(fibVars.$purple-ribbon, 10%);
+    border: solid calc(var(--ribbon-height) / 2) darken(fibVars.$ribbon-bg, 10%);
     z-index: -1;
     bottom: calc(-1 * var(--ribbon-bend-height));
   }
@@ -811,7 +809,7 @@ cmp-content-scale {
   }
 
   .cmp__ribbon-content {
-    text-shadow: 0 0 2px darken(fibVars.$purple-ribbon, 25%);
+    text-shadow: 0 0 2px darken(fibVars.$ribbon-bg, 25%);
 
     &::before, &::after {
       content: "";
@@ -820,7 +818,7 @@ cmp-content-scale {
       bottom: calc(-1 * var(--ribbon-bend-height));
       border: {
         style: solid;
-        color: darken(fibVars.$purple-ribbon, 25%) transparent transparent transparent;
+        color: darken(fibVars.$ribbon-bg, 25%) transparent transparent transparent;
       }
     }
 

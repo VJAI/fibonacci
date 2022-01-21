@@ -66,8 +66,10 @@ a.cmp__blog-logo {
     margin-left: fibFuncs.font_size(-14);
     top: -5px;
 
-    font-family: fibVars.$logo-font-family;
-    font-size: fibVars.$logo-font-size;
+    font: {
+      family: fibVars.$logo-font-family;
+      size: fibVars.$logo-font-size;
+    }
     line-height: fibVars.$xs-line-height;
     letter-spacing: fibVars.$large-letter-spacing;
 
@@ -85,7 +87,7 @@ a.cmp__blog-logo {
 
 // Page Navigation Component.
 .cmp__blog-nav {
-  @include fibMixins.flex_init($ver: true, $justify: 'flex-end');
+  @include fibMixins.flex_init($ver: true, $justify: flex-end);
   flex-grow: 1;
   height: 100%;
   margin-left: var(--lg-size);
@@ -96,9 +98,7 @@ a.cmp__blog-logo {
   ul {
     height: 100%;
     @include fibMixins.flex_init($ver: true);
-
-    margin: 0;
-    padding: 0;
+    @include fibMixins.no_spacing;
 
     list-style: none;
 
@@ -264,8 +264,7 @@ a.cmp__subscribe {
     line-height: 1;
     text-align: center;
 
-    background: fibVars.$rss-ribbon-bg;
-    background: linear-gradient(darken(fibVars.$rss-ribbon-bg, 5%) 0%, fibVars.$rss-ribbon-bg 100%);
+    background-image: linear-gradient(darken(fibVars.$rss-ribbon-bg, 5%) 0%, fibVars.$rss-ribbon-bg 100%);
 
     span {
       font-size: fibVars.$sm-size;
@@ -315,13 +314,16 @@ a.cmp__subscribe {
 .cmp__article-meta {
   position: relative;
   @include fibMixins.flex_init($column: true, $wrap: true);
-  font-size: fibVars.$article-meta-font-size;
-  font-family: fibVars.$article-meta-font-family;
+
+  font: {
+    size: fibVars.$article-meta-font-size;
+    family: fibVars.$article-meta-font-family;
+  }
+
   color: fibVars.$article-meta-color;
 
   ul, li {
-    margin: 0;
-    padding: 0;
+    @include fibMixins.no_spacing;
     list-style: none;
     display: inline;
   }
@@ -343,16 +345,21 @@ a.cmp__subscribe {
 
 // Page title.
 .cmp__page-title {
-  margin-top: fibVars.$xl-size;
-  margin-bottom: fibFuncs.font_size(17);
+  margin: {
+    top: fibVars.$xl-size;
+    bottom: fibFuncs.font_size(17);
+  };
 
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: {
+      top: 0;
+      bottom: 0;
+    };
   }
 
   h1 {
     position: relative;
+
     font-size: fibVars.$xxl-size;
     text-transform: uppercase;
     letter-spacing: fibVars.$medium-letter-spacing;
@@ -487,8 +494,7 @@ a.cmp__subscribe {
       @include fibMixins.horizontal-center();
 
       figcaption, caption {
-        margin-left: fibVars.$lg-size;
-        margin-right: fibVars.$lg-size;
+        @include fibMixins.set_hor_margin(fibVars.$lg-size);
       }
 
       img, .cmp__table-wrapper, cmp-image {
@@ -519,15 +525,16 @@ a.cmp__subscribe {
 
   // Article Main Poster Image.
   .cmp__article-poster {
-    margin-left: 0;
-    margin-right: 0;
+    @include fibMixins.set_hor_margin(0);
     margin-top: fibFuncs.font_size(-14);
   }
 
   // Article element.
   .cmp__page-element {
-    margin-top: fibVars.$md-size;
-    margin-bottom: fibVars.$lg-size;
+    margin: {
+      top: fibVars.$md-size;
+      bottom: fibVars.$lg-size;
+    };
   }
 }
 
@@ -541,8 +548,10 @@ a.cmp__article-continue-reading {
   @include fibMixins.flex_init($inline: true, $ver: true);
   text-align: right;
 
-  font-family: fibVars.$continue-reading-font-family;
-  font-size: fibVars.$continue-reading-font-size;
+  font: {
+    family: fibVars.$continue-reading-font-family;
+    size: fibVars.$continue-reading-font-size;
+  }
   letter-spacing: fibVars.$medium-letter-spacing;
   text-transform: uppercase;
 
@@ -608,8 +617,10 @@ a.cmp__article-continue-reading {
   @include fibMixins.flex_init($center: true);
   position: relative;
   z-index: 1;
-  margin-top: 1rem;
-  margin-bottom: fibFuncs.font_size(10);
+  margin: {
+    top: 1rem;
+    bottom: fibFuncs.font_size(10);
+  };
 }
 
 // Share Button
@@ -629,20 +640,17 @@ button.cmp__share-it-btn {
 // In small screens, make the content fluid and fixed in large.
 .cmp__auto-layout {
   > * {
-    margin-left: fibVars.$lg-size;
-    margin-right: fibVars.$lg-size;
+    @include fibMixins.set_hor_margin(fibVars.$lg-size);
   }
 
   .cmp__sub {
     .cmp__responsive {
-      margin-left: 0;
-      margin-right: 0;
+      @include fibMixins.set_hor_margin(0);
     }
 
     figure {
       figcaption, caption {
-        margin-left: 0;
-        margin-right: 0;
+        @include fibMixins.set_hor_margin(0);
       }
     }
   }
@@ -652,31 +660,26 @@ button.cmp__share-it-btn {
 // either border radius or shadow.
 blockquote {
   &.cmp__responsive {
-    border-radius: 0;
-    box-shadow: none;
+    @include fibMixins.no_shadow_radius;
   }
 }
 
 .cmp__responsive {
   max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  @include fibMixins.set_hor_margin(0);
 
   &.cmp__toc,
   &.cmp__widget,
   &.cmp__sub {
-    border-radius: 0;
-    box-shadow: none;
+    @include fibMixins.no_shadow_radius;
   }
 
   figcaption, caption {
-    margin-left: fibVars.$lg-size;
-    margin-right: fibVars.$lg-size;
+    @include fibMixins.set_hor_margin(fibVars.$lg-size);
   }
 
   img, .cmp__table-wrapper, pre, .cmp__widget {
-    border-radius: 0;
-    box-shadow: none;
+    @include fibMixins.no_shadow_radius;
   }
 }
 
@@ -685,11 +688,15 @@ blockquote {
   float: left;
 
   padding: fibFuncs.font_size(-7);
-  margin-top: fibFuncs.font_size(-10);
-  margin-right: fibFuncs.font_size(-10);
+  margin: {
+    top: fibFuncs.font_size(-10);
+    right: fibFuncs.font_size(-10);
+  };
 
-  font-size: fibVars.$drop-cap-font-size;
-  font-weight: bold;
+  font: {
+    size: fibVars.$drop-cap-font-size;
+    weight: bold;
+  }
   line-height: fibVars.$xs-line-height;
 
   background-color: fibVars.$drop-cap-bg-color;
@@ -703,8 +710,10 @@ blockquote {
   @include fibMixins.flex_init($ver: true);
   margin-top: fibVars.$lg-size;
 
-  font-family: fibVars.$heading-font-family;
-  font-size: fibVars.$small-font-size;
+  font: {
+    family: fibVars.$heading-font-family;
+    size: fibVars.$small-font-size;
+  }
   text-transform: uppercase;
   letter-spacing: fibVars.$medium-letter-spacing;
 
@@ -714,8 +723,7 @@ blockquote {
     flex-grow: 1;
 
     a {
-      display: inline-flex;
-      align-items: center;
+      @include fibMixins.flex_init($inline: true, $ver: true);
     }
   }
 
@@ -828,30 +836,25 @@ blockquote {
   // Responsive Article Content.
   blockquote {
     &.cmp__responsive {
-      border-radius: fibVars.$border-radius;
-      box-shadow: fibVars.$box-shadow;
+      @include fibMixins.set_shadow_radius;
     }
   }
 
   .cmp__responsive {
-    margin-left: fibVars.$lg-size;
-    margin-right: fibVars.$lg-size;
+    @include fibMixins.set_hor_margin(fibVars.$lg-size);
 
     &.cmp__toc,
     &.cmp__widget,
     &.cmp__sub {
-      border-radius: fibVars.$border-radius;
-      box-shadow: fibVars.$box-shadow;
+      @include fibMixins.set_shadow_radius;
     }
 
     figcaption, caption {
-      margin-left: 0;
-      margin-right: 0;
+      @include fibMixins.set_hor_margin(0);
     }
 
     img, .cmp__table-wrapper, pre, .cmp__widget {
-      border-radius: fibVars.$border-radius;
-      box-shadow: fibVars.$box-shadow;
+      @include fibMixins.set_shadow_radius;
     }
   }
 }
@@ -860,7 +863,7 @@ blockquote {
 
   // Blog Logo.
   .cmp__blog-info {
-    flex-direction: row;
+    @include fibMixins.flex_update($column: false);
 
     .cmp__separator {
       display: block;
@@ -905,7 +908,7 @@ blockquote {
 
   // Article Meta.
   .cmp__article-meta {
-    flex-direction: row;
+    @include fibMixins.flex_update($column: false);
 
     > * {
       min-height: 30px;
@@ -914,8 +917,7 @@ blockquote {
 
     > *:not(:first-child):not(:last-child):after {
       content: '|';
-      margin-left: fibVars.$xs-size;
-      margin-right: fibVars.$xs-size;
+      @include fibMixins.set_hor_margin(fibVars.$xs-size);
       color: fibVars.$light-gray;
     }
   }
@@ -929,8 +931,7 @@ blockquote {
     &:after {
       content: '|';
       color: fibVars.$light-gray;
-      margin-left: fibVars.$xs-size;
-      margin-right: fibVars.$xs-size;
+      @include fibMixins.set_hor_margin(fibVars.$xs-size);
     }
   }
 
@@ -947,17 +948,18 @@ blockquote {
       }
 
       span:after {
-        border-left: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
-        border-right: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
-        border-bottom: fibVars.$lg-size solid transparent;
+        border: {
+          left: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
+          right: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
+          bottom: fibVars.$lg-size solid transparent;
+        }
       }
     }
   }
 
   // Responsive Article Content.
   .cmp__auto-layout > *, .cmp__responsive {
-    margin-left: fibVars.$xl-size;
-    margin-right: fibVars.$xl-size;
+    @include fibMixins.set_hor_margin(fibVars.$xl-size);
   }
 
   .cmp__responsive-flex {
@@ -980,7 +982,7 @@ blockquote {
 
     section {
       &.cmp__footer-left {
-        flex-direction: column;
+        @include fibMixins.flex_update($column: true);
 
         > div {
           flex-grow: unset;
@@ -1052,8 +1054,10 @@ blockquote {
       }
 
       span {
-        margin-top: fibFuncs.font_size(-14);
-        margin-left: 0;
+        margin: {
+          top: fibFuncs.font_size(-14);
+          left: 0;
+        };
       }
     }
   }

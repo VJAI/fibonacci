@@ -89,7 +89,7 @@
           justify-content: flex-start;
 
           .cmp__button {
-            padding: 0.25rem 0.75rem; // TODO:
+            padding: fibFuncs.font_size(-14) fibFuncs.font_size(3);
             font-size: fibFuncs.font_size(-5);
             background-color: transparent;
             color: fibVars.$gray;

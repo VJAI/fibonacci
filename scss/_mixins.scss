@@ -254,3 +254,24 @@
   -moz-background-clip: text;
   background-clip: text;
 }
+
+/// Creates container with no margin or padding.
+@mixin no_spacing {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin set_hor_margin($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+@mixin set_shadow_radius {
+  border-radius: fibVars.$border-radius;
+  box-shadow: fibVars.$box-shadow;
+}
+
+@mixin no_shadow_radius {
+  border-radius: 0;
+  box-shadow: none;
+}
