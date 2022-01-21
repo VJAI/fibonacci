@@ -240,7 +240,7 @@ a.cmp__blog-logo {
   padding-top: fibVars.$page-content-top;
   padding-bottom: fibVars.$page-content-bottom;
   @include fibMixins.noisy_bg(fibVars.$white);
-  border-top-right-radius: fibFuncs.font_size(5);
+  border-radius: fibFuncs.font_size(5);
   box-shadow: darken(fibVars.$brand-body, 15%) -20px -5px 10px,
               darken(fibVars.$brand-body, 15%) 5px -5px 10px,
               rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -270,11 +270,7 @@ a.cmp__subscribe {
     span {
       font-size: fibVars.$sm-size;
       background-color: fibVars.$rss-ribbon-color;
-      color: transparent;
-      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
+      @include fibMixins.inset_text_shadow();
     }
   }
 
@@ -621,7 +617,7 @@ button.cmp__share-it-btn {
   padding: fibFuncs.font_size(-20);
   margin-left: fibFuncs.font_size(-12);
   font-size: fibFuncs.font_size(-5);
-  background-color: transparent;
+  background: none;
   color: fibVars.$article-meta-color;
 
   &:focus, &:active, &:hover {
@@ -699,6 +695,7 @@ blockquote {
   background-color: fibVars.$drop-cap-bg-color;
   color: fibVars.$drop-cap-color;
   border-radius: fibVars.$border-radius;
+  box-shadow: -1px -1px 10px fibVars.$brand-body inset;
 }
 
 // Page navigation.
@@ -894,8 +891,7 @@ blockquote {
 
   // Article Meta Changes.
   .cmp__blog-main {
-    border-top-right-radius: fibFuncs.font_size(10);
-    border-bottom-right-radius: fibFuncs.font_size(10);
+    border-radius: fibFuncs.font_size(10);
   }
 
   // Page title.

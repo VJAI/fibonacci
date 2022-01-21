@@ -1,10 +1,14 @@
 @use 'sass:color';
+@use 'sass:math';
 @use 'variables' as fibVars;
 @use 'functions' as fibFuncs;
 @use 'mixins' as fibMixins;
 
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Amatic+SC:wght@700');
-@import '../assets/sprite';
+@include fibMixins.load_google_font($fonts:
+  (('Source Serif Pro': ('400', '400i', '600')),
+  ('Source Sans Pro': ('400', '400i', '600')),
+  ('Amatic SC': ('wght@700')))
+);
 
 // Sizes for Mobile Devices.
 :root {
@@ -160,7 +164,7 @@ a:active,
 
 a:hover, .cmp__link:hover {
   color: fibVars.$brand-color;
-  text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px; // TODO: Need some more work here!
+  text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px;
 }
 
 a:focus-visible {
@@ -586,7 +590,7 @@ address {
   font-style: italic;
 }
 
-// Horizontal line. // TODO: Need revision
+// Horizontal line.
 hr {
   height: 1px;
   margin: fibVars.$xxl-size 0;
@@ -596,13 +600,13 @@ hr {
   background: fibVars.$hr-bg;
 }
 
-hr:before { // TODO: Need revision
+hr:before {
   content: '';
   position: absolute;
-  left: calc(50% - 5px);
-  top: -5px;
-  width: 10px;
-  height: 10px;
+  left: calc(50% - #{math.div(fibVars.$hr-separator-size, 2)});
+  top: -1 * math.div(fibVars.$hr-separator-size, 2);
+  width: fibVars.$hr-separator-size;
+  height: fibVars.$hr-separator-size;
   background-color: fibVars.$hr-separator-color;
   transform: rotate(50deg);
 }
@@ -658,7 +662,7 @@ button, [type="button"], [type="submit"] {
   letter-spacing: fibVars.$medium-letter-spacing;
 
   border-radius: fibVars.$border-radius;
-  background-color: fibVars.$button-bg-color;
+  background: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-body) fibVars.$button-bg-color;
   color: fibVars.$button-text-color;
   border: none;
   cursor: pointer;
@@ -769,7 +773,7 @@ cmp-content-scale {
 // Ribbon.
 .cmp__ribbon {
   --ribbon-height: #{fibVars.$ribbon-small-screen-height};
-  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75); // TODO: ... how come 3.75???
+  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75);
   display: inline-block;
   position: relative;
   height: var(--ribbon-height);
@@ -807,6 +811,8 @@ cmp-content-scale {
   }
 
   .cmp__ribbon-content {
+    text-shadow: 0 0 2px darken(fibVars.$purple-ribbon, 25%);
+
     &::before, &::after {
       content: "";
       position: absolute;
@@ -836,7 +842,7 @@ cmp-content-scale {
   min-width: fibFuncs.font_size(23);
 
   .cmp__widget-ribbon-content {
-    display: flex;
+    @include fibMixins.flex_init;
     width: 100%;
     position: relative;
     left: -6px;
@@ -882,11 +888,7 @@ cmp-content-scale {
     span {
       flex-grow: 1;
       background-color: fibVars.$medium-gray;
-      color: transparent;
-      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5); // TODO: Need refactoring!
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
+      @include fibMixins.inset_text_shadow();
     }
   }
 }

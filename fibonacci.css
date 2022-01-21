@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Amatic+SC:wght@700");
+@import url("//fonts.googleapis.com/css?family=Source%20Serif%20Pro%3A400%2C400i%2C600|Source%20Sans%20Pro%3A400%2C400i%2C600|Amatic%20SC%3Awght%40700");
 /**
   Sizes built with golden ratio (1.618) with the interval of 5.
   Font Size Calculator: https://gist.github.com/VJAI/f4240f0353bf992d967f52f74844d963
@@ -22,126 +22,6 @@
   1.000[00] 1.101[01] 1.212[02] 1.335[03] 1.470[04] 1.618[05] 1.781[06] 1.961[07] 2.160[08] 2.378[09]
   2.618[10] 2.882[11] 3.174[12] 3.494[13] 3.847[14] 4.236[15] 4.664[16] 5.135[17] 5.654[18] 6.225[19]
  */
-.cmp__icon-arrow-up-circle-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-calendar-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-collection-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-comment-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-contact-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-cross-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-emoji-frown-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-emoji-smile-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-eye-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-facebook-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-github-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-hamburger-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-home-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-image-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-linkedin-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-person-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-search-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-send-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-share-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-shield-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-tag-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-tick-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-twitter-dims {
-  width: 16px;
-  height: 16px;
-}
-
-.cmp__icon-warning-dims {
-  width: 16px;
-  height: 16px;
-}
-
 :root {
   --base-size: 16px;
   --xs-size: 0.825rem;
@@ -707,7 +587,7 @@ button, [type=button], [type=submit] {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 3px;
-  background-color: #f04875;
+  background: linear-gradient(45deg, #f04875, #b82a50) #f04875;
   color: white;
   border: none;
   cursor: pointer;
@@ -831,6 +711,9 @@ cmp-content-scale .cmp__scroll-progress {
 .cmp__ribbon::after {
   right: calc(-1 * (var(--ribbon-height) - var(--ribbon-bend-height)));
   border-right-color: transparent;
+}
+.cmp__ribbon .cmp__ribbon-content {
+  text-shadow: 0 0 2px #7b4877;
 }
 .cmp__ribbon .cmp__ribbon-content::before, .cmp__ribbon .cmp__ribbon-content::after {
   content: "";
@@ -2906,7 +2789,7 @@ a.cmp__blog-logo .cmp__blog-name {
   padding-top: 3.847rem;
   padding-bottom: 6.225rem;
   background: url("assets/background.png") white;
-  border-top-right-radius: 1.618rem;
+  border-radius: 1.618rem;
   box-shadow: #7a1c35 -20px -5px 10px, #7a1c35 5px -5px 10px, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -3206,7 +3089,7 @@ button.cmp__share-it-btn {
   padding: 0.146rem;
   margin-left: 0.315rem;
   font-size: 0.618rem;
-  background-color: transparent;
+  background: none;
   color: rgba(51, 51, 51, 0.5);
 }
 button.cmp__share-it-btn:focus, button.cmp__share-it-btn:active, button.cmp__share-it-btn:hover {
@@ -3261,6 +3144,7 @@ blockquote.cmp__responsive {
   background-color: #f04875;
   color: white;
   border-radius: 3px;
+  box-shadow: -1px -1px 10px #b82a50 inset;
 }
 
 .cmp__pagination {
@@ -3401,8 +3285,7 @@ blockquote.cmp__responsive {
   }
 
   .cmp__blog-main {
-    border-top-right-radius: 2.618rem;
-    border-bottom-right-radius: 2.618rem;
+    border-radius: 2.618rem;
   }
 
   .cmp__page-title h1::after {
