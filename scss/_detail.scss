@@ -1,7 +1,10 @@
+@use 'variables' as fibVars;
+@use 'functions' as fibFuncs;
+
 #cmp__blog_detail {
   .cmp__article-header {
     .cmp__page-title {
-      margin-bottom: $xl-size;
+      margin-bottom: fibVars.$xl-size;
     }
 
     .cmp__article-meta {
@@ -13,7 +16,7 @@
 // Comments Widget
 .cmp__comments {
   .cmp__comment-by {
-    margin-right: 0.510rem;
+    margin-right: fibFuncs.font_size(-7);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,22 +27,22 @@
     }
 
     span {
-      font-family: $heading-font-family;
+      font-family: fibVars.$heading-font-family;
       text-transform: uppercase;
       letter-spacing: 1px;
-      background-color: $dim-gray;
+      background-color: fibVars.$dim-gray;
       padding: 1px 5px;
-      font-size: 0.618rem;
-      border-radius: $border-radius;
-      margin-top: 0.260rem;
+      font-size: fibFuncs.font_size(-5);
+      border-radius: fibVars.$border-radius;
+      margin-top: fibFuncs.font_size(-14);
       text-align: center;
-      color: $gray;
+      color: fibVars.$gray;
     }
   }
 
   .cmp__comments-form {
-    margin-top: $md-size;
-    margin-bottom: $md-size;
+    margin-top: fibVars.$md-size;
+    margin-bottom: fibVars.$md-size;
 
     .cmp__form-container {
       display: flex;
@@ -55,29 +58,29 @@
   }
 
   .cmp__comments-list {
-    margin: 1.470rem 0 0 0;
+    margin: fibFuncs.font_size(4) 0 0 0;
     list-style: none;
     padding: 0;
 
     li {
-      padding-bottom: $md-size;
+      padding-bottom: fibVars.$md-size;
 
       .cmp__comment {
         display: flex;
         align-items: flex-start;
 
         .cmp__comment-by {
-          margin-top: $lg-size;
+          margin-top: fibVars.$lg-size;
         }
 
         .cmp__comment-detail {
           .cmp__commented-date {
             text-align: right;
-            font-family: $heading-font-family;
+            font-family: fibVars.$heading-font-family;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.618rem;
-            color: $gray;
+            font-size: fibFuncs.font_size(-5);
+            color: fibVars.$gray;
           }
         }
 
@@ -86,10 +89,10 @@
           justify-content: flex-start;
 
           .cmp__button {
-            padding: 0.25rem 0.75rem;
-            font-size: 0.618rem;
+            padding: 0.25rem 0.75rem; // TODO:
+            font-size: fibFuncs.font_size(-5);
             background-color: transparent;
-            color: $gray;
+            color: fibVars.$gray;
           }
         }
       }
@@ -104,25 +107,25 @@
 .cmp__archives, .cmp__tags {
   ul li a {
     span {
-      font-size: $small-font-size;
-      color: $gray;
-      transition: color $medium-speed;
+      font-size: fibVars.$small-font-size;
+      color: fibVars.$gray;
+      transition: color fibVars.$medium-speed;
     }
 
     &:hover {
       span {
-        color: $brand-color;
+        color: fibVars.$brand-color;
       }
     }
   }
 }
 
-@media only screen and (min-width: $breakpoint2) {
+@media only screen and (min-width: fibVars.$breakpoint2) {
   #cmp__blog_detail {
     .cmp__article-header {
       .cmp__article-meta {
         .cmp__article-author {
-          top: -5.654rem;
+          top: fibFuncs.font_size(18, true);
         }
       }
     }

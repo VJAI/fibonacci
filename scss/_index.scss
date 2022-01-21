@@ -1,33 +1,12 @@
-.cmp__blog-main {
-  .cmp__blog-content {
-    .cmp__article, &.cmp__article {
-      .cmp__article-header {
-        .cmp__article-meta {
-          .cmp__tab-hide {
-            display: none;
-          }
-        }
-      }
-    }
-  }
+@use 'variables' as fibVars;
+@use 'functions' as fibFuncs;
 
-  cmp-words-fall {
-    height: calc(3.847rem + $xl-size);
-  }
+.cmp__tab-hide {
+  display: none;
 }
 
-@media only screen and (min-width: $tablet) {
-  .cmp__blog-main {
-    .cmp__blog-content {
-      .cmp__article, &.cmp__article {
-        .cmp__article-header {
-          .cmp__article-meta {
-            .cmp__tab-hide {
-              display: flex;
-            }
-          }
-        }
-      }
-    }
+@media only screen and (min-width: fibVars.$tablet) {
+  .cmp__tab-hide {
+    display: flex;
   }
 }

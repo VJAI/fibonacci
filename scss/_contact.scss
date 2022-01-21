@@ -1,3 +1,6 @@
+@use 'variables' as fibVars;
+@use 'functions' as fibFuncs;
+
 .cmp__contact-form {
   .cmp__bottom-row {
     display: flex;
@@ -7,14 +10,14 @@
       align-items: center;
       align-self: flex-start;
       flex-grow: 1;
-      font-size: $small-font-size;
-      color: $gray;
-      line-height: $xs-line-height;
-      margin-right: $md-size;
+      font-size: fibVars.$small-font-size;
+      color: fibVars.$gray;
+      line-height: fibVars.$xs-line-height;
+      margin-right: fibVars.$md-size;
 
       cmp-icon {
         display: block;
-        margin-right: 0.236rem;
+        margin-right: fibFuncs.font_size(-15);
       }
     }
 
@@ -23,7 +26,7 @@
 
       &:hover {
         cmp-icon {
-          animation: arrow-move-up-right $medium-speed linear infinite;
+          animation: arrow-move-up-right fibVars.$medium-speed linear infinite;
         }
       }
 

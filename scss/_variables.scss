@@ -1,9 +1,15 @@
+@use 'sass:color';
+@use 'functions' as fibFuncs;
+
+// Assets path.
+$assets-path:                       'assets' !default;
+
 // Generic Variables.
 // Font families.
-$body-font-family:                  'Source Serif Pro', serif !default;
-$heading-font-family:               'Source Sans Pro', sans-serif !default;
-$mono-font-family:                  'Space Mono', monospace !default;
-$logo-font-family:                  'Amatic SC', cursive !default;
+$body-font-family:                  'Source Serif Pro', Georgia, serif !default;
+$heading-font-family:               'Source Sans Pro', Arial, Tahoma, sans-serif !default;
+$mono-font-family:                  'Space Mono', Courier, monospace !default;
+$logo-font-family:                  'Amatic SC', 'Brush Script MT', cursive !default;
 
 // Colors.
 // Global.
@@ -12,10 +18,10 @@ $black:                             rgba(0, 0, 0, 1) !default;
 
 // Brand Colors.
 $brand-color:                       rgba(240, 72, 117, 1) !default;
-$brand-light:                       lighten($brand-color, 15%) !default;
-$brand-dark:                        darken($brand-color, 15%) !default;
-$brand-body:                        rgba(184, 42, 80, 1) !default;
-$brand-gray:                        rgba(194, 188, 190, 1) !default;
+$brand-light:                       color.adjust($brand-color, $lightness: 15%) !default;
+$brand-dark:                        color.adjust($brand-color, $lightness: -15%) !default;
+$brand-body:                        rgba(184, 42, 80, 1) !default;    // TODO: Need to figure out programatically!
+$brand-gray:                        rgba(194, 188, 190, 1) !default;  // TODO: Need to figure out programatically!
 
 // Gray Variations.
 $dark-gray:                         rgba(51, 51, 51, 1) !default;
@@ -32,9 +38,10 @@ $error:                             rgba(255, 238, 235, 1) !default;
 // Other Colors.
 $yellow-green:                      rgba(181, 219, 86, 1) !default;
 $purple-ribbon:                     rgba(186, 137, 182, 1) !default;
-$sunny-orange:                      #f2e03f !default;
 
 // Sizes.
+$small-screen-font-size:            16px !default;
+$large-screen-font-size:            19px !default;
 $xs-size:                           var(--xs-size) !default;
 $sm-size:                           var(--sm-size) !default;
 $md-size:                           var(--md-size) !default;
@@ -80,14 +87,15 @@ $breakpoint1:                       878px !default;  // Custom one.
 $breakpoint2:                       1100px !default; // Custom one.
 
 // Paragraphs.
-$lead-para-font-size:               1.212rem !default;
+$lead-para-font-size:               fibFuncs.font_size(2) !default;
 
 // Headings.
 $h1-font-size:                      $xxl-size !default;
 $h2-font-size:                      $xl-size !default;
-$h3-font-size:                      1.618rem !default;
+$h3-font-size:                      fibFuncs.font_size(5) !default;
 $h4-font-size:                      $lg-size !default;
 $h5-font-size:                      $base-font-size !default;
+$h6-font-size:                      $small-font-size !default;
 $heading-line-height:               $xs-line-height !default;
 $heading-spacing:                   $extra-small-letter-spacing !default;
 $heading-color:                     $medium-gray !default;
@@ -119,7 +127,7 @@ $hightlight-code-color:             #1f7199 !default;
 $hightlight-meta-string-color:      #4d99bf !default;
 
 // Abbr & Acronym.
-$special-char-font-size:            0.618em !default;
+$special-char-font-size:            fibFuncs.font_size(-5, false, em) !default;
 
 // Mark.
 $mark-bg-color:                     rgba(255, 255, 115, 1) !default;
@@ -143,11 +151,12 @@ $hr-separator-color:                $brand-color !default;
 $label-font-family:                 $heading-font-family !default;
 $label-font-size:                   $small-font-size !default;
 $label-letter-spacing:              $medium-letter-spacing !default;
+$label-color:                       $medium-gray !default;
 
 // Inputs.
 $input-font-family:                 $heading-font-family !default;
 $input-font-size:                   $sm-size !default;
-$input-padding:                     0.510rem !default;
+$input-padding:                     fibFuncs.font_size(-7) !default;
 $input-border-color:                $light-gray !default;
 $input-line-height:                 $small-line-height !default;
 $input-text-color:                  $medium-gray !default;
@@ -158,12 +167,12 @@ $form-control-bg-color:             $light-gray !default;
 // Buttons.
 $button-font-family:                $heading-font-family !default;
 $button-font-size:                  $small-font-size !default;
-$button-padding:                    0.510rem 0.749rem !default;
+$button-padding:                    fibFuncs.font_size(-7) fibFuncs.font_size(-3) !default;
 $button-text-color:                 $white !default;
 $button-bg-color:                   $brand-color !default;
 
 // Icons.
-$icon-width:                        16px !default;
+$icon-size:                         16px !default;
 
 // Figures.
 $figure-caption-font-size:          $small-font-size !default;
@@ -189,33 +198,35 @@ $fast-speed:                        0.25s !default;
 $snail-speed:                       2s !default;
 
 // Specific Variables.
+$blur:                              5px !default;
+
 // Header Component.
-$header-height:                     2.882rem !default;
+$header-height:                     fibFuncs.font_size(11) !default;
 $header-color:                      rgba(232, 232, 232, 1) !default;
 
 // Logo Component.
 $logo-font-family:                  $logo-font-family !default;
 $logo-font-size:                    $lg-size !default;
 $logo-rotate-speed:                 5s !default;
-$logo-name-width:                   4.664rem !default;
+$logo-name-width:                   fibFuncs.font_size(16) !default;
 
 // Navigation Component.
 $nav-font-family:                   $heading-font-family !default;
-$nav-font-size:                     0.749rem !default;
-$nav-link-spacing:                  0.680rem !default;
-$nav-link-icon-spacing:             0.146rem !default;
+$nav-font-size:                     fibFuncs.font_size(-3) !default;
+$nav-link-spacing:                  fibFuncs.font_size(-4) !default;
+$nav-link-icon-spacing:             fibFuncs.font_size(-20) !default;
 $nav-active-border-width:           4px !default;
 
 // Footer Component.
 $footer-font-family:                $heading-font-family !default;
-$footer-font-size:                  0.618rem !default;
-$footer-credits-font-size:          0.421rem !default;
-$footer-height:                     4.664rem !default;
+$footer-font-size:                  fibFuncs.font_size(-5) !default;
+$footer-credits-font-size:          fibFuncs.font_size(-9) !default;
+$footer-height:                     fibFuncs.font_size(16) !default;
 $footer-color:                      $brand-gray !default;
 
 // Page Main Component.
-$page-content-top:                  3.847rem !default;
-$page-content-bottom:               6.225rem !default;
+$page-content-top:                  fibFuncs.font_size(14) !default;
+$page-content-bottom:               fibFuncs.font_size(19) !default;
 $continue-reading-font-family:      $heading-font-family !default;
 $continue-reading-color:            $gray !default;
 $continue-reading-font-size:        $small-font-size !default;
@@ -225,13 +236,13 @@ $article-meta-font-size:            $small-font-size !default;
 $article-meta-color:                $gray !default;
 $article-meta-font-family:          $heading-font-family !default;
 $article-author-pic-opacity:        0.8 !default;
-$article-author-role-font-size:     0.58rem !default;
+$article-author-role-font-size:     fibFuncs.font_size(-6) !default;
 $article-author-role-font-color:    $dim-gray !default;
-$article-author-left-offset:        -7.546rem !default;
+$article-author-left-offset:        fibFuncs.font_size(21, true) !default;
 $article-author-admin-badge-color:  $yellow-green !default;
 $article-author-guest-badge-color:  $gray !default;
-$author-pic-default-width:          30px !default;
-$author-pic-large-screen-width:     80px !default;
+$author-pic-default-width:          30px !default; // TODO: Need revision
+$author-pic-large-screen-width:     80px !default; // TODO: Need revision
 
 // Widgets.
 $widget-bg-color:                   $dim-gray !default;
@@ -240,8 +251,8 @@ $widget-bg-color:                   $dim-gray !default;
 $toc-bg-color:                      $widget-bg-color !default;
 
 // Ribbons.
-$ribbon-height:                     1.618rem !default;
-$ribbon-small-screen-height:        1.470rem !default;
+$ribbon-height:                     fibFuncs.font_size(5) !default;
+$ribbon-small-screen-height:        fibFuncs.font_size(4) !default;
 $ribbon-bg:                         $purple-ribbon !default;
 $ribbon-color:                      $white !default;
 $ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
@@ -260,7 +271,7 @@ $content-scale-index:               500 !default;
 $scale-progress-bg:                 $brand-color !default;
 
 // Graceful image rendering component.
-$image-min-height:                  180px !default;
+$image-min-height:                  180px !default; // TODO: Need revision
 $image-bg-color:                    $dim-gray !default;
 $image-icon-color:                  darken($light-gray, 15%) !default;
 $image-text-font-family:            $heading-font-family !default;
@@ -270,7 +281,7 @@ $image-text-color:                  darken($light-gray, 15%) !default;
 // Progress component.
 $progress-square-bg-color:          $brand-light !default;
 $progress-square-bg-color2:         $brand-color !default;
-$progress-square-small-width:       0.680rem !default;
+$progress-square-small-width:       fibFuncs.font_size(-4) !default;
 $progress-square-large-width:       $sm-size !default;
 $progress-square-border-radius:     2px !default;
 

@@ -1,22 +1,25 @@
+@use 'variables' as fibVars;
+@use 'functions' as fibFuncs;
+
 // Social Links.
 .cmp__social-widget {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: $heading-font-family;
-  font-size: $xs-size;
-  color: $gray;
+  font-family: fibVars.$heading-font-family;
+  font-size: fibVars.$xs-size;
+  color: fibVars.$gray;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding-top: $md-size;
-  padding-bottom: $md-size;
+  padding-top: fibVars.$md-size;
+  padding-bottom: fibVars.$md-size;
   margin: 0 auto;
 
   a {
     display: flex;
     align-items: center;
     border-bottom: none;
-    margin-bottom: $xs-size;
+    margin-bottom: fibVars.$xs-size;
 
     &:hover {
       cmp-icon {
@@ -25,26 +28,26 @@
     }
 
     cmp-icon {
-      margin-right: 0.382rem;
-      transition: transform $fast-speed;
+      margin-right: fibFuncs.font_size(-10);
+      transition: transform fibVars.$fast-speed;
     }
 
     .cmp__social-text {
-      line-height: $xs-line-height;
+      line-height: fibVars.$xs-line-height;
     }
   }
 
   .separator {
     display: none;
-    margin: 0 0.510rem;
+    margin: 0 fibFuncs.font_size(-7);
   }
 }
 
-@media only screen and (min-width: $mobile) {
+@media only screen and (min-width: fibVars.$mobile) {
   .cmp__social-widget {
     flex-direction: row;
-    border-top: solid 1px $dim-gray;
-    border-bottom: solid 1px $dim-gray;
+    border-top: solid 1px fibVars.$dim-gray;
+    border-bottom: solid 1px fibVars.$dim-gray;
 
     a {
       margin-bottom: 0;

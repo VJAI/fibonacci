@@ -1,66 +1,49 @@
+@use 'sass:color';
+@use 'variables' as fibVars;
+@use 'functions' as fibFuncs;
+@use 'mixins' as fibMixins;
+
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,400i,600|Source+Sans+Pro:400,400i,600|Amatic+SC:wght@700');
 @import '../assets/sprite';
 
-/**
-  Sizes built with golden ratio (1.618) with the interval of 5.
-  Font Size Calculator: https://gist.github.com/VJAI/f4240f0353bf992d967f52f74844d963
-
-  const base = 19;
-  const ratio = 1.618;
-  const interval = 5;
-
-  function size(point) {
-    const s = base * Math.pow(ratio, point/interval);
-    return [s, `${(s / base).toFixed(3)} rem`];
-  }
-
-  for (let i = -20; i < 20; i++) {
-    console.log(size(i));
-  }
-
-  0.146 0.161 0.177 0.195 0.214 0.236 0.260 0.286 0.315 0.347
-  0.382 0.421 0.463 0.510 0.561 0.618 0.680 0.749 0.825 0.908
-  1.000 1.101 1.212 1.335 1.470 1.618 1.781 1.961 2.160 2.378
-  2.618 2.882 3.174 3.494 3.847 4.236 4.664 5.135 5.654 6.225
- */
-
 // Sizes for Mobile Devices.
 :root {
-  --base-size: 16px;
-  --xs-size: 0.825rem;
-  --sm-size: 0.908rem;
-  --md-size: 1rem;
-  --lg-size: 1.335rem;
-  --xl-size: 1.781rem;
-  --xxl-size: 2.378rem;
+  --base-size: #{fibVars.$small-screen-font-size};
+  --xs-size: #{fibFuncs.font_size(-2)};
+  --sm-size: #{fibFuncs.font_size(-1)};
+  --md-size: #{fibFuncs.font_size(0)};
+  --lg-size: #{fibFuncs.font_size(3)};
+  --xl-size: #{fibFuncs.font_size(6)};
+  --xxl-size: #{fibFuncs.font_size(9)};
   font-size: var(--base-size);
 }
 
 // Sizes for Tablet, Desktop and Large Devices.
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: fibVars.$tablet) {
   :root {
-    --base-size: 19px;
-    --xs-size: 0.749rem;
-    --sm-size: 0.825rem;
-    --md-size: 1rem;
-    --lg-size: 1.335rem;
-    --xl-size: 1.961rem;
-    --xxl-size: 2.882rem;
+    --base-size: #{fibVars.$large-screen-font-size};
+    --xs-size: #{fibFuncs.font_size(-3)};
+    --sm-size: #{fibFuncs.font_size(-2)};
+    --md-size: #{fibFuncs.font_size(0)};
+    --lg-size: #{fibFuncs.font_size(3)};
+    --xl-size: #{fibFuncs.font_size(7)};
+    --xxl-size: #{fibFuncs.font_size(11)};
   }
 }
 
 // Global Overrides.
 html, body {
   box-sizing: border-box;
-
   margin: 0;
   padding: 0;
 
-  font-family: $body-font-family;
-  font-size: $body-font-size;
-  line-height: $base-line-height;
+  font: {
+    family: fibVars.$body-font-family;
+    size: fibVars.$body-font-size;
+  }
+  line-height: fibVars.$base-line-height;
 
-  color: $dark-gray;
+  color: fibVars.$dark-gray;
 }
 
 // CSS Resets.
@@ -70,10 +53,12 @@ html, body {
 
 // Paragraphs.
 p, .cmp__para {
-  margin-top: 0;
-  margin-bottom: $md-size;
+  margin: {
+    top: 0;
+    bottom: fibVars.$md-size;
+  }
 
-  font-size: $body-font-size;
+  font-size: fibVars.$body-font-size;
 }
 
 // Headings.
@@ -83,11 +68,11 @@ h3, .cmp__h3,
 h4, .cmp__h4,
 h5, .cmp__h5,
 h6, .cmp__h6 {
-  font-family: $heading-font-family;
-  line-height: $heading-line-height;
-  letter-spacing: $heading-spacing;
+  font-family: fibVars.$heading-font-family;
+  line-height: fibVars.$heading-line-height;
+  letter-spacing: fibVars.$heading-spacing;
 
-  color: $heading-color;
+  color: fibVars.$heading-color;
 
   a:link,
   a:visited,
@@ -99,53 +84,65 @@ h6, .cmp__h6 {
 }
 
 h1, .cmp__h1 {
-  margin-top: $xl-size;
-  margin-bottom: $lg-size;
+  margin: {
+    top: fibVars.$xl-size;
+    bottom: fibVars.$lg-size;
+  }
 
-  font-size: $h1-font-size;
+  font-size: fibVars.$h1-font-size;
 }
 
 h2, .cmp__h2 {
-  margin-top: 1.781rem;
-  margin-bottom: $md-size;
+  margin: {
+    top: fibFuncs.font_size(6);
+    bottom: fibVars.$md-size;
+  }
 
-  font-size: $h2-font-size;
+  font-size: fibVars.$h2-font-size;
 }
 
 h3, .cmp__h3 {
-  margin-top: $lg-size;
-  margin-bottom: $sm-size;
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+  }
 
-  font-size: $h3-font-size;
+  font-size: fibVars.$h3-font-size;
 }
 
 h4, .cmp__h4 {
-  margin-top: $lg-size;
-  margin-bottom: $xs-size;
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
 
-  font-size: $h4-font-size;
+  font-size: fibVars.$h4-font-size;
 }
 
 h5, .cmp__h5 {
-  margin-top: $lg-size;
-  margin-bottom: $xs-size;
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
 
-  font-size: $h5-font-size;
+  font-size: fibVars.$h5-font-size;
   text-transform: uppercase;
-  letter-spacing: $small-letter-spacing;
+  letter-spacing: fibVars.$small-letter-spacing;
 
-  color: $gray;
+  color: fibVars.$gray;
 }
 
 h6, .cmp__h6 {
-  margin-top: $lg-size;
-  margin-bottom: $xs-size;
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
 
-  font-size: $small-font-size;
+  font-size: fibVars.$h6-font-size;
   text-transform: uppercase;
-  letter-spacing: $small-letter-spacing;
+  letter-spacing: fibVars.$small-letter-spacing;
 
-  color: $gray;
+  color: fibVars.$gray;
 }
 
 // Links.
@@ -158,16 +155,16 @@ a:active,
   color: inherit;
   border-bottom: dotted 1px;
   text-decoration: none;
-  transition: all $medium-speed;
+  transition: all fibVars.$medium-speed;
 }
 
 a:hover, .cmp__link:hover {
-  color: $brand-color;
-  text-shadow: lighten($brand-color, 30%) 0 0 6px;
+  color: fibVars.$brand-color;
+  text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px; // TODO: Need some more work here!
 }
 
 a:focus-visible {
-  outline-color: $brand-color;
+  outline-color: fibVars.$brand-color;
 }
 
 // Lists.
@@ -176,16 +173,18 @@ ol,
 menu {
   position: relative;
 
-  padding-left: $md-size;
-  margin-top: 0;
-  margin-bottom: $md-size;
+  padding-left: fibVars.$md-size;
+  margin: {
+    top: 0;
+    bottom: fibVars.$md-size;
+  }
 
   list-style: none;
 
   color: inherit;
 
   ul, ol, menu {
-    margin-bottom: 0.421rem;
+    margin-bottom: fibFuncs.font_size(-9);
   }
 }
 
@@ -199,7 +198,7 @@ ul li:before, menu li:before {
 
   font-weight: bold;
 
-  color: $brand-color;
+  color: fibVars.$brand-color;
 }
 
 // Ordered lists.
@@ -210,11 +209,11 @@ ol {
 ol li:before {
   display: inline-block;
   position: absolute;
-  width: 1.470em;
-  margin-left: -1.961em;
+  width: fibFuncs.font_size(4, false, em);
+  margin-left: fibFuncs.font_size(7, true, em);
   text-align: right;
 
-  font-family: $heading-font-family;
+  font-family: fibVars.$heading-font-family;
 
   content: counter(li) ".";
   counter-increment: li;
@@ -231,74 +230,76 @@ ol li li:before {
 dl {
   // Title.
   dt {
-    font-family: $heading-font-family;
-    font-size: $h5-font-size;
-    letter-spacing: $medium-letter-spacing;
+    font: {
+      family: fibVars.$heading-font-family;
+      size: fibVars.$h5-font-size;
+    }
+    letter-spacing: fibVars.$medium-letter-spacing;
     text-transform: uppercase;
-    color: $medium-gray;
+    color: fibVars.$medium-gray;
   }
 
   // Description.
   dd {
-    margin-bottom: $xs-size;
-    margin-inline-start: $md-size;
+    margin-bottom: fibVars.$xs-size;
+    margin-inline-start: fibVars.$md-size;
   }
 }
 
 // Blockquotes.
 blockquote, .cmp__quote {
-  margin-top: $md-size;
-  margin-bottom: $lg-size;
-  padding: $lg-size $lg-size $sm-size $lg-size;
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$lg-size;
+  }
+  padding: {
+    top: fibVars.$lg-size;
+    right: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+    left: fibVars.$lg-size;
+  };
 
-  font-family: $bquote-content-font-family;
+  font-family: fibVars.$bquote-content-font-family;
 
-  background: url("assets/background.png") $bquote-bg-color;
-  color: $bquote-color;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  color: fibVars.$bquote-color;
+  @include fibMixins.config_container(fibVars.$bquote-bg-color);
 
   h4 {
     display: inline-block;
     margin-top: 0;
-    font-family: $bquote-title-font-family;
+    font-family: fibVars.$bquote-title-font-family;
     border-bottom: solid 2px;
   }
 
   p {
-    font-size: $md-size;
     hanging-punctuation: first;
   }
 
   cite {
     display: block;
-    font-size: $cite-font-size;
+    font-size: fibVars.$cite-font-size;
     text-align: right;
 
     &::before {
       content: '—';
-      margin-right: 0.26rem;
+      margin-right: fibFuncs.font_size(-14);
     }
   }
 }
 
 // Figures.
 figure, .cmp__figure {
-  margin-block-start: $md-size;
-  margin-block-end: $lg-size;
+  margin-block-start: fibVars.$md-size;
+  margin-block-end: fibVars.$lg-size;
   margin-inline-start: 0;
   margin-inline-end: 0;
   max-width: 100%;
 
   img {
     display: block;
-    width: 100%;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-  }
-
-  cmp-image {
-    border-radius: $border-radius;
+    max-width: 100%;
+    border-radius: fibVars.$border-radius;
+    box-shadow: fibVars.$box-shadow;
   }
 
   table {
@@ -306,56 +307,67 @@ figure, .cmp__figure {
   }
 
   figcaption, .cmp__figcaption {
-    margin-top: 0.26rem;
-    font-size: $figure-caption-font-size;
-    font-family: $figure-caption-font-family;
-    color: $figure-caption-color;
+    margin-top: fibFuncs.font_size(-14);
+
+    font: {
+      size: fibVars.$figure-caption-font-size;
+      family: fibVars.$figure-caption-font-family;
+    }
+
+    color: fibVars.$figure-caption-color;
 
     code {
-      font-family: $code-font-family;
-      font-size: $code-font-size;
+      font: {
+        size: fibVars.$code-font-size;
+        family: fibVars.$code-font-family;
+      }
     }
   }
 
   .cmp__table-wrapper {
-    padding: $small-padding;
-    background: url("assets/background.png") $success;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
+    padding: fibVars.$small-padding;
+    @include fibMixins.config_container(fibVars.$success);
     overflow-x: auto;
   }
 
   pre {
-    padding: $small-padding;
+    padding: fibVars.$small-padding;
   }
 }
 
 // Tables.
 table {
   width: 100%;
-  margin-top: $md-size;
-  margin-bottom: $lg-size;
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$lg-size;
+  }
 
-  font-size: $table-font-size;
-  font-family: $table-font-family;
+  font: {
+    size: fibVars.$table-font-size;
+    family: fibVars.$table-font-family;
+  }
 
   border-collapse: collapse;
   caption-side: bottom;
 
   caption {
-    font-size: $table-caption-font-size;
-    font-family: $table-caption-font-family;
-    color: $table-caption-color;
+    font: {
+      size: fibVars.$table-caption-font-size;
+      family: fibVars.$table-caption-font-family;
+    }
+
+    color: fibVars.$table-caption-color;
   }
 
   td, th {
-    line-height: $table-line-height;
+    line-height: fibVars.$table-line-height;
   }
 
   thead {
     tr {
       th {
-        border-bottom: solid 1px $gray;
+        border-bottom: solid 1px fibVars.$gray;
         text-align: left;
       }
     }
@@ -367,18 +379,21 @@ pre {
   margin: 0;
   position: relative;
 
-  background: url("assets/background.png") $code-bg-color;
-  color: $medium-gray;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  color: fibVars.$medium-gray;
+  @include fibMixins.config_container(fibVars.$code-bg-color);
 
   code {
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: {
+      x: auto;
+      y: hidden;
+    };
 
-    font-family: $code-font-family;
-    font-size: $code-font-size;
-    line-height: $code-line-height;
+    font: {
+      size: fibVars.$code-font-size;
+      family: fibVars.$code-font-family;
+    }
+
+    line-height: fibVars.$code-line-height;
     letter-spacing: normal;
 
     &.hljs {
@@ -388,39 +403,41 @@ pre {
     }
 
     &::after {
-      @include flex_center;
-      height: 1rem;
+      @include fibMixins.flex_init($center: true);
+      height: fibFuncs.font_size(0);
       position: absolute;
-      top: -0.5rem;
-      right: 0.5rem;
-      padding: 0 0.26rem;
+      top: fibFuncs.font_size(-7, true, 'rem');
+      right: fibFuncs.font_size(-7);
+      padding: 0 fibFuncs.font_size(-14);
       content: attr(data-language);
 
-      font-family: $heading-font-family;
-      font-size: 0.680rem;
+      font: {
+        family: fibVars.$heading-font-family;
+        size: fibFuncs.font_size(-4);
+      }
       text-transform: uppercase;
 
-      color: $white;
-      background-color: darken($light-gray, 10%);
-      border-radius: $border-radius;
-      box-shadow: $box-shadow;
+      color: fibVars.$white;
+      background-color: darken(fibVars.$light-gray, 10%);
+      border-radius: fibVars.$border-radius;
+      box-shadow: fibVars.$box-shadow;
     }
   }
 }
 
 // Highlight.js
 .hljs-comment {
-  color: $hightlight-comment-color;
+  color: fibVars.$hightlight-comment-color;
 }
 
 .hljs-punctuation,
 .hljs-tag {
-  color: $hightlight-punc-color;
+  color: fibVars.$hightlight-punc-color;
 }
 
 .hljs-tag .hljs-attr,
 .hljs-tag .hljs-name {
-  color: $hightlight-tag-color;
+  color: fibVars.$hightlight-tag-color;
 }
 
 .hljs-attribute,
@@ -440,12 +457,12 @@ pre {
 .hljs-string,
 .hljs-template-tag,
 .hljs-type {
-  color: $hightlight-selector-color;
+  color: fibVars.$hightlight-selector-color;
 }
 
 .hljs-section,
 .hljs-title {
-  color: $hightlight-section-title-color;
+  color: fibVars.$hightlight-section-title-color;
   font-weight: 700;
 }
 
@@ -457,26 +474,26 @@ pre {
 .hljs-symbol,
 .hljs-template-variable,
 .hljs-variable {
-  color: $hightlight-selector-color;
+  color: fibVars.$hightlight-selector-color;
 }
 
 .hljs-literal {
-  color: $hightlight-literal-color;
+  color: fibVars.$hightlight-literal-color;
 }
 
 .hljs-addition,
 .hljs-built_in,
 .hljs-bullet,
 .hljs-code {
-  color: $hightlight-code-color;
+  color: fibVars.$hightlight-code-color;
 }
 
 .hljs-meta {
-  color: $hightlight-code-color;
+  color: fibVars.$hightlight-code-color;
 }
 
 .hljs-meta .hljs-string {
-  color: $hightlight-meta-string-color;
+  color: fibVars.$hightlight-meta-string-color;
 }
 
 .hljs-emphasis {
@@ -487,30 +504,33 @@ pre {
   font-weight: 700;
 }
 
+// Variable and keyboard input.
 var, kbd, .cmp__code {
-  padding: 0 0.146rem;
+  padding: 0 fibFuncs.font_size(-20);
 
-  font-family: $code-font-family;
-  font-size: $var-font-size;
-  font-style: normal;
-  letter-spacing: $extra-small-letter-spacing;
+  font: {
+    family: fibVars.$code-font-family;
+    size: fibVars.$var-font-size;
+    style: normal;
+  }
+  letter-spacing: fibVars.$extra-small-letter-spacing;
 
-  color: $var-color;
-  background-color: $var-bg-color;
-  border-radius: $border-radius;
+  color: fibVars.$var-color;
+  background-color: fibVars.$var-bg-color;
+  border-radius: fibVars.$border-radius;
 }
 
 // Abbr, Acronym.
 abbr, acronym, .cmp__acronym {
-  letter-spacing: $medium-letter-spacing;
+  letter-spacing: fibVars.$medium-letter-spacing;
   text-transform: uppercase;
   text-decoration: none;
 
   &:after {
     content: '†';
     position: relative;
-    top: -0.618em;
-    font-size: $special-char-font-size;
+    top: fibFuncs.font_size(-5, true, em);
+    font-size: fibVars.$special-char-font-size;
   }
 }
 
@@ -521,19 +541,28 @@ dfn {
 
 // Superscript & Subscript.
 sup, sub {
-  font-size: $special-char-font-size;
+  font-size: fibVars.$special-char-font-size;
 }
 
 // Small.
 small, .cmp__small {
-  font-size: 0.825rem;
+  font-size: fibFuncs.font_size(-2);
+}
+
+// Very Large text.
+.cmp__big-text {
+  text-align: center;
+  font-size: fibFuncs.font_size(19);
+  color: fibVars.$medium-gray;
 }
 
 // Datetimes.
 time, .cmp__time {
-  font-family: $time-font-family;
-  font-size: $time-font-size;
-  letter-spacing: $medium-letter-spacing;
+  font: {
+    family: fibVars.$time-font-family;
+    size: fibVars.$time-font-size;
+  }
+  letter-spacing: fibVars.$medium-letter-spacing;
   text-transform: uppercase;
 }
 
@@ -549,7 +578,7 @@ i, .cmp__italic {
 
 // Highlight.
 mark, .cmp__mark {
-  background-color: $mark-bg-color;
+  background-color: fibVars.$mark-bg-color;
 }
 
 // Address element.
@@ -557,146 +586,133 @@ address {
   font-style: italic;
 }
 
-// Horizontal line.
+// Horizontal line. // TODO: Need revision
 hr {
   height: 1px;
-  margin: $xxl-size 0;
+  margin: fibVars.$xxl-size 0;
   position: relative;
   overflow: visible;
   border: 0;
-  background: $hr-bg;
+  background: fibVars.$hr-bg;
 }
 
-hr:before {
+hr:before { // TODO: Need revision
   content: '';
   position: absolute;
   left: calc(50% - 5px);
   top: -5px;
   width: 10px;
   height: 10px;
-  background-color: $hr-separator-color;
+  background-color: fibVars.$hr-separator-color;
   transform: rotate(50deg);
 }
 
 // Form elements.
 // Labels.
 label {
-  font-family: $label-font-family;
-  font-size: $label-font-size;
-  font-weight: bold;
+  font: {
+    family: fibVars.$label-font-family;
+    size: fibVars.$label-font-size;
+    weight: bold;
+  }
   text-transform: uppercase;
-  letter-spacing: $label-letter-spacing;
-  color: $medium-gray;
+  letter-spacing: fibVars.$label-letter-spacing;
+  color: fibVars.$label-color;
 }
 
 // Input Textboxes and Textareas.
 input[type="text"], input[type="email"], input[type="search"], input[type="number"], textarea {
   width: 100%;
-  padding: $input-padding;
+  padding: fibVars.$input-padding;
 
-  font-family: $input-font-family;
-  font-size: $input-font-size;
-  line-height: $input-line-height;
+  font: {
+    family: fibVars.$input-font-family;
+    size: fibVars.$input-font-size;
+  }
+  line-height: fibVars.$input-line-height;
 
-  border: solid 2px $input-border-color;
-  border-radius: $border-radius;
-  color: $input-text-color;
+  border: solid 2px fibVars.$input-border-color;
+  border-radius: fibVars.$border-radius;
+  color: fibVars.$input-text-color;
   outline: none;
 
-  transition: all $medium-speed;
+  transition: all fibVars.$medium-speed;
   -webkit-appearance: textfield;
 
   &:focus, &:active {
     outline: none;
-    border-color: $brand-color;
+    border-color: fibVars.$brand-color;
   }
 }
 
 // Buttons.
 button, [type="button"], [type="submit"] {
-  @include flex-ver-center;
-  padding: $button-padding;
+  @include fibMixins.flex_init($ver: true);
+  padding: fibVars.$button-padding;
 
-  font-family: $button-font-family;
-  font-size: $button-font-size;
+  font: {
+    family: fibVars.$button-font-family;
+    size: fibVars.$button-font-size;
+  }
   text-transform: uppercase;
-  letter-spacing: $medium-letter-spacing;
+  letter-spacing: fibVars.$medium-letter-spacing;
 
-  border-radius: $border-radius;
-  background-color: $button-bg-color;
-  color: $button-text-color;
+  border-radius: fibVars.$border-radius;
+  background-color: fibVars.$button-bg-color;
+  color: fibVars.$button-text-color;
   border: none;
   cursor: pointer;
-  box-shadow: $box-shadow;
+  box-shadow: fibVars.$box-shadow;
 
-  transition: all $medium-speed;
+  transition: all fibVars.$medium-speed;
 
   &:focus, &:active, &:hover {
-    background-color: $brand-dark;
+    background-color: fibVars.$brand-dark;
     outline: none;
   }
 
   cmp-icon {
-    margin-right: 0.26rem;
+    margin-right: fibFuncs.font_size(-14);
   }
-}
-
-/* clears the 'X' from Internet Explorer */
-input[type=search]::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-input[type=search]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-/* clears the 'X' from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display: none;
 }
 
 // Placeholder.
 ::placeholder {
-  color: $gray;
+  color: fibVars.$gray;
   font-style: italic;
 }
 
 // Form controls with labels.
 .cmp__form-control {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: $lg-size;
-  border-radius: $border-radius;
   position: relative;
+  @include fibMixins.flex_init($column: true, $align: flex-start);
+  margin-bottom: fibVars.$lg-size;
+  border-radius: fibVars.$border-radius;
 
   label {
-    @include flex-ver-center;
-    justify-content: flex-end;
+    @include fibMixins.flex_init($ver: true, $justify: flex-end);
   }
 }
 
 // Sub sections.
 .cmp__sub {
-  margin-top: $md-size;
-  margin-bottom: $lg-size;
-  padding: $lg-size $lg-size $sm-size $lg-size;
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$lg-size;
+  };
+  padding: {
+    top: fibVars.$lg-size;
+    right: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+    left: fibVars.$lg-size;
+  };
 
-  font-family: $sub-content-font-family;
+  font-family: fibVars.$sub-content-font-family;
 
-  background: url("assets/background.png") $sub-bg-color;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  @include fibMixins.config_container(fibVars.$sub-bg-color);
 
   h4, h5 {
-    font-family: $sub-title-font-family;
+    font-family: fibVars.$sub-title-font-family;
   }
 
   h4 {
@@ -704,15 +720,15 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 
   pre {
-    background-color: $white;
+    background-color: fibVars.$white;
   }
 }
 
 // Icons.
 cmp-icon {
-  @include flex_center;
-  width: 16px;
-  height: 16px;
+  @include fibMixins.flex_init($center: true);
+  width: fibVars.$icon-size;
+  height: fibVars.$icon-size;
 
   svg {
     fill: currentColor;
@@ -737,43 +753,45 @@ cmp-icon {
 cmp-content-scale {
   position: relative;
   overflow: hidden;
-  height: $content-scale-height;
-  z-index: $content-scale-index;
+  height: fibVars.$content-scale-height;
+  z-index: fibVars.$content-scale-index;
 
   .cmp__scroll-progress {
     position: absolute;
     top: 0;
     width: 0;
-    height: $content-scale-height;
-    background-color: $scale-progress-bg;
-    transition: width $medium-speed;
+    height: fibVars.$content-scale-height;
+    background-color: fibVars.$scale-progress-bg;
+    transition: width fibVars.$medium-speed;
   }
 }
 
 // Ribbon.
 .cmp__ribbon {
-  --ribbon-height: #{$ribbon-small-screen-height};
-  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75);
+  --ribbon-height: #{fibVars.$ribbon-small-screen-height};
+  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75); // TODO: ... how come 3.75???
   display: inline-block;
   position: relative;
   height: var(--ribbon-height);
   line-height: var(--ribbon-height);
-  padding: 0 $xl-size;
+  padding: 0 fibVars.$xl-size;
 
+  font: {
+    family: fibVars.$heading-font-family;
+    size: fibFuncs.font_size(-4);
+  }
   text-align: center;
   text-transform: uppercase;
-  font-family: $heading-font-family;
-  font-size: 0.680rem;
-  letter-spacing: $medium-letter-spacing;
+  letter-spacing: fibVars.$medium-letter-spacing;
 
-  background: $ribbon-bg;
-  color: $ribbon-color;
-  box-shadow: $ribbon-shadow;
+  background: fibVars.$ribbon-bg;
+  color: fibVars.$ribbon-color;
+  box-shadow: fibVars.$ribbon-shadow;
 
   &::before, &::after {
     content: "";
     position: absolute;
-    border: solid calc(var(--ribbon-height) / 2) darken($purple-ribbon, 10%);
+    border: solid calc(var(--ribbon-height) / 2) darken(fibVars.$purple-ribbon, 10%);
     z-index: -1;
     bottom: calc(-1 * var(--ribbon-bend-height));
   }
@@ -794,8 +812,10 @@ cmp-content-scale {
       position: absolute;
       display: block;
       bottom: calc(-1 * var(--ribbon-bend-height));
-      border-style: solid;
-      border-color: darken($purple-ribbon, 25%) transparent transparent transparent;
+      border: {
+        style: solid;
+        color: darken(fibVars.$purple-ribbon, 25%) transparent transparent transparent;
+      }
     }
 
     &::before {
@@ -813,25 +833,27 @@ cmp-content-scale {
 // Widget Ribbon.
 .cmp__widget-ribbon {
   display: inline-block;
-  min-width: 9.147rem;
+  min-width: fibFuncs.font_size(23);
 
   .cmp__widget-ribbon-content {
     display: flex;
     width: 100%;
     position: relative;
     left: -6px;
-    height: $widget-ribbon-height;
-    line-height: $widget-ribbon-height;
-    padding-left: $md-size;
+    height: fibVars.$widget-ribbon-height;
+    line-height: fibVars.$widget-ribbon-height;
+    padding-left: fibVars.$md-size;
 
-    font-family: $heading-font-family;
-    font-size: $small-font-size;
-    letter-spacing: $medium-letter-spacing;
+    font: {
+      family: fibVars.$heading-font-family;
+      size: fibVars.$small-font-size;
+      weight: bold;
+    };
+    letter-spacing: fibVars.$medium-letter-spacing;
     text-transform: uppercase;
-    font-weight: bold;
 
-    background-color: $widget-ribbon-bg;
-    color: $widget-ribbon-color;
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
 
     &::before {
       content: '';
@@ -840,7 +862,7 @@ cmp-content-scale {
       left: 0;
       height: 3px;
 
-      border: solid 3px darken($widget-ribbon-bg, 20%);
+      border: solid 3px darken(fibVars.$widget-ribbon-bg, 20%);
       border-left-color: transparent;
       border-top-color: transparent;
     }
@@ -848,10 +870,10 @@ cmp-content-scale {
     &::after {
       content: '';
       position: relative;
-      right: calc(-1 * $xl-size);
-      height: $xl-size;
+      right: calc(-1 * #{fibVars.$xl-size});
+      height: fibVars.$xl-size;
 
-      border: calc($xl-size / 2) solid $widget-ribbon-bg;
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
@@ -859,9 +881,9 @@ cmp-content-scale {
 
     span {
       flex-grow: 1;
-      background-color: $medium-gray;
+      background-color: fibVars.$medium-gray;
       color: transparent;
-      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+      text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5); // TODO: Need refactoring!
       -webkit-background-clip: text;
       -moz-background-clip: text;
       background-clip: text;
@@ -872,9 +894,9 @@ cmp-content-scale {
 // Image Progress.
 cmp-image {
   position: relative;
-  @include flex-center;
-  background-color: $image-bg-color;
-  min-height: $image-min-height;
+  @include fibMixins.flex_init($center: true);
+  background-color: fibVars.$image-bg-color;
+  min-height: fibVars.$image-min-height;
 
   &.cmp__image-loaded {
     cmp-progress, .cmp__image-info {
@@ -889,21 +911,18 @@ cmp-image {
   }
 
   .cmp__image-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include fibMixins.flex_init($column: true, $center: true);
 
     cmp-icon[name="image"] {
-      color: $image-icon-color;
+      color: fibVars.$image-icon-color;
       width: 48px;
       height: 48px;
     }
 
     .cmp__status-text {
-      font-family: $image-text-font-family;
-      font-size: $image-text-font-size;
-      color: $image-text-color;
+      font-family: fibVars.$image-text-font-family;
+      font-size: fibVars.$image-text-font-size;
+      color: fibVars.$image-text-color;
     }
   }
 
@@ -911,7 +930,7 @@ cmp-image {
     position: absolute;
 
     &.cmp__first {
-      top: $lg-size;
+      top: fibVars.$lg-size;
     }
 
     &.cmp__last {
@@ -920,22 +939,20 @@ cmp-image {
   }
 
   img {
-    transition: filter $snail-speed;
+    transition: filter fibVars.$snail-speed;
   }
 }
 
 // Progress.
 cmp-progress {
   .cmp__squares-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include fibMixins.flex_init($ver: true);
 
     .cmp__square {
-      width: $progress-square-small-width;
-      height: $progress-square-small-width;
-      background-color: $progress-square-bg-color;
-      border-radius: $progress-square-border-radius;
+      width: fibVars.$progress-square-small-width;
+      height: fibVars.$progress-square-small-width;
+      background-color: fibVars.$progress-square-bg-color;
+      border-radius: fibVars.$progress-square-border-radius;
       animation: color_change 1s linear infinite;
 
       &:first-child {
@@ -959,7 +976,7 @@ cmp-progress {
       }
 
       &:not(:last-child) {
-        margin-right: 0.26rem;
+        margin-right: fibFuncs.font_size(-14);
       }
     }
   }
@@ -967,24 +984,21 @@ cmp-progress {
 
 // Widgets.
 .cmp__widget {
-  margin-bottom: $xl-size;
-  background-color: $widget-bg-color;
-  background-image: url("assets/background.png");
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  margin-bottom: fibVars.$xl-size;
+  @include fibMixins.config_container(fibVars.$widget-bg-color);
 
   .cmp__widget-header {
-    padding-top: $md-size;
+    padding-top: fibVars.$md-size;
   }
 
   .cmp__widget-body {
-    padding: $small-padding;
+    padding: fibVars.$small-padding;
 
     ul, ol, menu {
       margin-bottom: 0;
 
       li {
-        margin-bottom: 0.510rem;
+        margin-bottom: fibFuncs.font_size(-7);
       }
 
       &.cmp__inline-list {
@@ -992,7 +1006,7 @@ cmp-progress {
 
         li {
           display: inline-block;
-          margin-right: 0.236rem;
+          margin-right: fibFuncs.font_size(-15);
 
           &:before {
             display: none;
@@ -1005,26 +1019,26 @@ cmp-progress {
 
 // Status Colors.
 .cmp__status-info {
-  background-color: $dim-gray;
+  background-color: fibVars.$dim-gray;
 }
 
 .cmp__status-success {
-  background-color: $success;
+  background-color: fibVars.$success;
 }
 
 .cmp__status-warn {
-  background-color: $warn;
+  background-color: fibVars.$warn;
 }
 
 .cmp__status-error {
-  background-color: $error;
+  background-color: fibVars.$error;
 }
 
 // Selection Color.
 ::selection {
   text-shadow: none;
-  color: $white;
-  background: $brand-color;
+  color: fibVars.$white;
+  background: fibVars.$brand-color;
 }
 
 // Alignment classes.
@@ -1050,34 +1064,35 @@ cmp-progress {
 
 // Constants.
 $breakpoints: (
-        "mob": $mobile,
-        "tab": $tablet,
-        "desk": $desktop
+        "mob": fibVars.$mobile,
+        "tab": fibVars.$tablet,
+        "desk": fibVars.$desktop
 );
 
 $sizes: (
-        "xs": $xs-size,
-        "sm": $sm-size,
-        "md": $md-size,
-        "lg": $lg-size,
-        "xl": $xl-size,
-        "xxl": $xxl-size
+        "xs": fibVars.$xs-size,
+        "sm": fibVars.$sm-size,
+        "md": fibVars.$md-size,
+        "lg": fibVars.$lg-size,
+        "xl": fibVars.$xl-size,
+        "xxl": fibVars.$xxl-size
 );
 
 $colors: (
-        "brand": $brand-color,
-        "brand-dark": $brand-dark,
-        "brand-light": $brand-light,
-        "dark-gray": $dark-gray,
-        "medium-gray": $medium-gray,
-        "light-gray": $gray,
-        "dim-gray": $dim-gray,
-        "brand-gray": $brand-gray,
-        "white-color": $white,
-        "black-color": $black,
-        "success-color": $success,
-        "warn-color": $warn,
-        "error-color": $error
+        "brand": fibVars.$brand-color,
+        "brand-dark": fibVars.$brand-dark,
+        "brand-light": fibVars.$brand-light,
+        "brand-body": fibVars.$brand-body,
+        "dark-gray": fibVars.$dark-gray,
+        "medium-gray": fibVars.$medium-gray,
+        "light-gray": fibVars.$gray,
+        "dim-gray": fibVars.$dim-gray,
+        "brand-gray": fibVars.$brand-gray,
+        "white-color": fibVars.$white,
+        "black-color": fibVars.$black,
+        "success-color": fibVars.$success,
+        "warn-color": fibVars.$warn,
+        "error-color": fibVars.$error
 );
 
 // Floats & Responsive Floats.
@@ -1287,31 +1302,8 @@ $colors: (
   }
 }
 
-// Responsive Layouts.
-.cmp__flex {
-  display: flex;
-  flex-direction: row;
-}
-
-.cmp__flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-@each $breakpointname, $breakpoint in $breakpoints {
-  .cmp__#{$breakpointname}-flex {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .cmp__#{$breakpointname}-flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 // Media Queries.
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: fibVars.$tablet) {
   ul,
   ol,
   menu {
@@ -1320,18 +1312,17 @@ $colors: (
     ul,
     ol,
     menu {
-      padding-left: $md-size;
+      padding-left: fibVars.$md-size;
     }
   }
 
   .cmp__form-control {
-    flex-direction: row;
-    align-items: center;
-    background-color: $form-control-bg-color;
+    @include fibMixins.flex_update($column: false, $align: center);
+    background-color: fibVars.$form-control-bg-color;
 
     label {
-      min-width: 6.225rem;
-      margin-right: $sm-size;
+      min-width: fibFuncs.font_size(19);
+      margin-right: fibVars.$sm-size;
     }
   }
 
@@ -1365,59 +1356,39 @@ $colors: (
   cmp-progress {
     .cmp__squares-container {
       .cmp__square {
-        width: $progress-square-large-width;
-        height: $progress-square-large-width;
+        width: fibVars.$progress-square-large-width;
+        height: fibVars.$progress-square-large-width;
       }
     }
   }
 
   .cmp__widget {
     .cmp__widget-body {
-      padding: $medium-padding;
+      padding: fibVars.$medium-padding;
     }
   }
 
   .cmp__ribbon {
-    --ribbon-height: #{$ribbon-height};
-    font-size: $small-font-size;
+    --ribbon-height: #{fibVars.$ribbon-height};
+    font-size: fibVars.$small-font-size;
   }
 
   .cmp__widget-ribbon {
-    min-width: 11.089rem;
+    min-width: fibFuncs.font_size(25);
   }
 }
 
 @keyframes color_change {
   0% {
-    background-color: $progress-square-bg-color;
+    background-color: fibVars.$progress-square-bg-color;
   }
   10% {
-    background-color: $progress-square-bg-color2;
+    background-color: fibVars.$progress-square-bg-color2;
   }
   20% {
-    background-color: $progress-square-bg-color;
+    background-color: fibVars.$progress-square-bg-color;
   }
   100% {
-    background-color: $progress-square-bg-color;
-  }
-}
-
-@keyframes falling_word {
-  0% {
-    top: -100%;
-    opacity: 0.5;
-  }
-
-  10% {
-    opacity: 0.9;
-  }
-
-  80% {
-    opacity: 0.6;
-  }
-
-  100% {
-    top: calc(3.847rem + $xl-size);
-    opacity: 0;
+    background-color: fibVars.$progress-square-bg-color;
   }
 }

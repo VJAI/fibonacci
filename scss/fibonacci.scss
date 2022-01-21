@@ -1,8 +1,9 @@
-@import 'variables';
-@import 'mixins';
-@import 'foundation';
-@import 'site';
-@import 'index';
-@import 'detail';
-@import 'about';
-@import 'contact';
+@use 'functions';
+@use 'variables';
+@use 'mixins';
+@use 'foundation';
+@use 'site';
+@use 'index';
+@use 'detail';
+@use 'about';
+@use 'contact';
