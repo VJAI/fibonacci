@@ -1,5 +1,6 @@
 @use 'variables' as fibVars;
 @use 'functions' as fibFuncs;
+@use 'mixins' as fibMixins;
 
 #cmp__blog_detail {
   .cmp__article-header {
@@ -17,32 +18,34 @@
 .cmp__comments {
   .cmp__comment-by {
     margin-right: fibFuncs.font_size(-7);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include fibMixins.flex_init($column: true, $center: true);
 
     img {
       border-radius: 50%;
     }
 
     span {
-      font-family: fibVars.$heading-font-family;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background-color: fibVars.$dim-gray;
       padding: 1px 5px;
-      font-size: fibFuncs.font_size(-5);
-      border-radius: fibVars.$border-radius;
       margin-top: fibFuncs.font_size(-14);
+      font: {
+        family: fibVars.$heading-font-family;
+        size: fibFuncs.font_size(-5);
+      }
+      text-transform: uppercase;
+      letter-spacing: fibVars.$medium-letter-spacing;
       text-align: center;
+
       color: fibVars.$gray;
+      background-color: fibVars.$dim-gray;
+      border-radius: fibVars.$border-radius;
     }
   }
 
   .cmp__comments-form {
-    margin-top: fibVars.$md-size;
-    margin-bottom: fibVars.$md-size;
+    margin: {
+      top: fibVars.$md-size;
+      bottom: fibVars.$md-size;
+    };
 
     .cmp__form-container {
       display: flex;
@@ -59,15 +62,15 @@
 
   .cmp__comments-list {
     margin: fibFuncs.font_size(4) 0 0 0;
-    list-style: none;
     padding: 0;
+
+    list-style: none;
 
     li {
       padding-bottom: fibVars.$md-size;
 
       .cmp__comment {
-        display: flex;
-        align-items: flex-start;
+        @include fibMixins.flex_init($align: flex-start);
 
         .cmp__comment-by {
           margin-top: fibVars.$lg-size;
@@ -75,23 +78,27 @@
 
         .cmp__comment-detail {
           .cmp__commented-date {
-            text-align: right;
-            font-family: fibVars.$heading-font-family;
+            font: {
+              family: fibVars.$heading-font-family;
+              size: fibFuncs.font_size(-5);
+            }
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: fibFuncs.font_size(-5);
+            letter-spacing: fibVars.$medium-letter-spacing;
+            text-align: right;
+
             color: fibVars.$gray;
           }
         }
 
         .cmp__comment-reply {
-          display: flex;
-          justify-content: flex-start;
+          @include fibMixins.flex_init($justify: flex-start);
+          margin-top: fibFuncs.font_size(-14);
 
           .cmp__button {
             padding: fibFuncs.font_size(-14) fibFuncs.font_size(3);
             font-size: fibFuncs.font_size(-5);
-            background-color: transparent;
+
+            background: fibVars.$white;
             color: fibVars.$gray;
           }
         }
@@ -122,12 +129,8 @@
 
 @media only screen and (min-width: fibVars.$breakpoint2) {
   #cmp__blog_detail {
-    .cmp__article-header {
-      .cmp__article-meta {
-        .cmp__article-author {
-          top: fibFuncs.font_size(18, true);
-        }
-      }
+    .cmp__article-author {
+      top: fibFuncs.font_size(18, true);
     }
   }
 }

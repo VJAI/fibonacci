@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'variables' as fibVars;
 @use 'functions' as fibFuncs;
 @use 'mixins' as fibMixins;
@@ -235,24 +236,52 @@ a.cmp__blog-logo {
 
 // Page Main Content Container.
 .cmp__blog-main {
+  $shadow-width: 6px;
+  $shadow-adjustment: 8px;
+  $grad-color-0: rgba(204, 204, 204, 0.4);
+  $grad-color-1: transparent;
+
+  --border-radius: #{fibFuncs.font_size(5)};
+
   position: relative;
   flex: 1 1 auto;
-  padding-top: fibVars.$page-content-top;
-  padding-bottom: fibVars.$page-content-bottom;
+  padding: {
+    top: fibVars.$page-content-top;
+    bottom: fibVars.$page-content-bottom;
+  };
+
   @include fibMixins.noisy_bg(fibVars.$white);
-  border-radius: fibFuncs.font_size(5);
+  border-radius: var(--border-radius);
   box-shadow: darken(fibVars.$brand-body, 15%) -20px -5px 10px,
               darken(fibVars.$brand-body, 15%) 5px -5px 10px,
               rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    width: $shadow-width;
+    top: calc(var(--border-radius) - #{$shadow-adjustment});
+    height: calc(100% - 2 * var(--border-radius) + #{$shadow-adjustment * 2});
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(to right, $grad-color-0, $grad-color-1);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(to left, $grad-color-0, $grad-color-1);
+  }
 }
 
 // RSS subscription.
 a.cmp__subscribe {
+  --ribbon-offset: 4px;
   position: absolute;
-  left: 5%;
-  top: 0;
+  left: fibFuncs.font_size(5);
+  top: calc(-1 * var(--ribbon-offset));
   padding: 0 0 fibVars.$md-size 0;
   width: fibVars.$xl-size;
 
@@ -264,7 +293,18 @@ a.cmp__subscribe {
     line-height: 0.8;
     text-align: center;
 
-    background-image: linear-gradient(darken(fibVars.$rss-ribbon-bg, 5%) 0%, fibVars.$rss-ribbon-bg 100%);
+    background-image: linear-gradient(darken(fibVars.$rss-ribbon-bg, 7%) 0%, fibVars.$rss-ribbon-bg 100%), url('#{fibVars.$assets-path}/background.png');
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(-1 * var(--ribbon-offset));
+      height: calc(var(--ribbon-offset) / 2);
+      border: solid calc(var(--ribbon-offset) / 2) fibVars.$gray;
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
 
     span {
       font-size: fibVars.$sm-size;
@@ -896,7 +936,7 @@ blockquote {
 
   // Article Meta Changes.
   .cmp__blog-main {
-    border-radius: fibFuncs.font_size(10);
+    --border-radius: #{fibFuncs.font_size(10)};
   }
 
   // Page title.
@@ -945,6 +985,8 @@ blockquote {
 
   // Subscribe link changes.
   a.cmp__subscribe {
+    --ribbon-offset: 6px;
+    left: calc(#{fibVars.$md-size} + 2rem + 0.26rem);
     padding-bottom: fibVars.$lg-size;
     width: fibVars.$xxl-size;
 
