@@ -2811,20 +2811,14 @@ a.cmp__blog-logo .cmp__blog-name {
 a.cmp__subscribe {
   --ribbon-offset: 4px;
   position: absolute;
-  left: 1.618rem;
+  right: 5%;
   top: calc(-1 * var(--ribbon-offset));
   padding: 0 0 var(--md-size) 0;
   width: var(--xl-size);
   border-bottom: none;
+  z-index: 10;
 }
-a.cmp__subscribe div {
-  display: block;
-  padding: 0.26rem 0;
-  line-height: 0.8;
-  text-align: center;
-  background-image: linear-gradient(#d4d4d4 0%, #e6e6e6 100%), url("assets/background.png");
-}
-a.cmp__subscribe div:before {
+a.cmp__subscribe:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2833,6 +2827,13 @@ a.cmp__subscribe div:before {
   border: solid calc(var(--ribbon-offset) / 2) #9a9a9a;
   border-left-color: transparent;
   border-top-color: transparent;
+}
+a.cmp__subscribe div {
+  display: block;
+  padding: 0.26rem 0;
+  line-height: 0.8;
+  text-align: center;
+  background-image: url("assets/background.png"), linear-gradient(#d4d4d4 0%, #e6e6e6 100%);
 }
 a.cmp__subscribe div span {
   font-size: var(--sm-size);
@@ -2855,18 +2856,16 @@ a.cmp__subscribe span:after {
   border-bottom: var(--md-size) solid transparent;
 }
 
-.cmp__go-top {
+a.cmp__go-top {
+  --border-width: 1rem;
+  --border-color: #e6e6e6;
   position: absolute;
-  bottom: var(--sm-size);
-  right: var(--sm-size);
-  border-bottom: none;
-}
-.cmp__go-top cmp-icon {
-  color: #e6e6e6;
-  transition: color 0.5s;
-}
-.cmp__go-top:hover cmp-icon {
-  color: #9a9a9a;
+  bottom: 0;
+  left: calc(50% - var(--border-width));
+  border: solid var(--border-width) var(--border-color);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
 }
 
 .cmp__blog-content {
@@ -3348,7 +3347,6 @@ blockquote.cmp__responsive {
 
   a.cmp__subscribe {
     --ribbon-offset: 6px;
-    left: calc(var(--md-size) + 2rem + 0.26rem);
     padding-bottom: var(--lg-size);
     width: var(--xxl-size);
   }
@@ -3404,6 +3402,10 @@ blockquote.cmp__responsive {
   .cmp__ribbon-container .cmp__ribbon {
     width: 40%;
   }
+
+  a.cmp__go-top {
+    --border-width: 1.335rem;
+  }
 }
 @media only screen and (min-width: 878px) {
   .cmp__auto-layout > *, .cmp__responsive {
@@ -3458,6 +3460,20 @@ blockquote.cmp__responsive {
   }
   100% {
     right: 0;
+  }
+}
+@keyframes go-top {
+  0% {
+    top: -6px;
+  }
+  25% {
+    top: -12px;
+  }
+  75% {
+    top: -3px;
+  }
+  100% {
+    top: -6px;
   }
 }
 .cmp__tab-hide {

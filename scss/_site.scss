@@ -280,12 +280,25 @@ a.cmp__blog-logo {
 a.cmp__subscribe {
   --ribbon-offset: 4px;
   position: absolute;
-  left: fibFuncs.font_size(5);
+  right: 5%;
   top: calc(-1 * var(--ribbon-offset));
   padding: 0 0 fibVars.$md-size 0;
   width: fibVars.$xl-size;
 
   border-bottom: none;
+
+  z-index: 10;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-1 * var(--ribbon-offset));
+    height: calc(var(--ribbon-offset) / 2);
+    border: solid calc(var(--ribbon-offset) / 2) fibVars.$gray;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
 
   div {
     display: block;
@@ -293,18 +306,7 @@ a.cmp__subscribe {
     line-height: 0.8;
     text-align: center;
 
-    background-image: linear-gradient(darken(fibVars.$rss-ribbon-bg, 7%) 0%, fibVars.$rss-ribbon-bg 100%), url('#{fibVars.$assets-path}/background.png');
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: calc(-1 * var(--ribbon-offset));
-      height: calc(var(--ribbon-offset) / 2);
-      border: solid calc(var(--ribbon-offset) / 2) fibVars.$gray;
-      border-left-color: transparent;
-      border-top-color: transparent;
-    }
+    background-image: url('#{fibVars.$assets-path}/background.png'), linear-gradient(darken(fibVars.$rss-ribbon-bg, 7%) 0%, fibVars.$rss-ribbon-bg 100%);
 
     span {
       font-size: fibVars.$sm-size;
@@ -327,22 +329,17 @@ a.cmp__subscribe {
 }
 
 // Go top.
-.cmp__go-top {
+a.cmp__go-top {
+  --border-width: #{fibFuncs.font_size(0)};
+  --border-color: #{fibVars.$light-gray};
+
   position: absolute;
-  bottom: fibVars.$sm-size;
-  right: fibVars.$sm-size;
-  border-bottom: none;
-
-  cmp-icon {
-    color: fibVars.$light-gray;
-    transition: color fibVars.$medium-speed;
-  }
-
-  &:hover {
-    cmp-icon {
-      color: fibVars.$gray;
-    }
-  }
+  bottom: 0;
+  left: calc(50% - var(--border-width));
+  border: solid var(--border-width) var(--border-color);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
 }
 
 // Page Content.
@@ -986,7 +983,6 @@ blockquote {
   // Subscribe link changes.
   a.cmp__subscribe {
     --ribbon-offset: 6px;
-    left: calc(#{fibVars.$md-size} + 2rem + 0.26rem);
     padding-bottom: fibVars.$lg-size;
     width: fibVars.$xxl-size;
 
@@ -1057,6 +1053,11 @@ blockquote {
     .cmp__ribbon {
       width: 40%;
     }
+  }
+
+  // Go top.
+  a.cmp__go-top {
+    --border-width: #{fibFuncs.font_size(3)};
   }
 }
 
@@ -1135,5 +1136,20 @@ blockquote {
   }
   100% {
     right: 0;
+  }
+}
+
+@keyframes go-top {
+  0% {
+    top: -6px;
+  }
+  25% {
+    top: -12px;
+  }
+  75% {
+    top: -3px;
+  }
+  100% {
+    top: -6px;
   }
 }
