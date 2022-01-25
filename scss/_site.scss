@@ -280,7 +280,7 @@ a.cmp__blog-logo {
 a.cmp__subscribe {
   --ribbon-offset: 4px;
   position: absolute;
-  right: 5%;
+  right: calc(#{fibFuncs.font_size(-4)} + #{fibVars.$md-size} - 4px);
   top: calc(-1 * var(--ribbon-offset));
   padding: 0 0 fibVars.$md-size 0;
   width: fibVars.$xl-size;
@@ -985,6 +985,7 @@ blockquote {
     --ribbon-offset: 6px;
     padding-bottom: fibVars.$lg-size;
     width: fibVars.$xxl-size;
+    right: 5%;
 
     div {
       line-height: 1.2;

@@ -2811,7 +2811,7 @@ a.cmp__blog-logo .cmp__blog-name {
 a.cmp__subscribe {
   --ribbon-offset: 4px;
   position: absolute;
-  right: 5%;
+  right: calc(0.68rem + var(--md-size) - 4px);
   top: calc(-1 * var(--ribbon-offset));
   padding: 0 0 var(--md-size) 0;
   width: var(--xl-size);
@@ -3349,6 +3349,7 @@ blockquote.cmp__responsive {
     --ribbon-offset: 6px;
     padding-bottom: var(--lg-size);
     width: var(--xxl-size);
+    right: 5%;
   }
   a.cmp__subscribe div {
     line-height: 1.2;
