@@ -27,8 +27,8 @@
     
     _setIcon() {
       const useElement = this.querySelector('use');
-      useElement.setAttribute('xlink:href', `./assets/sprites.svg#${this.name}`);
-      useElement.setAttribute('href', `./assets/sprites.svg#${this.name}`);
+      useElement.setAttribute('xlink:href', `./assets/bootstrap-icons.svg#${this.name}`);
+      useElement.setAttribute('href', `./assets/bootstrap-icons.svg#${this.name}`);
     }
     
     _setSize() {

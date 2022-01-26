@@ -20,6 +20,17 @@
   --xl-size: #{fibFuncs.font_size(6)};
   --xxl-size: #{fibFuncs.font_size(8)};
   font-size: var(--base-size);
+
+  --brand-color: #{fibVars.$brand-color};
+  --brand-light: #{fibVars.$brand-light};
+  --brand-dark: #{fibVars.$brand-dark};
+  --brand-body: #{fibVars.$brand-body};
+  --brand-gray: #{fibVars.$brand-gray};
+  --dark-gray: #{fibVars.$dark-gray};
+  --medium-gray: #{fibVars.$medium-gray};
+  --gray: #{fibVars.$gray};
+  --light-gray: #{fibVars.$light-gray};
+  --dim-gray: #{fibVars.$dim-gray};
 }
 
 // Sizes for Tablet, Desktop and Large Devices.
@@ -650,7 +661,7 @@ input[type="text"], input[type="email"], input[type="search"], input[type="numbe
 
 // Buttons.
 button, [type="button"], [type="submit"] {
-  @include fibMixins.flex_init($ver: true);
+  @include fibMixins.flex_init($center: true);
   padding: fibVars.$button-padding;
 
   font: {
@@ -675,6 +686,28 @@ button, [type="button"], [type="submit"] {
 
   cmp-icon {
     margin-right: fibFuncs.font_size(-14);
+  }
+
+  // Icon buttons.
+  &.cmp__icon-button {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: inherit;
+
+    cmp-icon {
+      margin-right: 0;
+    }
+
+    i {
+      display: block;
+      align-self: flex-end;
+      margin-left: fibFuncs.font_size(-18);
+      font-style: normal;
+      font-size: fibFuncs.font_size(-5);
+      letter-spacing: fibVars.$extra-small-letter-spacing;
+    }
   }
 }
 
@@ -900,13 +933,13 @@ cmp-image {
 
   &.cmp__image-loaded {
     cmp-progress, .cmp__image-info {
-      display: none;
+      display: none !important;
     }
   }
 
   &.cmp__image-error {
     cmp-progress {
-      display: none;
+      display: none !important;
     }
   }
 
@@ -1327,11 +1360,9 @@ $colors: (
   }
 
   cmp-image {
-    &:not(.cmp__image-loaded) {
-      cmp-progress {
-        &.cmp__last {
-          display: block;
-        }
+    cmp-progress {
+      &.cmp__last {
+        display: block;
       }
     }
 

@@ -43,14 +43,7 @@ Important SCSS variables.
 
 ## Icons
 
-Icons are downloaded from [bootstrap](https://icons.getbootstrap.com/). Drop the svg file downloaded from the site to 
-"assets" folder and then update the `width` and `height` to `100%`. Run the below command to re-generate the sprite image.
-
-```
-npm run sprites
-```
-
-The above command will create a `sprite.scss` file and `sprites.svg` image under the "assets" folder.
+We've used [bootstrap icons](https://icons.getbootstrap.com/). The icon sprite file "bootstrap-icons.svg" is dropped in the "assets" folder.
 
 ## License
 

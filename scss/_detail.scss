@@ -90,16 +90,18 @@
           }
         }
 
-        .cmp__comment-reply {
-          @include fibMixins.flex_init($justify: flex-start);
-          margin-top: fibFuncs.font_size(-14);
+        .cmp__comment-actions {
+          @include fibMixins.flex_init($justify: flex-start, $ver: true);
+          margin-top: fibFuncs.font_size(-10);
+          margin-left: fibFuncs.font_size(-10);
 
-          .cmp__button {
-            padding: fibFuncs.font_size(-14) fibFuncs.font_size(3);
-            font-size: fibFuncs.font_size(-5);
-
-            background: fibVars.$white;
+          .cmp__icon-button {
             color: fibVars.$gray;
+            margin-right: fibFuncs.font_size(0);
+
+            &.cmp__button-clicked {
+              color: fibVars.$medium-gray;
+            }
           }
         }
       }

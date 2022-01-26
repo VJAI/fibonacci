@@ -31,6 +31,16 @@
   --xl-size: 1.781rem;
   --xxl-size: 2.16rem;
   font-size: var(--base-size);
+  --brand-color: #f04875;
+  --brand-light: #f68faa;
+  --brand-dark: #da1247;
+  --brand-body: #b82a50;
+  --brand-gray: #bdb5b8;
+  --dark-gray: #333333;
+  --medium-gray: #5c5c5c;
+  --gray: #9a9a9a;
+  --light-gray: #e6e6e6;
+  --dim-gray: #f7f7f7;
 }
 
 @media only screen and (min-width: 768px) {
@@ -580,6 +590,7 @@ input[type=text]:focus, input[type=text]:active, input[type=email]:focus, input[
 
 button, [type=button], [type=submit] {
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0.51rem 0.749rem;
   font-family: "Source Sans Pro", Arial, Tahoma, sans-serif;
@@ -599,6 +610,24 @@ button:focus, button:active, button:hover, [type=button]:focus, [type=button]:ac
 }
 button cmp-icon, [type=button] cmp-icon, [type=submit] cmp-icon {
   margin-right: 0.26rem;
+}
+button.cmp__icon-button, [type=button].cmp__icon-button, [type=submit].cmp__icon-button {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: inherit;
+}
+button.cmp__icon-button cmp-icon, [type=button].cmp__icon-button cmp-icon, [type=submit].cmp__icon-button cmp-icon {
+  margin-right: 0;
+}
+button.cmp__icon-button i, [type=button].cmp__icon-button i, [type=submit].cmp__icon-button i {
+  display: block;
+  align-self: flex-end;
+  margin-left: 0.177rem;
+  font-style: normal;
+  font-size: 0.618rem;
+  letter-spacing: -0.5px;
 }
 
 ::placeholder {
@@ -790,10 +819,10 @@ cmp-image {
   min-height: 180px;
 }
 cmp-image.cmp__image-loaded cmp-progress, cmp-image.cmp__image-loaded .cmp__image-info {
-  display: none;
+  display: none !important;
 }
 cmp-image.cmp__image-error cmp-progress {
-  display: none;
+  display: none !important;
 }
 cmp-image .cmp__image-info {
   display: flex;
@@ -2557,7 +2586,7 @@ menu menu {
     margin-right: var(--sm-size);
   }
 
-  cmp-image:not(.cmp__image-loaded) cmp-progress.cmp__last {
+  cmp-image cmp-progress.cmp__last {
     display: block;
   }
   cmp-image .cmp__image-info cmp-icon[name=image] {
@@ -3551,16 +3580,19 @@ blockquote.cmp__responsive {
   text-align: right;
   color: #9a9a9a;
 }
-.cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-reply {
+.cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-actions {
   display: flex;
+  align-items: center;
   justify-content: flex-start;
-  margin-top: 0.26rem;
+  margin-top: 0.382rem;
+  margin-left: 0.382rem;
 }
-.cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-reply .cmp__button {
-  padding: 0.26rem 1.335rem;
-  font-size: 0.618rem;
-  background: white;
+.cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-actions .cmp__icon-button {
   color: #9a9a9a;
+  margin-right: 1rem;
+}
+.cmp__comments .cmp__comments-list li .cmp__comment .cmp__comment-actions .cmp__icon-button.cmp__button-clicked {
+  color: #5c5c5c;
 }
 .cmp__comments .cmp__comments-list li:before {
   display: none;
