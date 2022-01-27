@@ -236,8 +236,9 @@ a.cmp__blog-logo {
 
 // Page Main Content Container.
 .cmp__blog-main {
-  $shadow-width: 6px;
-  $shadow-adjustment: 8px;
+  $outside-shadow-dark: darken(fibVars.$brand-body, 15%);
+  $inner-shadow-width: 6px;
+  $inner-shadow-adjustment: 8px;
   $grad-color-0: rgba(204, 204, 204, 0.4);
   $grad-color-1: transparent;
 
@@ -252,17 +253,18 @@ a.cmp__blog-logo {
 
   @include fibMixins.noisy_bg(fibVars.$white);
   border-radius: var(--border-radius);
-  box-shadow: darken(fibVars.$brand-body, 15%) -20px -5px 10px,
-              darken(fibVars.$brand-body, 15%) 5px -5px 10px,
+  box-shadow: $outside-shadow-dark -20px -5px 10px,
+              $outside-shadow-dark 5px -5px 10px,
+              $outside-shadow-dark -20px 0 100px -20px,
               rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   &:before, &:after {
     content: '';
     position: absolute;
-    width: $shadow-width;
-    top: calc(var(--border-radius) - #{$shadow-adjustment});
-    height: calc(100% - 2 * var(--border-radius) + #{$shadow-adjustment * 2});
+    width: $inner-shadow-width;
+    top: calc(var(--border-radius) - #{$inner-shadow-adjustment});
+    height: calc(100% - 2 * var(--border-radius) + #{$inner-shadow-adjustment * 2});
   }
 
   &:before {
@@ -274,6 +276,22 @@ a.cmp__blog-logo {
     right: 0;
     background: linear-gradient(to left, $grad-color-0, $grad-color-1);
   }
+}
+
+// Spiral.
+.cmp__spiral {
+  $spiral-width: 80px;
+  $spiral-offset: 27px;
+
+  display: none;
+  height: calc(100% - 2 * #{fibFuncs.font_size(16)});
+  width: $spiral-width;
+  position: absolute;
+  top: fibFuncs.font_size(16);
+  left: -1 * $spiral-offset;
+  background-image: url("#{fibVars.$assets-path}/spiral.png");
+  background-repeat: repeat-y;
+  z-index: 100;
 }
 
 // RSS subscription.
@@ -1084,6 +1102,16 @@ blockquote {
         }
       }
     }
+  }
+
+  // Blog content.
+  .cmp__blog-main {
+    margin: 0 fibVars.$xl-size;
+  }
+
+  // Display spiral.
+  .cmp__spiral {
+    display: block;
   }
 }
 
