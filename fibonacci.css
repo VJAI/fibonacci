@@ -2819,7 +2819,7 @@ a.cmp__blog-logo .cmp__blog-name {
   padding-bottom: 6.225rem;
   background: url("assets/background.png") white;
   border-radius: var(--border-radius);
-  box-shadow: #7a1c35 -20px -5px 10px, #7a1c35 5px -5px 10px, #7a1c35 -20px 0 100px -20px, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: #7a1c35 -20px -5px 10px, #7a1c35 5px -5px 10px, #7a1c35 -20px 0 100px -20px, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, white 2px 2px, white 4px 4px;
 }
 .cmp__blog-main:before, .cmp__blog-main:after {
   content: "";

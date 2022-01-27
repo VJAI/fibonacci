@@ -257,7 +257,8 @@ a.cmp__blog-logo {
               $outside-shadow-dark 5px -5px 10px,
               $outside-shadow-dark -20px 0 100px -20px,
               rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              fibVars.$white 2px 2px, fibVars.$white 4px 4px;
 
   &:before, &:after {
     content: '';
