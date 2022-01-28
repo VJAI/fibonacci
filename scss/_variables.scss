@@ -18,7 +18,7 @@ $black:                             rgb(0, 0, 0) !default;
 
 // Brand Colors.
 $brand-color:                       rgb(240, 72, 117) !default;
-$brand-body:                        rgb(184, 42, 80) !default;
+$brand-bg:                          rgb(75, 85, 94) !default;
 $brand-gray:                        rgb(189, 181, 184) !default;
 
 $brand-light:                       color.adjust($brand-color, $lightness: 15%) !default;
@@ -72,7 +72,7 @@ $extra-large-letter-spacing:        3px !default;
 $border-radius:                     3px !default;
 
 // Shadows.
-$box-shadow:                        rgba(0, 0, 0, 0.1) 0px 1px 2px 0px !default;
+$box-shadow:                        rgba(0, 0, 0, 0.1) 0 1px 2px 0 !default;
 
 // Containers.
 $container-width:                   42rem !default;

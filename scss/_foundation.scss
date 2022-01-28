@@ -24,7 +24,7 @@
   --brand-color: #{fibVars.$brand-color};
   --brand-light: #{fibVars.$brand-light};
   --brand-dark: #{fibVars.$brand-dark};
-  --brand-body: #{fibVars.$brand-body};
+  --brand-bg: #{fibVars.$brand-bg};
   --brand-gray: #{fibVars.$brand-gray};
   --dark-gray: #{fibVars.$dark-gray};
   --medium-gray: #{fibVars.$medium-gray};
@@ -672,7 +672,7 @@ button, [type="button"], [type="submit"] {
   letter-spacing: fibVars.$medium-letter-spacing;
 
   border-radius: fibVars.$border-radius;
-  background-image: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-body);
+  background-image: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-dark);
   color: fibVars.$button-text-color;
   border: none;
   cursor: pointer;
@@ -1050,6 +1050,88 @@ cmp-progress {
   }
 }
 
+// Cards list.
+.cmp__cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: fibVars.$xl-size;
+
+  .cmp__card {
+    margin-bottom: fibVars.$xl-size;
+  }
+}
+
+// Cards.
+.cmp__card {
+  box-shadow: fibVars.$box-shadow;
+  border-radius: fibVars.$border-radius;
+  transition: fibVars.$box-shadow fibVars.$medium-speed;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 6px;
+
+    /*.cmp__card-header {
+      img {
+        transform: scale(1.1);
+      }
+    }*/
+  }
+
+  .cmp__card-header {
+    position: relative;
+
+    .cmp__card-title {
+      position: absolute;
+      width: 100%;
+      padding: fibFuncs.font_size(-10);
+      background-color: rgba(0, 0, 0, 0.1);
+
+      h5 {
+        margin: 0;
+        color: fibVars.$dim-gray;
+        font-size: fibVars.$sm-size;
+      }
+    }
+
+    img {
+      width: 100%;
+      border-top-left-radius: fibVars.$border-radius;
+      border-top-right-radius: fibVars.$border-radius;
+      transition: transform fibVars.$medium-speed;
+    }
+  }
+
+  .cmp__card-footer {
+    padding: 0 fibVars.$sm-size;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0;
+      font-family: fibVars.$heading-font-family;
+      font-size: fibVars.$sm-size;
+      color: fibVars.$gray;
+    }
+
+    .cmp__card-actions {
+      display: flex;
+      margin: fibVars.$sm-size 0;
+
+      button {
+        flex-grow: 1;
+        color: fibVars.$gray;
+      }
+    }
+  }
+}
+
+// Page custom heading.
+.cmp__section-heading {
+  margin-top: fibVars.$xxl-size;
+  margin-bottom: fibVars.$md-size;
+  color: fibVars.$gray;
+}
+
 // Status Colors.
 .cmp__status-info {
   background-color: fibVars.$dim-gray;
@@ -1115,7 +1197,7 @@ $colors: (
         "brand": fibVars.$brand-color,
         "brand-dark": fibVars.$brand-dark,
         "brand-light": fibVars.$brand-light,
-        "brand-body": fibVars.$brand-body,
+        "brand-bg": fibVars.$brand-bg,
         "dark-gray": fibVars.$dark-gray,
         "medium-gray": fibVars.$medium-gray,
         "light-gray": fibVars.$gray,
@@ -1406,6 +1488,14 @@ $colors: (
 
   .cmp__widget-ribbon {
     min-width: fibFuncs.font_size(25);
+  }
+
+  .cmp__cards-list {
+    justify-content: space-between;
+
+    .cmp__card {
+      width: calc(50% - #{fibVars.$md-size});
+    }
   }
 }
 

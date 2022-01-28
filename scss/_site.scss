@@ -11,7 +11,7 @@ html, body {
 // Site Body.
 .cmp__blog {
   transition: filter fibVars.$fast-speed;
-  background-color: fibVars.$brand-body;
+  background: url('#{fibVars.$assets-path}/background2.png') fibVars.$brand-bg;
 
   &.cmp__site-loading {
     filter: blur(fibVars.$blur);
@@ -167,7 +167,7 @@ a.cmp__blog-logo {
         transition: all fibVars.$medium-speed;
 
         &:hover {
-          background-color: darken(fibVars.$brand-body, 5%);
+          background-color: darken(fibVars.$brand-bg, 5%);
           color: fibVars.$dim-gray;
         }
 
@@ -236,7 +236,7 @@ a.cmp__blog-logo {
 
 // Page Main Content Container.
 .cmp__blog-main {
-  $outside-shadow-dark: darken(fibVars.$brand-body, 15%);
+  $outside-shadow-dark: darken(fibVars.$brand-bg, 15%);
   $inner-shadow-width: 6px;
   $inner-shadow-adjustment: 8px;
   $grad-color-0: rgba(204, 204, 204, 0.4);
@@ -251,14 +251,17 @@ a.cmp__blog-logo {
     bottom: fibVars.$page-content-bottom;
   };
 
-  @include fibMixins.noisy_bg(fibVars.$white);
+  background: url('#{fibVars.$assets-path}/background.png'),
+    url('#{fibVars.$assets-path}/svgbg.svg') no-repeat left top, fibVars.$white;
+
+  background-size: auto, 50%;
+
   border-radius: var(--border-radius);
   box-shadow: $outside-shadow-dark -20px -5px 10px,
               $outside-shadow-dark 5px -5px 10px,
               $outside-shadow-dark -20px 0 100px -20px,
               rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              fibVars.$white 2px 2px, fibVars.$white 4px 4px;
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   &:before, &:after {
     content: '';
@@ -281,7 +284,7 @@ a.cmp__blog-logo {
 
 // Spiral.
 .cmp__spiral {
-  $spiral-width: 80px;
+  $spiral-width: 60px;
   $spiral-offset: 27px;
 
   display: none;
@@ -291,8 +294,40 @@ a.cmp__blog-logo {
   top: fibFuncs.font_size(16);
   left: -1 * $spiral-offset;
   background-image: url("#{fibVars.$assets-path}/spiral.png");
+  background-size: $spiral-width auto;
   background-repeat: repeat-y;
   z-index: 100;
+}
+
+// Color bars.
+.cmp__color-bars {
+  --bar-height: #{fibFuncs.font_size(-2)};
+  --bar-width: #{fibFuncs.font_size(-10)};
+
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: fibVars.$lg-size;
+  height: var(--bar-height);
+
+  .cmp__color-bar {
+    width: var(--bar-width);
+    height: 100%;
+    position: relative;
+    margin-right: 1px;
+    background-color: fibVars.$light-gray;
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: calc(-1 * var(--bar-width) - 1px);
+      left: 0;
+      width: var(--bar-width);
+      height: var(--bar-width);
+      background-color: inherit;
+      transform: rotate(45deg);
+    }
+  }
 }
 
 // RSS subscription.
@@ -760,7 +795,7 @@ blockquote {
   background-color: fibVars.$drop-cap-bg-color;
   color: fibVars.$drop-cap-color;
   border-radius: fibVars.$border-radius;
-  box-shadow: -1px -1px 10px fibVars.$brand-body inset;
+  box-shadow: -1px -1px 10px fibVars.$brand-dark inset;
 }
 
 // Page navigation.
@@ -1078,6 +1113,13 @@ blockquote {
   // Go top.
   a.cmp__go-top {
     --border-width: #{fibFuncs.font_size(3)};
+  }
+
+  // Color bars.
+  .cmp__color-bars {
+    --bar-height: #{fibFuncs.font_size(0)};
+    --bar-width: #{fibFuncs.font_size(-7)};
+    left: fibFuncs.font_size(18);
   }
 }
 
