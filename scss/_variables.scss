@@ -73,6 +73,7 @@ $border-radius:                     3px !default;
 
 // Shadows.
 $box-shadow:                        rgba(0, 0, 0, 0.1) 0 1px 2px 0 !default;
+$box-shadow-hover:                  rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !default;
 
 // Containers.
 $container-width:                   42rem !default;
@@ -286,6 +287,14 @@ $progress-square-bg-color2:         $brand-color !default;
 $progress-square-small-width:       fibFuncs.font_size(-4) !default;
 $progress-square-large-width:       $sm-size !default;
 $progress-square-border-radius:     2px !default;
+
+// Card component.
+$card-header-bg:                    $dark-gray !default;
+$card-title-font-size:              $sm-size !default;
+$card-title-color:                  $dim-gray !default;
+$card-footer-font-family:           $heading-font-family !default;
+$card-footer-font-size:             $sm-size !default;
+$card-footer-color:                 $gray !default;
 
 // Utility Classes Variables.
 $drop-cap-font-size:                300% !default;

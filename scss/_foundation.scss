@@ -1063,33 +1063,45 @@ cmp-progress {
 
 // Cards.
 .cmp__card {
+  @include fibMixins.flex_init($column: true);
   box-shadow: fibVars.$box-shadow;
   border-radius: fibVars.$border-radius;
   transition: fibVars.$box-shadow fibVars.$medium-speed;
+  text-shadow: none;
 
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 6px;
+    box-shadow: fibVars.$box-shadow-hover;
 
-    /*.cmp__card-header {
-      img {
-        transform: scale(1.1);
+    .cmp__card-header {
+      .cmp__card-title {
+        background-color: rgba(0, 0, 0, 0.1);
       }
-    }*/
+
+      img {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
   }
 
   .cmp__card-header {
+    display: block;
+    overflow: hidden;
     position: relative;
+    background-color: fibVars.$card-header-bg;
 
     .cmp__card-title {
       position: absolute;
       width: 100%;
+      height: 100%;
       padding: fibFuncs.font_size(-10);
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: background-color fibVars.$medium-speed;
+      z-index: 10;
 
       h5 {
         margin: 0;
-        color: fibVars.$dim-gray;
-        font-size: fibVars.$sm-size;
+        color: fibVars.$card-title-color;
+        font-size: fibVars.$card-title-font-size;
       }
     }
 
@@ -1098,28 +1110,34 @@ cmp-progress {
       border-top-left-radius: fibVars.$border-radius;
       border-top-right-radius: fibVars.$border-radius;
       transition: transform fibVars.$medium-speed;
+      object-fit: cover;
     }
   }
 
   .cmp__card-footer {
     padding: 0 fibVars.$sm-size;
-    display: flex;
-    flex-direction: column;
+    @include fibMixins.flex_init($column: true);
+    background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(120deg, fibVars.$white, fibVars.$dim-gray);
 
     p {
-      margin: 0;
-      font-family: fibVars.$heading-font-family;
-      font-size: fibVars.$sm-size;
-      color: fibVars.$gray;
+      margin: fibVars.$sm-size 0 0;
+      text-shadow: none;
+
+      font: {
+        family: fibVars.$card-footer-font-family;
+        size: fibVars.$card-footer-font-size;
+      }
+
+      color: fibVars.$card-footer-color;
     }
 
     .cmp__card-actions {
-      display: flex;
+      @include fibMixins.flex_init();
       margin: fibVars.$sm-size 0;
 
       button {
         flex-grow: 1;
-        color: fibVars.$gray;
+        color: fibVars.$card-footer-color;
       }
     }
   }
@@ -1127,9 +1145,38 @@ cmp-progress {
 
 // Page custom heading.
 .cmp__section-heading {
-  margin-top: fibVars.$xxl-size;
-  margin-bottom: fibVars.$md-size;
+  $border-color: darken(fibVars.$dim-gray, 10%);
+
+  position: relative;
+  @include fibMixins.flex_init($center: true);
+  margin: {
+    top: fibVars.$xxl-size;
+    bottom: fibVars.$xl-size;
+  };
+
   color: fibVars.$gray;
+
+  span {
+    position: relative;
+    padding: fibFuncs.font_size(-8) fibVars.$sm-size;
+    font-size: fibFuncs.font_size(0);
+    text-transform: uppercase;
+    letter-spacing: fibVars.$medium-letter-spacing;
+    background: url('#{fibVars.$assets-path}/background.png'),
+      linear-gradient(120deg, fibVars.$white, fibVars.$dim-gray) fibVars.$white;
+    border: solid 1px $border-color;
+    border-radius: fibVars.$border-radius;
+    z-index: 1;
+  }
+
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px $border-color;
+  }
 }
 
 // Status Colors.

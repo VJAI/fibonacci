@@ -43,6 +43,25 @@
   }
 }
 
+// Project card.
+.cmp__project-card {
+  .cmp__card-header {
+    height: 240px;
+  }
+
+  .cmp__card-footer {
+    .cmp__card-actions {
+      button:first-child {
+        justify-content: flex-start;
+      }
+
+      button:last-child {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: fibVars.$mobile) {
   .cmp__social-widget {
     flex-direction: row;
