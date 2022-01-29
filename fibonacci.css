@@ -916,6 +916,7 @@ cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: var(--xl-size);
+  padding: 0 var(--sm-size);
 }
 .cmp__cards-list .cmp__card {
   margin-bottom: var(--xl-size);
@@ -997,15 +998,37 @@ cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
   color: #9a9a9a;
 }
 .cmp__section-heading span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  padding: 0.463rem var(--sm-size);
-  font-size: 1rem;
-  text-transform: uppercase;
+  height: var(--xl-size);
+  line-height: var(--xl-size);
+  font-family: "Source Sans Pro", Arial, Tahoma, sans-serif;
+  font-size: var(--xs-size);
+  font-weight: bold;
   letter-spacing: 1px;
-  background: url("assets/background.png"), linear-gradient(120deg, white, #f7f7f7) white;
-  border: solid 1px #dedede;
-  border-radius: 3px;
+  text-transform: uppercase;
+  background-color: #e6e6e6;
+  color: #5c5c5c;
   z-index: 1;
+}
+.cmp__section-heading span::before, .cmp__section-heading span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border: calc(var(--xl-size) / 2) solid #e6e6e6;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.cmp__section-heading span::before {
+  left: calc(-1 * var(--xl-size));
+  border-left-color: transparent;
+}
+.cmp__section-heading span::after {
+  right: calc(-1 * var(--xl-size));
+  border-right-color: transparent;
 }
 .cmp__section-heading:after {
   position: absolute;

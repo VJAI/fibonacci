@@ -1055,6 +1055,7 @@ cmp-progress {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: fibVars.$xl-size;
+  padding: 0 fibVars.$sm-size;
 
   .cmp__card {
     margin-bottom: fibVars.$xl-size;
@@ -1157,16 +1158,42 @@ cmp-progress {
   color: fibVars.$gray;
 
   span {
+    @include fibMixins.flex_init($center: true);
     position: relative;
-    padding: fibFuncs.font_size(-8) fibVars.$sm-size;
-    font-size: fibFuncs.font_size(0);
-    text-transform: uppercase;
+    height: fibVars.$widget-ribbon-height;
+    line-height: fibVars.$widget-ribbon-height;
+    font: {
+      family: fibVars.$heading-font-family;
+      size: fibVars.$small-font-size;
+      weight: bold;
+    };
     letter-spacing: fibVars.$medium-letter-spacing;
-    background: url('#{fibVars.$assets-path}/background.png'),
-      linear-gradient(120deg, fibVars.$white, fibVars.$dim-gray) fibVars.$white;
-    border: solid 1px $border-color;
-    border-radius: fibVars.$border-radius;
+    text-transform: uppercase;
+
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
     z-index: 1;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    &::before {
+      left: calc(-1 * #{fibVars.$xl-size});
+      border-left-color: transparent;
+    }
+
+    &::after {
+      right: calc(-1 * #{fibVars.$xl-size});
+      border-right-color: transparent;
+    }
   }
 
   &:after {
