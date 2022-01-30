@@ -246,6 +246,7 @@ $article-author-admin-badge-color:  $yellow-green !default;
 $article-author-guest-badge-color:  $gray !default;
 $author-pic-default-width:          30px !default;
 $author-pic-large-screen-width:     fibFuncs.font_size(15) !default;
+$comment-textarea-minheight:        75px !default;
 
 // Widgets.
 $widget-bg-color:                   $dim-gray !default;
@@ -295,6 +296,10 @@ $card-title-color:                  $dim-gray !default;
 $card-footer-font-family:           $heading-font-family !default;
 $card-footer-font-size:             $sm-size !default;
 $card-footer-color:                 $gray !default;
+
+// Project Card.
+$project-card-header-height:        240px !default;
+$person-card-header-height:         360px !default;
 
 // Utility Classes Variables.
 $drop-cap-font-size:                300% !default;

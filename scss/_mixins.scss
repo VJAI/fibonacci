@@ -261,17 +261,29 @@
   padding: 0;
 }
 
+/// Sets horizontal margin.
 @mixin set_hor_margin($value) {
   margin-left: $value;
   margin-right: $value;
 }
 
+// Sets shadow and border radius.
 @mixin set_shadow_radius {
   border-radius: fibVars.$border-radius;
   box-shadow: fibVars.$box-shadow;
 }
 
+// Sets no shadow and removes border radius.
 @mixin no_shadow_radius {
   border-radius: 0;
   box-shadow: none;
+}
+
+@mixin set_heading_font($font_size: fibVars.$xs-size, $spacing: fibVars.$medium-letter-spacing) {
+  font: {
+    family: fibVars.$heading-font-family;
+    size: $font_size;
+  }
+  text-transform: uppercase;
+  letter-spacing: $spacing;
 }

@@ -802,14 +802,7 @@ blockquote {
 .cmp__pagination {
   @include fibMixins.flex_init($ver: true);
   margin-top: fibVars.$lg-size;
-
-  font: {
-    family: fibVars.$heading-font-family;
-    size: fibVars.$small-font-size;
-  }
-  text-transform: uppercase;
-  letter-spacing: fibVars.$medium-letter-spacing;
-
+  @include fibMixins.set_heading_font();
   color: fibVars.$gray;
 
   > * {
@@ -1008,7 +1001,7 @@ blockquote {
       margin-bottom: 0;
     }
 
-    > *:not(:first-child):not(:last-child):after {
+    > *:not(:last-child):after {
       content: '|';
       @include fibMixins.set_hor_margin(fibVars.$xs-size);
       color: fibVars.$light-gray;
@@ -1165,8 +1158,7 @@ blockquote {
     left: fibVars.$article-author-left-offset;
 
     &:after {
-      content: '';
-      margin: 0;
+      display: none;
     }
 
     a {

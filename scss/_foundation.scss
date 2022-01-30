@@ -244,12 +244,7 @@ ol li li:before {
 dl {
   // Title.
   dt {
-    font: {
-      family: fibVars.$heading-font-family;
-      size: fibVars.$h5-font-size;
-    }
-    letter-spacing: fibVars.$medium-letter-spacing;
-    text-transform: uppercase;
+    @include fibMixins.set_heading_font($font_size: fibVars.$h5-font-size);
     color: fibVars.$medium-gray;
   }
 
@@ -784,6 +779,26 @@ cmp-icon {
   }
 }
 
+// Icon with text.
+.cmp__icon-text {
+  @include fibMixins.flex_init($center: true);
+  color: inherit;
+
+  cmp-icon {
+    margin-right: 0;
+  }
+
+  i {
+    display: block;
+    align-self: flex-end;
+    margin-left: fibFuncs.font_size(-18);
+    font-family: fibVars.$heading-font-family;
+    font-style: normal;
+    font-size: fibFuncs.font_size(-5);
+    letter-spacing: fibVars.$extra-small-letter-spacing;
+  }
+}
+
 // Content scale.
 cmp-content-scale {
   position: relative;
@@ -811,13 +826,8 @@ cmp-content-scale {
   line-height: var(--ribbon-height);
   padding: 0 fibVars.$xl-size;
 
-  font: {
-    family: fibVars.$heading-font-family;
-    size: fibFuncs.font_size(-4);
-  }
+  @include fibMixins.set_heading_font($font_size: fibFuncs.font_size(-4));
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: fibVars.$medium-letter-spacing;
 
   background: fibVars.$ribbon-bg;
   color: fibVars.$ribbon-color;
@@ -881,13 +891,8 @@ cmp-content-scale {
     line-height: fibVars.$widget-ribbon-height;
     padding-left: fibVars.$md-size;
 
-    font: {
-      family: fibVars.$heading-font-family;
-      size: fibVars.$small-font-size;
-      weight: bold;
-    };
-    letter-spacing: fibVars.$medium-letter-spacing;
-    text-transform: uppercase;
+    @include fibMixins.set_heading_font();
+    font-weight: bold;
 
     background-color: fibVars.$widget-ribbon-bg;
     color: fibVars.$widget-ribbon-color;
@@ -1052,8 +1057,7 @@ cmp-progress {
 
 // Cards list.
 .cmp__cards-list {
-  display: flex;
-  flex-wrap: wrap;
+  @include fibMixins.flex_init($wrap: true);
   margin-bottom: fibVars.$xl-size;
   padding: 0 fibVars.$sm-size;
 
@@ -1108,6 +1112,7 @@ cmp-progress {
 
     img {
       width: 100%;
+      height: 100%;
       border-top-left-radius: fibVars.$border-radius;
       border-top-right-radius: fibVars.$border-radius;
       transition: transform fibVars.$medium-speed;
@@ -1116,13 +1121,13 @@ cmp-progress {
   }
 
   .cmp__card-footer {
-    padding: 0 fibVars.$sm-size;
+    padding: fibVars.$sm-size;
     @include fibMixins.flex_init($column: true);
     background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(120deg, fibVars.$white, fibVars.$dim-gray);
 
     p {
-      margin: fibVars.$sm-size 0 0;
       text-shadow: none;
+      margin: 0;
 
       font: {
         family: fibVars.$card-footer-font-family;
@@ -1134,10 +1139,11 @@ cmp-progress {
 
     .cmp__card-actions {
       @include fibMixins.flex_init();
-      margin: fibVars.$sm-size 0;
+      margin-top: fibVars.$sm-size;
 
-      button {
+      > * {
         flex-grow: 1;
+        text-shadow: none;
         color: fibVars.$card-footer-color;
       }
     }
@@ -1162,13 +1168,8 @@ cmp-progress {
     position: relative;
     height: fibVars.$widget-ribbon-height;
     line-height: fibVars.$widget-ribbon-height;
-    font: {
-      family: fibVars.$heading-font-family;
-      size: fibVars.$small-font-size;
-      weight: bold;
-    };
-    letter-spacing: fibVars.$medium-letter-spacing;
-    text-transform: uppercase;
+    @include fibMixins.set_heading_font();
+    font-weight: bold;
 
     background-color: fibVars.$widget-ribbon-bg;
     color: fibVars.$widget-ribbon-color;

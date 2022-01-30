@@ -27,12 +27,7 @@
     span {
       padding: 1px 5px;
       margin-top: fibFuncs.font_size(-14);
-      font: {
-        family: fibVars.$heading-font-family;
-        size: fibFuncs.font_size(-5);
-      }
-      text-transform: uppercase;
-      letter-spacing: fibVars.$medium-letter-spacing;
+      @include fibMixins.set_heading_font($font_size: fibFuncs.font_size(-5));
       text-align: center;
 
       color: fibVars.$gray;
@@ -54,7 +49,7 @@
         flex: 1;
 
         textarea {
-          min-height: 75px;
+          min-height: fibVars.$comment-textarea-minheight;
         }
       }
     }
@@ -78,22 +73,18 @@
 
         .cmp__comment-detail {
           .cmp__commented-date {
-            font: {
-              family: fibVars.$heading-font-family;
-              size: fibFuncs.font_size(-5);
-            }
-            text-transform: uppercase;
-            letter-spacing: fibVars.$medium-letter-spacing;
+            @include fibMixins.set_heading_font($font_size: fibFuncs.font_size(-5));
             text-align: right;
-
             color: fibVars.$gray;
           }
         }
 
         .cmp__comment-actions {
           @include fibMixins.flex_init($justify: flex-start, $ver: true);
-          margin-top: fibFuncs.font_size(-10);
-          margin-left: fibFuncs.font_size(-10);
+          margin: {
+            top: fibFuncs.font_size(-10);
+            left: fibFuncs.font_size(-10);
+          };
 
           .cmp__icon-button {
             color: fibVars.$gray;
