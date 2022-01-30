@@ -590,7 +590,7 @@ a.cmp__go-top {
         @include fibMixins.set_hor_margin(fibVars.$lg-size);
       }
 
-      img, .cmp__table-wrapper, cmp-image {
+      img, .cmp__table-wrapper, cmp-image, iframe {
         border-radius: 0;
       }
     }

@@ -307,7 +307,7 @@ figure, .cmp__figure {
   margin-inline-end: 0;
   max-width: 100%;
 }
-figure img, .cmp__figure img {
+figure img, figure iframe, .cmp__figure img, .cmp__figure iframe {
   display: block;
   max-width: 100%;
   border-radius: 3px;
@@ -315,6 +315,11 @@ figure img, .cmp__figure img {
 }
 figure table, .cmp__figure table {
   margin: 0;
+}
+figure iframe, .cmp__figure iframe {
+  width: 100%;
+  min-height: 400px;
+  border: none;
 }
 figure figcaption, figure .cmp__figcaption, .cmp__figure figcaption, .cmp__figure .cmp__figcaption {
   margin-top: 0.26rem;
@@ -3240,7 +3245,7 @@ a.cmp__go-top {
   margin-left: var(--lg-size);
   margin-right: var(--lg-size);
 }
-.cmp__article-content figure.cmp__figure-full img, .cmp__article-content figure.cmp__figure-full .cmp__table-wrapper, .cmp__article-content figure.cmp__figure-full cmp-image {
+.cmp__article-content figure.cmp__figure-full img, .cmp__article-content figure.cmp__figure-full .cmp__table-wrapper, .cmp__article-content figure.cmp__figure-full cmp-image, .cmp__article-content figure.cmp__figure-full iframe {
   border-radius: 0;
 }
 .cmp__article-content .cmp__toc {

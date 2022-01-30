@@ -304,7 +304,7 @@ figure, .cmp__figure {
   margin-inline-end: 0;
   max-width: 100%;
 
-  img {
+  img, iframe {
     display: block;
     max-width: 100%;
     border-radius: fibVars.$border-radius;
@@ -313,6 +313,12 @@ figure, .cmp__figure {
 
   table {
     margin: 0;
+  }
+
+  iframe {
+    width: 100%;
+    min-height: fibVars.$iframe-min-height;
+    border: none;
   }
 
   figcaption, .cmp__figcaption {
