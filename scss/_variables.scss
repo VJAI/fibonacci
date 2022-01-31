@@ -206,6 +206,9 @@ $snail-speed:                       2s !default;
 // Specific Variables.
 $blur:                              5px !default;
 
+// App.
+$app-main-min-height:               700px !default;
+
 // Header Component.
 $header-height:                     fibFuncs.font_size(11) !default;
 $header-color:                      rgb(232, 232, 232) !default;

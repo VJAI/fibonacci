@@ -233,14 +233,14 @@
 /// Sets a colored noisy background using an image.
 /// @param {string} $bg
 ///   The background color.
-@mixin noisy_bg($bg: fibVars.$white) {
+@mixin noisy_bg($bg: transparent) {
   background: url('#{fibVars.$assets-path}/background.png') $bg;
 }
 
 /// Sets background, box-shadow and border radius.
 /// @param {string} $bg
 ///   The background color.
-@mixin config_container($bg) {
+@mixin config_container($bg: transparent) {
   @include noisy_bg($bg);
   border-radius: fibVars.$border-radius;
   box-shadow: fibVars.$box-shadow;

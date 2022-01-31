@@ -246,6 +246,7 @@ a.cmp__blog-logo {
 
   position: relative;
   flex: 1 1 auto;
+  min-height: fibVars.$app-main-min-height; // Added after introducing spiral!
   padding: {
     top: fibVars.$page-content-top;
     bottom: fibVars.$page-content-bottom;
@@ -256,6 +257,7 @@ a.cmp__blog-logo {
 
   background-size: auto, 50%;
 
+  border: solid 1px fibVars.$dim-gray;
   border-radius: var(--border-radius);
   box-shadow: $outside-shadow-dark -20px -5px 10px,
               $outside-shadow-dark 5px -5px 10px,
@@ -394,6 +396,176 @@ a.cmp__go-top {
   border-left-color: transparent;
   border-right-color: transparent;
   border-top: none;
+}
+
+// Ribbon.
+.cmp__ribbon {
+  --ribbon-height: #{fibVars.$ribbon-small-screen-height};
+  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75);
+  display: inline-block;
+  position: relative;
+  height: var(--ribbon-height);
+  line-height: var(--ribbon-height);
+  padding: 0 fibVars.$xl-size;
+
+  @include fibMixins.set_heading_font($font_size: fibFuncs.font_size(-4));
+  text-align: center;
+
+  background: fibVars.$ribbon-bg;
+  color: fibVars.$ribbon-color;
+  box-shadow: fibVars.$ribbon-shadow;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    border: solid calc(var(--ribbon-height) / 2) darken(fibVars.$ribbon-bg, 10%);
+    z-index: -1;
+    bottom: calc(-1 * var(--ribbon-bend-height));
+  }
+
+  &::before {
+    left: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
+    border-right-color: transparent;
+  }
+
+  .cmp__ribbon-content {
+    text-shadow: 0 0 2px darken(fibVars.$ribbon-bg, 25%);
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: calc(-1 * var(--ribbon-bend-height));
+      border: {
+        style: solid;
+        color: darken(fibVars.$ribbon-bg, 25%) transparent transparent transparent;
+      }
+    }
+
+    &::before {
+      left: 0;
+      border-width: var(--ribbon-bend-height) 0 0 var(--ribbon-bend-height);
+    }
+
+    &::after {
+      right: 0;
+      border-width: var(--ribbon-bend-height) var(--ribbon-bend-height) 0 0;
+    }
+  }
+}
+
+// Widget Ribbon.
+.cmp__widget-ribbon {
+  display: inline-block;
+  min-width: fibFuncs.font_size(23);
+
+  .cmp__widget-ribbon-content {
+    @include fibMixins.flex_init;
+    width: 100%;
+    position: relative;
+    left: -6px;
+    height: fibVars.$widget-ribbon-height;
+    line-height: fibVars.$widget-ribbon-height;
+    padding-left: fibVars.$md-size;
+
+    @include fibMixins.set_heading_font();
+    font-weight: bold;
+
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      height: 3px;
+
+      border: solid 3px darken(fibVars.$widget-ribbon-bg, 20%);
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      right: calc(-1 * #{fibVars.$xl-size});
+      height: fibVars.$xl-size;
+
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    span {
+      flex-grow: 1;
+      background-color: fibVars.$medium-gray;
+      @include fibMixins.inset_text_shadow();
+    }
+  }
+}
+
+// Page custom heading.
+.cmp__section-heading {
+  $border-color: darken(fibVars.$dim-gray, 10%);
+
+  position: relative;
+  @include fibMixins.flex_init($center: true);
+  margin: {
+    top: fibVars.$xxl-size;
+    bottom: fibVars.$xl-size;
+  };
+
+  color: fibVars.$gray;
+
+  span {
+    @include fibMixins.flex_init($center: true);
+    position: relative;
+    height: fibVars.$widget-ribbon-height;
+    line-height: fibVars.$widget-ribbon-height;
+    @include fibMixins.set_heading_font();
+    font-weight: bold;
+
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
+    z-index: 1;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    &::before {
+      left: calc(-1 * #{fibVars.$xl-size});
+      border-left-color: transparent;
+    }
+
+    &::after {
+      right: calc(-1 * #{fibVars.$xl-size});
+      border-right-color: transparent;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px $border-color;
+  }
 }
 
 // Page Content.
@@ -1049,6 +1221,17 @@ blockquote {
         }
       }
     }
+  }
+
+  // TOC Ribbon.
+  .cmp__ribbon {
+    --ribbon-height: #{fibVars.$ribbon-height};
+    font-size: fibVars.$small-font-size;
+  }
+
+  // Widget Ribbon.
+  .cmp__widget-ribbon {
+    min-width: fibFuncs.font_size(25);
   }
 
   // Responsive Article Content.

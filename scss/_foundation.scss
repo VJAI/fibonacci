@@ -257,8 +257,10 @@ dl {
 
 // Blockquotes.
 blockquote, .cmp__quote {
+  --bg-color: #{fibVars.$bquote-bg-color};
+
   margin: {
-    top: fibVars.$md-size;
+    top: fibVars.$lg-size;
     bottom: fibVars.$lg-size;
   }
   padding: {
@@ -272,6 +274,12 @@ blockquote, .cmp__quote {
 
   color: fibVars.$bquote-color;
   @include fibMixins.config_container(fibVars.$bquote-bg-color);
+
+  &.cmp__icon-float {
+    position: relative;
+    margin-top: fibVars.$xl-size;
+    padding-top: fibVars.$xl-size;
+  }
 
   h4 {
     display: inline-block;
@@ -732,6 +740,8 @@ button, [type="button"], [type="submit"] {
 
 // Sub sections.
 .cmp__sub {
+  --bg-color: #{fibVars.$sub-bg-color};
+
   margin: {
     top: fibVars.$md-size;
     bottom: fibVars.$lg-size;
@@ -746,6 +756,12 @@ button, [type="button"], [type="submit"] {
   font-family: fibVars.$sub-content-font-family;
 
   @include fibMixins.config_container(fibVars.$sub-bg-color);
+
+  &.cmp__icon-float {
+    position: relative;
+    margin-top: fibVars.$xl-size;
+    padding-top: fibVars.$xl-size;
+  }
 
   h4, h5 {
     font-family: fibVars.$sub-title-font-family;
@@ -805,6 +821,24 @@ cmp-icon {
   }
 }
 
+// Floating icon.
+.cmp__icon-container {
+  @include fibMixins.flex_init($center: true);
+  position: absolute;
+  left: fibFuncs.font_size(-6);
+  top: calc(-1 * #{fibFuncs.font_size(2)} / 2 - #{fibFuncs.font_size(-6)});
+  padding: fibFuncs.font_size(-6);
+  @include fibMixins.config_container(var(--bg-color));
+  box-shadow: fibVars.$box-shadow;
+  border-radius: 50%;
+  color: lighten(fibVars.$medium-gray, 10%);
+
+  cmp-icon {
+    width: fibFuncs.font_size(2);
+    height: fibFuncs.font_size(2);
+  }
+}
+
 // Content scale.
 cmp-content-scale {
   position: relative;
@@ -819,119 +853,6 @@ cmp-content-scale {
     height: fibVars.$content-scale-height;
     background-color: fibVars.$scale-progress-bg;
     transition: width fibVars.$medium-speed;
-  }
-}
-
-// Ribbon.
-.cmp__ribbon {
-  --ribbon-height: #{fibVars.$ribbon-small-screen-height};
-  --ribbon-bend-height: calc(var(--ribbon-height) / 3.75);
-  display: inline-block;
-  position: relative;
-  height: var(--ribbon-height);
-  line-height: var(--ribbon-height);
-  padding: 0 fibVars.$xl-size;
-
-  @include fibMixins.set_heading_font($font_size: fibFuncs.font_size(-4));
-  text-align: center;
-
-  background: fibVars.$ribbon-bg;
-  color: fibVars.$ribbon-color;
-  box-shadow: fibVars.$ribbon-shadow;
-
-  &::before, &::after {
-    content: "";
-    position: absolute;
-    border: solid calc(var(--ribbon-height) / 2) darken(fibVars.$ribbon-bg, 10%);
-    z-index: -1;
-    bottom: calc(-1 * var(--ribbon-bend-height));
-  }
-
-  &::before {
-    left: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
-    border-left-color: transparent;
-  }
-
-  &::after {
-    right: calc(-1 * calc(var(--ribbon-height) - var(--ribbon-bend-height)));
-    border-right-color: transparent;
-  }
-
-  .cmp__ribbon-content {
-    text-shadow: 0 0 2px darken(fibVars.$ribbon-bg, 25%);
-
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      bottom: calc(-1 * var(--ribbon-bend-height));
-      border: {
-        style: solid;
-        color: darken(fibVars.$ribbon-bg, 25%) transparent transparent transparent;
-      }
-    }
-
-    &::before {
-      left: 0;
-      border-width: var(--ribbon-bend-height) 0 0 var(--ribbon-bend-height);
-    }
-
-    &::after {
-      right: 0;
-      border-width: var(--ribbon-bend-height) var(--ribbon-bend-height) 0 0;
-    }
-  }
-}
-
-// Widget Ribbon.
-.cmp__widget-ribbon {
-  display: inline-block;
-  min-width: fibFuncs.font_size(23);
-
-  .cmp__widget-ribbon-content {
-    @include fibMixins.flex_init;
-    width: 100%;
-    position: relative;
-    left: -6px;
-    height: fibVars.$widget-ribbon-height;
-    line-height: fibVars.$widget-ribbon-height;
-    padding-left: fibVars.$md-size;
-
-    @include fibMixins.set_heading_font();
-    font-weight: bold;
-
-    background-color: fibVars.$widget-ribbon-bg;
-    color: fibVars.$widget-ribbon-color;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: 0;
-      height: 3px;
-
-      border: solid 3px darken(fibVars.$widget-ribbon-bg, 20%);
-      border-left-color: transparent;
-      border-top-color: transparent;
-    }
-
-    &::after {
-      content: '';
-      position: relative;
-      right: calc(-1 * #{fibVars.$xl-size});
-      height: fibVars.$xl-size;
-
-      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
-      border-top-color: transparent;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-    }
-
-    span {
-      flex-grow: 1;
-      background-color: fibVars.$medium-gray;
-      @include fibMixins.inset_text_shadow();
-    }
   }
 }
 
@@ -1156,78 +1077,25 @@ cmp-progress {
   }
 }
 
-// Page custom heading.
-.cmp__section-heading {
-  $border-color: darken(fibVars.$dim-gray, 10%);
-
-  position: relative;
-  @include fibMixins.flex_init($center: true);
-  margin: {
-    top: fibVars.$xxl-size;
-    bottom: fibVars.$xl-size;
-  };
-
-  color: fibVars.$gray;
-
-  span {
-    @include fibMixins.flex_init($center: true);
-    position: relative;
-    height: fibVars.$widget-ribbon-height;
-    line-height: fibVars.$widget-ribbon-height;
-    @include fibMixins.set_heading_font();
-    font-weight: bold;
-
-    background-color: fibVars.$widget-ribbon-bg;
-    color: fibVars.$widget-ribbon-color;
-    z-index: 1;
-
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      height: 100%;
-
-      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
-      border-top-color: transparent;
-      border-bottom-color: transparent;
-    }
-
-    &::before {
-      left: calc(-1 * #{fibVars.$xl-size});
-      border-left-color: transparent;
-    }
-
-    &::after {
-      right: calc(-1 * #{fibVars.$xl-size});
-      border-right-color: transparent;
-    }
-  }
-
-  &:after {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    content: '';
-    width: 100%;
-    border-bottom: solid 1px $border-color;
-  }
-}
-
 // Status Colors.
 .cmp__status-info {
-  background-color: fibVars.$dim-gray;
+  --bg-color: #{fibVars.$dim-gray};
+  background-color: var(--bg-color);
 }
 
 .cmp__status-success {
-  background-color: fibVars.$success;
+  --bg-color: #{fibVars.$success};
+  background-color: var(--bg-color);
 }
 
 .cmp__status-warn {
-  background-color: fibVars.$warn;
+  --bg-color: #{fibVars.$warn};
+  background-color: var(--bg-color);
 }
 
 .cmp__status-error {
-  background-color: fibVars.$error;
+  --bg-color: #{fibVars.$error};
+  background-color: var(--bg-color);
 }
 
 // Selection Color.
@@ -1500,6 +1368,7 @@ $colors: (
 
 // Media Queries.
 @media only screen and (min-width: fibVars.$tablet) {
+  // Lists.
   ul,
   ol,
   menu {
@@ -1512,6 +1381,7 @@ $colors: (
     }
   }
 
+  // Form Controls.
   .cmp__form-control {
     @include fibMixins.flex_update($column: false, $align: center);
     background-color: fibVars.$form-control-bg-color;
@@ -1522,6 +1392,7 @@ $colors: (
     }
   }
 
+  // Lazy Loading Images.
   cmp-image {
     cmp-progress {
       &.cmp__last {
@@ -1547,6 +1418,7 @@ $colors: (
     }
   }
 
+  // Progress bars.
   cmp-progress {
     .cmp__squares-container {
       .cmp__square {
@@ -1556,21 +1428,14 @@ $colors: (
     }
   }
 
+  // Widget.
   .cmp__widget {
     .cmp__widget-body {
       padding: fibVars.$medium-padding;
     }
   }
 
-  .cmp__ribbon {
-    --ribbon-height: #{fibVars.$ribbon-height};
-    font-size: fibVars.$small-font-size;
-  }
-
-  .cmp__widget-ribbon {
-    min-width: fibFuncs.font_size(25);
-  }
-
+  // Cards List.
   .cmp__cards-list {
     justify-content: space-between;
 
