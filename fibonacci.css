@@ -2854,7 +2854,6 @@ a.cmp__blog-logo .cmp__blog-name {
   padding-bottom: 6.225rem;
   background: url("assets/background.png"), url("assets/svgbg.svg") no-repeat left top, white;
   background-size: auto, 50%;
-  border: solid 1px #f7f7f7;
   border-radius: var(--border-radius);
   box-shadow: #292f33 -20px -5px 10px, #292f33 5px -5px 10px, #292f33 -20px 0 100px -20px, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
