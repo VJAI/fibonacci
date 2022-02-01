@@ -458,58 +458,6 @@ a.cmp__go-top {
   }
 }
 
-// Widget Ribbon.
-.cmp__widget-ribbon {
-  display: inline-block;
-  min-width: fibFuncs.font_size(23);
-
-  .cmp__widget-ribbon-content {
-    @include fibMixins.flex_init;
-    width: 100%;
-    position: relative;
-    left: -6px;
-    height: fibVars.$widget-ribbon-height;
-    line-height: fibVars.$widget-ribbon-height;
-    padding-left: fibVars.$md-size;
-
-    @include fibMixins.set_heading_font();
-    font-weight: bold;
-
-    background-color: fibVars.$widget-ribbon-bg;
-    color: fibVars.$widget-ribbon-color;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: 0;
-      height: 3px;
-
-      border: solid 3px darken(fibVars.$widget-ribbon-bg, 20%);
-      border-left-color: transparent;
-      border-top-color: transparent;
-    }
-
-    &::after {
-      content: '';
-      position: relative;
-      right: calc(-1 * #{fibVars.$xl-size});
-      height: fibVars.$xl-size;
-
-      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
-      border-top-color: transparent;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-    }
-
-    span {
-      flex-grow: 1;
-      background-color: fibVars.$medium-gray;
-      @include fibMixins.inset_text_shadow();
-    }
-  }
-}
-
 // Page custom heading.
 .cmp__section-heading {
   $border-color: darken(fibVars.$dim-gray, 10%);
@@ -1226,11 +1174,6 @@ blockquote {
   .cmp__ribbon {
     --ribbon-height: #{fibVars.$ribbon-height};
     font-size: fibVars.$small-font-size;
-  }
-
-  // Widget Ribbon.
-  .cmp__widget-ribbon {
-    min-width: fibFuncs.font_size(25);
   }
 
   // Responsive Article Content.

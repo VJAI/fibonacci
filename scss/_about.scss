@@ -10,12 +10,7 @@
     top: fibVars.$md-size;
     bottom: fibVars.$md-size;
   };
-  font: {
-    family: fibVars.$heading-font-family;
-    size: fibVars.$xs-size;
-  }
-  text-transform: uppercase;
-  letter-spacing: fibVars.$medium-letter-spacing;
+  @include fibMixins.set_heading_font;
 
   color: fibVars.$gray;
 
@@ -76,10 +71,12 @@
 
 @media only screen and (min-width: fibVars.$mobile) {
   .cmp__social-widget {
+    $border: solid 1px fibVars.$dim-gray;
+
     flex-direction: row;
     border: {
-      top: solid 1px fibVars.$dim-gray;
-      bottom: solid 1px fibVars.$dim-gray;
+      top: $border;
+      bottom: $border;
     }
 
     a {
