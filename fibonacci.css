@@ -924,10 +924,10 @@ cmp-progress .cmp__squares-container .cmp__square:not(:last-child) {
 .cmp__cards-list {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: var(--xl-size);
+  margin-bottom: var(--xxl-size);
 }
 .cmp__cards-list .cmp__card {
-  margin-bottom: var(--xl-size);
+  margin-bottom: var(--xxl-size);
 }
 
 .cmp__card {
@@ -2737,7 +2737,7 @@ menu menu {
     justify-content: space-between;
   }
   .cmp__cards-list .cmp__card {
-    width: calc(50% - var(--md-size));
+    width: calc(50% - var(--xxl-size) / 2);
   }
 }
 @keyframes color_change {

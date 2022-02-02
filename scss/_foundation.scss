@@ -1524,7 +1524,7 @@ $colors: (
     justify-content: space-between;
 
     .cmp__card {
-      width: calc(50% - #{fibVars.$md-size});
+      width: calc(50% - #{fibVars.$card-spacing} / 2);
     }
   }
 }
