@@ -1327,18 +1327,3 @@ blockquote {
     right: 0;
   }
 }
-
-@keyframes go-top {
-  0% {
-    top: -6px;
-  }
-  25% {
-    top: -12px;
-  }
-  75% {
-    top: -3px;
-  }
-  100% {
-    top: -6px;
-  }
-}

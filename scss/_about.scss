@@ -43,15 +43,15 @@
 
 // Project card.
 .cmp__project-card {
-  .cmp__card-header {
-    height: fibVars.$project-card-header-height;
+  .cmp__card-image {
+    height: fibVars.$project-card-image-height;
   }
 }
 
 // Person Card.
 .cmp__person-card {
-  .cmp__card-header {
-    height: fibVars.$person-card-header-height;
+  .cmp__card-image {
+    height: fibVars.$person-card-image-height;
   }
 }
 

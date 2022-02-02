@@ -8,7 +8,7 @@ $assets-path:                       'assets' !default;
 // Font families.
 $body-font-family:                  'Source Serif Pro', Georgia, serif !default;
 $heading-font-family:               'Source Sans Pro', Arial, Tahoma, sans-serif !default;
-$mono-font-family:                  'Space Mono', Courier, monospace !default;
+$mono-font-family:                  'JetBrains Mono', Courier, monospace !default;
 $logo-font-family:                  'Amatic SC', 'Brush Script MT', cursive !default;
 
 // Colors.
@@ -305,8 +305,8 @@ $card-footer-color:                 $gray !default;
 $card-spacing:                      $xl-size !default;
 
 // Project Card.
-$project-card-header-height:        240px !default;
-$person-card-header-height:         360px !default;
+$project-card-image-height:         240px !default;
+$person-card-image-height:          360px !default;
 
 // Utility Classes Variables.
 $drop-cap-font-size:                300% !default;
