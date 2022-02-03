@@ -847,8 +847,34 @@ for (let i = -10; i < 20; i++) {
           lorem, tempor pellentesque neque laoreet ac.
         </p>
 
-        <hr>
+        <div class="cmp__article-actions">
+          <button type="submit" value="Download">
+            <cmp-icon name="download" size="12"></cmp-icon>
+            <span>Download</span>
+          </button>
+
+          <button type="submit" value="Fork in Git">
+            <cmp-icon name="github" size="12"></cmp-icon>
+            <span>Fork in Git</span>
+          </button>
+        </div>
       </main>
+
+      <footer class="cmp__article-footer cmp__auto-layout">
+        <section class="cmp__pagination">
+          <div class="cmp__older-posts">
+            <a href="#">
+              Previous Post
+            </a>
+          </div>
+          <div class="cmp__newer-posts">
+            <a href="#">
+              Next Post
+            </a>
+          </div>
+        </section>
+        <hr>
+      </footer>
 
       <!-- Detail Page Widgets -->
       <div class="cmp__article-detail-widgets cmp__auto-layout">

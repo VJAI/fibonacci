@@ -932,7 +932,7 @@ blockquote {
     }
   }
 
-  .cmp__older-posts {
+  :first-child {
     a {
       &:before {
         position: relative;
@@ -946,7 +946,7 @@ blockquote {
     }
   }
 
-  .cmp__newer-posts {
+  :last-child {
     text-align: right;
 
     a {
@@ -975,23 +975,6 @@ blockquote {
   text-transform: uppercase;
 
   color: fibVars.$footer-color;
-
-  // https://www.youtube.com/watch?v=CGdEUmO4ZQQ
-  &::before {
-    display: none;
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background: linear-gradient(-135deg, fibVars.$white, 6px, transparent 0%), linear-gradient(135deg, fibVars.$white, 6px, transparent 0%);
-    background-size: 12px;
-  }
-
-  &::after {
-    content: '';
-  }
 
   section {
     &.cmp__footer-left {
@@ -1154,17 +1137,19 @@ blockquote {
     right: 5%;
 
     div {
-      line-height: 1.2;
+      line-height: fibVars.$small-line-height;
 
       span {
         font-size: fibVars.$md-size;
-      }
 
-      span:after {
-        border: {
-          left: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
-          right: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
-          bottom: fibVars.$lg-size solid transparent;
+        &:after {
+          $border: calc(#{fibVars.$xxl-size} / 2) solid fibVars.$rss-ribbon-bg;
+
+          border: {
+            left: $border;
+            right: $border;
+            bottom: fibVars.$lg-size solid transparent;
+          }
         }
       }
     }

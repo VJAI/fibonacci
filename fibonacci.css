@@ -3486,23 +3486,23 @@ blockquote.cmp__responsive {
   display: inline-flex;
   align-items: center;
 }
-.cmp__pagination .cmp__older-posts a:before {
+.cmp__pagination :first-child a:before {
   position: relative;
   content: "≪";
   margin-right: 0.146rem;
 }
-.cmp__pagination .cmp__older-posts a:hover:before {
+.cmp__pagination :first-child a:hover:before {
   animation: arrow-move-left 0.5s linear infinite;
 }
-.cmp__pagination .cmp__newer-posts {
+.cmp__pagination :last-child {
   text-align: right;
 }
-.cmp__pagination .cmp__newer-posts a:after {
+.cmp__pagination :last-child a:after {
   position: relative;
   content: "≫";
   margin-left: 0.146rem;
 }
-.cmp__pagination .cmp__newer-posts a:hover:after {
+.cmp__pagination :last-child a:hover:after {
   animation: arrow-move-right 0.5s linear infinite;
 }
 
@@ -3516,20 +3516,6 @@ blockquote.cmp__responsive {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #bdb5b8;
-}
-.cmp__blog-footer::before {
-  display: none;
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 12px;
-  background: linear-gradient(-135deg, white, 6px, transparent 0%), linear-gradient(135deg, white, 6px, transparent 0%);
-  background-size: 12px;
-}
-.cmp__blog-footer::after {
-  content: "";
 }
 .cmp__blog-footer section.cmp__footer-left {
   display: flex;
@@ -3791,6 +3777,20 @@ blockquote.cmp__responsive {
 }
 #cmp__blog_detail .cmp__article-header .cmp__article-meta {
   position: relative;
+}
+#cmp__blog_detail .cmp__article-footer {
+  display: block;
+}
+
+.cmp__article-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: var(--md-size);
+  margin-bottom: var(--md-size);
+}
+.cmp__article-actions > *:not(:last-child) {
+  margin-right: var(--sm-size);
 }
 
 .cmp__comments .cmp__comment-by {

@@ -12,6 +12,22 @@
       position: relative;
     }
   }
+
+  .cmp__article-footer {
+    display: block;
+  }
+}
+
+.cmp__article-actions {
+  @include fibMixins.flex_init($ver: true, $justify: flex-end);
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$md-size;
+  }
+
+  > *:not(:last-child) {
+    margin-right: fibVars.$sm-size;
+  }
 }
 
 // Comments Widget
