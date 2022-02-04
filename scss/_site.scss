@@ -253,7 +253,8 @@ a.cmp__blog-logo {
   };
 
   background: url('#{fibVars.$assets-path}/background.png'),
-    url('#{fibVars.$assets-path}/svgbg.svg') no-repeat left top, fibVars.$white;
+    url('#{fibVars.$assets-path}/svgbg.svg') no-repeat left top,
+    url('#{fibVars.$assets-path}/coffee-stain.png') no-repeat right bottom fibVars.$white;
 
   background-size: auto, 50%;
 
@@ -267,6 +268,7 @@ a.cmp__blog-logo {
   &:before, &:after {
     content: '';
     position: absolute;
+    z-index: 1;
     width: $inner-shadow-width;
     top: calc(var(--border-radius) - #{$inner-shadow-adjustment});
     height: calc(100% - 2 * var(--border-radius) + #{$inner-shadow-adjustment * 2});
@@ -675,6 +677,9 @@ a.cmp__go-top {
 
 // Article Content.
 .cmp__article-content {
+  --link-icon-width: 14px;
+  --link-offset: #{fibVars.$md-size};
+  --link-image: url('#{fibVars.$assets-path}/link.svg');
 
   // Links.
   a:link,
@@ -687,15 +692,53 @@ a.cmp__go-top {
     transition: all fibVars.$medium-speed;
   }
 
-  a:link {
+  a:link,
+  a:visited {
     color: fibVars.$link-color;
   }
 
-  a:visited,
   a:hover,
   a:focus,
   a:active {
     color: fibVars.$link-hover-color;
+  }
+
+  h2, h3, h4, h5, h6 {
+
+    &:hover {
+      a::before {
+        opacity: 1;
+      }
+    }
+
+    a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: calc(-1 * var(--link-offset));
+        width: var(--link-icon-width);
+        height: var(--link-icon-width);
+        opacity: 0;
+        background: var(--link-image) no-repeat;
+        transition: opacity fibVars.$medium-speed;
+      }
+    }
+
+    a:link,
+    a:visited {
+      color: inherit;
+    }
+
+
+    a:hover,
+    a:focus,
+    a:active {
+      color: fibVars.$link-hover-color;
+    }
   }
 
   // Figure element.
@@ -776,7 +819,7 @@ a.cmp__article-continue-reading {
   }
 
   &:hover {
-    color: fibVars.$brand-color;
+    color: fibVars.$link-hover-color;
   }
 
   &:hover:after {
@@ -1253,6 +1296,13 @@ blockquote {
   // Blog content.
   .cmp__blog-main {
     margin: 0 fibVars.$xl-size;
+  }
+
+  // Article Content.
+  .cmp__article-content {
+    --link-icon-width: 24px;
+    --link-offset: #{fibVars.$xl-size};
+    --link-image: url('#{fibVars.$assets-path}/link-big.svg');
   }
 
   // Display spiral.

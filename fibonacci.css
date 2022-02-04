@@ -188,16 +188,17 @@ a:link,
 a:visited,
 a:hover,
 a:focus,
-a:active,
-.cmp__link {
+a:active {
   color: inherit;
   border-bottom: dotted 1px;
   text-decoration: none;
   transition: all 0.5s;
 }
 
-a:hover, .cmp__link:hover {
-  color: #f04875;
+a:hover,
+a:focus,
+a:active {
+  color: #da1247;
   text-shadow: #fcd5e0 0 0 6px;
 }
 
@@ -2940,7 +2941,7 @@ a.cmp__blog-logo .cmp__blog-name {
   min-height: 700px;
   padding-top: 3.847rem;
   padding-bottom: 6.225rem;
-  background: url("assets/background.png"), url("assets/svgbg.svg") no-repeat left top, white;
+  background: url("assets/background.png"), url("assets/svgbg.svg") no-repeat left top, url("assets/coffee-stain.png") no-repeat right bottom white;
   background-size: auto, 50%;
   border-radius: var(--border-radius);
   box-shadow: #292f33 -20px -5px 10px, #292f33 5px -5px 10px, #292f33 -20px 0 100px -20px, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -2948,6 +2949,7 @@ a.cmp__blog-logo .cmp__blog-name {
 .cmp__blog-main:before, .cmp__blog-main:after {
   content: "";
   position: absolute;
+  z-index: 1;
   width: 6px;
   top: calc(var(--border-radius) - 8px);
   height: calc(100% - 2 * var(--border-radius) + 16px);
@@ -3284,6 +3286,11 @@ a.cmp__go-top {
   display: none;
 }
 
+.cmp__article-content {
+  --link-icon-width: 14px;
+  --link-offset: var(--md-size);
+  --link-image: url("assets/link.svg");
+}
 .cmp__article-content a:link,
 .cmp__article-content a:visited,
 .cmp__article-content a:hover,
@@ -3293,13 +3300,52 @@ a.cmp__go-top {
   text-decoration: none;
   transition: all 0.5s;
 }
-.cmp__article-content a:link {
+.cmp__article-content a:link,
+.cmp__article-content a:visited {
   color: #f04875;
 }
-.cmp__article-content a:visited,
 .cmp__article-content a:hover,
 .cmp__article-content a:focus,
 .cmp__article-content a:active {
+  color: #da1247;
+}
+.cmp__article-content h2:hover a::before, .cmp__article-content h3:hover a::before, .cmp__article-content h4:hover a::before, .cmp__article-content h5:hover a::before, .cmp__article-content h6:hover a::before {
+  opacity: 1;
+}
+.cmp__article-content h2 a, .cmp__article-content h3 a, .cmp__article-content h4 a, .cmp__article-content h5 a, .cmp__article-content h6 a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.cmp__article-content h2 a::before, .cmp__article-content h3 a::before, .cmp__article-content h4 a::before, .cmp__article-content h5 a::before, .cmp__article-content h6 a::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--link-offset));
+  width: var(--link-icon-width);
+  height: var(--link-icon-width);
+  opacity: 0;
+  background: var(--link-image) no-repeat;
+  transition: opacity 0.5s;
+}
+.cmp__article-content h2 a:link,
+.cmp__article-content h2 a:visited, .cmp__article-content h3 a:link,
+.cmp__article-content h3 a:visited, .cmp__article-content h4 a:link,
+.cmp__article-content h4 a:visited, .cmp__article-content h5 a:link,
+.cmp__article-content h5 a:visited, .cmp__article-content h6 a:link,
+.cmp__article-content h6 a:visited {
+  color: inherit;
+}
+.cmp__article-content h2 a:hover,
+.cmp__article-content h2 a:focus,
+.cmp__article-content h2 a:active, .cmp__article-content h3 a:hover,
+.cmp__article-content h3 a:focus,
+.cmp__article-content h3 a:active, .cmp__article-content h4 a:hover,
+.cmp__article-content h4 a:focus,
+.cmp__article-content h4 a:active, .cmp__article-content h5 a:hover,
+.cmp__article-content h5 a:focus,
+.cmp__article-content h5 a:active, .cmp__article-content h6 a:hover,
+.cmp__article-content h6 a:focus,
+.cmp__article-content h6 a:active {
   color: #da1247;
 }
 .cmp__article-content figure.cmp__figure-full {
@@ -3359,7 +3405,7 @@ a.cmp__article-continue-reading:after {
   margin-left: 0.146rem;
 }
 a.cmp__article-continue-reading:hover {
-  color: #f04875;
+  color: #da1247;
 }
 a.cmp__article-continue-reading:hover:after {
   animation: arrow-move-right 0.5s linear infinite;
@@ -3715,6 +3761,12 @@ blockquote.cmp__responsive {
 
   .cmp__blog-main {
     margin: 0 var(--xl-size);
+  }
+
+  .cmp__article-content {
+    --link-icon-width: 24px;
+    --link-offset: var(--xl-size);
+    --link-image: url("assets/link-big.svg");
   }
 
   .cmp__spiral {

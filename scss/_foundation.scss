@@ -164,16 +164,17 @@ a:link,
 a:visited,
 a:hover,
 a:focus,
-a:active,
-.cmp__link {
+a:active {
   color: inherit;
   border-bottom: dotted 1px;
   text-decoration: none;
   transition: all fibVars.$medium-speed;
 }
 
-a:hover, .cmp__link:hover {
-  color: fibVars.$brand-color;
+a:hover,
+a:focus,
+a:active {
+  color: fibVars.$link-hover-color;
   text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px;
 }
 
