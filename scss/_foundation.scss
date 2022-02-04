@@ -174,7 +174,7 @@ a:active {
 a:hover,
 a:focus,
 a:active {
-  color: fibVars.$link-hover-color;
+  color: fibVars.$brand-color;
   text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px;
 }
 

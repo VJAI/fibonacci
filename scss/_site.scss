@@ -737,7 +737,7 @@ a.cmp__go-top {
     a:hover,
     a:focus,
     a:active {
-      color: fibVars.$link-hover-color;
+      color: fibVars.$brand-color;
     }
   }
 
@@ -819,7 +819,7 @@ a.cmp__article-continue-reading {
   }
 
   &:hover {
-    color: fibVars.$link-hover-color;
+    color: fibVars.$brand-color;
   }
 
   &:hover:after {

@@ -198,7 +198,7 @@ a:active {
 a:hover,
 a:focus,
 a:active {
-  color: #da1247;
+  color: #f04875;
   text-shadow: #fcd5e0 0 0 6px;
 }
 
@@ -3346,7 +3346,7 @@ a.cmp__go-top {
 .cmp__article-content h5 a:active, .cmp__article-content h6 a:hover,
 .cmp__article-content h6 a:focus,
 .cmp__article-content h6 a:active {
-  color: #da1247;
+  color: #f04875;
 }
 .cmp__article-content figure.cmp__figure-full {
   max-width: 100%;
@@ -3405,7 +3405,7 @@ a.cmp__article-continue-reading:after {
   margin-left: 0.146rem;
 }
 a.cmp__article-continue-reading:hover {
-  color: #da1247;
+  color: #f04875;
 }
 a.cmp__article-continue-reading:hover:after {
   animation: arrow-move-right 0.5s linear infinite;
