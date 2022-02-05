@@ -1094,13 +1094,19 @@ cmp-progress {
 
       h5 {
         margin: 0;
-        padding: fibFuncs.font_size(-10);
+        padding: {
+          top: fibFuncs.font_size(-10);
+          bottom: fibFuncs.font_size(-10);
+          left: fibFuncs.font_size(0);
+          right: fibFuncs.font_size(0);
+        };
         font-size: fibVars.$card-title-font-size;
         color: fibVars.$card-title-color;
         @include fibMixins.noisy_bg(rgba(0, 0, 0, 0.6));
       }
 
       &::before, &::after {
+        display: none;
         content: '';
         position: absolute;
         top: calc(-2 * #{$card-ribbon-offset-height});
@@ -1526,6 +1532,21 @@ $colors: (
 
     .cmp__card {
       width: calc(50% - #{fibVars.$card-spacing} / 2);
+
+      .cmp__card-header {
+        .cmp__card-title {
+          &::before, &::after {
+            display: block;
+          }
+
+          h5 {
+            padding: {
+              left: fibFuncs.font_size(-2);
+              right: fibFuncs.font_size(-2);
+            };
+          }
+        }
+      }
     }
   }
 }

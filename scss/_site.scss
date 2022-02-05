@@ -933,7 +933,7 @@ blockquote {
     @include fibMixins.set_hor_margin(fibVars.$lg-size);
   }
 
-  img, .cmp__table-wrapper, pre, .cmp__widget {
+  img, .cmp__table-wrapper, pre, .cmp__widget, .cmp__card {
     @include fibMixins.no_shadow_radius;
   }
 }
@@ -1084,7 +1084,7 @@ blockquote {
       @include fibMixins.set_hor_margin(0);
     }
 
-    img, .cmp__table-wrapper, pre, .cmp__widget {
+    img, .cmp__table-wrapper, pre, .cmp__widget, .cmp__card {
       @include fibMixins.set_shadow_radius;
     }
   }
