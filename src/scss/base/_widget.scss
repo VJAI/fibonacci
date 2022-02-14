@@ -1,0 +1,91 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+.cmp__widget {
+  --cmp-widget-body-padding: #{fibVars.$small-padding};
+
+  margin-bottom: fibVars.$xl-size;
+  @include fibMixins.config_container(fibVars.$widget-bg-color);
+
+  .cmp__widget-header {
+    padding-top: fibVars.$md-size;
+  }
+
+  .cmp__widget-body {
+    padding: var(--cmp-widget-body-padding);
+
+    ul, ol, menu {
+      margin-bottom: 0;
+
+      li {
+        margin-bottom: fibFuncs.size(-7);
+      }
+
+      &.cmp__inline-list {
+        padding-left: 0;
+
+        li {
+          display: inline-block;
+          margin-right: fibFuncs.size(-15);
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Widget Ribbon.
+.cmp__widget-ribbon {
+  display: inline-block;
+  min-width: fibFuncs.size(23);
+
+  .cmp__widget-ribbon-content {
+    @include fibMixins.flex_init;
+    width: 100%;
+    position: relative;
+    left: -6px;
+    height: fibVars.$widget-ribbon-height;
+    line-height: fibVars.$widget-ribbon-height;
+    padding-left: fibVars.$md-size;
+
+    @include fibMixins.set_text_font($family: fibVars.$heading-font-family);
+    font-weight: bold;
+
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      height: 3px;
+
+      border: solid 3px darken(fibVars.$widget-ribbon-bg, 20%);
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      right: calc(-1 * #{fibVars.$xl-size});
+      height: fibVars.$xl-size;
+
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    span {
+      flex-grow: 1;
+      background-color: fibVars.$medium-gray;
+      @include fibMixins.inset_text_shadow();
+    }
+  }
+}

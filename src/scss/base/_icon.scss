@@ -1,0 +1,66 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Icon.
+cmp-icon {
+  @include fibMixins.flex_init($center: true);
+  width: fibVars.$icon-size;
+  height: fibVars.$icon-size;
+
+  svg {
+    fill: currentColor;
+    width: inherit;
+    height: inherit;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  svg:hover *[data-hover-behavior=color] {
+    fill: currentColor;
+  }
+
+  svg:hover *[data-hover-behavior=white] {
+    fill: white;
+  }
+}
+
+// Icon with text.
+.cmp__icon-text {
+  @include fibMixins.flex_init($center: true);
+  color: inherit;
+
+  cmp-icon {
+    margin-right: 0;
+  }
+
+  i {
+    display: block;
+    align-self: flex-end;
+    margin-left: fibFuncs.size(-18);
+    font-family: fibVars.$small-text-font-family;
+    font-style: normal;
+    font-size: fibFuncs.size(-5);
+    letter-spacing: fibVars.$extra-small-letter-spacing;
+  }
+}
+
+// Floating icon.
+.cmp__icon-container {
+  @include fibMixins.flex_init($center: true);
+  position: absolute;
+  left: fibFuncs.size(-6);
+  top: calc(-1 * #{fibFuncs.size(2)} / 2 - #{fibFuncs.size(-6)});
+  padding: fibFuncs.size(-6);
+  @include fibMixins.config_container(var(--cmp-bg-color-dark));
+  box-shadow: fibVars.$box-shadow;
+  border-radius: 50%;
+  color: lighten(fibVars.$medium-gray, 10%);
+
+  cmp-icon {
+    width: fibFuncs.size(2);
+    height: fibFuncs.size(2);
+  }
+}

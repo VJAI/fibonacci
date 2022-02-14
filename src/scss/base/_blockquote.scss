@@ -1,0 +1,55 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+blockquote, .cmp__quote {
+  --cmp-bg-color: #{fibVars.$bquote-bg-color};
+  --cmp-bg-color-dark: #{darken(fibVars.$bquote-bg-color, 5%)};
+
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$lg-size;
+  }
+  padding: {
+    top: fibVars.$lg-size;
+    right: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+    left: fibVars.$lg-size;
+  };
+
+  font-family: fibVars.$bquote-content-font-family;
+
+  color: fibVars.$bquote-color;
+  @include fibMixins.config_container(fibVars.$bquote-bg-color);
+
+  &.cmp__icon-float {
+    position: relative;
+    margin-top: fibVars.$xl-size;
+    padding-top: fibVars.$xl-size;
+  }
+
+  h4 {
+    display: inline-block;
+    margin-top: 0;
+    font-family: fibVars.$bquote-title-font-family;
+    border-bottom: solid 2px;
+  }
+
+  p {
+    hanging-punctuation: first;
+  }
+
+  cite {
+    display: block;
+    font: {
+      family: fibVars.$cite-font-family;
+      size: fibVars.$cite-font-size;
+    }
+    text-align: right;
+
+    &::before {
+      content: '—';
+      margin-right: fibFuncs.size(-14);
+    }
+  }
+}

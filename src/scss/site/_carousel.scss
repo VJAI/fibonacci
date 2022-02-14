@@ -1,0 +1,33 @@
+@use '../base/variables' as fibVars;
+@use '../base/mixins' as fibMixins;
+
+.cmp__carousel-post {
+  @include fibMixins.flex_init($align: flex-start);
+
+  > * {
+    min-width: 50%;
+  }
+
+  header {
+    position: relative;
+
+    h4 {
+      position: absolute;
+      top: fibVars.$md-size;
+      left: fibVars.$md-size;
+      color: fibVars.$white;
+    }
+
+    figure {
+      margin: 0;
+    }
+  }
+
+  main {
+    padding: {
+      top: fibVars.$md-size;
+      left: fibVars.$md-size;
+    }
+    color: fibVars.$gray;
+  }
+}

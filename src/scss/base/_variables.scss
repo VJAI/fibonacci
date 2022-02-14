@@ -1,0 +1,228 @@
+@use 'sass:color';
+@use 'funcs' as fibFuncs;
+
+// Assets path.
+$assets-path:                       'src/assets' !default;
+
+// Generic Variables.
+// Font families.
+$body-font-family:                  'Source Serif Pro', Georgia, serif !default;
+$heading-font-family:               'Patua One', cursive; // TODO: Set font family hierarchy!
+$small-text-font-family:            'Source Sans Pro', Arial, Tahoma, sans-serif !default;
+$mono-font-family:                  'JetBrains Mono', Courier, monospace !default;
+$logo-font-family:                  'Amatic SC', 'Brush Script MT', cursive !default;
+
+// Colors.
+// Global.
+$white:                             rgb(255, 255, 255) !default;
+$black:                             rgb(0, 0, 0) !default;
+
+// Brand Colors.
+$brand-color:                       rgb(240, 72, 117) !default;
+$brand-bg:                          rgb(75, 85, 94) !default;
+$brand-gray:                        rgb(189, 181, 184) !default;
+
+$brand-light:                       color.adjust($brand-color, $lightness: 15%) !default;
+$brand-dark:                        color.adjust($brand-color, $lightness: -15%) !default;
+
+// Gray Variations.
+$dark-gray:                         rgb(51, 51, 51) !default;
+$medium-gray:                       rgb(92, 92, 92) !default;
+$gray:                              rgb(154, 154, 154) !default;
+$light-gray:                        rgb(230, 230, 230) !default;
+$dim-gray:                          rgb(247, 247, 247) !default;
+
+// Special colors.
+$success:                           rgb(241, 247, 234) !default;
+$warn:                              rgb(252, 248, 220) !default;
+$error:                             rgb(255, 238, 235) !default;
+
+// Other Colors.
+$yellow-green:                      rgb(181, 219, 86) !default;
+$purple-ribbon:                     rgb(186, 137, 182) !default;
+
+// Sizes.
+$small-screen-font-size:            16px !default;
+$large-screen-font-size:            19px !default;
+$xs-size:                           var(--cmp-xs-size) !default;
+$sm-size:                           var(--cmp-sm-size) !default;
+$md-size:                           var(--cmp-md-size) !default;
+$lg-size:                           var(--cmp-lg-size) !default;
+$xl-size:                           var(--cmp-xl-size) !default;
+$xxl-size:                          var(--cmp-xxl-size) !default;
+
+// Font Sizes.
+$base-font-size:                    $md-size !default;
+$body-font-size:                    $base-font-size !default;
+$small-font-size:                   $xs-size !default;
+
+// Line Heights.
+$base-line-height:                  1.5 !default;
+$medium-line-height:                1.4 !default;
+$small-line-height:                 1.2 !default;
+$xs-line-height:                    1 !default;
+
+// Letter Spacings.
+$extra-small-letter-spacing:        -0.5px !default;
+$small-letter-spacing:              0.5px !default;
+$medium-letter-spacing:             1px !default;
+$large-letter-spacing:              2px !default;
+$extra-large-letter-spacing:        3px !default;
+
+// Borders.
+$border-radius:                     3px !default;
+
+// Shadows.
+$box-shadow:                        rgba(0, 0, 0, 0.1) 0 1px 2px 0 !default;
+$box-shadow-hover:                  rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !default;
+
+// Containers.
+$container-width:                   42rem !default;
+$medium-padding:                    $lg-size $xl-size !default;
+$small-padding:                     $sm-size $lg-size !default;
+
+// Breakpoints.
+$mobile:                            576px !default; // Small devices (landscape phones, 576px and up).
+$tablet:                            768px !default; // Medium devices (tablets, 768px and up).
+$desktop:                           992px !default; // Large devices (desktops, 992px and up).
+
+$breakpoint1:                       878px !default;  // Custom one.
+$breakpoint2:                       1260px !default; // Custom one.
+
+// Paragraphs.
+$lead-para-font-size:               fibFuncs.size(2) !default;
+
+// Headings.
+$h1-font-size:                      $xxl-size !default;
+$h2-font-size:                      $xl-size !default;
+$h3-font-size:                      fibFuncs.size(5) !default;
+$h4-font-size:                      $lg-size !default;
+$h5-font-size:                      $base-font-size !default;
+$h6-font-size:                      $small-font-size !default;
+$heading-line-height:               $xs-line-height !default;
+$heading-spacing:                   $small-letter-spacing !default;
+$heading-color:                     $medium-gray !default;
+$h1-border-width:                   36% !default;
+
+// Links.
+$link-color:                        $brand-color !default;
+$link-hover-color:                  $brand-dark !default;
+
+// Code.
+$code-font-family:                  $mono-font-family !default;
+$code-font-size:                    $small-font-size !default;
+$code-line-height:                  $small-line-height !default;
+$code-bg-color:                     rgba(247, 247, 247, 0.7) !default;
+$var-color:                         $medium-gray !default;
+$var-bg-color:                      rgb(255, 243, 191) !default;
+$var-font-size:                     0.9em !default;
+
+// highlight.js variables.
+$highlight-bg-color:                $code-bg-color !default;
+$hightlight-code-color:             $medium-gray !default;
+$hightlight-comment-color:          $gray !default;
+$hightlight-punc-color:             #444a !default;
+$hightlight-tag-color:              #444 !default;
+$hightlight-selector-color:         #ce65ab !default;
+$hightlight-section-title-color:    #7c71ba !default;
+$hightlight-literal-color:          #78a960 !default;
+$hightlight-code-color:             #1f7199 !default;
+$hightlight-meta-string-color:      #4d99bf !default;
+
+// Abbr & Acronym.
+$special-char-font-size:            fibFuncs.size(-5, false, em) !default;
+
+// Mark.
+$mark-bg-color:                     rgb(255, 255, 115) !default;
+
+// Blockquote.
+$bquote-bg-color:                   $dim-gray !default;
+$bquote-color:                      $medium-gray !default;
+$bquote-content-font-family:        $body-font-family !default;
+$bquote-title-font-family:          $heading-font-family !default;
+$cite-font-family:                  $small-text-font-family !default;
+$cite-font-size:                    $small-font-size !default;
+
+// Time.
+$time-font-family:                  $small-text-font-family !default;
+$time-font-size:                    0.8em !default;
+
+// Horizontal lines.
+$hr-bg:                             $light-gray !default;
+$hr-separator-color:                $brand-color !default;
+$hr-separator-size:                 10px !default;
+
+// Labels.
+$label-font-family:                 $small-text-font-family !default;
+$label-font-size:                   $small-font-size !default;
+$label-letter-spacing:              $medium-letter-spacing !default;
+$label-color:                       $medium-gray !default;
+
+// Inputs.
+$input-font-family:                 $small-text-font-family !default;
+$input-font-size:                   $sm-size !default;
+$input-padding:                     fibFuncs.size(-7) !default;
+$input-border-color:                $light-gray !default;
+$input-line-height:                 $small-line-height !default;
+$input-text-color:                  $medium-gray !default;
+
+// Form controls.
+$form-control-bg-color:             $light-gray !default;
+
+// Buttons.
+$button-font-family:                $small-text-font-family !default;
+$button-font-size:                  $small-font-size !default;
+$button-padding:                    fibFuncs.size(-7) fibFuncs.size(-3) !default;
+$button-text-color:                 $white !default;
+$button-bg-color:                   $brand-color !default;
+
+// Icons.
+$icon-size:                         16px !default;
+
+// Figures.
+$figure-caption-font-size:          $small-font-size !default;
+$figure-caption-color:              $gray !default;
+$figure-caption-font-family:        $small-text-font-family !default;
+
+// Iframes.
+$iframe-min-height:                 400px !default;
+
+// Tables.
+$table-font-size:                   $sm-size !default;
+$table-font-family:                 $small-text-font-family !default;
+$table-caption-font-size:           $small-font-size !default;
+$table-caption-color:               $gray !default;
+$table-caption-font-family:         $small-text-font-family !default;
+$table-line-height:                 $medium-line-height !default;
+
+// Sub.
+$sub-content-font-family:           $body-font-family !default;
+$sub-title-font-family:             $heading-font-family !default;
+$sub-bg-color:                      $success !default;
+
+// Content scale.
+$content-scale-height:              2px !default;
+$content-scale-bg:                  $light-gray !default;
+$content-scale-index:               500 !default;
+$scale-progress-bg:                 $brand-color !default;
+
+// Widgets.
+$widget-bg-color:                   $dim-gray !default;
+$widget-ribbon-height:              $xl-size !default;
+$widget-ribbon-bg:                  $light-gray !default;
+$widget-ribbon-color:               $medium-gray !default;
+
+// Card component.
+$card-header-bg:                    $dark-gray !default;
+$card-title-font-family:            $small-text-font-family !default;
+$card-title-font-size:              $xs-size !default;
+$card-title-color:                  $dim-gray !default;
+$card-footer-font-family:           $small-text-font-family !default;
+$card-footer-font-size:             $sm-size !default;
+$card-footer-color:                 $gray !default;
+$card-spacing:                      $xxl-size !default;
+
+// Animations Speed.
+$medium-speed:                      0.5s !default;
+$fast-speed:                        0.25s !default;
+$snail-speed:                       2s !default;

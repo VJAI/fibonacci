@@ -1,0 +1,139 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%% Article List Page %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fibonacci | Home</title>
+  <link rel="stylesheet" type="text/css" href="fibonacci.css">
+</head>
+<body class="cmp__blog">
+
+<!-- Site Container -->
+<div class="cmp__site-container">
+
+  <!-- Blog Header Component -->
+  <header class="cmp__blog-header">
+
+    <!-- Logo and Tag Line -->
+    <div class="cmp__blog-info">
+
+      <!-- Logo Component -->
+      <a class="cmp__blog-logo" href="index.html">
+        <img class="cmp__blog-logo-pic" src="assets/logo.svg" alt="logo" style="width: 2rem;">
+        <span class="cmp__blog-name">fibonacci</span>
+      </a>
+
+      <span class="cmp__separator"></span>
+
+      <!-- Blog Tag Line -->
+      <div class="cmp__blog-tag-line">
+        <span>being pragmatic...</span>
+      </div>
+    </div>
+
+    <!-- Page Navigation Component -->
+    <nav class="cmp__blog-nav">
+      <ul>
+        <li class="cmp__search-link">
+          <form class="cmp__form cmp__search-form">
+            <label>
+              <input type="search" placeholder="Search..."/>
+            </label>
+            <a href="#">
+              <cmp-icon name="search"></cmp-icon>
+            </a>
+          </form>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="index.html">
+            <cmp-icon name="house-door"></cmp-icon>
+            <span class="cmp__nav-link-text">home</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="posts.html">
+            <cmp-icon name="file-earmark-medical"></cmp-icon>
+            <span class="cmp__nav-link-text">posts</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="contact.html">
+            <cmp-icon name="envelope"></cmp-icon>
+            <span class="cmp__nav-link-text">contact</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="about.html">
+            <cmp-icon name="person"></cmp-icon>
+            <span class="cmp__nav-link-text">about</span>
+          </a>
+        </li>
+        <li class="cmp__hamburger-link">
+          <a class="cmp__nav-link" href="#">
+            <select class="cmp__hidden-menu">
+              <option value="index.html" selected> Home</option>
+              <option value="about.html"> About</option>
+              <option value="contact.html"> Contact</option>
+              <option value="search"> Search</option>
+            </select>
+            <cmp-icon name="list"></cmp-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Main Content Component -->
+  <main class="cmp__blog-main">
+
+    <!-- Spiral -->
+    <div class="cmp__spiral"></div>
+
+    <!-- Color Bars -->
+    <div class="cmp__color-bars">
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+    </div>
+
+    <!-- RSS Subscription -->
+    <a class="cmp__subscribe" href="#">
+      <div>
+        <span>R<br>S<br>S</span>
+      </div>
+    </a>
+
+    <!-- Main Content -->
+    <article id="cmp__blog-list" class="cmp__blog-content cmp__auto-layout">
+
+      <!-- Page Title -->
+      <div class="cmp__page-title">
+        <h4>
+          The Resource You Are Looking For Either Removed Or Not Found!
+        </h4>
+        <p class="cmp__big-text">
+          404
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <!-- Page Footer Component -->
+  <footer class="cmp__blog-footer">
+    <section class="cmp__footer-left">
+      <div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+      <div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+    </section>
+    <section class="cmp__footer-right">
+      <div>&copy; 2022 &middot; All Rights Reserved</div>
+    </section>
+  </footer>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+<script src="fibonacci.js"></script>
+</body>
+</html>

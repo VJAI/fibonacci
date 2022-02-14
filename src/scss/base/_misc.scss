@@ -1,0 +1,342 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+
+// Abbr, Acronym.
+abbr, acronym, .cmp__acronym {
+  letter-spacing: fibVars.$medium-letter-spacing;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:after {
+    content: '†';
+    position: relative;
+    top: fibFuncs.size(-5, true, em);
+    font-size: fibVars.$special-char-font-size;
+  }
+}
+
+// Definition.
+dfn {
+  font-style: italic;
+}
+
+// Superscript & Subscript.
+sup, sub {
+  font-size: fibVars.$special-char-font-size;
+}
+
+// Small.
+small, .cmp__small {
+  font-size: fibFuncs.size(-2);
+}
+
+// Very Large text.
+.cmp__big-text {
+  text-align: center;
+  font-size: fibFuncs.size(19);
+  color: fibVars.$medium-gray;
+}
+
+// Datetimes.
+time, .cmp__time {
+  font: {
+    family: fibVars.$time-font-family;
+    size: fibVars.$time-font-size;
+  }
+  letter-spacing: fibVars.$medium-letter-spacing;
+  text-transform: uppercase;
+}
+
+// Strong, data etc.
+strong, data, .cmp__strong {
+  font-weight: bold;
+}
+
+// Italic.
+i, .cmp__italic {
+  font-style: italic;
+}
+
+// Highlight.
+mark, .cmp__mark {
+  background-color: fibVars.$mark-bg-color;
+}
+
+// Address element.
+address {
+  font-style: italic;
+}
+
+// Selection Color.
+::selection {
+  text-shadow: none;
+  color: fibVars.$white;
+  background: fibVars.$brand-color;
+}
+
+// Alignment classes.
+.cmp__right {
+  text-align: right;
+}
+
+.cmp__center {
+  text-align: center;
+}
+
+// Sticky.
+.cmp__sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+// Status Colors.
+$statuses: ("info": fibVars.$dim-gray, "success": fibVars.$success, "warn": fibVars.$warn, "error": fibVars.$error);
+
+@each $name, $color in $statuses {
+  .cmp__status-#{$name} {
+    --cmp-bg-color: #{$color};
+    --cmp-bg-color-dark: #{darken($color, 5%)};
+    background-color: var(--cmp-bg-color);
+  }
+}
+
+// Constants.
+$breakpoints: (
+        "mob": fibVars.$mobile,
+        "tab": fibVars.$tablet,
+        "desk": fibVars.$desktop
+);
+
+$sizes: (
+        "xs": fibVars.$xs-size,
+        "sm": fibVars.$sm-size,
+        "md": fibVars.$md-size,
+        "lg": fibVars.$lg-size,
+        "xl": fibVars.$xl-size,
+        "xxl": fibVars.$xxl-size
+);
+
+$colors: (
+        "brand": fibVars.$brand-color,
+        "brand-dark": fibVars.$brand-dark,
+        "brand-light": fibVars.$brand-light,
+        "brand-bg": fibVars.$brand-bg,
+        "dark-gray": fibVars.$dark-gray,
+        "medium-gray": fibVars.$medium-gray,
+        "light-gray": fibVars.$gray,
+        "dim-gray": fibVars.$dim-gray,
+        "brand-gray": fibVars.$brand-gray,
+        "white-color": fibVars.$white,
+        "black-color": fibVars.$black,
+        "success-color": fibVars.$success,
+        "warn-color": fibVars.$warn,
+        "error-color": fibVars.$error
+);
+
+// Floats & Responsive Floats.
+.cmp__float-left {
+  float: left;
+}
+
+.cmp__float-right {
+  float: right;
+}
+
+.cmp__float-left:after, .cmp__float-right:after {
+  content: '';
+  display: block;
+  height: 0;
+  width: 100%;
+  clear: both;
+}
+
+.cmp__clear {
+  clear: both;
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    .cmp__#{$name}-float-left {
+      float: left;
+    }
+
+    .cmp__#{$name}-float-right {
+      float: right;
+    }
+
+    .cmp__#{$name}-float-left:after, .cmp__#{$name}-float-right:after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 100%;
+      clear: both;
+    }
+
+    .cmp__#{$name}-clear {
+      clear: both;
+    }
+  }
+}
+
+// Responsive paddings and margins.
+.cmp__no-margin {
+  margin: 0;
+}
+
+.cmp__no-pad {
+  padding: 0;
+}
+
+@each $name, $size in $sizes {
+
+  // Paddings.
+  .cmp__pad-#{$name} {
+    padding: #{$size};
+  }
+
+  .cmp__pad-hor-#{$name} {
+    padding-left: #{$size};
+    padding-right: #{$size};
+  }
+
+  .cmp__pad-ver-#{$name} {
+    padding-top: #{$size};
+    padding-bottom: #{$size};
+  }
+
+  .cmp__pad-left-#{$name} {
+    padding-left: #{$size};
+  }
+
+  .cmp__pad-right-#{$name} {
+    padding-right: #{$size};
+  }
+
+  .cmp__pad-top-#{$name} {
+    padding-top: #{$size};
+  }
+
+  .cmp__pad-bottom-#{$name} {
+    padding-bottom: #{$size};
+  }
+
+  // Margins.
+  .cmp__mar-#{$name} {
+    margin: #{$size};
+  }
+
+  .cmp__mar-hor-#{$name} {
+    margin-left: #{$size};
+    margin-right: #{$size};
+  }
+
+  .cmp__mar-ver-#{$name} {
+    margin-top: #{$size};
+    margin-bottom: #{$size};
+  }
+
+  .cmp__mar-left-#{$name} {
+    margin-left: #{$size};
+  }
+
+  .cmp__mar-right-#{$name} {
+    margin-right: #{$size};
+  }
+
+  .cmp__mar-top-#{$name} {
+    margin-top: #{$size};
+  }
+
+  .cmp__mar-bottom-#{$name} {
+    margin-bottom: #{$size};
+  }
+}
+
+@each $breakpointname, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    .cmp__#{$breakpointname}-no-margin {
+      margin: 0;
+    }
+
+    .cmp__#{$breakpointname}-no-pad {
+      padding: 0;
+    }
+
+    @each $name, $size in $sizes {
+
+      // Paddings.
+      .cmp__#{$breakpointname}-pad-#{$name} {
+        padding: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-hor-#{$name} {
+        padding-left: #{$size};
+        padding-right: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-ver-#{$name} {
+        padding-top: #{$size};
+        padding-bottom: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-left-#{$name} {
+        padding-left: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-right-#{$name} {
+        padding-right: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-top-#{$name} {
+        padding-top: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-pad-bottom-#{$name} {
+        padding-bottom: #{$size};
+      }
+
+      // Margins.
+      .cmp__#{$breakpointname}-mar-#{$name} {
+        margin: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-hor-#{$name} {
+        margin-left: #{$size};
+        margin-right: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-ver-#{$name} {
+        margin-top: #{$size};
+        margin-bottom: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-left-#{$name} {
+        margin-left: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-right-#{$name} {
+        margin-right: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-top-#{$name} {
+        margin-top: #{$size};
+      }
+
+      .cmp__#{$breakpointname}-mar-bottom-#{$name} {
+        margin-bottom: #{$size};
+      }
+    }
+  }
+}
+
+// Color Classes.
+@each $name, $color in $sizes {
+  .cmp__#{$name}-color {
+    color: $color;
+  }
+
+  .cmp__#{$name}-color-bg {
+    background-color: $color;
+  }
+}

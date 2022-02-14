@@ -1,0 +1,32 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+
+.cmp__color-bars {
+  --cmp-bar-height: #{fibFuncs.size(-2)};
+  --cmp-bar-width: #{fibFuncs.size(-10)};
+
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: fibVars.$lg-size;
+  height: var(--cmp-bar-height);
+
+  .cmp__color-bar {
+    width: var(--cmp-bar-width);
+    height: 100%;
+    position: relative;
+    margin-right: 1px;
+    background-color: fibVars.$light-gray;
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: calc(-1 * var(--cmp-bar-width) - 1px);
+      left: 0;
+      width: var(--cmp-bar-width);
+      height: var(--cmp-bar-width);
+      background-color: inherit;
+      transform: rotate(45deg);
+    }
+  }
+}

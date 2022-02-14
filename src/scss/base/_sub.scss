@@ -1,0 +1,40 @@
+@use 'variables' as fibVars;
+@use 'mixins' as fibMixins;
+
+.cmp__sub {
+  --cmp-bg-color: #{fibVars.$sub-bg-color};
+  --cmp-bg-color-dark: #{darken(fibVars.$sub-bg-color, 5%)};
+
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$lg-size;
+  };
+  padding: {
+    top: fibVars.$lg-size;
+    right: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+    left: fibVars.$lg-size;
+  };
+
+  font-family: fibVars.$sub-content-font-family;
+
+  @include fibMixins.config_container(fibVars.$sub-bg-color);
+
+  &.cmp__icon-float {
+    position: relative;
+    margin-top: fibVars.$xl-size;
+    padding-top: fibVars.$xl-size;
+  }
+
+  h4, h5 {
+    font-family: fibVars.$sub-title-font-family;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  pre {
+    background-color: fibVars.$white;
+  }
+}

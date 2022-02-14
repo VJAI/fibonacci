@@ -1,0 +1,22 @@
+@use 'sass:math';
+@use 'variables' as fibVars;
+
+hr {
+  height: 1px;
+  margin: fibVars.$xxl-size 0;
+  position: relative;
+  overflow: visible;
+  border: 0;
+  background: fibVars.$hr-bg;
+}
+
+hr:before {
+  content: '';
+  position: absolute;
+  left: calc(50% - #{math.div(fibVars.$hr-separator-size, 2)});
+  top: -1 * math.div(fibVars.$hr-separator-size, 2);
+  width: fibVars.$hr-separator-size;
+  height: fibVars.$hr-separator-size;
+  background-color: fibVars.$hr-separator-color;
+  transform: rotate(50deg);
+}

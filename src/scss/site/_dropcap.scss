@@ -1,0 +1,25 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use 'variables' as fibSiteVars;
+
+// Makes the first big and stand out.
+.cmp__drop-cap:first-letter {
+  float: left;
+
+  padding: fibFuncs.size(-7);
+  margin: {
+    top: fibFuncs.size(-10);
+    right: fibFuncs.size(-10);
+  };
+
+  font: {
+    size: fibSiteVars.$drop-cap-font-size;
+    weight: bold;
+  }
+  line-height: fibVars.$xs-line-height;
+
+  background-color: fibSiteVars.$drop-cap-bg-color;
+  color: fibSiteVars.$drop-cap-color;
+  border-radius: fibVars.$border-radius;
+  box-shadow: -1px -1px 10px fibVars.$brand-dark inset;
+}

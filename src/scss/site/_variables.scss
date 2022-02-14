@@ -1,0 +1,75 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+
+// App.
+$app-main-min-height:               900px !default;
+
+// Page Loader.
+$loader-image-size:                 120px !default;
+
+// Header Component.
+$header-height:                     fibFuncs.size(11) !default;
+$header-color:                      rgb(232, 232, 232) !default;
+
+// Logo Component.
+$logo-font-family:                  fibVars.$logo-font-family !default;
+$logo-font-size:                    fibVars.$lg-size !default;
+$logo-rotate-speed:                 5s !default;
+$logo-name-width:                   fibFuncs.size(16) !default;
+
+// Navigation Component.
+$nav-font-family:                   fibVars.$small-text-font-family !default;
+$nav-font-size:                     fibFuncs.size(-3) !default;
+$nav-link-spacing:                  fibFuncs.size(-4) !default;
+$nav-link-icon-spacing:             fibFuncs.size(-20) !default;
+$nav-active-border-width:           4px !default;
+
+// Footer Component.
+$footer-font-family:                fibVars.$small-text-font-family !default;
+$footer-font-size:                  fibFuncs.size(-5) !default;
+$footer-credits-font-size:          fibFuncs.size(-9) !default;
+$footer-height:                     fibFuncs.size(16) !default;
+$footer-color:                      fibVars.$brand-gray !default;
+
+// Page Main Component.
+$page-content-top:                  fibFuncs.size(14) !default;
+$page-content-bottom:               fibFuncs.size(19) !default;
+$continue-reading-font-family:      fibVars.$small-text-font-family !default;
+$continue-reading-color:            fibVars.$gray !default;
+$continue-reading-font-size:        fibVars.$small-font-size !default;
+
+// Article.
+$article-meta-font-size:            fibVars.$small-font-size !default;
+$article-meta-color:                fibVars.$gray !default;
+$article-meta-font-family:          fibVars.$small-text-font-family !default;
+$article-author-pic-opacity:        0.8 !default;
+$article-author-role-font-size:     fibFuncs.size(-6) !default;
+$article-author-role-font-color:    fibVars.$dim-gray !default;
+$article-author-left-offset:        fibFuncs.size(21, true) !default;
+$article-author-admin-badge-color:  fibVars.$yellow-green !default;
+$article-author-guest-badge-color:  fibVars.$gray !default;
+$author-pic-default-width:          30px !default;
+$author-pic-large-screen-width:     fibFuncs.size(15) !default;
+$comment-textarea-minheight:        75px !default;
+
+// Table Of Contents.
+$toc-bg-color:                      fibVars.$widget-bg-color !default;
+
+// Ribbons.
+$ribbon-height:                     fibFuncs.size(5) !default;
+$ribbon-small-screen-height:        fibFuncs.size(4) !default;
+$ribbon-bg:                         fibVars.$purple-ribbon !default;
+$ribbon-color:                      fibVars.$white !default;
+$ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
+
+$rss-ribbon-bg:                     fibVars.$light-gray !default;
+$rss-ribbon-color:                  fibVars.$gray !default;
+
+// Project Card.
+$project-card-image-height:         240px !default;
+$person-card-image-height:          360px !default;
+
+// Utility Classes Variables.
+$drop-cap-font-size:                300% !default;
+$drop-cap-bg-color:                 fibVars.$brand-color !default;
+$drop-cap-color:                    fibVars.$white !default;

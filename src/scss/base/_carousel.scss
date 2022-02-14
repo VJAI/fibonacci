@@ -1,0 +1,49 @@
+@use 'variables' as fibVars;
+@use 'mixins' as fibMixins;
+
+.cmp__carousel {
+  display: flex;
+
+  .cmp__carousel-tabs {
+    position: absolute;
+    top: calc(-1 * #{fibVars.$widget-ribbon-height} / 2);
+    left: calc(50% - 90px);
+    width: 180px;
+    height: fibVars.$widget-ribbon-height;
+
+    span {
+      @include fibMixins.flex_init($center: true);
+      position: absolute;
+      width: 100%;
+      height: fibVars.$widget-ribbon-height;
+      line-height: fibVars.$widget-ribbon-height;
+      @include fibMixins.set_text_font();
+      font-weight: bold;
+
+      background-color: fibVars.$widget-ribbon-bg;
+      color: fibVars.$widget-ribbon-color;
+      z-index: 1;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+
+        border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+      }
+
+      &::before {
+        left: calc(-1 * #{fibVars.$xl-size});
+        border-left-color: transparent;
+      }
+
+      &::after {
+        right: calc(-1 * #{fibVars.$xl-size});
+        border-right-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%% Article List Page %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fibonacci | Home</title>
+  <link rel="stylesheet" type="text/css" href="fibonacci.css">
+</head>
+<body class="cmp__blog">
+
+<div class="cmp__page-loader">
+  <div class="cmp__loader-container">
+    <div class="cmp__loader-logo-image">
+    </div>
+    <div class="cmp__loader-logo-text">
+      <span>Fibonacci</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function (win, doc) {
+    const body = doc.body,
+      loader = body.querySelector('.cmp__page-loader');
+
+    body.classList.add('cmp__site-loading');
+
+    win.addEventListener('load', () => {
+      loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+      });
+      body.classList.remove('cmp__site-loading');
+      body.classList.add('cmp__site-loaded');
+    });
+  })(window, document);
+</script>
+
+<!-- Site Container -->
+<div class="cmp__site-container">
+
+  <!-- Blog Header Component -->
+  <header class="cmp__blog-header">
+
+    <!-- Logo and Tag Line -->
+    <div class="cmp__blog-info">
+
+      <!-- Logo Component -->
+      <a class="cmp__blog-logo" href="index.html">
+        <img class="cmp__blog-logo-pic" src="assets/logo.svg" alt="logo" style="width: 2rem;">
+        <span class="cmp__blog-name">fibonacci</span>
+      </a>
+
+      <span class="cmp__separator"></span>
+
+      <!-- Blog Tag Line -->
+      <div class="cmp__blog-tag-line">
+        <span>being pragmatic...</span>
+      </div>
+    </div>
+
+    <!-- Page Navigation Component -->
+    <nav class="cmp__blog-nav">
+      <ul>
+        <li class="cmp__search-link">
+          <form class="cmp__form cmp__search-form">
+            <label>
+              <input type="search" placeholder="Search..."/>
+            </label>
+            <a href="#">
+              <cmp-icon name="search"></cmp-icon>
+            </a>
+          </form>
+        </li>
+        <li class="cmp__nav-active">
+          <a class="cmp__nav-link" href="index.html">
+            <cmp-icon name="house-door"></cmp-icon>
+            <span class="cmp__nav-link-text">home</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="posts.html">
+            <cmp-icon name="file-earmark-medical"></cmp-icon>
+            <span class="cmp__nav-link-text">posts</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="contact.html">
+            <cmp-icon name="envelope"></cmp-icon>
+            <span class="cmp__nav-link-text">contact</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="about.html">
+            <cmp-icon name="person"></cmp-icon>
+            <span class="cmp__nav-link-text">about</span>
+          </a>
+        </li>
+        <li class="cmp__hamburger-link">
+          <a class="cmp__nav-link" href="#">
+            <select class="cmp__hidden-menu">
+              <option value="index.html" selected> Home</option>
+              <option value="about.html"> About</option>
+              <option value="contact.html"> Contact</option>
+              <option value="search"> Search</option>
+            </select>
+            <cmp-icon name="list"></cmp-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Main Content Component -->
+  <main class="cmp__blog-main">
+
+    <!-- Spiral -->
+    <div class="cmp__spiral"></div>
+
+    <!-- Color Bars -->
+    <div class="cmp__color-bars">
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+    </div>
+
+    <!-- RSS Subscription -->
+    <a class="cmp__subscribe" href="#">
+      <div>
+        <span>R<br>S<br>S</span>
+      </div>
+    </a>
+
+    <!-- Main Content -->
+    <article id="cmp__blog-home" class="cmp__blog-content">
+
+      <!-- Page Title -->
+      <header class="cmp__article-header cmp__auto-layout">
+        <div class="cmp__page-title">
+          <h1 class="cmp__home-heading">
+            Fibonacci
+          </h1>
+        </div>
+      </header>
+
+      <!-- Carousel Component -->
+      <div class="cmp__carousel">
+        <div class="cmp__carousel-tabs">
+          <span>Popular Posts</span>
+        </div>
+        <div class="cmp__carousel-page">
+          <div class="cmp__carousel-post">
+            <header>
+              <h4>
+                <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
+              </h4>
+              <figure class="cmp__article-poster">
+                <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple" />
+              </figure>
+            </header>
+            <main>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat.
+              </p>
+              <button>Continue</button>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <div class="cmp__responsive-flex">
+        <div class="cmp__card cmp__quote-card">
+          <div class="cmp__card-header">
+            <div class="cmp__card-title">
+              <h5>Quote Of Day</h5>
+            </div>
+          </div>
+          <div class="cmp__card-footer">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+
+        <div class="cmp__cartoon">
+          <figure>
+            <img src="" />
+          </figure>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Page Footer Component -->
+  <footer class="cmp__blog-footer">
+    <section class="cmp__footer-left">
+      <div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+      <div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+    </section>
+    <section class="cmp__footer-right">
+      <div>&copy; 2022 &middot; All Rights Reserved</div>
+    </section>
+  </footer>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+<script src="fibonacci.js"></script>
+</body>
+</html>

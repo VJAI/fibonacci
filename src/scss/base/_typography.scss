@@ -1,0 +1,128 @@
+@use 'sass:color';
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+@include fibMixins.load_google_font($fonts:
+  (('Source Serif Pro': ('400', '400i', '600')),
+  ('Source Sans Pro': ('400', '400i', '600')),
+  'Patua One',
+  ('Amatic SC': ('wght@700')))
+);
+
+// Paragraphs.
+p, .cmp__para {
+  margin: {
+    top: 0;
+    bottom: fibVars.$md-size;
+  }
+
+  font-size: fibVars.$body-font-size;
+}
+
+// Headings.
+h1, .cmp__h1,
+h2, .cmp__h2,
+h3, .cmp__h3,
+h4, .cmp__h4,
+h5, .cmp__h5,
+h6, .cmp__h6 {
+  font-family: fibVars.$heading-font-family;
+  line-height: fibVars.$heading-line-height;
+  letter-spacing: fibVars.$heading-spacing;
+
+  color: fibVars.$heading-color;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus,
+  a:active {
+    border-bottom: none;
+  }
+}
+
+h1, .cmp__h1 {
+  margin: {
+    top: fibVars.$xl-size;
+    bottom: fibVars.$lg-size;
+  }
+
+  font-size: fibVars.$h1-font-size;
+}
+
+h2, .cmp__h2 {
+  margin: {
+    top: fibFuncs.size(6);
+    bottom: fibVars.$md-size;
+  }
+
+  font-size: fibVars.$h2-font-size;
+}
+
+h3, .cmp__h3 {
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$sm-size;
+  }
+
+  font-size: fibVars.$h3-font-size;
+}
+
+h4, .cmp__h4 {
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
+
+  font-size: fibVars.$h4-font-size;
+}
+
+h5, .cmp__h5 {
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
+
+  font-size: fibVars.$h5-font-size;
+  text-transform: uppercase;
+  letter-spacing: fibVars.$small-letter-spacing;
+
+  color: fibVars.$gray;
+}
+
+h6, .cmp__h6 {
+  margin: {
+    top: fibVars.$lg-size;
+    bottom: fibVars.$xs-size;
+  }
+
+  font-size: fibVars.$h6-font-size;
+  text-transform: uppercase;
+  letter-spacing: fibVars.$small-letter-spacing;
+
+  color: fibVars.$gray;
+}
+
+// Links.
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: inherit;
+  border-bottom: dotted 1px;
+  text-decoration: none;
+  transition: all fibVars.$medium-speed;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: fibVars.$brand-color;
+  text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px;
+}
+
+a:focus-visible {
+  outline-color: fibVars.$brand-color;
+}

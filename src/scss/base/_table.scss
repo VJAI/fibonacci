@@ -1,0 +1,39 @@
+@use 'variables' as fibVars;
+
+table {
+  width: 100%;
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$lg-size;
+  }
+
+  font: {
+    size: fibVars.$table-font-size;
+    family: fibVars.$table-font-family;
+  }
+
+  border-collapse: collapse;
+  caption-side: bottom;
+
+  caption {
+    font: {
+      size: fibVars.$table-caption-font-size;
+      family: fibVars.$table-caption-font-family;
+    }
+
+    color: fibVars.$table-caption-color;
+  }
+
+  td, th {
+    line-height: fibVars.$table-line-height;
+  }
+
+  thead {
+    tr {
+      th {
+        border-bottom: solid 1px fibVars.$gray;
+        text-align: left;
+      }
+    }
+  }
+}

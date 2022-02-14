@@ -1,0 +1,75 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Ordered, Un-ordered lists and menus.
+ul,
+ol,
+menu {
+  position: relative;
+
+  padding-left: fibVars.$md-size;
+  margin: {
+    top: 0;
+    bottom: fibVars.$md-size;
+  }
+
+  list-style: none;
+
+  color: inherit;
+
+  ul, ol, menu {
+    margin-bottom: fibFuncs.size(-9);
+  }
+}
+
+ul li:before, menu li:before {
+  content: "\25A0";
+  position: absolute;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+
+  font-weight: bold;
+
+  color: fibVars.$brand-color;
+}
+
+ol {
+  counter-reset: li;
+}
+
+ol li:before {
+  display: inline-block;
+  position: absolute;
+  width: fibFuncs.size(4, false, em);
+  margin-left: fibFuncs.size(7, true, em);
+  text-align: right;
+
+  font-family: fibVars.$small-text-font-family;
+
+  content: counter(li) ".";
+  counter-increment: li;
+  counter-reset: revert;
+
+  color: inherit;
+}
+
+ol li li:before {
+  content: counters(li, ".") " ";
+}
+
+// Detail Lists.
+dl {
+  // Title.
+  dt {
+    @include fibMixins.set_text_font($font_size: fibVars.$h5-font-size);
+    color: fibVars.$medium-gray;
+  }
+
+  // Description.
+  dd {
+    margin-bottom: fibVars.$xs-size;
+    margin-inline-start: fibVars.$md-size;
+  }
+}

@@ -1,0 +1,15 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+
+a.cmp__go-top {
+  --cmp-border-width: #{fibFuncs.size(0)};
+  --cmp-border-color: #{fibVars.$light-gray};
+
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - var(--cmp-border-width));
+  border: solid var(--cmp-border-width) var(--cmp-border-color);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+}

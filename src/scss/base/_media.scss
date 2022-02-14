@@ -1,0 +1,74 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+@media only screen and (min-width: fibVars.$tablet) {
+  :root {
+    --cmp-base-size: #{fibVars.$large-screen-font-size};
+    --cmp-xs-size: #{fibFuncs.size(-3)};
+    --cmp-sm-size: #{fibFuncs.size(-2)};
+    --cmp-md-size: #{fibFuncs.size(0)};
+    --cmp-lg-size: #{fibFuncs.size(3)};
+    --cmp-xl-size: #{fibFuncs.size(7)};
+    --cmp-xxl-size: #{fibFuncs.size(10)};
+  }
+
+  // Lists.
+  ul,
+  ol,
+  menu {
+    padding-left: 0;
+
+    ul,
+    ol,
+    menu {
+      padding-left: fibVars.$md-size;
+    }
+  }
+
+  // Form Controls.
+  .cmp__form-control {
+    @include fibMixins.flex_update($column: false, $align: center);
+    background-color: fibVars.$form-control-bg-color;
+
+    label {
+      min-width: fibFuncs.size(19);
+      margin-right: fibVars.$sm-size;
+    }
+  }
+
+  // Widget.
+  .cmp__widget {
+    --cmp-widget-body-padding: #{fibVars.$medium-padding};
+  }
+
+  // Widget Ribbon.
+  .cmp__widget-ribbon {
+    min-width: fibFuncs.size(25);
+  }
+
+  // Cards List.
+  .cmp__cards-list {
+    padding: 0 fibVars.$sm-size;
+    justify-content: space-between;
+
+    .cmp__card {
+      width: calc(50% - #{fibVars.$card-spacing} / 2);
+
+      .cmp__card-header {
+        .cmp__card-title {
+          &::before, &::after {
+            display: block;
+          }
+
+          h5 {
+            padding: {
+              left: fibFuncs.size(-2);
+              right: fibFuncs.size(-2);
+            };
+          }
+        }
+      }
+    }
+  }
+}

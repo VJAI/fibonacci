@@ -1,0 +1,17 @@
+@use 'variables' as fibVars;
+
+cmp-content-scale {
+  position: relative;
+  overflow: hidden;
+  height: fibVars.$content-scale-height;
+  z-index: fibVars.$content-scale-index;
+
+  .cmp__scroll-progress {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: fibVars.$content-scale-height;
+    background-color: fibVars.$scale-progress-bg;
+    transition: width fibVars.$medium-speed;
+  }
+}

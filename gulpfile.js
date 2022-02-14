@@ -1,33 +1,52 @@
 const gulp = require('gulp'),
 	sass = require('gulp-sass')(require('sass')),
+	babel = require('gulp-babel'),
 	concat = require('gulp-concat'),
 	webserver = require('gulp-webserver');
 
 const { src, dest, watch, series, parallel } = gulp;
-const scssFiles = './scss/*.scss';
+const scssFiles = './src/scss/fibonacci.scss';
+const jsFiles = './src/js/export.js';
 
 /**
  * Compiles and concatenates SCSS files to a single CSS file.
  */
-function compile() {
+function compileScss() {
 	return src([scssFiles].join('/'))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concat('fibonacci.css'))
-		.pipe(dest('.'));
+		.pipe(dest('./src'));
 }
 
 /**
  * Watch for any changes in SCSS files.
  */
 function watchScss() {
-	return watch(scssFiles, series(compile));
+	return watch(scssFiles, compileScss);
+}
+
+/**
+ * Transpiles JS files with Babel.
+ */
+function transpileJs() {
+	return src([jsFiles].join('/'))
+		.pipe(babel())
+		.pipe(concat('fibonacci.js'))
+		.pipe(dest('./src'));
+}
+
+/**
+ * Watch for any changes in JS files.
+ */
+function watchJs() {
+	return watch(jsFiles, transpileJs);
 }
 
 /**
  * Starts a simple server to launch the app.
  */
 function kickServer() {
-	return src('.').pipe(
+	return src('./src').pipe(
 		webserver(
 			{
 				port: 4200,
@@ -39,5 +58,5 @@ function kickServer() {
 	);
 }
 
-exports.compile = compile;
-exports.default = parallel(series(compile, kickServer), watchScss);
+exports.compile = parallel(compileScss, transpileJs);
+exports.default = parallel(series(parallel(compileScss, transpileJs), kickServer), watchScss, watchJs);

@@ -1,0 +1,173 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use '../base/mixins' as fibMixins;
+@use 'variables' as fibSiteVars;
+
+// Makes the page take full viewport height.
+html, body {
+  min-height: 100vh;
+}
+
+// Site Body.
+.cmp__blog {
+  background: url('#{fibVars.$assets-path}/background-dark.png') fibVars.$brand-bg;
+
+  &.cmp__site-loading {
+    .cmp__page-loader {
+      display: block;
+    }
+  }
+
+  &.cmp__site-loaded {
+    .cmp__page-loader {
+      opacity: 0;
+    }
+
+    .cmp__site-container {
+      opacity: 1;
+    }
+  }
+}
+
+// Site Main Container.
+.cmp__site-container {
+  @include fibMixins.flex_init($column: true);
+  flex: 1 1 auto;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity fibVars.$medium-speed ease-in;
+}
+
+// Page Main Content Container.
+.cmp__blog-main {
+  $outside-shadow-dark: darken(fibVars.$brand-bg, 15%);
+  $inner-shadow-width: 6px;
+  $inner-shadow-adjustment: 8px;
+  $grad-color-0: rgba(204, 204, 204, 0.4);
+  $grad-color-1: transparent;
+
+  --cmp-border-radius: #{fibFuncs.size(5)};
+
+  position: relative;
+  flex: 1 1 auto;
+  min-height: fibSiteVars.$app-main-min-height; // Added after introducing spiral!
+  padding: {
+    top: fibSiteVars.$page-content-top;
+    bottom: fibSiteVars.$page-content-bottom;
+  };
+
+  background: url('#{fibVars.$assets-path}/background.png'),
+  url('#{fibVars.$assets-path}/svgbg.svg') no-repeat left top,
+  url('#{fibVars.$assets-path}/coffee-stain.png') no-repeat right bottom fibVars.$white;
+
+  background-size: auto, 50%;
+
+  border-radius: var(--cmp-border-radius);
+  box-shadow: $outside-shadow-dark -20px -5px 10px,
+  $outside-shadow-dark 5px -5px 10px,
+  $outside-shadow-dark -20px 0 100px -20px,
+  rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: $inner-shadow-width;
+    top: calc(var(--cmp-border-radius) - #{$inner-shadow-adjustment});
+    height: calc(100% - 2 * var(--cmp-border-radius) + #{$inner-shadow-adjustment * 2});
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(to right, $grad-color-0, $grad-color-1);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(to left, $grad-color-0, $grad-color-1);
+  }
+}
+
+// Page custom heading.
+.cmp__section-heading {
+  $border-color: darken(fibVars.$dim-gray, 10%);
+
+  position: relative;
+  @include fibMixins.flex_init($center: true);
+  margin: {
+    top: fibVars.$xxl-size;
+    bottom: fibVars.$xl-size;
+  };
+
+  color: fibVars.$gray;
+
+  span {
+    @include fibMixins.flex_init($center: true);
+    position: relative;
+    height: fibVars.$widget-ribbon-height;
+    padding: 0 fibVars.$sm-size;
+
+    line-height: fibVars.$widget-ribbon-height;
+    @include fibMixins.set_text_font($family: fibVars.$heading-font-family);
+    font-weight: bold;
+
+    background-color: fibVars.$widget-ribbon-bg;
+    color: fibVars.$widget-ribbon-color;
+    z-index: 1;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+
+      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    &::before {
+      left: calc(-1 * #{fibVars.$xl-size});
+      border-left-color: transparent;
+    }
+
+    &::after {
+      right: calc(-1 * #{fibVars.$xl-size});
+      border-right-color: transparent;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px $border-color;
+  }
+}
+
+// Page Content.
+.cmp__blog-content {
+  margin-bottom: fibVars.$xl-size;
+}
+
+// In small screens, make the content fluid and fixed in large.
+.cmp__auto-layout {
+  > * {
+    @include fibMixins.set_hor_margin(fibVars.$lg-size);
+  }
+
+  .cmp__sub {
+    .cmp__responsive {
+      @include fibMixins.set_hor_margin(0);
+    }
+
+    figure {
+      figcaption, caption {
+        @include fibMixins.set_hor_margin(0);
+      }
+    }
+  }
+}

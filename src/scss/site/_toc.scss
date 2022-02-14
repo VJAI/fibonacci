@@ -1,0 +1,41 @@
+@use '../base/variables' as fibVars;
+@use '../base/mixins' as fibMixins;
+
+.cmp__toc {
+  padding: fibVars.$medium-padding;
+  margin-bottom: fibVars.$xl-size;
+
+  @include fibMixins.config_container(fibVars.$dim-gray);
+
+  h5 {
+    padding-bottom: fibVars.$xs-size;
+    margin-bottom: fibVars.$sm-size;
+    text-align: center;
+
+    letter-spacing: fibVars.$small-letter-spacing;
+    text-transform: uppercase;
+
+    color: fibVars.$brand-color;
+    border-bottom: solid 1px fibVars.$light-gray;
+  }
+
+  ol {
+    padding-left: fibVars.$md-size;
+
+    font-size: fibVars.$sm-size;
+    letter-spacing: fibVars.$medium-letter-spacing;
+    text-transform: uppercase;
+
+    a {
+      color: fibVars.$gray;
+
+      &:hover {
+        color: fibVars.$brand-color;
+      }
+    }
+
+    ol {
+      font-size: fibVars.$xs-size;
+    }
+  }
+}

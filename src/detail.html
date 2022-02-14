@@ -1,0 +1,1278 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%% Article Detail Page %%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>fibonacci | Lorem ipsum dolor sit amet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+  <link rel="stylesheet" type="text/css" href="fibonacci.css">
+</head>
+<body class="cmp__blog">
+
+<div class="cmp__page-loader">
+  <div class="cmp__loader-container">
+    <div class="cmp__loader-logo-image">
+    </div>
+    <div class="cmp__loader-logo-text">
+      <span>Fibonacci</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function (win, doc) {
+    const body = doc.body,
+      loader = body.querySelector('.cmp__page-loader');
+
+    body.classList.add('cmp__site-loading');
+
+    win.addEventListener('load', () => {
+      loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+      });
+      body.classList.remove('cmp__site-loading');
+      body.classList.add('cmp__site-loaded');
+    });
+  })(window, document);
+</script>
+
+<!-- Site Container -->
+<div class="cmp__site-container">
+
+  <!-- Blog Header Component -->
+  <header class="cmp__blog-header">
+
+    <!-- Logo and Tag Line -->
+    <div class="cmp__blog-info">
+
+      <!-- Logo Component -->
+      <a class="cmp__blog-logo" href="index.html">
+        <img class="cmp__blog-logo-pic" src="assets/logo.svg" alt="logo" style="width: 2rem;">
+        <span class="cmp__blog-name">fibonacci</span>
+      </a>
+
+      <span class="cmp__separator"></span>
+
+      <!-- Blog Tag Line -->
+      <div class="cmp__blog-tag-line">
+        <span>being pragmatic...</span>
+      </div>
+    </div>
+
+    <!-- Page Navigation Component -->
+    <nav class="cmp__blog-nav">
+      <ul>
+        <li class="cmp__search-link">
+          <form class="cmp__form cmp__search-form">
+            <label>
+              <input type="search" placeholder="Search..."/>
+            </label>
+            <a href="#">
+              <cmp-icon name="search"></cmp-icon>
+            </a>
+          </form>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="index.html">
+            <cmp-icon name="house-door"></cmp-icon>
+            <span class="cmp__nav-link-text">home</span>
+          </a>
+        </li>
+        <li class="cmp__nav-active">
+          <a class="cmp__nav-link" href="posts.html">
+            <cmp-icon name="file-earmark-medical"></cmp-icon>
+            <span class="cmp__nav-link-text">posts</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="contact.html">
+            <cmp-icon name="envelope"></cmp-icon>
+            <span class="cmp__nav-link-text">contact</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="about.html">
+            <cmp-icon name="person"></cmp-icon>
+            <span class="cmp__nav-link-text">about</span>
+          </a>
+        </li>
+        <li class="cmp__hamburger-link">
+          <a class="cmp__nav-link" href="#">
+            <select class="cmp__hidden-menu">
+              <option value="index.html"> Home</option>
+              <option value="" selected> Post</option>
+              <option value="about.html"> About</option>
+              <option value="contact.html"> Contact</option>
+              <option value="search"> Search</option>
+            </select>
+            <cmp-icon name="list"></cmp-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Content Scroll Indicator -->
+  <cmp-content-scale></cmp-content-scale>
+
+  <!-- Page Main Content Component -->
+  <main class="cmp__blog-main">
+
+    <!-- Spiral -->
+    <div class="cmp__spiral"></div>
+
+    <!-- Color Bars -->
+    <div class="cmp__color-bars">
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+    </div>
+
+    <!-- RSS Subscription -->
+    <a class="cmp__subscribe" href="#">
+      <div>
+        <span>R<br>S<br>S</span>
+      </div>
+    </a>
+
+    <!-- Article -->
+    <article id="cmp__blog_detail" class="cmp__blog-content cmp__article">
+
+      <!-- Article Header -->
+      <header class="cmp__article-header cmp__auto-layout">
+
+        <!-- Article Title -->
+        <div class="cmp__page-title">
+          <h1>Lorem ipsum dolor sit amet consectetur</h1>
+        </div>
+
+        <!-- Article Meta -->
+        <div class="cmp__article-meta">
+
+          <!-- Author Info -->
+          <div class="cmp__article-author">
+            <a href="about.html">
+              <img class="cmp__article-author-pic" src="blog_resources/triton_mini.png" alt="Author"/>
+              <span class="cmp__article-author-name">Triton Maxwell</span>
+              <span class="cmp__article-author-role">Admin</span>
+            </a>
+          </div>
+
+          <!-- Posted Date -->
+          <div class="cmp__article-date">
+            <cmp-icon name="calendar-week"></cmp-icon>
+            <span class="cmp__article-date-text">Dec 23, 2021 4:00 PM</span>
+          </div>
+
+          <!-- Comments -->
+          <div class="cmp__article-total-comments">
+            <a href="#">
+              <cmp-icon name="chat-square-text"></cmp-icon>
+              <span>100 Comments</span>
+            </a>
+          </div>
+
+          <!-- Share Controls -->
+          <div class="cmp__article-share">
+            <div>
+              <cmp-icon name="share"></cmp-icon>
+              <span>5 Shares</span>
+            </div>
+            <button class="cmp__share-it-btn">Share It!</button>
+          </div>
+
+          <!-- Page Views -->
+          <div class="cmp__article-views">
+            <cmp-icon name="eye"></cmp-icon>
+            <span>1K Views</span>
+          </div>
+
+          <!-- Tags -->
+          <div class="cmp__article-tags">
+            <cmp-icon name="tag"></cmp-icon>
+            <ul class="cmp__article-tags-list">
+              <li>
+                <a href="#">#javascript</a>
+              </li>
+              <li>
+                <a href="#">#css</a>
+              </li>
+              <li>
+                <a href="#">#html</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <main class="cmp__article-content cmp__auto-layout">
+
+        <figure class="cmp__article-poster cmp__figure-full">
+          <img src="blog_resources/agriculture-apple-blur-wide.jpeg" alt="A beautiful photo of an apple" />
+          <figcaption class="cmp__center">Fig 1. A beautiful photo of an apple taken from the beautiful place Kashmir.
+            Source: <i>https://unsplash.com</i>
+          </figcaption>
+        </figure>
+
+        <div class="cmp__toc cmp__responsive">
+          <div class="cmp__ribbon-container">
+            <div class="cmp__ribbon">
+              <div class="cmp__ribbon-content">
+                Table Of Contents
+              </div>
+            </div>
+          </div>
+          <ol>
+            <li>
+              <a href="#">Pellentesque at egestas elit</a>
+              <ol>
+                <li>
+                  <a href="#">Pellentesque at egestas elit</a>
+                </li>
+                <li>
+                  <a href="#">Duis ultricies purus</a>
+                </li>
+                <li>
+                  <a href="#">Duis euismod luctus erat</a>
+                </li>
+                <li>
+                  <a href="#">Lorem ipsum dolor sit</a>
+                </li>
+                <li>
+                  <a href="#">Duis euismod luctus erat</a>
+                </li>
+              </ol>
+            <li>
+              <a href="#">Duis ultricies purus</a>
+              <ol>
+                <li>
+                  <a href="#">Pellentesque at egestas elit</a>
+                </li>
+                <li>
+                  <a href="#">Duis ultricies purus</a>
+                </li>
+                <li>
+                  <a href="#">Duis euismod luctus erat</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="#">Duis euismod luctus erat</a>
+              <ol>
+                <li>
+                  <a href="#">Pellentesque at egestas elit</a>
+                </li>
+                <li>
+                  <a href="#">Duis ultricies purus</a>
+                </li>
+                <li>
+                  <a href="#">Duis euismod luctus erat</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="#">Duis ultricies purus</a>
+              <ol>
+                <li>
+                  <a href="#">Pellentesque at egestas elit</a>
+                </li>
+                <li>
+                  <a href="#">Duis ultricies purus</a>
+                </li>
+                <li>
+                  <a href="#">Duis euismod luctus erat</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="#">Lorem ipsum dolor sit</a>
+            </li>
+            <li>
+              <a href="#">Duis euismod luctus erat</a>
+            </li>
+          </ol>
+        </div>
+
+        <p class="cmp__drop-cap">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+
+        <p>
+          Sed ut <a href="http://duckduckgo.com">perspiciatis</a> unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem
+          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Nemo
+          enim ipsam <var>voluptatem</var> quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
+          dolores eos
+          qui
+          ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+          consectetur,
+          adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+          voluptatem.
+        </p>
+
+        <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
+
+        <p>
+          At vero <abbr title="eligendi optio soluta">eos</abbr> et accusamus et iusto odio<sup>[2]</sup> dignissimos
+          ducimus qui blanditiis praesentium voluptatum deleniti atque
+          corrupti<sub>5</sub> quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique
+          sunt in
+          culpa
+          qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
+          expedita
+          distinctio.
+          <del>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+            maxime
+            placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
+          </del>
+          . Temporibus autem quibusdam et
+          aut
+          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+          <dfn title="lorem ipsum dolor smit ameit">recusandae</dfn>.
+        </p>
+
+        <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
+
+        <p>
+          Duis euismod luctus erat, vel
+          <ins>bibendum quam ultricies</ins>
+          a. Fusce blandit tortor justo, vel fringilla diam
+          tristique
+          eget. In eleifend volutpat lorem, <q>tempor pellentesque neque laoreet</q> ac. Donec feugiat egestas lorem. In
+          nec
+          porta
+          erat. <small>Vestibulum in efficitur nisi</small>. Temporibus autem quibusdam et aut
+          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+          recusandae.
+        </p>
+
+        <ul>
+          <li>
+            Pellentesque at egestas elit
+            <ul>
+              <li>Duis ultricies purus</li>
+              <li>Duis euismod luctus erat</li>
+              <li>Lorem ipsum dolor sit</li>
+            </ul>
+          </li>
+          <li>
+            Duis ultricies purus
+            <ul>
+              <li>Duis ultricies purus</li>
+              <li>Duis euismod luctus erat</li>
+            </ul>
+          </li>
+          <li>Duis euismod luctus erat</li>
+          <li>Lorem ipsum dolor sit</li>
+          <li>Duis euismod luctus erat</li>
+        </ul>
+
+        <ol>
+          <li>
+            Pellentesque at egestas elit
+            <ol>
+              <li>Duis ultricies purus</li>
+              <li>Duis euismod luctus erat</li>
+              <li>Lorem ipsum dolor sit</li>
+            </ol>
+          </li>
+          <li>
+            Duis ultricies purus
+            <ol>
+              <li>Duis ultricies purus</li>
+              <li>Duis euismod luctus erat</li>
+              <li>Lorem ipsum dolor sit</li>
+            </ol>
+          </li>
+          <li>Duis euismod luctus erat</li>
+          <li>Lorem ipsum dolor sit</li>
+          <li>Duis euismod luctus erat</li>
+        </ol>
+
+        <dl>
+          <dt>Archimedes</dt>
+          <dd>Archimedean principle, famous theory of buoyancy and many
+            mathematical and mechanical discoveries. You can read more in detail
+            on Archimedes inventions
+          </dd>
+
+          <dt>Galileo Galilei</dt>
+          <dd>Laws of motion</dd>
+
+          <dt>Sir Isaac Newton</dt>
+          <dd>Theory of Gravity, Differential Calculus and more</dd>
+
+          <dt>Albert Einstein</dt>
+          <dd>Theory of Relativity, photoelectric effect and lots more</dd>
+        </dl>
+
+        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__responsive cmp__icon-float">
+          <div class="cmp__icon-container">
+            <cmp-icon name="quote"></cmp-icon>
+          </div>
+          <h4>Duis euismod luctus</h4>
+          <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.&rdquo;</p>
+          <cite>Antos Parrish, New York Times</cite>
+        </blockquote>
+
+        <p>
+          Duis euismod luctus erat, vel
+          <time>23 December 1982</time>
+          bibendum quam ultricies a. Fusce
+          <data value="911">blandit</data>
+          tortor justo, vel fringilla diam
+          tristique
+          eget. <i>In eleifend volutpat lorem, tempor pellentesque neque laoreet ac. Donec feugiat egestas lorem</i>. In
+          nec
+          porta
+          erat. Vestibulum in efficitur nisi. Temporibus autem quibusdam et aut
+          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+          recusandae.
+        </p>
+
+        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__status-success cmp__icon-float">
+          <div class="cmp__icon-container">
+            <cmp-icon name="quote"></cmp-icon>
+          </div>
+          <h4>Duis euismod luctus</h4>
+          <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.&rdquo;</p>
+          <cite>Antos Parrish, New York Times</cite>
+        </blockquote>
+
+        <p>
+          Duis euismod luctus erat, vel bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam
+          tristique
+          eget. In eleifend volutpat lorem,
+          <mark>tempor pellentesque neque laoreet</mark>
+          ac. Donec feugiat egestas lorem. In nec
+          porta
+          erat. Vestibulum in efficitur nisi. Temporibus autem quibusdam et aut
+          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+          recusandae.
+        </p>
+
+        <address>
+          Newsletter editor<br>
+          J.R. Brown<br>
+          8723 Buena Vista, Smallville, CT 01234<br>
+          Tel: +1 (123) 456 7890
+        </address>
+
+        <blockquote cite="https://www.huxley.net/bnw/four.html" class="cmp__status-warn cmp__icon-float">
+          <div class="cmp__icon-container">
+            <cmp-icon name="quote"></cmp-icon>
+          </div>
+          <h4>Duis euismod luctus</h4>
+          <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.&rdquo;</p>
+          <cite>Antos Parrish, New York Times</cite>
+        </blockquote>
+
+        <p>
+          Duis euismod luctus erat, vel bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam
+          tristique
+          eget. In eleifend volutpat lorem, tempor pellentesque neque laoreet ac. Donec feugiat egestas lorem. In nec
+          porta
+          erat. Vestibulum in efficitur nisi.
+        </p>
+
+        <figure class="cmp__responsive">
+          <img src="blog_resources/agriculture-apple-blur.jpeg" alt="A beautiful photo of an apple" />
+          <figcaption>Fig 2. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
+          </figcaption>
+        </figure>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <div class="cmp__page-element cmp__responsive">
+          <figure class="cmp__tab-float-left cmp__tab-mar-right-sm cmp__tab-no-margin" style="width:400px">
+            <img src="blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" />
+            <figcaption>Fig 3. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <div class="cmp__page-element cmp__responsive">
+          <figure class="cmp__tab-float-right cmp__tab-mar-left-sm" style="width:400px">
+            <img src="blog_resources/agriculture-apple-blur-narrow.png" alt="A beautiful photo of an apple" />
+            <figcaption>Fig 4. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+
+        <figure class="cmp__responsive">
+          <iframe src="https://www.youtube.com/embed/a3ICNMQW7Ok?controls=0">
+          </iframe>
+          <figcaption>Video 1. Wildlife goes here.
+          </figcaption>
+        </figure>
+
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        <p>
+          Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+          feugiat.
+          Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+          bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+          lorem, tempor pellentesque neque laoreet ac.
+        </p>
+
+        <figure class="cmp__responsive">
+          <div class="cmp__table-wrapper">
+            <table style="min-width: 600px;">
+              <thead>
+              <tr>
+                <th>Director</th>
+                <th>Film</th>
+                <th>Released</th>
+                <th class="cmp__right">Budget ($)</th>
+                <th class="cmp__right">Gross ($)</th>
+                <th class="cmp__right">Rating</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>John Ford</td>
+                <td>The Informer</td>
+                <td>May 1935</td>
+                <td class="cmp__right">243,000</td>
+                <td class="cmp__right">950,000</td>
+                <td class="cmp__right">8.3</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>The Grapes Of Wrath</td>
+                <td>Jan 1940</td>
+                <td class="cmp__right">800,000</td>
+                <td class="cmp__right">1,500,000</td>
+                <td class="cmp__right">9.3</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>The Grapes Of Wrath</td>
+                <td>Jan 1940</td>
+                <td class="cmp__right">800,000</td>
+                <td class="cmp__right">1,500,000</td>
+                <td class="cmp__right">9.3</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>The Grapes Of Wrath</td>
+                <td>Jan 1940</td>
+                <td class="cmp__right">800,000</td>
+                <td class="cmp__right">1,500,000</td>
+                <td class="cmp__right">9.3</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>Table 1. Some Table Information</figcaption>
+        </figure>
+
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        <p>
+          Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+          feugiat.
+          Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+          bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+          lorem, tempor pellentesque neque laoreet ac.
+        </p>
+
+        <figure class="cmp__responsive">
+<pre><code data-language="JS" class="language-javascript">/**
+ * Singleton global event emitter.
+ * @class
+ */
+class Emitter {
+
+  /**
+   * Dictionary that maps the objects with their events and handlers.
+   * @type {object}
+   * @private
+   */
+  _objectsEventsHandlersMap = {};
+
+  /**
+   * Subscribes to an event of the passed object.
+   * @param {number} id The unique id of the object.
+   * @param {string} eventName Name of the event
+   * @param {function} handler The event-handler function
+   * @param {boolean} [once = false] Is it one-time subscription or not?
+   * @return {Emitter}
+   */
+  on(id, eventName, handler, once = false) {
+    if (!this._hasObject(id)) {
+      this._objectsEventsHandlersMap[id] = {};
+    }
+
+    const objEvents = this._objectsEventsHandlersMap[id];
+
+    if (!objEvents.hasOwnProperty(eventName)) {
+      objEvents[eventName] = [];
+    }
+
+    objEvents[eventName].push({
+      handler: handler,
+      once: once
+    });
+
+    return this;
+  }
+
+  /**
+   * Un-subscribes from an event of the passed object.
+   * @param {number} id The unique id of the object.
+   * @param {string} eventName The event name.
+   * @param {function} [handler] The handler function.
+   * @return {Emitter}
+   */
+  off(id, eventName, handler) {
+    if (!this._hasEvent(id, eventName)) {
+      return this;
+    }
+
+    const objEvents = this._objectsEventsHandlersMap[id];
+
+    if (!handler) {
+      objEvents[eventName] = [];
+    } else {
+      objEvents[eventName] = objEvents[eventName].filter(eventSubscriber => {
+        return eventSubscriber.handler !== handler;
+      });
+    }
+
+    return this;
+  }
+
+  /**
+   * Fires an event of the object passing the source and other optional arguments.
+   * @param {number} id The unique id of the object.
+   * @param {string} eventName The event name
+   * @param {...*} args The arguments that to be passed to handler
+   * @return {Emitter}
+   */
+  fire(id, eventName, ...args) {
+    if (!this._hasEvent(id, eventName)) {
+      return this;
+    }
+
+    let eventSubscribers = this._objectsEventsHandlersMap[id][eventName];
+
+    for (let i = 0; i < eventSubscribers.length; i++) {
+      let eventSubscriber = eventSubscribers[i];
+
+      setTimeout(function (subscriber) {
+        const { handler, once } = subscriber;
+
+        handler(...args);
+
+        if (once) {
+          this.off(id, eventName, handler);
+        }
+      }.bind(this, eventSubscriber), 0);
+    }
+
+    return this;
+  }
+
+  /**
+   * Clears the event handlers of the passed object.
+   * @param {number} [id] The unique id of the object.
+   * @return {Emitter}
+   */
+  clear(id) {
+    if (!id) {
+      this._objectsEventsHandlersMap = {};
+      return this;
+    }
+
+    if (this._hasObject(id)) {
+      delete this._objectsEventsHandlersMap[id];
+    }
+
+    return this;
+  }
+
+  /**
+   * Returns true if the object is already registered.
+   * @param {number} id The object id.
+   * @return {boolean}
+   * @private
+   */
+  _hasObject(id) {
+    return this._objectsEventsHandlersMap.hasOwnProperty(id);
+  }
+
+  /**
+   * Returns true if the passed object has an entry of the passed event.
+   * @param {number} id The object id.
+   * @param {string} eventName The event name.
+   * @return {boolean}
+   * @private
+   */
+  _hasEvent(id, eventName) {
+    return this._hasObject(id) && this._objectsEventsHandlersMap[id].hasOwnProperty(eventName);
+  }
+}
+
+export default new Emitter();</code></pre>
+          <figcaption>
+            Listing 1. <code>LoginModel</code> in our <i>JustBlog</i> application.
+          </figcaption>
+        </figure>
+
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        <p>
+          Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+          feugiat.
+          Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+          bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+          lorem, tempor pellentesque neque laoreet ac.
+        </p>
+
+        <div class="cmp__sub cmp__responsive cmp__icon-float">
+          <div class="cmp__icon-container">
+            <cmp-icon name="lightbulb"></cmp-icon>
+          </div>
+
+          <h4>Lorem ipsum dolor smit ameit</h4>
+
+          <p>
+            Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+            feugiat.
+            Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+            bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+            lorem, tempor pellentesque neque laoreet ac.
+          </p>
+
+          <figure class="cmp__responsive">
+<pre><code data-language="JS" class="language-javascript">const base = 19;
+const ratio = 1.618;
+const interval = 5;
+
+function size(point) {
+  const s = base * Math.pow(ratio, point/interval);
+  return [s, `${(s / base).toFixed(3)} rem`];
+}
+
+for (let i = -10; i < 20; i++) {
+  console.log(size(i));
+}</code></pre>
+            <figcaption>
+              Listing 1. <code>LoginModel</code> in our <i>JustBlog</i> application.
+            </figcaption>
+          </figure>
+
+          <h5>Lorem ipsum dolor smit ameit</h5>
+
+          <p>
+            Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+            feugiat.
+            Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+            bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+            lorem, tempor pellentesque neque laoreet ac.
+          </p>
+
+          <div class="cmp__page-element">
+            <figure class="cmp__tab-float-left cmp__tab-mar-right-sm cmp__tab-no-margin" style="width:400px">
+              <img src="blog_resources/agriculture-apple-small.jpeg" alt="A beautiful photo of an apple" />
+              <figcaption>Fig 5. The apple of the eden garden. Credits Source: <i>https://unsplash.com</i>.
+              </figcaption>
+            </figure>
+          </div>
+
+          <p>
+            Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+            feugiat.
+            Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+            bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+            lorem, tempor pellentesque neque laoreet ac.
+          </p>
+        </div>
+
+        <h3>Lorem ipsum dolor sit amet</h3>
+
+        <p>
+          Pellentesque at egestas elit, non pretium eros. Mauris blandit sapien et eros accumsan, a ultrices justo
+          feugiat.
+          Cras pretium hendrerit arcu quis pellentesque. Phasellus sit amet maximus massa. Duis euismod luctus erat, vel
+          bibendum quam ultricies a. Fusce blandit tortor justo, vel fringilla diam tristique eget. In eleifend volutpat
+          lorem, tempor pellentesque neque laoreet ac.
+        </p>
+
+        <div class="cmp__article-actions">
+          <button type="submit" value="Download">
+            <cmp-icon name="download" size="12"></cmp-icon>
+            <span>Download</span>
+          </button>
+
+          <button type="submit" value="Fork in Git">
+            <cmp-icon name="github" size="12"></cmp-icon>
+            <span>Fork in Git</span>
+          </button>
+        </div>
+      </main>
+
+      <footer class="cmp__article-footer cmp__auto-layout">
+        <section class="cmp__pagination">
+          <div class="cmp__older-posts">
+            <a href="#">
+              Previous Post
+            </a>
+          </div>
+          <div class="cmp__newer-posts">
+            <a href="#">
+              Next Post
+            </a>
+          </div>
+        </section>
+        <hr>
+      </footer>
+
+      <!-- Detail Page Widgets -->
+      <div class="cmp__article-detail-widgets cmp__auto-layout">
+
+        <!-- Related Posts Widget -->
+        <section class="cmp__widget cmp__related-posts cmp__responsive">
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>Related Posts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp__widget-body">
+            <ul>
+              <li>
+                <a href="#">Lorem ipsum dolor sit amet</a>
+              </li>
+              <li>
+                <a href="#">Sed ut perspiciatis unde omnis iste</a>
+              </li>
+              <li>
+                <a href="#">At vero eos et accusamus</a>
+              </li>
+              <li>
+                <a href="#">Temporibus autem quibusdam</a>
+              </li>
+              <li>
+                <a href="#">Ut enim ad minima veniam</a>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- Comments Widget -->
+        <section class="cmp__widget cmp__comments cmp__responsive">
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>Post Comment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp__widget-body">
+            <form class="cmp__form cmp__comments-form">
+              <div class="cmp__form-container">
+                <div class="cmp__comment-by">
+                  <img src="blog_resources/triton_mini.png" width="50" alt="You"/>
+                  <span>You</span>
+                </div>
+                <div class="cmp__form-control">
+                  <textarea placeholder="Write not more than 500 characters..."></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="cmp__widget-header">
+            <div class="cmp__widget-ribbon">
+              <div class="cmp__widget-ribbon-content">
+                <span>2 Comments</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp__widget-body">
+            <ul class="cmp__comments-list">
+              <li>
+                <div class="cmp__comment">
+                  <div class="cmp__comment-by">
+                    <img src="blog_resources/martin_mini.png" width="50" alt="Martin"/>
+                    <span>Martin</span>
+                  </div>
+                  <div class="cmp__comment-detail">
+                    <div class="cmp__commented-date">
+                      just now
+                    </div>
+                    <div class="cmp__comment-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                    <div class="cmp__comment-actions">
+                      <button class="cmp__icon-button cmp__button-clicked">
+                        <cmp-icon name="hand-thumbs-up-fill"></cmp-icon>
+                        <i>10</i>
+                      </button>
+                      <button class="cmp__icon-button">
+                        <cmp-icon name="hand-thumbs-down"></cmp-icon>
+                      </button>
+                      <button class="cmp__icon-button">
+                        <cmp-icon name="reply"></cmp-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="cmp__comment">
+                  <div class="cmp__comment-by">
+                    <img src="blog_resources/tanny_mini.jpg" width="50" alt="Tanny"/>
+                    <span>Tanny</span>
+                  </div>
+                  <div class="cmp__comment-detail">
+                    <div class="cmp__commented-date">
+                      10 mins ago
+                    </div>
+                    <div class="cmp__comment-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                    <div class="cmp__comment-actions">
+                      <button class="cmp__icon-button">
+                        <cmp-icon name="hand-thumbs-up"></cmp-icon>
+                      </button>
+                      <button class="cmp__icon-button">
+                        <cmp-icon name="hand-thumbs-down"></cmp-icon>
+                      </button>
+                      <button class="cmp__icon-button">
+                        <cmp-icon name="reply"></cmp-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- Archives & Tags -->
+        <div class="cmp__responsive cmp__responsive-flex">
+          <section class="cmp__widget cmp__archives">
+            <div class="cmp__widget-header">
+              <div class="cmp__widget-ribbon">
+                <div class="cmp__widget-ribbon-content">
+                  <span>Archives</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cmp__widget-body">
+              <ul>
+                <li>
+                  <a href="#">December 2021 <span>[4]</span></a>
+                </li>
+                <li>
+                  <a href="#">November 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">October 2021 <span>[1]</span></a>
+                </li>
+                <li>
+                  <a href="#">September 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">August 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">July 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">June 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">May 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">April 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">March 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">February 2021 <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">January 2021 <span>[2]</span></a>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cmp__widget cmp__tags">
+            <div class="cmp__widget-header">
+              <div class="cmp__widget-ribbon">
+                <div class="cmp__widget-ribbon-content">
+                  <span>Tags</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cmp__widget-body">
+              <ul class="cmp__inline-list">
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">HTML <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">JavaScript <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSS <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">CSharp <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">.NET <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">ASP.NET MVC <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">SQL Server <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">Angular <span>[2]</span></a>
+                </li>
+                <li>
+                  <a href="#">React <span>[2]</span></a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <a href="#" class="cmp__go-top"></a>
+    </article>
+  </main>
+
+  <!-- Page Footer Component -->
+  <footer class="cmp__blog-footer">
+    <section class="cmp__footer-left">
+      <div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+      <div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+    </section>
+    <section class="cmp__footer-right">
+      <div>&copy; 2022 &middot; All Rights Reserved</div>
+    </section>
+  </footer>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/javascript.min.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['JetBrains Mono']
+    },
+    timeout: 5000,
+    fontactive: function () {
+      hljs && hljs.highlightAll();
+    }
+  });
+</script>
+<script src="fibonacci.js"></script>
+</body>
+</html>
