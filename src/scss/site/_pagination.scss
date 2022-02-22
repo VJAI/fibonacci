@@ -5,7 +5,7 @@
 .cmp__pagination {
   @include fibMixins.flex_init($ver: true);
   margin-top: fibVars.$lg-size;
-  @include fibMixins.set_text_font();
+  @include fibMixins.set_uppercase();
   color: fibVars.$gray;
 
   > * {

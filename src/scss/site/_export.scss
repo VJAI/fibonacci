@@ -1,3 +1,4 @@
+@use 'common';
 @use 'site';
 @use 'header';
 @use 'footer';
@@ -9,7 +10,6 @@
 @use 'color-bars';
 @use 'page-loader';
 @use 'pagination';
-@use 'ribbon';
 @use 'carousel';
 @use 'dropcap';
 @use 'animations';

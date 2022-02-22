@@ -1,7 +1,20 @@
+@use 'sass:color';
 @use '../base/variables' as fibVars;
 @use '../base/funcs' as fibFuncs;
 @use '../base/mixins' as fibMixins;
 @use 'variables' as fibSiteVars;
+
+// Article header.
+.cmp__article-header {
+  .cmp__article-title {
+    a {
+      &:hover, &:focus, &:active {
+        text-shadow: color.adjust(fibVars.$brand-color, $lightness: 25%) 0 0 6px;
+        color: fibVars.$heading-color;
+      }
+    }
+  }
+}
 
 // Article Meta Info.
 .cmp__article-meta {
@@ -35,69 +48,6 @@
     cmp-icon {
       margin-right: fibFuncs.size(-14);
     }
-  }
-}
-
-// Page title.
-.cmp__page-title {
-  margin: {
-    top: fibVars.$xl-size;
-    bottom: fibFuncs.size(17);
-  };
-
-  h1, h2, h3, h4, h5, h6 {
-    margin: {
-      top: 0;
-      bottom: 0;
-    };
-  }
-
-  h1 {
-    position: relative;
-
-    font-size: fibFuncs.size(9);
-    text-transform: uppercase;
-    letter-spacing: fibVars.$large-letter-spacing;
-    word-spacing: fibFuncs.size(-10);
-
-    color: fibVars.$brand-gray;
-
-    &::after {
-      display: block;
-      content: '';
-      width: fibVars.$h1-border-width;
-      height: 5px;
-      margin-top: fibVars.$xl-size;
-      background-color: fibVars.$brand-gray;
-    }
-
-    &:hover::before {
-      left: calc(#{fibVars.$h1-border-width} + 10px);
-    }
-
-    &.cmp__has-icon {
-      @include fibMixins.flex_init($ver: true, $wrap: true);
-
-      cmp-icon {
-        width: fibVars.$xl-size;
-        height: fibVars.$xl-size;
-        margin-right: fibVars.$xs-size;
-      }
-
-      span {
-        min-width: calc(100% - #{fibVars.$xl-size} - #{fibVars.$xs-size});
-      }
-    }
-  }
-
-  h4 {
-    display: inline;
-    padding-bottom: fibVars.$xs-size;
-
-    text-transform: uppercase;
-    letter-spacing: fibVars.$medium-letter-spacing;
-
-    color: fibVars.$brand-gray;
   }
 }
 
@@ -234,6 +184,7 @@
     a:hover,
     a:focus,
     a:active {
+      text-shadow: none;
       color: fibVars.$brand-color;
     }
   }

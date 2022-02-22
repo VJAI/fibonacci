@@ -138,62 +138,102 @@
 
       <!-- Page Title -->
       <header class="cmp__article-header cmp__auto-layout">
-        <div class="cmp__page-title">
-          <h1 class="cmp__home-heading">
-            Fibonacci
-          </h1>
+        <div class="cmp__page-title cmp__home-heading">
+          <div class="cmp__home-heading-container">
+            <span>Fibonacci</span>
+            <span>being pragmatic...</span>
+          </div>
+          <div class="cmp__tear-paper">
+            <img  src="assets/torn-paper1.png" style="width: 500px;" />
+          </div>
         </div>
       </header>
 
-      <!-- Carousel Component -->
-      <div class="cmp__carousel">
-        <div class="cmp__carousel-tabs">
-          <span>Popular Posts</span>
-        </div>
-        <div class="cmp__carousel-page">
-          <div class="cmp__carousel-post">
-            <header>
-              <h4>
-                <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
-              </h4>
-              <figure class="cmp__article-poster">
-                <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple" />
-              </figure>
-            </header>
-            <main>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat.
-              </p>
-              <button>Continue</button>
-            </main>
-          </div>
-        </div>
-      </div>
+      <main class="cmp__home-main">
 
-      <div class="cmp__responsive-flex">
-        <div class="cmp__card cmp__quote-card">
-          <div class="cmp__card-header">
-            <div class="cmp__card-title">
-              <h5>Quote Of Day</h5>
+        <!-- Carousel Component -->
+        <div class="cmp__carousel cmp__home-layout">
+          <div class="cmp__carousel-tabs cmp__selected-first">
+            <a class="cmp__carousel-tab cmp__carousel-tab-selected" href="#">Popular Posts</a>
+            <a class="cmp__carousel-tab" href="#">Latest Posts</a>
+          </div>
+
+          <div class="cmp__carousel-pages">
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <header>
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple"/>
+                  </figure>
+                </header>
+
+                <main>
+                  <h3>
+                    <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
+                  </h3>
+
+                  <div class="cmp__carousel-post-meta">
+
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/triton_mini.png" alt="Author" style="width: 1rem" />
+                        <span>Triton Maxwell</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <button>Continue</button>
+                </main>
+              </div>
             </div>
           </div>
-          <div class="cmp__card-footer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+
+          <div class="cmp__carousel-nav">
+            <a href="#">
+              <cmp-icon size="24" name="arrow-left-circle-fill"></cmp-icon>
+            </a>
+            <a href="#">
+              <cmp-icon size="24" name="arrow-right-circle-fill"></cmp-icon>
+            </a>
+          </div>
+
+          <div class="cmp__carousel-nav-dots">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
-
-        <div class="cmp__cartoon">
-          <figure>
-            <img src="" />
-          </figure>
-        </div>
-      </div>
+      </main>
     </article>
   </main>
 

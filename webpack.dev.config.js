@@ -1,25 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-
-const srcDir = path.resolve(__dirname, 'src'),
-  distDir = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: { fibonacci: './src/fibonacci.js' },
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: '*.html', context: srcDir },
-        { from: 'blog_resources', to: 'blog_resources/', context: srcDir }
-      ],
-    })
-  ],
-  output: {
-    path: distDir
-  },
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -39,16 +24,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            context: srcDir,
-            name: '[path][name].[ext]',
-          }
-        }
       }
     ]
   },
@@ -56,7 +31,10 @@ module.exports = {
     modules: [path.resolve(__dirname), 'node_modules'],
     extensions: ['.js', '.json', '.css', '.scss', '.sass']
   },
-  optimization: {
-    minimize: true
-  }
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'src')
+    }
+  },
+  devtool: 'source-map'
 };

@@ -7,8 +7,8 @@ $assets-path:                       'src/assets' !default;
 // Generic Variables.
 // Font families.
 $body-font-family:                  'Source Serif Pro', Georgia, serif !default;
-$heading-font-family:               'Patua One', cursive; // TODO: Set font family hierarchy!
-$small-text-font-family:            'Source Sans Pro', Arial, Tahoma, sans-serif !default;
+$heading-font-family:               'Patua One', 'Times New Roman', cursive !default;
+$small-text-font-family:            'Signika Negative', Arial, Tahoma, sans-serif !default;
 $mono-font-family:                  'JetBrains Mono', Courier, monospace !default;
 $logo-font-family:                  'Amatic SC', 'Brush Script MT', cursive !default;
 
@@ -20,7 +20,8 @@ $black:                             rgb(0, 0, 0) !default;
 // Brand Colors.
 $brand-color:                       rgb(240, 72, 117) !default;
 $brand-bg:                          rgb(75, 85, 94) !default;
-$brand-gray:                        rgb(189, 181, 184) !default;
+$brand-gray:                        rgb(201, 195, 198) !default;
+$brand-cool:                        rgba(212, 55, 98) !default;
 
 $brand-light:                       color.adjust($brand-color, $lightness: 15%) !default;
 $brand-dark:                        color.adjust($brand-color, $lightness: -15%) !default;
@@ -31,6 +32,7 @@ $medium-gray:                       rgb(92, 92, 92) !default;
 $gray:                              rgb(154, 154, 154) !default;
 $light-gray:                        rgb(230, 230, 230) !default;
 $dim-gray:                          rgb(247, 247, 247) !default;
+$blue-gray:                         rgb(167, 174, 184) !default;
 
 // Special colors.
 $success:                           rgb(241, 247, 234) !default;
@@ -206,6 +208,10 @@ $content-scale-bg:                  $light-gray !default;
 $content-scale-index:               500 !default;
 $scale-progress-bg:                 $brand-color !default;
 
+// Ribbons.
+$ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
+$ribbon-bend-height:                6px !default;
+
 // Widgets.
 $widget-bg-color:                   $dim-gray !default;
 $widget-ribbon-height:              $xl-size !default;
@@ -217,6 +223,7 @@ $card-header-bg:                    $dark-gray !default;
 $card-title-font-family:            $small-text-font-family !default;
 $card-title-font-size:              $xs-size !default;
 $card-title-color:                  $dim-gray !default;
+$card-title-bg-color:               $brand-cool !default;
 $card-footer-font-family:           $small-text-font-family !default;
 $card-footer-font-size:             $sm-size !default;
 $card-footer-color:                 $gray !default;

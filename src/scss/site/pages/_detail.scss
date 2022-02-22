@@ -44,7 +44,7 @@
     span {
       padding: 1px 5px;
       margin-top: fibFuncs.size(-14);
-      @include fibMixins.set_text_font($font_size: fibFuncs.size(-5));
+      @include fibMixins.set_uppercase($font_size: fibFuncs.size(-5));
       text-align: center;
 
       color: fibVars.$gray;
@@ -90,7 +90,7 @@
 
         .cmp__comment-detail {
           .cmp__commented-date {
-            @include fibMixins.set_text_font($font_size: fibFuncs.size(-5));
+            @include fibMixins.set_uppercase($font_size: fibFuncs.size(-5));
             text-align: right;
             color: fibVars.$gray;
           }

@@ -34,6 +34,7 @@ a.cmp__blog-logo {
 
   &:hover {
     .cmp__blog-name {
+      color: fibVars.$dim-gray;
       letter-spacing: fibVars.$extra-large-letter-spacing;
     }
   }
@@ -105,7 +106,7 @@ a.cmp__blog-logo {
           left: 0;
           width: 100%;
 
-          border-top: solid fibSiteVars.$nav-active-border-width fibSiteVars.$header-color;
+          border-top: solid fibSiteVars.$nav-active-border-width fibVars.$dim-gray;
         }
       }
 
@@ -144,9 +145,13 @@ a.cmp__blog-logo {
         border-bottom: none;
         transition: all fibVars.$medium-speed;
 
-        &:hover {
+        &:hover, &:focus, &:active {
           background-color: darken(fibVars.$brand-bg, 5%);
           color: fibVars.$dim-gray;
+        }
+
+        &:focus-visible {
+          outline-color: fibVars.$dim-gray;
         }
 
         cmp-icon {
@@ -179,7 +184,8 @@ a.cmp__blog-logo {
 
           &:focus, &:active {
             outline: none;
-            border-color: fibSiteVars.$header-color;
+            color: fibVars.$dim-gray;
+            border-color: fibVars.$dim-gray;
           }
 
           &::placeholder {

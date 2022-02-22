@@ -11,7 +11,7 @@
     top: fibVars.$md-size;
     bottom: fibVars.$md-size;
   };
-  @include fibMixins.set_text_font;
+  @include fibMixins.set_uppercase;
 
   color: fibVars.$gray;
 

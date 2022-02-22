@@ -134,33 +134,18 @@
 
   // Subscribe link changes.
   a.cmp__subscribe {
-    --cmp-ribbon-offset: 6px;
+    --cmp-ribbon-width: #{fibVars.$xxl-size};
+    --cmp-ribbon-bend-height: 6px;
+
     padding-bottom: fibVars.$lg-size;
-    width: fibVars.$xxl-size;
     right: 5%;
-
-    div {
-      line-height: fibVars.$small-line-height;
-
-      span {
-        font-size: fibVars.$md-size;
-
-        &:after {
-          $border: calc(#{fibVars.$xxl-size} / 2) solid fibSiteVars.$rss-ribbon-bg;
-
-          border: {
-            left: $border;
-            right: $border;
-            bottom: fibVars.$lg-size solid transparent;
-          }
-        }
-      }
-    }
+    line-height: fibVars.$small-line-height;
+    font-size: fibVars.$md-size;
   }
 
   // TOC Ribbon.
-  .cmp__ribbon {
-    --cmp-ribbon-height: #{fibSiteVars.$ribbon-height};
+  .cmp__toc-ribbon {
+    --cmp-toc-ribbon-height: #{fibSiteVars.$toc-ribbon-height};
     font-size: fibVars.$small-font-size;
   }
 
@@ -210,8 +195,8 @@
   }
 
   // Ribbon.
-  .cmp__ribbon-container {
-    .cmp__ribbon {
+  .cmp__toc-ribbon-container {
+    .cmp__toc-ribbon {
       width: 40%;
     }
   }

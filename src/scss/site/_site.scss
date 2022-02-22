@@ -89,6 +89,69 @@ html, body {
   }
 }
 
+// Page title.
+.cmp__page-title {
+  margin: {
+    top: fibVars.$xl-size;
+    bottom: fibFuncs.size(17);
+  };
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: {
+      top: 0;
+      bottom: 0;
+    };
+  }
+
+  h1 {
+    position: relative;
+
+    font-size: fibFuncs.size(9);
+    text-transform: uppercase;
+    letter-spacing: fibVars.$large-letter-spacing;
+    word-spacing: fibFuncs.size(-10);
+
+    color: lighten(fibVars.$brand-color, 3%);
+
+    &::after {
+      display: block;
+      content: '';
+      width: fibVars.$h1-border-width;
+      height: 5px;
+      margin-top: fibVars.$xl-size;
+      background-color: fibVars.$blue-gray;
+    }
+
+    &:hover::before {
+      left: calc(#{fibVars.$h1-border-width} + 10px);
+    }
+
+    &.cmp__has-icon {
+      @include fibMixins.flex_init($ver: true, $wrap: true);
+
+      cmp-icon {
+        width: fibVars.$xl-size;
+        height: fibVars.$xl-size;
+        margin-right: fibVars.$xs-size;
+      }
+
+      span {
+        min-width: calc(100% - #{fibVars.$xl-size} - #{fibVars.$xs-size});
+      }
+    }
+  }
+
+  h4 {
+    display: inline;
+    padding-bottom: fibVars.$xs-size;
+
+    text-transform: uppercase;
+    letter-spacing: fibVars.$medium-letter-spacing;
+
+    color: fibVars.$brand-gray;
+  }
+}
+
 // Page custom heading.
 .cmp__section-heading {
   $border-color: darken(fibVars.$dim-gray, 10%);
@@ -103,39 +166,12 @@ html, body {
   color: fibVars.$gray;
 
   span {
-    @include fibMixins.flex_init($center: true);
-    position: relative;
-    height: fibVars.$widget-ribbon-height;
+    @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$widget-ribbon-height, fibVars.$widget-ribbon-bg);
     padding: 0 fibVars.$sm-size;
-
-    line-height: fibVars.$widget-ribbon-height;
-    @include fibMixins.set_text_font($family: fibVars.$heading-font-family);
+    @include fibMixins.set_uppercase($family: fibVars.$heading-font-family);
     font-weight: bold;
-
-    background-color: fibVars.$widget-ribbon-bg;
     color: fibVars.$widget-ribbon-color;
     z-index: 1;
-
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      height: 100%;
-
-      border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
-      border-top-color: transparent;
-      border-bottom-color: transparent;
-    }
-
-    &::before {
-      left: calc(-1 * #{fibVars.$xl-size});
-      border-left-color: transparent;
-    }
-
-    &::after {
-      right: calc(-1 * #{fibVars.$xl-size});
-      border-right-color: transparent;
-    }
   }
 
   &:after {

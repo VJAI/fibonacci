@@ -9,7 +9,7 @@ $loader-image-size:                 120px !default;
 
 // Header Component.
 $header-height:                     fibFuncs.size(11) !default;
-$header-color:                      rgb(232, 232, 232) !default;
+$header-color:                      fibVars.$brand-gray !default;
 
 // Logo Component.
 $logo-font-family:                  fibVars.$logo-font-family !default;
@@ -56,11 +56,10 @@ $comment-textarea-minheight:        75px !default;
 $toc-bg-color:                      fibVars.$widget-bg-color !default;
 
 // Ribbons.
-$ribbon-height:                     fibFuncs.size(5) !default;
-$ribbon-small-screen-height:        fibFuncs.size(4) !default;
-$ribbon-bg:                         fibVars.$purple-ribbon !default;
-$ribbon-color:                      fibVars.$white !default;
-$ribbon-shadow:                     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !default;
+$toc-ribbon-height:                 fibFuncs.size(5) !default;
+$toc-ribbon-small-screen-height:    fibFuncs.size(4) !default;
+$toc-ribbon-bg:                     fibVars.$purple-ribbon !default;
+$toc-ribbon-color:                  fibVars.$white !default;
 
 $rss-ribbon-bg:                     fibVars.$light-gray !default;
 $rss-ribbon-color:                  fibVars.$gray !default;
@@ -73,3 +72,6 @@ $person-card-image-height:          360px !default;
 $drop-cap-font-size:                300% !default;
 $drop-cap-bg-color:                 fibVars.$brand-color !default;
 $drop-cap-color:                    fibVars.$white !default;
+
+// Home Page Board.
+$board-nail-size:                   5px !default;

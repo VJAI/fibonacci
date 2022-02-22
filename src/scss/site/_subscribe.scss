@@ -4,52 +4,31 @@
 @use 'variables' as fibSiteVars;
 
 a.cmp__subscribe {
-  --cmp-ribbon-offset: 4px;
+  --cmp-ribbon-width: #{fibVars.$xl-size};
+  --cmp-ribbon-bend-height: 4px;
+
   position: absolute;
+  top: calc(-1 * var(--cmp-ribbon-bend-height));
   right: calc(#{fibFuncs.size(-4)} + #{fibVars.$md-size} - 4px);
-  top: calc(-1 * var(--cmp-ribbon-offset));
   padding: 0 0 fibVars.$md-size 0;
-  width: fibVars.$xl-size;
+
+  line-height: fibVars.$xs-line-height;
+  font-size: fibVars.$sm-size;
+  text-align: center;
 
   border-bottom: none;
-
   z-index: 10;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: calc(-1 * var(--cmp-ribbon-offset));
-    height: calc(var(--cmp-ribbon-offset) / 2);
-    border: solid calc(var(--cmp-ribbon-offset) / 2) fibVars.$gray;
-    border-left-color: transparent;
-    border-top-color: transparent;
-  }
+  @include fibMixins.create_ribbon_fall(var(--cmp-ribbon-width), fibSiteVars.$rss-ribbon-bg, var(--cmp-ribbon-bend-height));
 
   div {
     display: block;
     padding: fibFuncs.size(-14) 0;
-    line-height: 0.8;
-    text-align: center;
-
     background-image: url('#{fibVars.$assets-path}/background.png'), linear-gradient(darken(fibSiteVars.$rss-ribbon-bg, 7%) 0%, fibSiteVars.$rss-ribbon-bg 100%);
 
     span {
-      font-size: fibVars.$sm-size;
       background-color: fibSiteVars.$rss-ribbon-color;
       @include fibMixins.inset_text_shadow();
     }
-  }
-
-  span:after {
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-left: calc(#{fibVars.$xl-size} / 2) solid fibSiteVars.$rss-ribbon-bg;
-    border-right: calc(#{fibVars.$xl-size} / 2) solid fibSiteVars.$rss-ribbon-bg;
-    border-bottom: fibVars.$md-size solid transparent;
   }
 }

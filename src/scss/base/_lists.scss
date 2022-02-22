@@ -63,7 +63,7 @@ ol li li:before {
 dl {
   // Title.
   dt {
-    @include fibMixins.set_text_font($font_size: fibVars.$h5-font-size);
+    @include fibMixins.set_uppercase($font_size: fibVars.$h5-font-size);
     color: fibVars.$medium-gray;
   }
 

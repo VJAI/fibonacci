@@ -155,6 +155,14 @@ $colors: (
   clear: both;
 }
 
+.cmp__no-radius {
+  border-radius: 0 !important;
+}
+
+.cmp__no-shadow {
+  box-shadow: none !important;
+}
+
 @each $name, $breakpoint in $breakpoints {
   @media only screen and (min-width: $breakpoint) {
     .cmp__#{$name}-float-left {

@@ -1,5 +1,7 @@
 @use 'sass:string';
+@use 'sass:math';
 @use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
 
 // Credits: https://github.com/alyssais/Sass-Web-Fonts
 @function wf-str-replace($string, $find, $replace, $all: true) {
@@ -279,11 +281,203 @@
   box-shadow: none;
 }
 
-@mixin set_text_font($family: fibVars.$small-text-font-family, $font_size: fibVars.$xs-size, $spacing: fibVars.$medium-letter-spacing) {
+// Set the font as uppercase.
+@mixin set_uppercase(
+  $family: fibVars.$small-text-font-family,
+  $font_size: fibVars.$xs-size,
+  $spacing: fibVars.$medium-letter-spacing
+) {
   font: {
     family: $family;
     size: $font_size;
   }
   text-transform: uppercase;
   letter-spacing: $spacing;
+}
+
+// Creates ribbon.
+@mixin create_ribbon($ribbon_height, $bg_color) {
+  --cmp-ribbon-bend-height: calc(#{$ribbon_height} / 3.75);
+
+  position: relative;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+  background: $bg_color;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    border: solid calc(#{$ribbon_height} / 2) darken($bg_color, 10%);
+    z-index: -1;
+    bottom: calc(-1 * var(--cmp-ribbon-bend-height));
+  }
+
+  &::before {
+    left: calc(-1 * calc(#{$ribbon_height} - var(--cmp-ribbon-bend-height)));
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: calc(-1 * calc(#{$ribbon_height} - var(--cmp-ribbon-bend-height)));
+    border-right-color: transparent;
+  }
+
+  .cmp__ribbon-content {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: calc(-1 * var(--cmp-ribbon-bend-height));
+      border: {
+        style: solid;
+        color: darken($bg_color, 25%) transparent transparent transparent;
+      }
+    }
+
+    &::before {
+      left: 0;
+      border-width: var(--cmp-ribbon-bend-height) 0 0 var(--cmp-ribbon-bend-height);
+    }
+
+    &::after {
+      right: 0;
+      border-width: var(--cmp-ribbon-bend-height) var(--cmp-ribbon-bend-height) 0 0;
+    }
+  }
+}
+
+// Creates a right-side arrowed ribbon.
+@mixin create_widget_ribbon($ribbon_height, $bg_color) {
+  display: inline-block;
+
+  .cmp__widget-ribbon-content {
+    @include flex_init;
+    width: 100%;
+    position: relative;
+    left: calc(-1 * #{fibVars.$ribbon-bend-height});
+    height: $ribbon_height;
+    line-height: $ribbon_height;
+    padding-left: fibVars.$md-size;
+
+    background-color: $bg_color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(-1 * #{fibVars.$ribbon-bend-height});
+      left: 0;
+      height: math.div(fibVars.$ribbon-bend-height, 2);
+
+      border: solid math.div(fibVars.$ribbon-bend-height, 2) darken($bg_color, 20%);
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      right: calc(-1 * #{$ribbon_height});
+      height: fibVars.$xl-size;
+
+      border: calc(#{$ribbon_height} / 2) solid $bg_color;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    span {
+      flex-grow: 1;
+      background-color: fibVars.$medium-gray;
+      @include inset_text_shadow();
+    }
+  }
+}
+
+// Creates double side arrowed ribbon.
+@mixin create_double_side_arrowed_ribbon($ribbon_height, $bg_color) {
+  @include flex_init($center: true);
+  position: relative;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+
+  background-color: $bg_color;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+
+    border: calc(#{$ribbon_height} / 2) solid $bg_color;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  &::before {
+    left: calc(-1 * #{$ribbon_height});
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: calc(-1 * #{$ribbon_height});
+    border-right-color: transparent;
+  }
+}
+
+// Creates card banner ribbon.
+@mixin create_banner_ribbon($ribbon_height, $bg_color) {
+  position: relative;
+  left: calc(-1 * #{fibVars.$ribbon-bend-height});
+  width: calc(100% + 2 * #{fibVars.$ribbon-bend-height});
+  overflow: visible;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+  @include noisy_bg($bg_color);
+
+  &::before, &::after {
+    display: none;
+    content: '';
+    position: absolute;
+    top: calc(-1 * #{fibVars.$ribbon-bend-height});
+    height: math.div(fibVars.$ribbon-bend-height, 2);
+
+    border: solid math.div(fibVars.$ribbon-bend-height, 2) darken($bg_color, 30%);
+    border-top-color: transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: 0;
+    border-right-color: transparent;
+  }
+}
+
+// Creates ribbon pointing down.
+@mixin create_ribbon_fall($ribbon_width, $ribbon_bg, $ribbon-bend-height) {
+  @include flex_init($column: true);
+  width: $ribbon_width;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-1 * #{$ribbon-bend-height});
+    height: calc(#{$ribbon-bend-height} / 2);
+    border: solid calc(#{$ribbon-bend-height} / 2) darken($ribbon_bg, 25%);
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+
+  &:after {
+    position: relative;
+    bottom: 2px;
+    content: '';
+    border-left: calc(#{$ribbon_width} / 2) solid $ribbon_bg;
+    border-right: calc(#{$ribbon_width} / 2) solid $ribbon_bg;
+    border-bottom: calc(#{$ribbon_width} / 2) solid transparent;
+  }
 }

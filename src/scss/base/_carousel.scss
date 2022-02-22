@@ -1,48 +1,108 @@
 @use 'variables' as fibVars;
 @use 'mixins' as fibMixins;
+@use 'funcs' as fibFuncs;
 
 .cmp__carousel {
-  display: flex;
+  @include fibMixins.flex_init($hor: true, $column: true);
+  @include fibMixins.noisy_bg(rgb(230, 230, 230, 0.3));
+  position: relative;
+
+  @mixin create_trans_border($left: true) {
+    border-color: fibVars.$gray;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+
+    @if $left {
+      border-left-color: transparent;
+    } @else {
+      border-right-color: transparent;
+    }
+  }
 
   .cmp__carousel-tabs {
+    @include fibMixins.flex_init();
+    @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$widget-ribbon-height, fibVars.$widget-ribbon-bg);
     position: absolute;
     top: calc(-1 * #{fibVars.$widget-ribbon-height} / 2);
-    left: calc(50% - 90px);
-    width: 180px;
-    height: fibVars.$widget-ribbon-height;
 
-    span {
+    &.cmp__selected-first {
+      &::before {
+        @include create_trans_border;
+      }
+    }
+
+    &.cmp__selected-last {
+      &::after {
+        @include create_trans_border(false);
+      }
+    }
+
+    a.cmp__carousel-tab {
       @include fibMixins.flex_init($center: true);
-      position: absolute;
-      width: 100%;
+      position: relative;
+      width: fibFuncs.size(21);
       height: fibVars.$widget-ribbon-height;
+
+      @include fibMixins.set_uppercase();
       line-height: fibVars.$widget-ribbon-height;
-      @include fibMixins.set_text_font();
       font-weight: bold;
 
       background-color: fibVars.$widget-ribbon-bg;
       color: fibVars.$widget-ribbon-color;
-      z-index: 1;
+      border-bottom: none;
 
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 100%;
-
-        border: calc(#{fibVars.$xl-size} / 2) solid fibVars.$widget-ribbon-bg;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
+      &.cmp__carousel-tab-selected {
+        background-color: fibVars.$gray;
+        color: fibVars.$white;
       }
 
-      &::before {
-        left: calc(-1 * #{fibVars.$xl-size});
-        border-left-color: transparent;
+      &:hover {
+        text-shadow: none;
       }
+    }
+  }
 
-      &::after {
-        right: calc(-1 * #{fibVars.$xl-size});
-        border-right-color: transparent;
+  .cmp__carousel-pages {
+    margin: {
+      top: fibFuncs.size(14);
+      bottom: fibFuncs.size(14);
+    }
+  }
+
+  .cmp__carousel-nav {
+    a {
+      position: absolute;
+      border-bottom: none;
+      top: calc(50% - 12px);
+    }
+
+    :first-child {
+      left: fibVars.$xxl-size;
+    }
+
+    :last-child {
+      right: fibVars.$xxl-size;
+    }
+  }
+
+  .cmp__carousel-nav-dots {
+    position: absolute;
+    bottom: calc(-1 * #{fibVars.$sm-size} / 2);
+    @include fibMixins.flex_init($center: true);
+    padding: 0 fibFuncs.size(-8);
+    height: fibVars.$sm-size;
+    background-color: fibVars.$light-gray;
+    border-radius: 10px;
+
+    span {
+      width: fibFuncs.size(-12);
+      height: fibFuncs.size(-12);
+      background-color: fibVars.$medium-gray;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: fibFuncs.size(-12);
       }
     }
   }

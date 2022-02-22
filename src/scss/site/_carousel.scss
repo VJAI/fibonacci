@@ -1,5 +1,7 @@
 @use '../base/variables' as fibVars;
 @use '../base/mixins' as fibMixins;
+@use '../base/funcs' as fibFuncs;
+@use 'variables' as fibSiteVars;
 
 .cmp__carousel-post {
   @include fibMixins.flex_init($align: flex-start);
@@ -9,25 +11,37 @@
   }
 
   header {
-    position: relative;
-
-    h4 {
-      position: absolute;
-      top: fibVars.$md-size;
-      left: fibVars.$md-size;
-      color: fibVars.$white;
-    }
-
     figure {
       margin: 0;
+
+      img {
+        @include fibMixins.no_shadow_radius;
+      }
     }
   }
 
   main {
-    padding: {
-      top: fibVars.$md-size;
-      left: fibVars.$md-size;
-    }
+    padding: fibVars.$md-size fibVars.$lg-size;
     color: fibVars.$gray;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .cmp__carousel-post-meta {
+      @include fibMixins.flex_init($ver: true);
+
+      > *:not(:last-child) {
+        margin-right: fibVars.$lg-size;
+      }
+    }
+
+    p {
+      margin-top: fibVars.$sm-size;
+    }
+
+    button {
+      margin-left: auto;
+    }
   }
 }

@@ -4,53 +4,49 @@
 @use '../variables' as fibSiteVars;
 
 #cmp__blog-home {
-  margin-top: fibFuncs.size(12);
+  margin-top: fibFuncs.size(10);
 
   .cmp__home-heading {
-    font-family: fibVars.$logo-font-family;
-    text-align: center;
+    @include fibMixins.flex_init($column: true, $center: true);
 
-    &::after {
-      display: none;
+    .cmp__home-heading-container {
+      @include fibMixins.flex_init($inline: true, $center: true, $column: true);
+      padding: fibVars.$sm-size fibVars.$xxl-size;
+
+      color: fibVars.$white;
+      background: url('#{fibVars.$assets-path}/background.png'), radial-gradient(fibVars.$brand-color, darken(fibVars.$brand-color, 5%));
+
+      span:first-child {
+        font: {
+          family: fibVars.$logo-font-family;
+          size: fibFuncs.size(8);
+        }
+        text-transform: uppercase;
+        letter-spacing: fibVars.$large-letter-spacing;
+        line-height: fibVars.$xs-line-height;
+      }
+
+      span:last-child {
+        font-size: fibVars.$xs-size;
+        margin: fibFuncs.size(-14) 0;
+      }
+    }
+
+    .cmp__tear-paper {
+      position: absolute;
+      z-index: 1;
     }
   }
+}
 
-  .cmp__carousel {
-    @include fibMixins.noisy_bg(rgb(230, 230, 230, 0.3));
-    position: relative;
-
-    padding: {
-      top: fibVars.$xxl-size;
-      bottom: fibVars.$xxl-size;
-      left: fibFuncs.size(16);
-      right: fibFuncs.size(16);
-    }
-
-    /*&::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      background: linear-gradient(-135deg, fibVars.$white, 6px, transparent 0%), linear-gradient(135deg, fibVars.$white, 6px, transparent 0%);
-      background-size: 12px;
-    }
-
-    &::after {
-      position: absolute;
-      content: '';
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      background: linear-gradient(-45deg, fibVars.$white, 6px, transparent 0%), linear-gradient(45deg, fibVars.$white, 6px, transparent 0%);
-      background-size: 12px;
-    }*/
+@media only screen and (min-width: fibVars.$tablet) {
+  .cmp__home-layout > * {
+    @include fibMixins.set_hor_margin(fibVars.$xl-size);
   }
+}
 
-  .cmp__responsive-flex {
+@media only screen and (min-width: fibVars.$tablet) {
+  .cmp__home-layout > * {
     @include fibMixins.set_hor_margin(fibFuncs.size(16));
-    margin-top: fibVars.$xxl-size;
   }
 }
