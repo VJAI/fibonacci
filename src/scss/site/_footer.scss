@@ -35,5 +35,13 @@
       margin-top: fibVars.$sm-size;
       font-size: fibSiteVars.$footer-font-size;
     }
+
+    a {
+      @include fibMixins.set_link_pseudo_state(fibVars.$dim-gray, darken(fibVars.$brand-bg, 5%));
+
+      &:focus-visible {
+        outline-width: 1px;
+      }
+    }
   }
 }

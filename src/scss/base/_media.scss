@@ -72,3 +72,18 @@
     }
   }
 }
+
+@media only screen and (min-width: fibVars.$desktop) {
+  .cmp__carousel {
+
+    .cmp__carousel-nav {
+      :first-child {
+        left: fibVars.$xxl-size;
+      }
+
+      :last-child {
+        right: fibVars.$xxl-size;
+      }
+    }
+  }
+}

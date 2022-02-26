@@ -229,6 +229,22 @@ $card-footer-font-size:             $sm-size !default;
 $card-footer-color:                 $gray !default;
 $card-spacing:                      $xxl-size !default;
 
+// Carousel component.
+$carousel-bg:                       rgba(230, 230, 230, 0.3) !default;
+$carousel-tab-bg:                   $widget-ribbon-bg !default;
+$carousel-tab-bg-active:            $gray !default;
+$carousel-tab-color:                $widget-ribbon-color !default;
+$carousel-tab-active-color:         $white !default;
+$carousel-tab-height:               $widget-ribbon-height !default;
+$carousel-nav-icon-size:            24px !default;
+$carousel-nav-dots-height:          $sm-size !default;
+$carousel-nav-dots-bg:              $light-gray !default;
+$carousel-nav-dots-size:            fibFuncs.size(-12) !default;
+$carousel-nav-dot-bg:               $gray !default;
+$carousel-nav-dot-active:           $medium-gray !default;
+$carousel-nav-arrow-color:          $gray !default;
+$carousel-nav-arrow-hover-color:    $medium-gray !default;
+
 // Animations Speed.
 $medium-speed:                      0.5s !default;
 $fast-speed:                        0.25s !default;

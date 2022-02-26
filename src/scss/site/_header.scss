@@ -145,14 +145,7 @@ a.cmp__blog-logo {
         border-bottom: none;
         transition: all fibVars.$medium-speed;
 
-        &:hover, &:focus, &:active {
-          background-color: darken(fibVars.$brand-bg, 5%);
-          color: fibVars.$dim-gray;
-        }
-
-        &:focus-visible {
-          outline-color: fibVars.$dim-gray;
-        }
+        @include fibMixins.set_link_pseudo_state(fibVars.$dim-gray, darken(fibVars.$brand-bg, 5%));
 
         cmp-icon {
           margin-right: fibSiteVars.$nav-link-icon-spacing;

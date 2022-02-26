@@ -4,13 +4,37 @@
 @use 'variables' as fibSiteVars;
 
 .cmp__carousel-post {
-  @include fibMixins.flex_init($align: flex-start);
+  display: grid;
+  grid-template-areas: 'head' 'image' 'body';
 
-  > * {
-    min-width: 50%;
+  .cmp__carousel-head-meta {
+    grid-area: head;
+    padding: {
+      left: fibVars.$lg-size;
+      right: fibVars.$lg-size;
+    }
+    color: fibVars.$gray;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .cmp__carousel-post-meta {
+      @include fibMixins.flex_init($ver: true, $wrap: true);
+
+      > * {
+        margin-bottom: 5px;
+      }
+
+      > *:not(:last-child) {
+        margin-right: fibVars.$lg-size;
+      }
+    }
   }
 
-  header {
+  .cmp__carousel-post-img {
+    grid-area: image;
+
     figure {
       margin: 0;
 
@@ -20,21 +44,13 @@
     }
   }
 
-  main {
-    padding: fibVars.$md-size fibVars.$lg-size;
+  .cmp__carousel-post-body {
+    grid-area: body;
+    padding: {
+      left: fibVars.$lg-size;
+      right: fibVars.$lg-size;
+    }
     color: fibVars.$gray;
-
-    h3 {
-      margin-top: 0;
-    }
-
-    .cmp__carousel-post-meta {
-      @include fibMixins.flex_init($ver: true);
-
-      > *:not(:last-child) {
-        margin-right: fibVars.$lg-size;
-      }
-    }
 
     p {
       margin-top: fibVars.$sm-size;

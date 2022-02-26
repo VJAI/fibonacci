@@ -108,7 +108,7 @@
   }
 
   ul {
-    @include fibMixins.flex_init($inline: true);
+    @include fibMixins.flex_init($inline: true, $wrap: true);
 
     li {
       margin-right: fibFuncs.size(-14);

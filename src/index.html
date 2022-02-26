@@ -161,13 +161,7 @@
           <div class="cmp__carousel-pages">
             <div class="cmp__carousel-page">
               <div class="cmp__carousel-post">
-                <header>
-                  <figure class="cmp__article-poster">
-                    <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple"/>
-                  </figure>
-                </header>
-
-                <main>
+                <div class="cmp__carousel-head-meta">
                   <h3>
                     <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
                   </h3>
@@ -203,7 +197,15 @@
                       </ul>
                     </div>
                   </div>
+                </div>
 
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore
@@ -213,7 +215,7 @@
                   </p>
 
                   <button>Continue</button>
-                </main>
+                </div>
               </div>
             </div>
           </div>
@@ -233,6 +235,79 @@
             <span></span>
           </div>
         </div>
+
+        <!-- Widgets -->
+        <div class="cmp__responsive-flex">
+          <div class="cmp__quote-of-day cmp__barrier-dark">
+            <h4>Popular Quote</h4>
+            <blockquote>
+              <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo.&rdquo;</p>
+              <cite>Antos Parrish, New York Times</cite>
+            </blockquote>
+
+            <h4>Blogs To Follow</h4>
+            <dl>
+              <dt><a href="#">CSS Tricks</a></dt>
+              <dd>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.
+              </dd>
+              <dt><a href="#">HTML Garden</a></dt>
+              <dd>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.
+              </dd>
+            </dl>
+          </div>
+          <div class="cmp__tip">
+            <h4>Code Tip</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <figure>
+<pre><code data-language="JS" class="language-javascript">const base = 19;
+const ratio = 1.618;
+const interval = 5;
+
+function size(point) {
+  const s = base * Math.pow(ratio, point/interval);
+  return [s, `${(s / base).toFixed(3)} rem`];
+}
+
+for (let i = -10; i < 20; i++) {
+  console.log(size(i));
+}</code></pre>
+              <figcaption>
+                <code>LoginModel</code> in our <i>JustBlog</i> application.
+              </figcaption>
+            </figure>
+          </div>
+
+          <span class="cmp__stitch"></span>
+          <span class="cmp__stitch"></span>
+        </div>
+
+        <div class="cmp__cartoon">
+          <h4>Cartoon For Fun</h4>
+          <p>
+            Purus euismod id, vehicula etiam, nunc auctor habitasse nullam arcu. Ultricies pellentesque consequat, cursus odio hac nam. Ante non lectus mattis, risus sollicitudin hac, tincidunt turpis sit elit class sodales ultrices faucibus.
+          </p>
+          <figure class="cmp__article-poster cmp__figure-full">
+            <img src="blog_resources/pixton_comic.png" />
+          </figure>
+        </div>
+
+        <div class="cmp__todo">
+          <p>
+            &ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.&rdquo;
+          </p>
+        </div>
       </main>
     </article>
   </main>
@@ -250,6 +325,19 @@
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/javascript.min.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['JetBrains Mono']
+    },
+    timeout: 5000,
+    fontactive: function () {
+      hljs && hljs.highlightAll();
+    }
+  });
+</script>
 <script src="fibonacci.js"></script>
 </body>
 </html>
