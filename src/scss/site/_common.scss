@@ -30,7 +30,7 @@
     border-bottom: none;
 
     // Author Photo.
-    .cmp__article-author-pic {
+    img {
       border-radius: 50%;
       opacity: fibSiteVars.$article-author-pic-opacity;
       width: fibSiteVars.$author-pic-large-screen-width;
@@ -73,6 +73,7 @@
     img {
       border-radius: 50%;
       margin-right: fibFuncs.size(-14);
+      width: fibSiteVars.$author-pic-default-width;
     }
   }
 }

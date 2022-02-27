@@ -48,7 +48,7 @@
       h5 {
         margin: 0;
         height: 100%;
-        @include fibMixins.flex_init($center: true);
+        @include fibMixins.flex_init($ver: true);
         font: {
           family: fibVars.$card-title-font-family;
           size: fibVars.$card-title-font-size;

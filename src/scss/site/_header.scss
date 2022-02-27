@@ -39,6 +39,11 @@ a.cmp__blog-logo {
     }
   }
 
+  // Logo Image.
+  .cmp__blog-logo-pic {
+    width: fibFuncs.size(7);
+  }
+
   // Logo Name.
   .cmp__blog-name {
     position: relative;

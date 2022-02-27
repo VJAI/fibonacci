@@ -143,31 +143,75 @@
     }
   }
 
+  // TODO: Need to investigate why x-scrollbar not appears like in other pages.
+  .cmp__tip {
+    pre {
+      code {
+        white-space: pre-wrap;
+      }
+    }
+  }
+
   .cmp__cartoon {
     @include fibMixins.film_strip(rgba(230, 230, 230));
     margin-top: calc(#{fibVars.$xl-size} + 20px);
 
-    h4 {
+    .cmp__cartoon-title {
       text-align: center;
       margin-bottom: fibVars.$xl-size;
+      position: relative;
+
+      h4 {
+        @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$xxl-size, fibVars.$white);
+        display: inline-flex;
+        padding: {
+          left: fibVars.$md-size;
+          right: fibVars.$md-size;
+        };
+
+        .cmp__nail {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background-color: fibVars.$gray;
+          border-radius: 50%;
+          box-shadow: fibVars.$box-shadow;
+          z-index: 1;
+          left: -5px;
+        }
+
+        .cmp__nail:nth-child(2) {
+          left: auto;
+          right: -5px;
+        }
+      }
     }
 
     p {
-      max-width: fibVars.$container-width;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: fibVars.$lg-size;
+      margin-right: fibVars.$lg-size;
       color: fibVars.$gray;
     }
   }
 
-  .cmp__todo {
+  .cmp__admin-statement {
+    position: relative;
     margin-top: fibFuncs.size(18);
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
     padding: fibVars.$xl-size;
     color: fibVars.$medium-gray;
-    @include fibMixins.noisy_bg(fibVars.$success);
+    background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(45deg, fibVars.$success, darken(rgb(241, 247, 234, 0.7), 5%));
+
+    .cmp__author {
+      position: absolute;
+      top: calc(-1 * #{fibVars.$lg-size});
+      left: fibVars.$md-size;
+      border-radius: 50%;
+      border: solid 4px fibVars.$white;
+
+      img {
+        width: fibFuncs.size(10);
+      }
+    }
 
     p {
       font: {
@@ -194,6 +238,25 @@
 
       .cmp__stitch {
         display: block;
+      }
+    }
+
+    .cmp__admin-statement {
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;    border-radius: fibVars.$border-radius;
+      @include fibMixins.folded_corner(rgb(177, 191, 159), fibVars.$xl-size);
+    }
+  }
+}
+
+@media only screen and (min-width: fibVars.$breakpoint1) {
+
+  #cmp__blog-home {
+    .cmp__cartoon {
+      p {
+        max-width: fibVars.$container-width;
+        @include fibMixins.horizontal-center;
       }
     }
   }

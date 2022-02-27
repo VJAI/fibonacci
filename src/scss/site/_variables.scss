@@ -48,9 +48,9 @@ $article-author-role-font-color:    fibVars.$dim-gray !default;
 $article-author-left-offset:        fibFuncs.size(21, true) !default;
 $article-author-admin-badge-color:  fibVars.$yellow-green !default;
 $article-author-guest-badge-color:  fibVars.$gray !default;
-$author-pic-default-width:          30px !default;
+$author-pic-default-width:          30px !default; // TODO: Replace to rem.
 $author-pic-large-screen-width:     fibFuncs.size(15) !default;
-$comment-textarea-minheight:        75px !default;
+$comment-textarea-minheight:        75px !default; // TODO: Replace to rem.
 
 // Table Of Contents.
 $toc-bg-color:                      fibVars.$widget-bg-color !default;

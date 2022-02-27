@@ -21,7 +21,6 @@ $black:                             rgb(0, 0, 0) !default;
 $brand-color:                       rgb(240, 72, 117) !default;
 $brand-bg:                          rgb(75, 85, 94) !default;
 $brand-gray:                        rgb(201, 195, 198) !default;
-$brand-cool:                        rgba(212, 55, 98) !default;
 
 $brand-light:                       color.adjust($brand-color, $lightness: 15%) !default;
 $brand-dark:                        color.adjust($brand-color, $lightness: -15%) !default;
@@ -223,7 +222,7 @@ $card-header-bg:                    $dark-gray !default;
 $card-title-font-family:            $small-text-font-family !default;
 $card-title-font-size:              $xs-size !default;
 $card-title-color:                  $dim-gray !default;
-$card-title-bg-color:               $brand-cool !default;
+$card-title-bg-color:               $medium-gray !default;
 $card-footer-font-family:           $small-text-font-family !default;
 $card-footer-font-size:             $sm-size !default;
 $card-footer-color:                 $gray !default;

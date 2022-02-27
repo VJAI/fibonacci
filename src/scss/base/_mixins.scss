@@ -526,6 +526,7 @@
   }
 }
 
+// Creates film strip like corners.
 @mixin film_strip($bg-color) {
   position: relative;
   padding: {
@@ -554,5 +555,24 @@
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 10px, $bg-color 10px),
     -webkit-linear-gradient(left, $bg-color 10px, rgba(0, 0, 0, 0) 10px) repeat-x;
     background-size: 20px 100%;
+  }
+}
+
+// Creates folded corner.
+// https://nicolasgallagher.com/pure-css-folded-corner-effect/demo/.
+@mixin folded_corner($bg-color, $size) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 $size $size 0;
+    border-style: solid;
+    border-color: #fff #fff $bg-color $bg-color;
+    background: $bg-color;
+    display: block;
+    width: 0;
   }
 }
