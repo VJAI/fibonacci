@@ -45,6 +45,7 @@ $purple-ribbon:                     rgb(186, 137, 182) !default;
 // Sizes.
 $small-screen-font-size:            16px !default;
 $large-screen-font-size:            19px !default;
+$extra-large-screen-font-size:      22px !default;
 $xs-size:                           var(--cmp-xs-size) !default;
 $sm-size:                           var(--cmp-sm-size) !default;
 $md-size:                           var(--cmp-md-size) !default;
@@ -86,6 +87,7 @@ $small-padding:                     $sm-size $lg-size !default;
 $mobile:                            576px !default; // Small devices (landscape phones, 576px and up).
 $tablet:                            768px !default; // Medium devices (tablets, 768px and up).
 $desktop:                           992px !default; // Large devices (desktops, 992px and up).
+$extra-large:                       1500px !default; // Extra Large devices.
 
 $breakpoint1:                       878px !default;  // Custom one.
 $breakpoint2:                       1260px !default; // Custom one.

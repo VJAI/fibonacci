@@ -87,3 +87,9 @@
     }
   }
 }
+
+@media only screen and (min-width: fibVars.$extra-large) {
+  :root {
+    --cmp-base-size: #{fibVars.$extra-large-screen-font-size};
+  }
+}
