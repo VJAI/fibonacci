@@ -1,0 +1,217 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use '../base/mixins' as fibMixins;
+@use 'variables' as fibSiteVars;
+
+// Page Header.
+.cmp__blog-header {
+  @include fibMixins.flex_init($ver: true);
+
+  height: fibSiteVars.$header-height;
+  padding: 0 fibVars.$md-size;
+
+  color: fibSiteVars.$header-color;
+}
+
+// Blog Info.
+.cmp__blog-info {
+  @include fibMixins.flex_init($column: true, $hor: true);
+
+  // Separator.
+  .cmp__separator {
+    display: none;
+    margin: 0 fibVars.$sm-size;
+    height: fibFuncs.size(5);
+    border-right: solid 1px;
+  }
+}
+
+// Logo Component.
+a.cmp__blog-logo {
+  @include fibMixins.flex_init($ver: true);
+  border-bottom: none;
+  color: fibSiteVars.$header-color;
+
+  &:hover {
+    .cmp__blog-name {
+      color: fibVars.$dim-gray;
+      letter-spacing: fibVars.$extra-large-letter-spacing;
+    }
+  }
+
+  // Logo Image.
+  .cmp__blog-logo-pic {
+    width: fibFuncs.size(7);
+  }
+
+  // Logo Name.
+  .cmp__blog-name {
+    position: relative;
+    width: fibSiteVars.$logo-name-width;
+    margin-left: fibFuncs.size(-14);
+    top: -5px;
+
+    font: {
+      family: fibVars.$logo-font-family;
+      size: fibSiteVars.$logo-font-size;
+    }
+    line-height: fibVars.$xs-line-height;
+    letter-spacing: fibVars.$large-letter-spacing;
+
+    transition: all fibVars.$medium-speed;
+  }
+}
+
+// Tag Line.
+.cmp__blog-tag-line {
+  position: absolute;
+  top: fibFuncs.size(6);
+  left: fibFuncs.size(13);
+  font-size: fibFuncs.size(-5);
+}
+
+// Page Navigation Component.
+.cmp__blog-nav {
+  @include fibMixins.flex_init($ver: true, $justify: flex-end);
+  flex-grow: 1;
+  height: 100%;
+  margin-left: var(--cmp-lg-size);
+
+  font-family: fibSiteVars.$nav-font-family;
+
+  // Nav List.
+  ul {
+    height: 100%;
+    @include fibMixins.flex_init($ver: true);
+    @include fibMixins.no_spacing;
+
+    list-style: none;
+
+    // Nav List Item.
+    li {
+      height: 100%;
+      position: relative;
+
+      &:before {
+        display: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      // Active State.
+      &.cmp__nav-active {
+        a::before {
+          content: '';
+
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          width: 100%;
+
+          border-top: solid fibSiteVars.$nav-active-border-width fibVars.$dim-gray;
+        }
+      }
+
+      &:not(.cmp__hamburger-link) {
+        display: none;
+      }
+
+      &.cmp__hamburger-link {
+        padding: 0;
+
+        .cmp__nav-link {
+          position: relative;
+
+          .cmp__hidden-menu {
+            position: absolute;
+            cursor: pointer;
+            width: fibVars.$lg-size;
+            height: fibVars.$lg-size;
+            opacity: 0;
+          }
+        }
+      }
+
+      // Nav Link.
+      a {
+        position: relative;
+        z-index: 1;
+        @include fibMixins.flex_init($ver: true);
+        height: 100%;
+        padding: 0 fibSiteVars.$nav-link-spacing;
+
+        font-size: fibSiteVars.$nav-font-size;
+        line-height: fibVars.$xs-line-height;
+        letter-spacing: fibVars.$large-letter-spacing;
+
+        border-bottom: none;
+        transition: all fibVars.$medium-speed;
+
+        @include fibMixins.set_link_pseudo_state(fibVars.$dim-gray, darken(fibVars.$brand-bg, 5%));
+
+        cmp-icon {
+          margin-right: fibSiteVars.$nav-link-icon-spacing;
+        }
+
+        .cmp__nav-link-text {
+          display: none;
+          line-height: fibVars.$xs-line-height;
+        }
+      }
+
+      // Search form.
+      .cmp__search-form {
+        @include fibMixins.flex_init($ver: true);
+        height: 100%;
+
+        input {
+          display: none;
+          padding: 0 0 fibFuncs.size(-14);
+
+          font-size: fibVars.$small-font-size;
+          line-height: fibVars.$xs-line-height;
+
+          border: none;
+          border-radius: 0;
+          border-bottom: solid 1px fibSiteVars.$header-color;
+          color: fibSiteVars.$header-color;
+          background: transparent;
+
+          &:focus, &:active {
+            outline: none;
+            color: fibVars.$dim-gray;
+            border-color: fibVars.$dim-gray;
+          }
+
+          &::placeholder {
+            color: fibSiteVars.$header-color;
+          }
+        }
+      }
+    }
+  }
+
+  // When the search is active show the search textbox.
+  &.cmp__search-active {
+    .cmp__search-link {
+      display: flex;
+
+      .cmp__search-form {
+        input {
+          display: block;
+        }
+      }
+    }
+
+    ul li:not(:first-child) {
+      display: none;
+    }
+
+    ul li:first-child {
+      width: 100%;
+    }
+  }
+}

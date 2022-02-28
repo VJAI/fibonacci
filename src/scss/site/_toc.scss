@@ -1,0 +1,69 @@
+@use '../base/variables' as fibVars;
+@use '../base/mixins' as fibMixins;
+@use '../base/funcs' as fibFuncs;
+@use 'variables' as fibSiteVars;
+
+.cmp__toc {
+  padding: fibVars.$medium-padding;
+  margin-bottom: fibVars.$xl-size;
+
+  @include fibMixins.config_container(fibVars.$dim-gray);
+
+  h5 {
+    padding-bottom: fibVars.$xs-size;
+    margin-bottom: fibVars.$sm-size;
+    text-align: center;
+
+    letter-spacing: fibVars.$small-letter-spacing;
+    text-transform: uppercase;
+
+    color: fibVars.$brand-color;
+    border-bottom: solid 1px fibVars.$light-gray;
+  }
+
+  ol {
+    padding-left: fibVars.$md-size;
+
+    font-size: fibVars.$sm-size;
+    letter-spacing: fibVars.$medium-letter-spacing;
+    text-transform: uppercase;
+
+    a {
+      color: fibVars.$gray;
+
+      &:hover {
+        color: fibVars.$brand-color;
+      }
+    }
+
+    ol {
+      font-size: fibVars.$xs-size;
+    }
+  }
+}
+
+.cmp__toc-ribbon {
+  --cmp-toc-ribbon-height: #{fibSiteVars.$toc-ribbon-small-screen-height};
+  padding: 0 fibVars.$xl-size;
+
+  @include fibMixins.create_ribbon(var(--cmp-toc-ribbon-height), fibSiteVars.$toc-ribbon-bg);
+  @include fibMixins.set_uppercase($family: fibVars.$heading-font-family, $font_size: fibFuncs.size(-4));
+  text-align: center;
+
+  color: fibSiteVars.$toc-ribbon-color;
+  box-shadow: fibVars.$ribbon-shadow;
+
+  .cmp__ribbon-content {
+    text-shadow: 0 0 2px darken(fibSiteVars.$toc-ribbon-bg, 25%);
+  }
+}
+
+.cmp__toc-ribbon-container {
+  @include fibMixins.flex_init($center: true);
+  position: relative;
+  margin: {
+    top: fibVars.$md-size;
+    bottom: fibFuncs.size(10);
+  };
+  z-index: 1;
+}

@@ -1,0 +1,48 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use '../base/mixins' as fibMixins;
+
+.cmp__pagination {
+  @include fibMixins.flex_init($ver: true);
+  margin-top: fibVars.$lg-size;
+  @include fibMixins.set_uppercase();
+  color: fibVars.$gray;
+
+  > * {
+    flex-grow: 1;
+
+    a {
+      @include fibMixins.flex_init($inline: true, $ver: true);
+    }
+  }
+
+  :first-child {
+    a {
+      &:before {
+        position: relative;
+        content: '≪';
+        margin-right: fibFuncs.size(-20);
+      }
+
+      &:hover:before {
+        animation: arrow-move-left fibVars.$medium-speed linear infinite;
+      }
+    }
+  }
+
+  :last-child {
+    text-align: right;
+
+    a {
+      &:after {
+        position: relative;
+        content: '≫';
+        margin-left: fibFuncs.size(-20);
+      }
+
+      &:hover:after {
+        animation: arrow-move-right fibVars.$medium-speed linear infinite;
+      }
+    }
+  }
+}

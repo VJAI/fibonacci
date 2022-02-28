@@ -1,0 +1,51 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+.cmp__widget {
+  --cmp-widget-body-padding: #{fibVars.$small-padding};
+
+  margin-bottom: fibVars.$xl-size;
+  @include fibMixins.config_container(fibVars.$widget-bg-color);
+
+  .cmp__widget-header {
+    padding-top: fibVars.$md-size;
+  }
+
+  .cmp__widget-body {
+    padding: var(--cmp-widget-body-padding);
+
+    ul, ol, menu {
+      margin-bottom: 0;
+
+      li {
+        margin-bottom: fibFuncs.size(-7);
+      }
+
+      &.cmp__inline-list {
+        padding-left: 0;
+
+        li {
+          display: inline-block;
+          margin-right: fibFuncs.size(-15);
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Widget Ribbon.
+.cmp__widget-ribbon {
+  @include fibMixins.create_widget_ribbon(fibVars.$widget-ribbon-height, fibVars.$widget-ribbon-bg);
+  min-width: fibFuncs.size(23);
+
+  .cmp__widget-ribbon-content {
+    @include fibMixins.set_uppercase($family: fibVars.$heading-font-family);
+    font-weight: bold;
+    color: fibVars.$widget-ribbon-color;
+  }
+}

@@ -1,0 +1,81 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Form elements.
+// Labels.
+label {
+  font: {
+    family: fibVars.$label-font-family;
+    size: fibVars.$label-font-size;
+    weight: bold;
+  }
+  text-transform: uppercase;
+  letter-spacing: fibVars.$label-letter-spacing;
+  color: fibVars.$label-color;
+}
+
+// Input Textboxes and Textareas.
+input[type="text"], input[type="email"], input[type="search"], input[type="number"], textarea {
+  width: 100%;
+  padding: fibVars.$input-padding;
+
+  font: {
+    family: fibVars.$input-font-family;
+    size: fibVars.$input-font-size;
+  }
+  line-height: fibVars.$input-line-height;
+
+  border: solid 2px fibVars.$input-border-color;
+  border-radius: fibVars.$border-radius;
+  color: fibVars.$input-text-color;
+  outline: none;
+
+  transition: all fibVars.$medium-speed;
+  -webkit-appearance: textfield;
+
+  &:focus, &:active {
+    outline: none;
+    background-color: fibVars.$dim-gray;
+    border-color: fibVars.$brand-color;
+  }
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+// Form controls with labels.
+.cmp__form-control {
+  position: relative;
+  @include fibMixins.flex_init($column: true, $align: flex-start);
+  margin-bottom: fibVars.$lg-size;
+  border-radius: fibVars.$border-radius;
+
+  label {
+    @include fibMixins.flex_init($ver: true, $justify: flex-end);
+  }
+}
+
+// Placeholder.
+::placeholder {
+  color: fibVars.$gray;
+  font-style: italic;
+}

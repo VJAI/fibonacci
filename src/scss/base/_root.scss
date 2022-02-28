@@ -1,0 +1,45 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Root.
+:root {
+  --cmp-base-size: #{fibVars.$small-screen-font-size};
+  --cmp-xs-size: #{fibFuncs.size(-2)};
+  --cmp-sm-size: #{fibFuncs.size(-1)};
+  --cmp-md-size: #{fibFuncs.size(0)};
+  --cmp-lg-size: #{fibFuncs.size(3)};
+  --cmp-xl-size: #{fibFuncs.size(6)};
+  --cmp-xxl-size: #{fibFuncs.size(8)};
+  font-size: var(--cmp-base-size);
+
+  --cmp-brand-color: #{fibVars.$brand-color};
+  --cmp-brand-light: #{fibVars.$brand-light};
+  --cmp-brand-dark: #{fibVars.$brand-dark};
+  --cmp-brand-bg: #{fibVars.$brand-bg};
+  --cmp-brand-gray: #{fibVars.$brand-gray};
+  --cmp-dark-gray: #{fibVars.$dark-gray};
+  --cmp-medium-gray: #{fibVars.$medium-gray};
+  --cmp-gray: #{fibVars.$gray};
+  --cmp-light-gray: #{fibVars.$light-gray};
+  --cmp-dim-gray: #{fibVars.$dim-gray};
+}
+
+// Global Overrides.
+html, body {
+  box-sizing: border-box;
+  @include fibMixins.no_spacing;
+
+  font: {
+    family: fibVars.$body-font-family;
+    size: fibVars.$body-font-size;
+  }
+  line-height: fibVars.$base-line-height;
+
+  color: fibVars.$dark-gray;
+}
+
+// CSS Resets.
+*, *:before, *:after {
+  box-sizing: inherit;
+}

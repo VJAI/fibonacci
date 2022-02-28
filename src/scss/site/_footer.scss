@@ -1,0 +1,47 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use '../base/mixins' as fibMixins;
+@use 'variables' as fibSiteVars;
+
+.cmp__blog-footer {
+  position: relative;
+  height: fibSiteVars.$footer-height;
+  @include fibMixins.flex_init($column: true);
+  padding: fibVars.$xs-size fibVars.$md-size;
+
+  font-family: fibSiteVars.$footer-font-family;
+  letter-spacing: fibVars.$large-letter-spacing;
+  text-transform: uppercase;
+
+  color: fibSiteVars.$footer-color;
+
+  section {
+    &.cmp__footer-left {
+      @include fibMixins.flex_init();
+      font-size: fibSiteVars.$footer-credits-font-size;
+
+      > div {
+        flex-grow: 1;
+
+        &:last-child {
+          margin-left: fibFuncs.size(-14);
+          text-align: right;
+        }
+      }
+    }
+
+    &.cmp__footer-right {
+      @include fibMixins.flex_init($center: true);
+      margin-top: fibVars.$sm-size;
+      font-size: fibSiteVars.$footer-font-size;
+    }
+
+    a {
+      @include fibMixins.set_link_pseudo_state(fibVars.$dim-gray, darken(fibVars.$brand-bg, 5%));
+
+      &:focus-visible {
+        outline-width: 1px;
+      }
+    }
+  }
+}

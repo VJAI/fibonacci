@@ -1,0 +1,11 @@
+@use '../../base/variables' as fibVars;
+
+.cmp__tab-hide {
+  display: none;
+}
+
+@media only screen and (min-width: fibVars.$tablet) {
+  .cmp__tab-hide {
+    display: flex;
+  }
+}

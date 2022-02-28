@@ -1,0 +1,112 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Cards list.
+.cmp__cards-list {
+  @include fibMixins.flex_init($wrap: true);
+  margin-bottom: fibVars.$card-spacing;
+
+  .cmp__card {
+    margin-bottom: fibVars.$card-spacing;
+  }
+}
+
+// Cards.
+.cmp__card {
+  @include fibMixins.flex_init($column: true);
+  @include fibMixins.set_shadow_radius;
+  transition: fibVars.$box-shadow fibVars.$medium-speed;
+  text-shadow: none;
+  background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(135deg, fibVars.$dim-gray, darken(fibVars.$dim-gray, 3%));
+
+  &:hover {
+    box-shadow: fibVars.$box-shadow-hover;
+
+    .cmp__card-header {
+      .cmp__card-image {
+        &:after {
+          background-color: transparent;
+        }
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .cmp__card-header {
+    position: relative;
+    display: block;
+
+    .cmp__card-title {
+      @include fibMixins.create_banner_ribbon(fibFuncs.size(4), fibVars.$card-title-bg-color);
+      margin-top: fibVars.$sm-size;
+      text-shadow: none;
+
+      h5 {
+        margin: 0;
+        height: 100%;
+        @include fibMixins.flex_init($ver: true);
+        font: {
+          family: fibVars.$card-title-font-family;
+          size: fibVars.$card-title-font-size;
+        }
+        letter-spacing: fibVars.$medium-letter-spacing;
+        color: fibVars.$card-title-color;
+      }
+    }
+
+    .cmp__card-image {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform fibVars.$medium-speed;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: background-color fibVars.$medium-speed;
+      }
+    }
+  }
+
+  .cmp__card-footer {
+    padding: fibVars.$sm-size;
+    @include fibMixins.flex_init($column: true);
+
+    p {
+      text-shadow: none;
+      margin: 0;
+
+      font: {
+        family: fibVars.$card-footer-font-family;
+        size: fibVars.$card-footer-font-size;
+      }
+
+      color: fibVars.$card-footer-color;
+    }
+
+    .cmp__card-actions {
+      @include fibMixins.flex_init();
+      margin-top: fibVars.$sm-size;
+
+      > * {
+        flex-grow: 1;
+        text-shadow: none;
+        color: fibVars.$card-footer-color;
+      }
+    }
+  }
+}

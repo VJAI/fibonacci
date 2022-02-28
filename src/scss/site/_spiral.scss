@@ -1,0 +1,18 @@
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+
+.cmp__spiral {
+  $spiral-width: 60px;
+  $spiral-offset: 27px;
+
+  display: none;
+  height: calc(100% - 2 * #{fibFuncs.size(16)});
+  width: $spiral-width;
+  position: absolute;
+  top: fibFuncs.size(16);
+  left: -1 * $spiral-offset;
+  background-image: url("#{fibVars.$assets-path}/spiral.png");
+  background-size: $spiral-width auto;
+  background-repeat: repeat-y;
+  z-index: 100;
+}

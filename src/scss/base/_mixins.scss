@@ -1,0 +1,578 @@
+@use 'sass:string';
+@use 'sass:math';
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+
+// Credits: https://github.com/alyssais/Sass-Web-Fonts
+@function wf-str-replace($string, $find, $replace, $all: true) {
+  $index: str-index($string, $find);
+  @if $index {
+    $before: str-slice($string, 1, $index - 1);
+    $after: str-slice($string, $index + str-length($find), str-length($string));
+    $string: $before + $replace + $after;
+
+    @if $all and not str-index($find, $replace) {
+      $string: wf-str-replace($string, $find, $replace);
+    }
+  }
+  @return $string;
+}
+
+@function wf-url-encode($string) {
+  $replacements: (
+          "!": "%21",
+          "#": "%23",
+          "$": "%24",
+          "&": "%26",
+          "'": "%27",
+          "(": "%28",
+          ")": "%29",
+          "*": "%2A",
+          "+": "%2B",
+          ",": "%2C",
+          "/": "%2F",
+          ":": "%3A",
+          ";": "%3B",
+          "=": "%3D",
+          "?": "%3F",
+          "@": "%40",
+          "[": "%5B",
+          "]": "%5D",
+          " ": "%20"
+  );
+
+  @each $from, $to in $replacements {
+    $string: wf-str-replace($string, $from, $to);
+  }
+
+  @return $string;
+}
+
+@function wf-implode($list, $separator: ',') {
+  $string: '';
+  @for $i from 1 through length($list) {
+    $el: nth($list, $i);
+    $string: $string + $el;
+    @if ($i < length($list)) {
+      $string: $string + $separator;
+    }
+  }
+  @return $string;
+}
+
+@function wf-serialize($fonts) {
+  @if type-of($fonts) == 'list' or type-of($fonts) == 'arglist' {
+    $serialized: ();
+    @each $font in $fonts {
+      $serialized: append($serialized, wf-serialize($font));
+    }
+    @return wf-implode($serialized, '|');
+  }
+
+  @if type-of($fonts) == 'map' {
+    $serialized: ();
+    @each $family, $variants in $fonts {
+      $variants: wf-implode($variants, ',');
+      $variants: wf-str-replace($variants, ' ', '');
+      $serialized: append($serialized, "#{$family}:#{$variants}");
+    }
+    @return wf-serialize($serialized);
+  }
+
+  @if type-of($fonts) == 'string' {
+    @return wf-url-encode($fonts);
+  }
+
+  @warn "Unsupported font type: #{type-of($fonts)}";
+}
+
+@function wf-protocol() {
+  $web-fonts-protocol: '' !global !default;
+  $protocol: $web-fonts-protocol;
+  @if str-length($protocol) > 0 {
+    $protocol: $protocol + ':';
+  }
+  @return $protocol;
+}
+
+@function wf-query-string-encode($params) {
+  $query-string: "";
+  @each $key, $value in $params {
+    $query-string: $query-string + wf-url-encode($key) + "=";
+    $query-string: $query-string + wf-url-encode($value) + "&";
+  }
+  // remove trailing ampersand
+  $query-string: str-slice($query-string, 1, -2);
+  @return $query-string;
+}
+
+@function wf-params-string($fonts) {
+  $web-fonts-params: () !global !default;
+  $params: map-merge((family: wf-serialize($fonts)), $web-fonts-params);
+  @return wf-query-string-encode($params);
+}
+
+@function web-fonts-url($fonts...) {
+  $protocol: wf-protocol();
+  $query-string: wf-params-string($fonts);
+  $url: "#{$protocol}//fonts.googleapis.com/css?#{$query-string}";
+  @return $url;
+}
+
+/// Loads passed fonts with variations from google.
+///
+/// @param {Map} $fonts
+///   Fonts and variations dictionary.
+@mixin load_google_font($fonts) {
+  $url: web-fonts-url($fonts);
+  @import url($url);
+}
+
+// Horizontal centering.
+@mixin horizontal-center {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+/// Creates flexbox container with passed configuration.
+///
+/// @param {boolean} $inline
+///   Passing `true` creates inline flex container else normal flex container.
+/// @param {boolean} $column
+///   Passing `true` arranges flex items in column else in row.
+/// @param {boolean} $center
+///   Passing `true` centers the flex items vertically and horizontally.
+/// @param {boolean} $hor
+///   Passing `true` centers flex items horizontally.
+/// @param {boolean} $ver
+///   Passing `true` centers flex items vertically.
+/// @param {boolean} $wrap
+///   Passing `true` wrap the items.
+/// @param {string} $justify
+///   Equivalent to flex container's `justify-content` property.
+/// @param {string} $align
+///   Equivalent to flex container's `align-items` property.
+@mixin flex_init(
+  $inline: false,
+  $column: false,
+  $center: false,
+  $hor: false,
+  $ver: false,
+  $wrap: false,
+  $justify: null,
+  $align: null
+) {
+  @if $inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  @if $column {
+    flex-direction: column;
+  }
+
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+
+  @if $center == true or ($column == false and $hor == true) or ($column == true and $ver == true) {
+    justify-content: center;
+  }
+
+  @if $center == true or ($column == false and $ver == true) or ($column == true and $hor == true) {
+    align-items: center;
+  }
+
+  @if $justify {
+    justify-content: string.unquote($justify);
+  }
+
+  @if $align {
+    align-items: string.unquote($align);
+  }
+}
+
+/// Updates flexbox container.
+///
+/// @param {boolean} $column
+///   Passing `true` arranges flex items in column and `false` in row.
+/// @param {boolean} $wrap
+///   Passing `true` wrap the items and `false` unwraps them.
+/// @param {string} $justify
+///   Equivalent to flex container's `justify-content` property.
+/// @param {string} $align
+///   Equivalent to flex container's `align-items` property.
+@mixin flex_update(
+  $column: null,
+  $wrap: null,
+  $justify: null,
+  $align: null
+) {
+  @if $column == true {
+    flex-direction: column;
+  } @else if $column == false {
+    flex-direction: row;
+  }
+
+  @if $wrap == true {
+    flex-wrap: wrap;
+  } @else if $wrap == false {
+    flex-wrap: nowrap;
+  }
+
+  @if $justify {
+    justify-content: string.unquote($justify);
+  }
+
+  @if $align {
+    align-items: string.unquote($align);
+  }
+}
+
+/// Sets a colored noisy background using an image.
+/// @param {string} $bg
+///   The background color.
+@mixin noisy_bg($bg: transparent) {
+  background: url('#{fibVars.$assets-path}/background.png') $bg;
+}
+
+/// Sets background, box-shadow and border radius.
+/// @param {string} $bg
+///   The background color.
+@mixin config_container($bg: transparent) {
+  @include noisy_bg($bg);
+  border-radius: fibVars.$border-radius;
+  box-shadow: fibVars.$box-shadow;
+}
+
+/// Creates an inset text shadow.
+@mixin inset_text_shadow() {
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+/// Creates container with no margin or padding.
+@mixin no_spacing {
+  margin: 0;
+  padding: 0;
+}
+
+/// Sets horizontal margin.
+@mixin set_hor_margin($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+// Sets shadow and border radius.
+@mixin set_shadow_radius {
+  border-radius: fibVars.$border-radius;
+  box-shadow: fibVars.$box-shadow;
+}
+
+// Sets no shadow and removes border radius.
+@mixin no_shadow_radius {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+// Set the font as uppercase.
+@mixin set_uppercase(
+  $family: fibVars.$small-text-font-family,
+  $font_size: fibVars.$xs-size,
+  $spacing: fibVars.$medium-letter-spacing
+) {
+  font: {
+    family: $family;
+    size: $font_size;
+  }
+  text-transform: uppercase;
+  letter-spacing: $spacing;
+}
+
+// Creates ribbon.
+@mixin create_ribbon($ribbon_height, $bg_color) {
+  --cmp-ribbon-bend-height: calc(#{$ribbon_height} / 3.75);
+
+  position: relative;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+  background: $bg_color;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    border: solid calc(#{$ribbon_height} / 2) darken($bg_color, 10%);
+    z-index: -1;
+    bottom: calc(-1 * var(--cmp-ribbon-bend-height));
+  }
+
+  &::before {
+    left: calc(-1 * calc(#{$ribbon_height} - var(--cmp-ribbon-bend-height)));
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: calc(-1 * calc(#{$ribbon_height} - var(--cmp-ribbon-bend-height)));
+    border-right-color: transparent;
+  }
+
+  .cmp__ribbon-content {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: calc(-1 * var(--cmp-ribbon-bend-height));
+      border: {
+        style: solid;
+        color: darken($bg_color, 25%) transparent transparent transparent;
+      }
+    }
+
+    &::before {
+      left: 0;
+      border-width: var(--cmp-ribbon-bend-height) 0 0 var(--cmp-ribbon-bend-height);
+    }
+
+    &::after {
+      right: 0;
+      border-width: var(--cmp-ribbon-bend-height) var(--cmp-ribbon-bend-height) 0 0;
+    }
+  }
+}
+
+// Creates a right-side arrowed ribbon.
+@mixin create_widget_ribbon($ribbon_height, $bg_color) {
+  display: inline-block;
+
+  .cmp__widget-ribbon-content {
+    @include flex_init;
+    width: 100%;
+    position: relative;
+    left: calc(-1 * #{fibVars.$ribbon-bend-height});
+    height: $ribbon_height;
+    line-height: $ribbon_height;
+    padding-left: fibVars.$md-size;
+
+    background-color: $bg_color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(-1 * #{fibVars.$ribbon-bend-height});
+      left: 0;
+      height: math.div(fibVars.$ribbon-bend-height, 2);
+
+      border: solid math.div(fibVars.$ribbon-bend-height, 2) darken($bg_color, 20%);
+      border-left-color: transparent;
+      border-top-color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: relative;
+      right: calc(-1 * #{$ribbon_height});
+      height: fibVars.$xl-size;
+
+      border: calc(#{$ribbon_height} / 2) solid $bg_color;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    span {
+      flex-grow: 1;
+      background-color: fibVars.$medium-gray;
+      @include inset_text_shadow();
+    }
+  }
+}
+
+// Creates double side arrowed ribbon.
+@mixin create_double_side_arrowed_ribbon($ribbon_height, $bg_color) {
+  @include flex_init($center: true);
+  position: relative;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+
+  background-color: $bg_color;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+
+    border: calc(#{$ribbon_height} / 2) solid $bg_color;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  &::before {
+    left: calc(-1 * #{$ribbon_height});
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: calc(-1 * #{$ribbon_height});
+    border-right-color: transparent;
+  }
+}
+
+// Creates card banner ribbon.
+@mixin create_banner_ribbon($ribbon_height, $bg_color) {
+  position: relative;
+  left: calc(-1 * #{fibVars.$ribbon-bend-height});
+  width: calc(100% + 2 * #{fibVars.$ribbon-bend-height});
+  overflow: visible;
+  height: $ribbon_height;
+  line-height: $ribbon_height;
+  @include noisy_bg($bg_color);
+
+  &::before, &::after {
+    display: none;
+    content: '';
+    position: absolute;
+    top: calc(-1 * #{fibVars.$ribbon-bend-height});
+    height: math.div(fibVars.$ribbon-bend-height, 2);
+
+    border: solid math.div(fibVars.$ribbon-bend-height, 2) darken($bg_color, 30%);
+    border-top-color: transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: transparent;
+  }
+
+  &::after {
+    right: 0;
+    border-right-color: transparent;
+  }
+}
+
+// Creates ribbon pointing down.
+@mixin create_ribbon_fall($ribbon_width, $ribbon_bg, $ribbon-bend-height) {
+  @include flex_init($column: true);
+  width: $ribbon_width;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-1 * #{$ribbon-bend-height});
+    height: calc(#{$ribbon-bend-height} / 2);
+    border: solid calc(#{$ribbon-bend-height} / 2) darken($ribbon_bg, 25%);
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+
+  &:after {
+    position: relative;
+    bottom: 2px;
+    content: '';
+    border-left: calc(#{$ribbon_width} / 2) solid $ribbon_bg;
+    border-right: calc(#{$ribbon_width} / 2) solid $ribbon_bg;
+    border-bottom: calc(#{$ribbon_width} / 2) solid transparent;
+  }
+}
+
+// Set Anchor Pseudo State Colors.
+@mixin set_link_pseudo_state($color, $bgColor) {
+  &:hover, &:focus, &:active {
+    background-color: $bgColor;
+    color: $color;
+  }
+
+  &:focus-visible {
+    outline-color: $color;
+  }
+}
+
+// Creates a rigged bordered widget.
+@mixin barrier_widget($bg-color) {
+  position: relative;
+  padding: {
+    top: fibVars.$xl-size;
+    bottom: fibVars.$xl-size;
+  };
+  @include noisy_bg($bg-color);
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(-135deg, fibVars.$white, 6px, transparent 0%), linear-gradient(135deg, fibVars.$white, 6px, transparent 0%);
+    background-size: 12px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(-45deg, fibVars.$white, 6px, transparent 0%), linear-gradient(45deg, fibVars.$white, 6px, transparent 0%);
+    background-size: 12px;
+  }
+}
+
+// Creates film strip like corners.
+@mixin film_strip($bg-color) {
+  position: relative;
+  padding: {
+    top: fibVars.$xl-size;
+    bottom: fibVars.$xl-size;
+  };
+  @include noisy_bg($bg-color);
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -20px;
+    width: 100%;
+    height: 20px;
+    background: -webkit-linear-gradient(top, $bg-color 10px, rgba(0, 0, 0, 0) 10px),
+    -webkit-linear-gradient(left, $bg-color 10px, rgba(0, 0, 0, 0) 10px) repeat-x;
+    background-size: 20px 100%;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -20px;
+    width: 100%;
+    height: 20px;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 10px, $bg-color 10px),
+    -webkit-linear-gradient(left, $bg-color 10px, rgba(0, 0, 0, 0) 10px) repeat-x;
+    background-size: 20px 100%;
+  }
+}
+
+// Creates folded corner.
+// https://nicolasgallagher.com/pure-css-folded-corner-effect/demo/.
+@mixin folded_corner($bg-color, $size) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 $size $size 0;
+    border-style: solid;
+    border-color: #fff #fff $bg-color $bg-color;
+    background: $bg-color;
+    display: block;
+    width: 0;
+  }
+}

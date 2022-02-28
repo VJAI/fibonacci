@@ -1,0 +1,293 @@
+@use '../../base/variables' as fibVars;
+@use '../../base/funcs' as fibFuncs;
+@use '../../base/mixins' as fibMixins;
+@use '../variables' as fibSiteVars;
+
+#cmp__blog-home {
+  margin-top: fibFuncs.size(10);
+
+  .cmp__home-heading {
+    @include fibMixins.flex_init($column: true, $center: true);
+
+    .cmp__home-heading-container {
+      @include fibMixins.flex_init($inline: true, $center: true, $column: true);
+      padding: fibVars.$sm-size fibVars.$xxl-size;
+
+      color: fibVars.$white;
+      background: url('#{fibVars.$assets-path}/background.png'), radial-gradient(fibVars.$brand-color, darken(fibVars.$brand-color, 5%));
+
+      span:first-child {
+        font: {
+          family: fibVars.$logo-font-family;
+          size: fibFuncs.size(8);
+        }
+        text-transform: uppercase;
+        letter-spacing: fibVars.$large-letter-spacing;
+        line-height: fibVars.$xs-line-height;
+      }
+
+      span:last-child {
+        font-size: fibVars.$xs-size;
+        margin: fibFuncs.size(-14) 0;
+      }
+    }
+
+    .cmp__tear-paper {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  .cmp__responsive-flex {
+    position: relative;
+    z-index: 0;
+    margin-top: fibVars.$xl-size;
+
+    h4 {
+      margin-top: 0;
+    }
+
+    > div {
+      position: relative;
+      z-index: -1;
+      @include fibMixins.barrier_widget(rgba(230, 230, 230, 0.3));
+      margin-top: fibVars.$xl-size;
+    }
+
+    > div:first-of-type {
+      padding: {
+        left: fibVars.$xl-size;
+        right: fibVars.$xl-size;
+      };
+    }
+
+    > div:last-of-type {
+      padding: {
+        left: fibVars.$xl-size;
+        right: fibVars.$xl-size;
+      };
+    }
+
+    a {
+      border-bottom: none;
+    }
+
+    blockquote, dl {
+      padding: 0;
+      margin: 0;
+      margin-bottom: fibVars.$lg-size;
+      background-color: transparent;
+      color: inherit;
+      @include fibMixins.no_shadow_radius;
+    }
+
+    figure {
+      pre {
+        @include fibMixins.noisy_bg(fibVars.$white);
+      }
+    }
+
+    .cmp__barrier-dark {
+      @include fibMixins.barrier_widget(lighten(fibVars.$gray, 10%));
+      color: fibVars.$white;
+
+      h4 {
+        color: inherit;
+      }
+
+      figure {
+        figcaption {
+          color: fibVars.$light-gray;
+        }
+      }
+    }
+
+    .cmp__stitch {
+      display: none;
+      position: absolute;
+      left: calc(50% - 10px);
+      height: 3px;
+      width: 20px;
+      border-color: transparent transparent fibVars.$white transparent;
+      border-radius: 0 0 20px 50%/5px;
+      background-color: fibVars.$white;
+      box-shadow: fibVars.$box-shadow;
+
+      &:first-of-type {
+        top: 10%;
+      }
+
+      &:last-of-type {
+        bottom: 10%;
+      }
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: -1.5px;
+        width: 6px;
+        height: 6px;
+        background-color: fibVars.$medium-gray;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      &::before {
+        left: -3px;
+      }
+
+      &::after {
+        right: -3px;
+      }
+    }
+  }
+
+  // TODO: Need to investigate why x-scrollbar not appears like in other pages.
+  .cmp__tip {
+    pre {
+      code {
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  .cmp__cartoon {
+    @include fibMixins.film_strip(rgba(230, 230, 230));
+    margin-top: calc(#{fibVars.$xl-size} + 20px);
+
+    .cmp__cartoon-title {
+      text-align: center;
+      margin-bottom: fibVars.$xl-size;
+      position: relative;
+
+      h4 {
+        @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$xxl-size, fibVars.$white);
+        display: inline-flex;
+        padding: {
+          left: fibVars.$md-size;
+          right: fibVars.$md-size;
+        };
+
+        .cmp__nail {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background-color: fibVars.$gray;
+          border-radius: 50%;
+          box-shadow: fibVars.$box-shadow;
+          z-index: 1;
+          left: -5px;
+        }
+
+        .cmp__nail:nth-child(2) {
+          left: auto;
+          right: -5px;
+        }
+      }
+    }
+
+    p {
+      margin-left: fibVars.$lg-size;
+      margin-right: fibVars.$lg-size;
+      color: fibVars.$gray;
+    }
+  }
+
+  .cmp__admin-statement {
+    position: relative;
+    margin-top: fibFuncs.size(18);
+    padding: fibVars.$xl-size;
+    color: fibVars.$medium-gray;
+    background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(45deg, fibVars.$success, darken(rgb(241, 247, 234, 0.7), 5%));
+
+    .cmp__author {
+      position: absolute;
+      top: calc(-1 * #{fibVars.$lg-size});
+      left: fibVars.$md-size;
+      border-radius: 50%;
+      border: solid 4px fibVars.$white;
+
+      img {
+        width: fibFuncs.size(10);
+      }
+    }
+
+    p {
+      font: {
+        family: fibVars.$heading-font-family;
+        size: fibFuncs.size(2);
+      };
+    }
+  }
+}
+
+@media only screen and (min-width: fibVars.$tablet) {
+  .cmp__home-layout > * {
+    @include fibMixins.set_hor_margin(fibVars.$xl-size);
+  }
+
+  #cmp__blog-home {
+    .cmp__responsive-flex {
+      > div {
+        flex-grow: 1;
+        width: 50%;
+        max-width: 50%;
+        margin-top: 0;
+      }
+
+      .cmp__stitch {
+        display: block;
+      }
+    }
+
+    .cmp__admin-statement {
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;    border-radius: fibVars.$border-radius;
+      @include fibMixins.folded_corner(rgb(177, 191, 159), fibVars.$xl-size);
+    }
+  }
+}
+
+@media only screen and (min-width: fibVars.$breakpoint1) {
+
+  #cmp__blog-home {
+    .cmp__cartoon {
+      p {
+        max-width: fibVars.$container-width;
+        @include fibMixins.horizontal-center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: fibVars.$desktop) {
+  .cmp__home-layout > * {
+    @include fibMixins.set_hor_margin(fibFuncs.size(16));
+  }
+
+  #cmp__blog-home {
+    .cmp__responsive-flex {
+      > div:first-of-type {
+        padding: {
+          left: fibFuncs.size(16);
+          right: fibVars.$xl-size;
+        };
+      }
+
+      > div:last-of-type {
+        padding: {
+          left: fibVars.$xl-size;
+          right: fibFuncs.size(16);
+        };
+      }
+    }
+
+    .cmp__cartoon {
+      figure {
+        padding: 0 fibFuncs.size(18);
+      }
+    }
+  }
+}

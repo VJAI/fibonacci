@@ -1,0 +1,23 @@
+@keyframes arrow-move-left {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -3px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes arrow-move-right {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: -3px;
+  }
+  100% {
+    right: 0;
+  }
+}

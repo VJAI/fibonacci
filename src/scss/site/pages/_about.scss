@@ -1,0 +1,91 @@
+@use '../../base/variables' as fibVars;
+@use '../../base/funcs' as fibFuncs;
+@use '../../base/mixins' as fibMixins;
+@use '../variables' as fibSiteVars;
+
+// Social Links.
+.cmp__social-widget {
+  @include fibMixins.flex_init($column: true, $hor: true);
+  margin: 0 auto;
+  padding: {
+    top: fibVars.$md-size;
+    bottom: fibVars.$md-size;
+  };
+  @include fibMixins.set_uppercase;
+
+  color: fibVars.$gray;
+
+  a {
+    @include fibMixins.flex_init($ver: true);
+    margin-bottom: fibVars.$xs-size;
+    border-bottom: none;
+
+    &:hover {
+      cmp-icon {
+        transform: scale(1.5);
+      }
+    }
+
+    cmp-icon {
+      margin-right: fibFuncs.size(-10);
+      transition: transform fibVars.$fast-speed;
+    }
+
+    .cmp__social-text {
+      line-height: fibVars.$xs-line-height;
+    }
+  }
+
+  .separator {
+    display: none;
+    margin: 0 fibFuncs.size(-7);
+  }
+}
+
+// Project card.
+.cmp__project-card {
+  .cmp__card-image {
+    height: fibSiteVars.$project-card-image-height;
+  }
+}
+
+// Person Card.
+.cmp__person-card {
+  .cmp__card-image {
+    height: fibSiteVars.$person-card-image-height;
+  }
+}
+
+.cmp__project-card, .cmp__person-card {
+  .cmp__card-footer {
+    .cmp__card-actions {
+      .cmp__icon-text:first-child {
+        justify-content: flex-start;
+      }
+
+      .cmp__icon-text:last-child {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: fibVars.$mobile) {
+  .cmp__social-widget {
+    $border: solid 1px fibVars.$dim-gray;
+
+    flex-direction: row;
+    border: {
+      top: $border;
+      bottom: $border;
+    }
+
+    a {
+      margin-bottom: 0;
+    }
+
+    .separator {
+      display: block;
+    }
+  }
+}

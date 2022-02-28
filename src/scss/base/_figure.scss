@@ -1,0 +1,55 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+figure, .cmp__figure {
+  margin-block-start: fibVars.$md-size;
+  margin-block-end: fibVars.$lg-size;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  max-width: 100%;
+
+  img, iframe {
+    display: block;
+    max-width: 100%;
+    @include fibMixins.set_shadow_radius;
+  }
+
+  table {
+    margin: 0;
+  }
+
+  iframe {
+    width: 100%;
+    min-height: fibVars.$iframe-min-height;
+    border: none;
+  }
+
+  figcaption, .cmp__figcaption {
+    margin-top: fibFuncs.size(-14);
+
+    font: {
+      size: fibVars.$figure-caption-font-size;
+      family: fibVars.$figure-caption-font-family;
+    }
+
+    color: fibVars.$figure-caption-color;
+
+    code {
+      font: {
+        size: fibVars.$code-font-size;
+        family: fibVars.$code-font-family;
+      }
+    }
+  }
+
+  .cmp__table-wrapper {
+    padding: fibVars.$small-padding;
+    @include fibMixins.config_container(fibVars.$success);
+    overflow-x: auto;
+  }
+
+  pre {
+    padding: fibVars.$small-padding;
+  }
+}

@@ -1,0 +1,54 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+button, [type="button"], [type="submit"] {
+  @include fibMixins.flex_init($center: true);
+  padding: fibVars.$button-padding;
+
+  font: {
+    family: fibVars.$button-font-family;
+    size: fibVars.$button-font-size;
+  }
+  text-transform: uppercase;
+  letter-spacing: fibVars.$medium-letter-spacing;
+
+  border-radius: fibVars.$border-radius;
+  background-image: linear-gradient(45deg, fibVars.$brand-color, fibVars.$brand-dark);
+  color: fibVars.$button-text-color;
+  border: none;
+  cursor: pointer;
+  box-shadow: fibVars.$box-shadow;
+
+  transition: all fibVars.$medium-speed;
+
+  &:focus, &:active, &:hover {
+    outline: none;
+  }
+
+  cmp-icon {
+    margin-right: fibFuncs.size(-14);
+  }
+
+  // Icon buttons.
+  &.cmp__icon-button {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: inherit;
+
+    cmp-icon {
+      margin-right: 0;
+    }
+
+    i {
+      display: block;
+      align-self: flex-end;
+      margin-left: fibFuncs.size(-18);
+      font-style: normal;
+      font-size: fibFuncs.size(-5);
+      letter-spacing: fibVars.$extra-small-letter-spacing;
+    }
+  }
+}

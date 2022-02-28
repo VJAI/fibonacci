@@ -1,0 +1,149 @@
+@use 'variables' as fibVars;
+@use 'funcs' as fibFuncs;
+@use 'mixins' as fibMixins;
+
+// Pre, Code & Var elements
+pre {
+  margin: 0;
+  position: relative;
+
+  color: fibVars.$medium-gray;
+  @include fibMixins.config_container(fibVars.$code-bg-color);
+
+  code {
+    overflow: {
+      x: auto;
+      y: hidden;
+    };
+
+    font: {
+      size: fibVars.$code-font-size;
+      family: fibVars.$code-font-family;
+    }
+
+    line-height: fibVars.$code-line-height;
+    letter-spacing: normal;
+
+    &.hljs {
+      padding: 0;
+      background: inherit;
+      color: inherit;
+    }
+
+    &::after {
+      @include fibMixins.flex_init($center: true);
+      height: fibFuncs.size(0);
+      position: absolute;
+      top: fibFuncs.size(-7, true, 'rem');
+      right: fibFuncs.size(-7);
+      padding: 0 fibFuncs.size(-14);
+      content: attr(data-language);
+
+      font: {
+        family: fibVars.$small-text-font-family;
+        size: fibFuncs.size(-4);
+      }
+      text-transform: uppercase;
+
+      color: fibVars.$white;
+      background-color: darken(fibVars.$light-gray, 10%);
+      border-radius: fibVars.$border-radius;
+      box-shadow: fibVars.$box-shadow;
+    }
+  }
+}
+
+// Highlight.js
+.hljs-comment {
+  color: fibVars.$hightlight-comment-color;
+}
+
+.hljs-punctuation,
+.hljs-tag {
+  color: fibVars.$hightlight-punc-color;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+  color: fibVars.$hightlight-tag-color;
+}
+
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  font-weight: 700;
+}
+
+.hljs-deletion,
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+  color: fibVars.$hightlight-selector-color;
+}
+
+.hljs-section,
+.hljs-title {
+  color: fibVars.$hightlight-section-title-color;
+  font-weight: 700;
+}
+
+.hljs-link,
+.hljs-operator,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: fibVars.$hightlight-selector-color;
+}
+
+.hljs-literal {
+  color: fibVars.$hightlight-literal-color;
+}
+
+.hljs-addition,
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+  color: fibVars.$hightlight-code-color;
+}
+
+.hljs-meta {
+  color: fibVars.$hightlight-code-color;
+}
+
+.hljs-meta .hljs-string {
+  color: fibVars.$hightlight-meta-string-color;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+// Variable and keyboard input.
+var, kbd, .cmp__code {
+  padding: 0 fibFuncs.size(-20);
+
+  font: {
+    family: fibVars.$code-font-family;
+    size: fibVars.$var-font-size;
+    style: normal;
+  }
+  letter-spacing: fibVars.$extra-small-letter-spacing;
+
+  color: fibVars.$var-color;
+  background-color: fibVars.$var-bg-color;
+  border-radius: fibVars.$border-radius;
+}

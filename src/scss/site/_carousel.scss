@@ -1,0 +1,63 @@
+@use '../base/variables' as fibVars;
+@use '../base/mixins' as fibMixins;
+@use '../base/funcs' as fibFuncs;
+@use 'variables' as fibSiteVars;
+
+.cmp__carousel-post {
+  display: grid;
+  grid-template-areas: 'head' 'image' 'body';
+
+  .cmp__carousel-head-meta {
+    grid-area: head;
+    padding: {
+      left: fibVars.$lg-size;
+      right: fibVars.$lg-size;
+    }
+    color: fibVars.$gray;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .cmp__carousel-post-meta {
+      @include fibMixins.flex_init($ver: true, $wrap: true);
+
+      > * {
+        margin-bottom: 5px;
+      }
+
+      > *:not(:last-child) {
+        margin-right: fibVars.$lg-size;
+      }
+    }
+  }
+
+  .cmp__carousel-post-img {
+    grid-area: image;
+
+    figure {
+      margin: 0;
+
+      img {
+        @include fibMixins.no_shadow_radius;
+      }
+    }
+  }
+
+  .cmp__carousel-post-body {
+    grid-area: body;
+    padding: {
+      left: fibVars.$lg-size;
+      right: fibVars.$lg-size;
+    }
+    color: fibVars.$gray;
+
+    p {
+      margin-top: fibVars.$sm-size;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+}
