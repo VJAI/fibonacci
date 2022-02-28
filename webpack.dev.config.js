@@ -13,7 +13,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { import: false }
+            options: { url: false }
           },
           'sass-loader',
         ],

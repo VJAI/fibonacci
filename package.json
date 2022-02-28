@@ -4,7 +4,7 @@
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",
-    "build": "rm -rf dist && webpack"
+    "build": "rm -rf docs && webpack"
   },
   "keywords": [
     "template",
