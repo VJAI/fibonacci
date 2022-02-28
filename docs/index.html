@@ -1,0 +1,354 @@
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%% Article List Page %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fibonacci | Home</title>
+  <link rel="stylesheet" type="text/css" href="fibonacci.css">
+</head>
+<body class="cmp__blog">
+
+<div class="cmp__page-loader">
+  <div class="cmp__loader-container">
+    <div class="cmp__loader-logo-image">
+    </div>
+    <div class="cmp__loader-logo-text">
+      <span>Fibonacci</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function (win, doc) {
+    const body = doc.body,
+      loader = body.querySelector('.cmp__page-loader');
+
+    body.classList.add('cmp__site-loading');
+
+    win.addEventListener('load', () => {
+      loader.addEventListener('transitionend', () => {
+        loader.style.display = 'none';
+      });
+      body.classList.remove('cmp__site-loading');
+      body.classList.add('cmp__site-loaded');
+    });
+  })(window, document);
+</script>
+
+<!-- Site Container -->
+<div class="cmp__site-container">
+
+  <!-- Blog Header Component -->
+  <header class="cmp__blog-header">
+
+    <!-- Logo and Tag Line -->
+    <div class="cmp__blog-info">
+
+      <!-- Logo Component -->
+      <a class="cmp__blog-logo" href="index.html">
+        <img class="cmp__blog-logo-pic" src="assets/logo.svg" alt="logo">
+        <span class="cmp__blog-name">fibonacci</span>
+      </a>
+
+      <span class="cmp__separator"></span>
+
+      <!-- Blog Tag Line -->
+      <div class="cmp__blog-tag-line">
+        <span>being pragmatic...</span>
+      </div>
+    </div>
+
+    <!-- Page Navigation Component -->
+    <nav class="cmp__blog-nav">
+      <ul>
+        <li class="cmp__search-link">
+          <form class="cmp__form cmp__search-form">
+            <label>
+              <input type="search" placeholder="Search..."/>
+            </label>
+            <a href="#">
+              <cmp-icon name="search"></cmp-icon>
+            </a>
+          </form>
+        </li>
+        <li class="cmp__nav-active">
+          <a class="cmp__nav-link" href="index.html">
+            <cmp-icon name="house-door"></cmp-icon>
+            <span class="cmp__nav-link-text">home</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="posts.html">
+            <cmp-icon name="file-earmark-medical"></cmp-icon>
+            <span class="cmp__nav-link-text">posts</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="contact.html">
+            <cmp-icon name="envelope"></cmp-icon>
+            <span class="cmp__nav-link-text">contact</span>
+          </a>
+        </li>
+        <li>
+          <a class="cmp__nav-link" href="about.html">
+            <cmp-icon name="person"></cmp-icon>
+            <span class="cmp__nav-link-text">about</span>
+          </a>
+        </li>
+        <li class="cmp__hamburger-link">
+          <a class="cmp__nav-link" href="#">
+            <select class="cmp__hidden-menu">
+              <option value="index.html" selected> Home</option>
+              <option value="about.html"> About</option>
+              <option value="contact.html"> Contact</option>
+              <option value="search"> Search</option>
+            </select>
+            <cmp-icon name="list"></cmp-icon>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Main Content Component -->
+  <main class="cmp__blog-main">
+
+    <!-- Spiral -->
+    <div class="cmp__spiral"></div>
+
+    <!-- Color Bars -->
+    <div class="cmp__color-bars">
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+      <div class="cmp__color-bar"></div>
+    </div>
+
+    <!-- RSS Subscription -->
+    <a class="cmp__subscribe" href="#">
+      <div>
+        <span>R<br>S<br>S</span>
+      </div>
+    </a>
+
+    <!-- Main Content -->
+    <article id="cmp__blog-home" class="cmp__blog-content">
+
+      <!-- Page Title -->
+      <header class="cmp__article-header cmp__auto-layout">
+        <div class="cmp__page-title cmp__home-heading">
+          <div class="cmp__home-heading-container">
+            <span>Fibonacci</span>
+            <span>being pragmatic...</span>
+          </div>
+          <div class="cmp__tear-paper">
+            <img  src="assets/torn-paper1.png" style="width: 500px;" />
+          </div>
+        </div>
+      </header>
+
+      <main class="cmp__home-main">
+
+        <!-- Carousel Component -->
+        <div class="cmp__carousel cmp__home-layout">
+          <div class="cmp__carousel-tabs cmp__selected-first">
+            <a class="cmp__carousel-tab cmp__carousel-tab-selected" href="#">Popular Posts</a>
+            <a class="cmp__carousel-tab" href="#">Latest Posts</a>
+          </div>
+
+          <div class="cmp__carousel-pages">
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <div class="cmp__carousel-head-meta">
+                  <h3>
+                    <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
+                  </h3>
+
+                  <div class="cmp__carousel-post-meta">
+
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/triton_mini.png" alt="Author" />
+                        <span>Triton Maxwell</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <button>Continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp__carousel-nav">
+            <a href="#">
+              <cmp-icon size="24" name="arrow-left-circle-fill"></cmp-icon>
+            </a>
+            <a href="#">
+              <cmp-icon size="24" name="arrow-right-circle-fill"></cmp-icon>
+            </a>
+          </div>
+
+          <div class="cmp__carousel-nav-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Widgets -->
+        <div class="cmp__responsive-flex">
+          <div class="cmp__quote-of-day cmp__barrier-dark">
+            <h4>Popular Quote</h4>
+            <blockquote>
+              <p>&ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo.&rdquo;</p>
+              <cite>Antos Parrish, New York Times</cite>
+            </blockquote>
+
+            <h4>Blogs To Follow</h4>
+            <dl>
+              <dt><a href="#">CSS Tricks</a></dt>
+              <dd>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.
+              </dd>
+              <dt><a href="#">HTML Garden</a></dt>
+              <dd>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.
+              </dd>
+            </dl>
+          </div>
+          <div class="cmp__tip">
+            <h4>Code Tip</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <figure>
+<pre><code data-language="JS" class="language-javascript">const base = 19;
+const ratio = 1.618;
+const interval = 5;
+
+function size(point) {
+  const s = base * Math.pow(ratio, point/interval);
+  return [s, `${(s / base).toFixed(3)} rem`];
+}
+
+for (let i = -10; i < 20; i++) {
+  console.log(size(i));
+}</code></pre>
+              <figcaption>
+                <code>LoginModel</code> in our <i>JustBlog</i> application.
+              </figcaption>
+            </figure>
+          </div>
+
+          <span class="cmp__stitch"></span>
+          <span class="cmp__stitch"></span>
+        </div>
+
+        <div class="cmp__cartoon">
+          <div class="cmp__cartoon-title">
+            <h4>
+              <span class="cmp__cartoon-title-text">Cartoon For Fun</span>
+              <span class="cmp__nail"></span>
+              <span class="cmp__nail"></span>
+            </h4>
+          </div>
+          <p>
+            Purus euismod id, vehicula etiam, nunc auctor habitasse nullam arcu. Ultricies pellentesque consequat, cursus odio hac nam. Ante non lectus mattis, risus sollicitudin hac, tincidunt turpis sit elit class sodales ultrices faucibus.
+          </p>
+          <figure class="cmp__article-poster cmp__figure-full">
+            <img src="blog_resources/pixton_comic.png" />
+          </figure>
+        </div>
+
+        <div class="cmp__admin-statement">
+          <div class="cmp__author">
+            <a href="about.html">
+              <img src="blog_resources/triton_mini.png" alt="Author" />
+            </a>
+          </div>
+          <p>
+            &ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.&rdquo;
+          </p>
+        </div>
+      </main>
+    </article>
+  </main>
+
+  <!-- Page Footer Component -->
+  <footer class="cmp__blog-footer">
+    <section class="cmp__footer-left">
+      <div>Icons are from <a href="https://icons.getbootstrap.com/">bootstrap</a></div>
+      <div>Images are from <a href="https://unsplash.com/">unsplash.com</a></div>
+    </section>
+    <section class="cmp__footer-right">
+      <div>&copy; 2022 &middot; All Rights Reserved</div>
+    </section>
+  </footer>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/javascript.min.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['JetBrains Mono']
+    },
+    timeout: 5000,
+    fontactive: function () {
+      hljs && hljs.highlightAll();
+    }
+  });
+</script>
+<script src="fibonacci.js"></script>
+</body>
+</html>
