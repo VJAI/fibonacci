@@ -1,9 +1,10 @@
+@use 'sass:color';
 @use 'variables' as fibVars;
 @use 'funcs' as fibFuncs;
 @use 'mixins' as fibMixins;
 
-button, [type="button"], [type="submit"] {
-  @include fibMixins.flex_init($center: true);
+button, [type="button"], [type="submit"], .cmp__button {
+  @include fibMixins.flex_init($center: true, $inline: true);
   padding: fibVars.$button-padding;
 
   font: {
@@ -24,6 +25,7 @@ button, [type="button"], [type="submit"] {
 
   &:focus, &:active, &:hover {
     outline: none;
+    text-shadow: color.adjust(fibVars.$brand-color, $lightness: 30%) 0 0 6px;
   }
 
   cmp-icon {

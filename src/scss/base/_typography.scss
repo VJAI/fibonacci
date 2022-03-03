@@ -126,3 +126,7 @@ a:active {
 a:focus-visible {
   outline-color: fibVars.$brand-color;
 }
+
+a.cmp__button {
+  color: fibVars.$white;
+}

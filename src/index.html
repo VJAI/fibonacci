@@ -102,6 +102,7 @@
           <a class="cmp__nav-link" href="#">
             <select class="cmp__hidden-menu">
               <option value="index.html" selected> Home</option>
+              <option value="posts.html"> Posts</option>
               <option value="about.html"> About</option>
               <option value="contact.html"> Contact</option>
               <option value="search"> Search</option>
@@ -152,13 +153,8 @@
       <main class="cmp__home-main">
 
         <!-- Carousel Component -->
-        <div class="cmp__carousel cmp__home-layout">
-          <div class="cmp__carousel-tabs cmp__selected-first">
-            <a class="cmp__carousel-tab cmp__carousel-tab-selected" href="#">Popular Posts</a>
-            <a class="cmp__carousel-tab" href="#">Latest Posts</a>
-          </div>
-
-          <div class="cmp__carousel-pages">
+        <cmp-carousel>
+          <template id="tpl_popular">
             <div class="cmp__carousel-page">
               <div class="cmp__carousel-post">
                 <div class="cmp__carousel-head-meta">
@@ -214,27 +210,250 @@
                     consequat.
                   </p>
 
-                  <button>Continue</button>
+                  <a href="detail.html" class="cmp__button">Continue</a>
                 </div>
               </div>
             </div>
-          </div>
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <div class="cmp__carousel-head-meta">
+                  <h3>
+                    <a href="detail.html">Ut enim ad minim veniam</a>
+                  </h3>
 
-          <div class="cmp__carousel-nav">
-            <a href="#">
-              <cmp-icon size="24" name="arrow-left-circle-fill"></cmp-icon>
-            </a>
-            <a href="#">
-              <cmp-icon size="24" name="arrow-right-circle-fill"></cmp-icon>
-            </a>
-          </div>
+                  <div class="cmp__carousel-post-meta">
 
-          <div class="cmp__carousel-nav-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/julie_mini.jpeg" alt="Author" />
+                        <span>Julie Anand</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/grapes.jpeg" alt="Grapes"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <a href="detail.html" class="cmp__button">Continue</a>
+                </div>
+              </div>
+            </div>
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <div class="cmp__carousel-head-meta">
+                  <h3>
+                    <a href="detail.html">Duis aute irure dolor in reprehenderit in voluptate</a>
+                  </h3>
+
+                  <div class="cmp__carousel-post-meta">
+
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/martin_mini.png" alt="Author" />
+                        <span>Martin Wiegen</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/black-grapes.jpeg" alt="Black Grapes"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <a href="detail.html" class="cmp__button">Continue</a>
+                </div>
+              </div>
+            </div>
+          </template>
+          <template id="tpl_latest">
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <div class="cmp__carousel-head-meta">
+                  <h3>
+                    <a href="detail.html">Ut enim ad minim veniam</a>
+                  </h3>
+
+                  <div class="cmp__carousel-post-meta">
+
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/julie_mini.jpeg" alt="Author" />
+                        <span>Julie Anand</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/grapes.jpeg" alt="Grapes"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <a href="detail.html" class="cmp__button">Continue</a>
+                </div>
+              </div>
+            </div>
+            <div class="cmp__carousel-page">
+              <div class="cmp__carousel-post">
+                <div class="cmp__carousel-head-meta">
+                  <h3>
+                    <a href="detail.html">Lorem ipsum dolor sit amet consectetur</a>
+                  </h3>
+
+                  <div class="cmp__carousel-post-meta">
+
+                    <div class="cmp__author-mini">
+                      <a href="about.html">
+                        <img src="blog_resources/triton_mini.png" alt="Author" />
+                        <span>Triton Maxwell</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__total-comments">
+                      <a href="#">
+                        <cmp-icon name="chat-square-text"></cmp-icon>
+                        <span>100 Comments</span>
+                      </a>
+                    </div>
+
+                    <div class="cmp__tags">
+                      <cmp-icon name="tag"></cmp-icon>
+                      <ul>
+                        <li>
+                          <a href="#">#javascript</a>
+                        </li>
+                        <li>
+                          <a href="#">#css</a>
+                        </li>
+                        <li>
+                          <a href="#">#html</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmp__carousel-post-img">
+                  <figure class="cmp__article-poster">
+                    <img src="blog_resources/agriculture-apple-blur.jpeg" alt="Apple"/>
+                  </figure>
+                </div>
+
+                <div class="cmp__carousel-post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                  </p>
+
+                  <a href="detail.html" class="cmp__button">Continue</a>
+                </div>
+              </div>
+            </div>
+          </template>
+        </cmp-carousel>
 
         <!-- Widgets -->
         <div class="cmp__responsive-flex">

@@ -24,6 +24,7 @@
     @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$carousel-tab-height, fibVars.$carousel-tab-bg);
     position: absolute;
     top: calc(-1 * #{fibVars.$carousel-tab-height} / 2);
+    z-index: 1;
 
     &.cmp__selected-first {
       &::before {
@@ -56,7 +57,7 @@
         color: fibVars.$carousel-tab-active-color;
       }
 
-      &:hover {
+      &:hover, &:active, &:focus {
         text-shadow: none;
       }
 
@@ -66,10 +67,23 @@
     }
   }
 
-  .cmp__carousel-pages {
-    margin: {
-      top: fibFuncs.size(14);
-      bottom: fibFuncs.size(14);
+  .cmp__carousel-pages-container {
+    position: relative;
+    overflow: hidden;
+
+    .cmp__carousel-pages {
+      position: relative;
+      @include fibMixins.flex_init();
+      padding: {
+        top: fibFuncs.size(14);
+        bottom: fibFuncs.size(14);
+      }
+
+      transition: transform fibVars.$medium-speed;
+
+      .cmp__carousel-page {
+        min-width: 100%;
+      }
     }
   }
 
@@ -115,6 +129,11 @@
       background-color: fibVars.$carousel-nav-dot-bg;
       border-radius: 50%;
       cursor: pointer;
+
+      &.cmp__dot-selected {
+        background-color: fibVars.$carousel-nav-dot-active;
+        cursor: default;
+      }
 
       &:not(:last-child) {
         margin-right: fibFuncs.size(-12);

@@ -6,15 +6,10 @@
   --cmp-bg-color-dark: #{darken(fibVars.$sub-bg-color, 5%)};
 
   margin: {
-    top: fibVars.$md-size;
+    top: fibVars.$lg-size;
     bottom: fibVars.$lg-size;
   };
-  padding: {
-    top: fibVars.$lg-size;
-    right: fibVars.$lg-size;
-    bottom: fibVars.$sm-size;
-    left: fibVars.$lg-size;
-  };
+  padding: fibVars.$lg-size;
 
   font-family: fibVars.$sub-content-font-family;
 
@@ -36,5 +31,9 @@
 
   pre {
     background-color: fibVars.$white;
+  }
+
+  :last-child {
+    margin-bottom: 0;
   }
 }

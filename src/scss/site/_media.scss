@@ -91,6 +91,8 @@
   // Page title.
   .cmp__page-title {
     h1 {
+      font-size: fibFuncs.size(9);
+
       &::after {
         height: 6px;
       }
@@ -216,10 +218,23 @@
   // Carousel.
   .cmp__carousel-post {
     grid-template-areas: 'image head' 'image body';
+    grid-template-rows: auto 1fr;
+
+    .cmp__carousel-head-meta {
+      .cmp__carousel-post-meta {
+        @include fibMixins.flex_update($column: false, $align: center, $wrap: true);
+
+        > *:not(:last-child) {
+          margin-right: fibVars.$lg-size;
+        }
+      }
+    }
 
     .cmp__carousel-post-body {
+      margin-top: fibFuncs.size(-10);
+
       p {
-        margin-top: 0;
+        margin-top: fibFuncs.size(-4);
       }
     }
   }

@@ -7,6 +7,7 @@
   display: grid;
   grid-template-areas: 'head' 'image' 'body';
 
+
   .cmp__carousel-head-meta {
     grid-area: head;
     padding: {
@@ -17,17 +18,15 @@
 
     h3 {
       margin-top: 0;
+      margin-bottom: fibFuncs.size(-6);
     }
 
     .cmp__carousel-post-meta {
-      @include fibMixins.flex_init($ver: true, $wrap: true);
+      @include fibMixins.flex_init($column: true);
+      max-width: 100%;
 
       > * {
         margin-bottom: 5px;
-      }
-
-      > *:not(:last-child) {
-        margin-right: fibVars.$lg-size;
       }
     }
   }
@@ -46,6 +45,7 @@
 
   .cmp__carousel-post-body {
     grid-area: body;
+    @include fibMixins.flex_init($column: true);
     padding: {
       left: fibVars.$lg-size;
       right: fibVars.$lg-size;
@@ -56,8 +56,9 @@
       margin-top: fibVars.$sm-size;
     }
 
-    button {
+    a {
       margin-left: auto;
+      align-self: flex-end;
     }
   }
 }
