@@ -113,7 +113,7 @@ a:active {
   color: inherit;
   border-bottom: dotted 1px;
   text-decoration: none;
-  transition: all fibVars.$medium-speed;
+  transition: color fibVars.$medium-speed, text-shadow fibVars.$medium-speed;
 }
 
 a:hover,

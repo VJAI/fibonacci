@@ -91,18 +91,23 @@
   .cmp__carousel-nav {
     a {
       position: absolute;
-      border-bottom: none;
+      @include fibMixins.flex_init($center: true);
       top: calc(50% - #{fibVars.$carousel-nav-icon-size} / 2);
+      width: fibVars.$carousel-nav-icon-size;
+      height: fibVars.$carousel-nav-icon-size;
+      background-color: fibVars.$carousel-nav-arrow-color;
+      border-radius: 50%;
+      box-shadow: fibVars.$box-shadow;
+      border-bottom: none;
+      transition: background-color fibVars.$medium-speed;
 
       cmp-icon {
-        color: fibVars.$carousel-nav-arrow-color;
+        color: fibVars.$white;
         transition: color fibVars.$medium-speed;
       }
 
       &:hover {
-        cmp-icon {
-          color: fibVars.$carousel-nav-arrow-hover-color;
-        }
+        background-color: fibVars.$carousel-nav-arrow-hover-color;
       }
     }
 

@@ -2,11 +2,15 @@ export class Carousel extends HTMLElement {
 
   constructor() {
     super();
+
     this._handleLatestPostsTabClick = this._handleLatestPostsTabClick.bind(this);
     this._handlePopularPostsTabClick = this._handlePopularPostsTabClick.bind(this);
     this._handlePreviousClick = this._handlePreviousClick.bind(this);
     this._handleNextClick = this._handleNextClick.bind(this);
     this._handleDotClick = this._handleDotClick.bind(this);
+    this._handleMediaQueryChange = this._handleMediaQueryChange.bind(this);
+
+    this._mediaQuery = window.matchMedia('(min-width: 768px)')
     this._currentTab = 'popular';
     this._currentPage = 0;
     this._noOfPages = 0;
@@ -27,10 +31,10 @@ export class Carousel extends HTMLElement {
 
           <div class="cmp__carousel-nav">
             <a class="cmp__carousel-nav-previous" href="#">
-              <cmp-icon size="24" name="arrow-left-circle-fill"></cmp-icon>
+              <cmp-icon size="12" name="arrow-left"></cmp-icon>
             </a>
             <a class="cmp__carousel-nav-next" href="#">
-              <cmp-icon size="24" name="arrow-right-circle-fill"></cmp-icon>
+              <cmp-icon size="12" name="arrow-right"></cmp-icon>
             </a>
           </div>
 
@@ -47,14 +51,15 @@ export class Carousel extends HTMLElement {
       this._prevButton = this.querySelector('.cmp__carousel-nav-previous');
       this._nextButton = this.querySelector('.cmp__carousel-nav-next');
       this._navDots = this.querySelector('.cmp__carousel-nav-dots');
-
-      this._latestPostsTab.addEventListener('click', this._handleLatestPostsTabClick);
-      this._popularPostsTab.addEventListener('click', this._handlePopularPostsTabClick);
-      this._prevButton.addEventListener('click', this._handlePreviousClick);
-      this._nextButton.addEventListener('click', this._handleNextClick);
       this._renderTabContent();
       this._rendered = true;
     }
+
+    this._latestPostsTab.addEventListener('click', this._handleLatestPostsTabClick);
+    this._popularPostsTab.addEventListener('click', this._handlePopularPostsTabClick);
+    this._prevButton.addEventListener('click', this._handlePreviousClick);
+    this._nextButton.addEventListener('click', this._handleNextClick);
+    this._mediaQuery.addEventListener('change', this._handleMediaQueryChange);
   }
 
   disconnectedCallback() {
@@ -62,6 +67,8 @@ export class Carousel extends HTMLElement {
     this._popularPostsTab.removeEventListener('click', this._handlePopularPostsTabClick);
     this._prevButton.removeEventListener('click', this._handlePreviousClick);
     this._nextButton.removeEventListener('click', this._handleNextClick);
+    [...this._navDots.querySelectorAll('span')].forEach(e => e.removeEventListener('click', this._handleDotClick));
+    this._mediaQuery.removeEventListener('change', this._handleMediaQueryChange);
   }
 
   _handlePreviousClick(e) {
@@ -124,10 +131,12 @@ export class Carousel extends HTMLElement {
     e.preventDefault();
     e.stopPropagation();
 
-    const index = parseInt(e.target.getAttribute('data-index'));
-    this._currentPage = index;
+    this._currentPage = parseInt(e.target.getAttribute('data-index'));
     this._navigateToPage();
-    this._setButtonsVisibility();
+  }
+
+  _handleMediaQueryChange() {
+    this._setNavPositions();
   }
 
   _renderTabContent() {
@@ -136,6 +145,7 @@ export class Carousel extends HTMLElement {
     this._pages.appendChild(tabTpl.content.cloneNode(true));
     this._currentPage = 0;
     this._noOfPages = this._pages.querySelectorAll('.cmp__carousel-page').length;
+    this._figure = this.querySelector('.cmp__carousel-post-img');
     this._navDots.innerHTML = '';
     if (this._noOfPages) {
       this._navDots.style.display = 'flex';
@@ -150,11 +160,31 @@ export class Carousel extends HTMLElement {
       this._navDots.style.display = 'none';
     }
     this._setButtonsVisibility();
+    this._setNavPositions();
+  }
+
+  _setNavPositions() {
+    let topPos;
+
+    if (this._mediaQuery.matches) {
+      topPos = `calc(50% - 12px)`;
+    } else {
+      const carouselRect = this.getBoundingClientRect();
+      const figureRect = this._figure.getBoundingClientRect();
+      const iconTopPos = (figureRect.top - carouselRect.top) + (figureRect.height / 2) - 12;
+      topPos = `${iconTopPos}px`;
+    }
+
+    this._nextButton.style.top = topPos;
+    this._prevButton.style.top = topPos;
   }
 
   _navigateToPage() {
     this._pages.style.transform = `translateX(${-100 * this._currentPage }%)`;
+    const currentPage = [...this._pages.querySelectorAll('.cmp__carousel-page')][this._currentPage];
+    this._figure = currentPage.querySelector('.cmp__carousel-post-img');
     this._setButtonsVisibility();
+    this._setNavPositions();
   }
 
   _setButtonsVisibility() {
@@ -167,13 +197,13 @@ export class Carousel extends HTMLElement {
     if (this._currentPage <= 0) {
       this._prevButton.style.display = 'none';
     } else {
-      this._prevButton.style.display = 'block';
+      this._prevButton.style.display = 'flex';
     }
 
     if (this._currentPage >= this._noOfPages - 1) {
       this._nextButton.style.display = 'none';
     } else {
-      this._nextButton.style.display = 'block';
+      this._nextButton.style.display = 'flex';
     }
 
     [...this._navDots.querySelectorAll('span')].forEach((e, index) => {
