@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../base/variables' as fibVars;
 @use '../base/funcs' as fibFuncs;
 @use '../base/mixins' as fibMixins;
@@ -184,6 +185,7 @@ a.cmp__blog-logo {
             outline: none;
             color: fibVars.$dim-gray;
             border-color: fibVars.$dim-gray;
+            text-shadow: fibVars.$white 0 0 6px;
           }
 
           &::placeholder {

@@ -60,6 +60,7 @@ export class Carousel extends HTMLElement {
     this._prevButton.addEventListener('click', this._handlePreviousClick);
     this._nextButton.addEventListener('click', this._handleNextClick);
     this._mediaQuery.addEventListener('change', this._handleMediaQueryChange);
+    window.addEventListener('resize', this._handleMediaQueryChange);
   }
 
   disconnectedCallback() {
@@ -69,6 +70,7 @@ export class Carousel extends HTMLElement {
     this._nextButton.removeEventListener('click', this._handleNextClick);
     [...this._navDots.querySelectorAll('span')].forEach(e => e.removeEventListener('click', this._handleDotClick));
     this._mediaQuery.removeEventListener('change', this._handleMediaQueryChange);
+    window.removeEventListener('resize', this._handleMediaQueryChange);
   }
 
   _handlePreviousClick(e) {

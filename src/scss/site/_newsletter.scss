@@ -1,0 +1,46 @@
+@use 'sass:color';
+@use '../base/variables' as fibVars;
+@use '../base/funcs' as fibFuncs;
+@use '../base/mixins' as fibMixins;
+@use 'variables' as fibSiteVars;
+
+.cmp__newsletter-subscribe {
+  $bg-color-1: color.adjust(fibSiteVars.$news-letter-bg, $alpha: -0.2);
+  $bg-color-2: color.adjust(fibSiteVars.$news-letter-bg, $alpha: -0.2, $lightness: -5%);
+
+  position: relative;
+  margin-top: fibFuncs.size(18);
+  padding: fibVars.$xl-size;
+  color: fibVars.$white;
+  background: url('#{fibVars.$assets-path}/background.png'), radial-gradient($bg-color-1, $bg-color-2);
+
+  .cmp__rounded-icon {
+    position: absolute;
+    top: calc(-1 * #{fibVars.$lg-size});
+    left: fibVars.$md-size;
+    padding: fibFuncs.size(-6);
+    border-radius: 50%;
+    border: solid 4px fibVars.$white;
+    @include fibMixins.noisy_bg(fibSiteVars.$news-letter-bg);
+
+    cmp-icon {
+      color: fibVars.$white;
+    }
+  }
+
+  p {
+    margin-top: fibVars.$md-size;
+    font: {
+      family: fibVars.$heading-font-family;
+      size: fibVars.$md-size;
+    };
+  }
+
+  form {
+    @include fibMixins.flex_init($column: true);
+
+    button {
+      align-self: flex-end;
+    }
+  }
+}

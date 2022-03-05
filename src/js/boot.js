@@ -6,9 +6,7 @@ export function init() {
     searchIcon = document.querySelector('.cmp__search-form a'),
     hamburger = document.querySelector('.cmp__hamburger-link a'),
     contentScale = document.querySelector('cmp-content-scale'),
-    blogContent = document.querySelector('.cmp__blog-content'),
-    goTop = document.querySelector('.cmp__go-top'),
-    startTime = performance.now();
+    goTop = document.querySelector('.cmp__go-top');
   
   if (goTop) {
     goTop.addEventListener('click', (e) => {
@@ -80,6 +78,7 @@ export function init() {
   hamburger.addEventListener('click', () => selectControl.click());
   hamburger.addEventListener('change', handleSelectChange);
   window.addEventListener('scroll', handleWindowScroll);
+  window.addEventListener('resize', setBlogMainHeight);
   
   if (contentScale) {
     contentScale.setContent(document.querySelector('.cmp__article-content'));

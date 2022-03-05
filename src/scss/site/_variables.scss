@@ -73,5 +73,7 @@ $drop-cap-font-size:                300% !default;
 $drop-cap-bg-color:                 fibVars.$brand-color !default;
 $drop-cap-color:                    fibVars.$white !default;
 
-// Home Page Board.
-$board-nail-size:                   5px !default;
+// Home widgets.
+$light-widget-bg:                   rgba(230, 230, 230, 0.3) !default;
+$dark-widget-bg:                    lighten(fibVars.$gray, 10%) !default;
+$news-letter-bg:                    rgba(191, 191, 191) !default;

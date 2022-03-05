@@ -51,7 +51,7 @@
     > div {
       position: relative;
       z-index: -1;
-      @include fibMixins.barrier_widget(rgba(230, 230, 230, 0.3));
+      @include fibMixins.barrier_widget(fibSiteVars.$light-widget-bg);
       margin-top: fibVars.$xl-size;
 
       :last-child {
@@ -93,7 +93,7 @@
     }
 
     .cmp__barrier-dark {
-      @include fibMixins.barrier_widget(lighten(fibVars.$gray, 10%));
+      @include fibMixins.barrier_widget(fibSiteVars.$dark-widget-bg);
       color: fibVars.$white;
 
       h4 {
@@ -198,46 +198,19 @@
       color: fibVars.$gray;
     }
   }
-
-  .cmp__admin-statement {
-    position: relative;
-    margin-top: fibFuncs.size(18);
-    padding: fibVars.$xl-size;
-    color: fibVars.$medium-gray;
-    background: url('#{fibVars.$assets-path}/background.png'), linear-gradient(45deg, fibVars.$success, darken(rgb(241, 247, 234, 0.7), 5%));
-
-    .cmp__author {
-      position: absolute;
-      top: calc(-1 * #{fibVars.$lg-size});
-      left: fibVars.$md-size;
-      border-radius: 50%;
-      border: solid 4px fibVars.$white;
-
-      img {
-        width: fibFuncs.size(10);
-      }
-    }
-
-    p {
-      font: {
-        family: fibVars.$heading-font-family;
-        size: fibFuncs.size(2);
-      };
-    }
-  }
 }
 
 @media only screen and (min-width: fibVars.$tablet) {
-  .cmp__posts-carousel {
-    .cmp__carousel-page {
-      padding: {
-        left: fibVars.$xl-size;
-        right: fibVars.$xl-size;
-      };
-    }
-  }
-
   #cmp__blog-home {
+    .cmp__posts-carousel {
+      .cmp__carousel-page {
+        padding: {
+          left: fibVars.$xl-size;
+          right: fibVars.$xl-size;
+        };
+      }
+    }
+
     .cmp__responsive-flex {
       > div {
         flex-grow: 1;
@@ -250,18 +223,10 @@
         display: block;
       }
     }
-
-    .cmp__admin-statement {
-      margin-left: auto;
-      margin-right: auto;
-      width: 75%;    border-radius: fibVars.$border-radius;
-      @include fibMixins.folded_corner(rgb(177, 191, 159), fibVars.$xl-size);
-    }
   }
 }
 
 @media only screen and (min-width: fibVars.$breakpoint1) {
-
   #cmp__blog-home {
     .cmp__cartoon {
       p {
@@ -273,16 +238,16 @@
 }
 
 @media only screen and (min-width: fibVars.$desktop) {
-  .cmp__posts-carousel {
-    .cmp__carousel-page {
-      padding: {
-        left: fibFuncs.size(16);
-        right: fibFuncs.size(16);
-      };
-    }
-  }
-
   #cmp__blog-home {
+    .cmp__posts-carousel {
+      .cmp__carousel-page {
+        padding: {
+          left: fibFuncs.size(16);
+          right: fibFuncs.size(16);
+        };
+      }
+    }
+
     .cmp__responsive-flex {
       > div:first-of-type {
         padding: {
@@ -303,6 +268,10 @@
       figure {
         padding: 0 fibFuncs.size(18);
       }
+    }
+
+    .cmp__newsletter-subscribe {
+      width: 75%;
     }
   }
 }

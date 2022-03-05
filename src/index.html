@@ -526,17 +526,25 @@ for (let i = -10; i < 20; i++) {
           </figure>
         </div>
 
-        <div class="cmp__admin-statement">
-          <div class="cmp__author">
-            <a href="about.html">
-              <img src="blog_resources/triton_mini.png" alt="Author" />
-            </a>
+        <div class="cmp__newsletter-subscribe">
+          <div class="cmp__rounded-icon">
+            <cmp-icon name="envelope-fill" size="32"></cmp-icon>
           </div>
           <p>
-            &ldquo;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-            explicabo.&rdquo;
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam.
           </p>
+          <form>
+            <div class="cmp__form-control cmp__required">
+              <label for="ReplyTo">E-mail</label>
+              <input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required" placeholder="Enter Email">
+              <div class="cmp__validation-icon"></div>
+            </div>
+
+            <button type="submit" name="submitBtn" value="Send Message">
+              <span>Submit</span>
+            </button>
+          </form>
         </div>
       </main>
     </article>

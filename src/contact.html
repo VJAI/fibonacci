@@ -129,9 +129,9 @@
 
 		<!-- RSS Subscription -->
 		<a class="cmp__subscribe" href="#">
-      <div>
-        <span>R<br>S<br>S</span>
-      </div>
+		  <div>
+			<span>R<br>S<br>S</span>
+		  </div>
 		</a>
 
 		<article id="cmp__contact" class="cmp__blog-content cmp__article">
@@ -147,54 +147,80 @@
 
 			<!-- Page Content -->
 			<main class="cmp__article-content cmp__auto-layout">
-				<p class="cmp__drop-cap">
-					Would you like to contact me about something? like a technical question or to share what you know, you are in the
-					right spot! Please use the below contact form to send your query.
-				</p>
 
-				<p>
-					Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
-				</p>
-
-				<form class="cmp__form cmp__contact-form" method="post" action="contact.html">
-					<div class="cmp__form-container">
-
-						<div class="cmp__form-control cmp__required">
-							<label for="Name">Name</label>
-							<input required type="text" name="Name" id="Name" maxlength="50" title="Name required" placeholder="Enter Name">
-							<div class="cmp__validation-icon"></div>
+				<div class="cmp__responsive">
+					<div class="cmp__newsletter-subscribe">
+						<div class="cmp__rounded-icon">
+							<cmp-icon name="envelope-fill" size="32"></cmp-icon>
 						</div>
+						<p>
+							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+							totam rem aperiam.
+						</p>
+						<form>
+							<div class="cmp__form-control cmp__required">
+								<label for="Email">E-mail</label>
+								<input required type="email" name="ReplyTo" id="Email" maxlength="50" title="Email required" placeholder="Enter Email">
+								<div class="cmp__validation-icon"></div>
+							</div>
 
-						<div class="cmp__form-control cmp__required">
-							<label for="ReplyTo">E-mail</label>
-							<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required" placeholder="Enter Email">
-							<div class="cmp__validation-icon"></div>
-						</div>
-
-						<div class="cmp__form-control cmp__required">
-							<label for="subject">Subject</label>
-							<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required" placeholder="Enter Subject">
-							<div class="cmp__validation-icon"></div>
-						</div>
-
-						<div class="cmp__form-control cmp__required">
-							<label for="Body">Message</label>
-							<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50" placeholder="Enter Description"></textarea>
-							<div class="cmp__validation-icon"></div>
-						</div>
-
-						<div class="cmp__bottom-row">
-							<p>
-								<cmp-icon name="shield-shaded"></cmp-icon>
-								<span>Your email address will be not be shared anywhere!</span>
-							</p>
 							<button type="submit" name="submitBtn" value="Send Message">
-								<cmp-icon name="send" size="12"></cmp-icon>
-								<span>Send Message</span>
+								<span>Submit</span>
 							</button>
-						</div>
+						</form>
 					</div>
-				</form>
+				</div>
+
+				<div class="cmp__contact-form-container">
+					<p class="cmp__drop-cap">
+						Would you like to contact me about something? like a technical question or to share what you know, you are in the
+						right spot! Please use the below contact form to send your query.
+					</p>
+
+					<p>
+						Tristique sollicitudin nibh sit amet commodo nulla. Mauris in aliquam sem fringilla. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
+					</p>
+
+					<form class="cmp__form cmp__contact-form" method="post" action="contact.html">
+						<div class="cmp__form-container">
+
+							<div class="cmp__form-control cmp__required">
+								<label for="Name">Name</label>
+								<input required type="text" name="Name" id="Name" maxlength="50" title="Name required" placeholder="Enter Name">
+								<div class="cmp__validation-icon"></div>
+							</div>
+
+							<div class="cmp__form-control cmp__required">
+								<label for="ReplyTo">E-mail</label>
+								<input required type="email" name="ReplyTo" id="ReplyTo" maxlength="50" title="Email required" placeholder="Enter Email">
+								<div class="cmp__validation-icon"></div>
+							</div>
+
+							<div class="cmp__form-control cmp__required">
+								<label for="subject">Subject</label>
+								<input required type="text" name="Subject" id="Subject" maxlength="250" title="Subject required" placeholder="Enter Subject">
+								<div class="cmp__validation-icon"></div>
+							</div>
+
+							<div class="cmp__form-control cmp__required">
+								<label for="Body">Message</label>
+								<textarea required name="Body" id="Body" title="Message required" rows="8" cols="50" placeholder="Enter Description"></textarea>
+								<div class="cmp__validation-icon"></div>
+							</div>
+
+							<div class="cmp__bottom-row">
+								<p>
+									<cmp-icon name="shield-shaded"></cmp-icon>
+									<span>Your email address will be not be shared anywhere!</span>
+								</p>
+								<button type="submit" name="submitBtn" value="Send Message">
+									<cmp-icon name="send" size="12"></cmp-icon>
+									<span>Send Message</span>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</main>
 		</article>
 	</main>

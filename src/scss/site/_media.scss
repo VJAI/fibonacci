@@ -238,6 +238,31 @@
       }
     }
   }
+
+  // Newsletter subscription form.
+  .cmp__newsletter-subscribe {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: fibVars.$border-radius;
+    @include fibMixins.folded_corner(darken(fibSiteVars.$news-letter-bg, 20%), fibVars.$xl-size);
+
+    form {
+      @include fibMixins.flex_update($column: false, $align: center);
+
+      > * {
+        margin-bottom: 0;
+      }
+
+      .cmp__form-control {
+        flex-grow: 1;
+        margin-right: fibVars.$md-size;
+      }
+
+      button {
+        align-self: center;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: fibVars.$breakpoint1) {

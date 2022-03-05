@@ -2,38 +2,45 @@
 @use '../../base/funcs' as fibFuncs;
 @use '../../base/mixins' as fibMixins;
 
-.cmp__contact-form {
-  .cmp__bottom-row {
-    @include fibMixins.flex_init();
+#cmp__contact {
 
-    p {
-      @include fibMixins.flex_init($ver: true);
+  .cmp__contact-form-container {
+    margin-top: fibVars.$xxl-size;
 
-      align-self: flex-start;
-      flex-grow: 1;
+    .cmp__contact-form {
+      .cmp__bottom-row {
+        @include fibMixins.flex_init();
 
-      font-size: fibVars.$small-font-size;
-      color: fibVars.$gray;
-      line-height: fibVars.$xs-line-height;
-      margin-right: fibVars.$md-size;
+        p {
+          @include fibMixins.flex_init($ver: true);
 
-      cmp-icon {
-        display: block;
-        margin-right: fibFuncs.size(-15);
-      }
-    }
+          align-self: flex-start;
+          flex-grow: 1;
 
-    button {
-      margin-left: auto;
+          font-size: fibVars.$small-font-size;
+          color: fibVars.$gray;
+          line-height: fibVars.$xs-line-height;
+          margin-right: fibVars.$md-size;
 
-      &:hover {
-        cmp-icon {
-          animation: arrow-move-up-right fibVars.$medium-speed linear infinite;
+          cmp-icon {
+            display: block;
+            margin-right: fibFuncs.size(-15);
+          }
         }
-      }
 
-      cmp-icon {
-        position: relative;
+        button {
+          margin-left: auto;
+
+          &:hover {
+            cmp-icon {
+              animation: arrow-move-up-right fibVars.$medium-speed linear infinite;
+            }
+          }
+
+          cmp-icon {
+            position: relative;
+          }
+        }
       }
     }
   }
