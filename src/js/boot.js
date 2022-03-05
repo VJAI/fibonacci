@@ -78,7 +78,6 @@ export function init() {
   hamburger.addEventListener('click', () => selectControl.click());
   hamburger.addEventListener('change', handleSelectChange);
   window.addEventListener('scroll', handleWindowScroll);
-  window.addEventListener('resize', setBlogMainHeight);
   
   if (contentScale) {
     contentScale.setContent(document.querySelector('.cmp__article-content'));
