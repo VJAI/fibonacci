@@ -43,8 +43,8 @@
     a.cmp__carousel-tab {
       @include fibMixins.flex_init($center: true);
       position: relative;
-      width: fibFuncs.size(21);
       height: fibVars.$carousel-tab-height;
+      padding: 0 fibVars.$sm-size;
 
       @include fibMixins.set_uppercase();
       line-height: fibVars.$carousel-tab-height;

@@ -166,19 +166,36 @@ export class Carousel extends HTMLElement {
   }
 
   _setNavPositions() {
-    let topPos;
+    const setPosition = (pos) => {
+      this._nextButton.style.top = pos;
+      this._prevButton.style.top = pos;
+    };
 
     if (this._mediaQuery.matches) {
-      topPos = `calc(50% - 12px)`;
-    } else {
-      const carouselRect = this.getBoundingClientRect();
-      const figureRect = this._figure.getBoundingClientRect();
-      const iconTopPos = (figureRect.top - carouselRect.top) + (figureRect.height / 2) - 12;
-      topPos = `${iconTopPos}px`;
+      setPosition(`calc(50% - 12px)`);
+      return;
     }
 
-    this._nextButton.style.top = topPos;
-    this._prevButton.style.top = topPos;
+    const carouselRect = this.getBoundingClientRect(),
+      postImage = this._figure.querySelector('img'),
+      deduceAndSetPosition = () => {
+        const figureRect = this._figure.getBoundingClientRect();
+        const iconTopPos = (figureRect.top - carouselRect.top) + (figureRect.height / 2) - 12;
+        setPosition(`${iconTopPos}px`);
+      };
+
+    if (this._isImageLoaded(postImage)) {
+      deduceAndSetPosition();
+      return;
+    }
+
+    setPosition(`calc(50% - 12px)`);
+    postImage.removeEventListener('load', deduceAndSetPosition);
+    postImage.addEventListener('load', deduceAndSetPosition);
+  }
+
+  _isImageLoaded(img) {
+    return img.complete && img.naturalHeight !== 0;
   }
 
   _navigateToPage() {
