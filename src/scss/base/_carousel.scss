@@ -3,6 +3,8 @@
 @use 'funcs' as fibFuncs;
 
 .cmp__carousel {
+  --cmp-connector-size: 8px;
+
   @include fibMixins.flex_init($hor: true, $column: true);
   @include fibMixins.noisy_bg(fibVars.$carousel-bg);
   position: relative;
@@ -51,6 +53,7 @@
       background-color: fibVars.$carousel-tab-bg;
       color: fibVars.$carousel-tab-color;
       border-bottom: none;
+      overflow: visible;
 
       &.cmp__carousel-tab-selected {
         background-color: fibVars.$carousel-tab-bg-active;
@@ -63,6 +66,18 @@
 
       &:focus-visible {
         outline-offset: -5px;
+      }
+
+      &:not(:last-child)::after {
+        position: absolute;
+        right: -5px;
+        content: '';
+        width: var(--cmp-connector-size);
+        height: var(--cmp-connector-size);
+        border-radius: 50%;
+        background-color: fibVars.$gray;
+        border: solid 2px fibVars.$white;
+        z-index: 1;
       }
     }
   }

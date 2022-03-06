@@ -71,6 +71,10 @@
       }
     }
   }
+
+  .cmp__carousel {
+    --cmp-connector-size: 10px;
+  }
 }
 
 @media only screen and (min-width: fibVars.$desktop) {

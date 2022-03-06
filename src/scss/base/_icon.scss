@@ -55,9 +55,10 @@ cmp-icon {
   top: calc(-1 * #{fibFuncs.size(2)} / 2 - #{fibFuncs.size(-6)});
   padding: fibFuncs.size(-6);
   @include fibMixins.config_container(var(--cmp-bg-color-dark));
-  box-shadow: fibVars.$box-shadow;
   border-radius: 50%;
   color: lighten(fibVars.$medium-gray, 10%);
+  border: solid 4px fibVars.$white;
+  box-shadow: none;
 
   cmp-icon {
     width: fibFuncs.size(2);

@@ -10,8 +10,8 @@
     @include fibMixins.flex_init($column: true, $center: true);
 
     .cmp__home-heading-container {
-      @include fibMixins.flex_init($inline: true, $center: true, $column: true);
-      padding: fibVars.$sm-size fibVars.$xxl-size;
+      @include fibMixins.flex_init($center: true);
+      padding: fibVars.$md-size fibVars.$lg-size;
 
       color: fibVars.$white;
       background: url('#{fibVars.$assets-path}/background.png'), radial-gradient(fibVars.$brand-color, darken(fibVars.$brand-color, 5%));
@@ -100,19 +100,27 @@
                       1.1% 5.5%
       );
 
-      span:first-child {
-        font: {
-          family: fibVars.$logo-font-family;
-          size: fibFuncs.size(8);
-        }
-        text-transform: uppercase;
-        letter-spacing: fibVars.$large-letter-spacing;
-        line-height: fibVars.$xs-line-height;
+      .cmp__home-logo {
+        margin-right: fibFuncs.size(-14);
       }
 
-      span:last-child {
-        font-size: fibVars.$xs-size;
-        margin: fibFuncs.size(-14) 0;
+      .cmp__home-site-name {
+        @include fibMixins.flex_init($inline: true, $center: true, $column: true);
+
+        span:first-child {
+          font: {
+            family: fibVars.$logo-font-family;
+            size: fibFuncs.size(8);
+          }
+          text-transform: uppercase;
+          letter-spacing: fibVars.$large-letter-spacing;
+          line-height: fibVars.$xs-line-height;
+        }
+
+        span:last-child {
+          font-size: fibVars.$xs-size;
+          margin: fibFuncs.size(-14) 0;
+        }
       }
     }
 
