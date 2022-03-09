@@ -294,6 +294,12 @@
 
 @media only screen and (min-width: fibVars.$tablet) {
   #cmp__blog-home {
+    .cmp__home-heading {
+      .cmp__home-heading-container {
+        padding: fibVars.$lg-size fibVars.$xl-size;
+      }
+    }
+
     .cmp__posts-carousel {
       .cmp__carousel-page {
         padding: {
