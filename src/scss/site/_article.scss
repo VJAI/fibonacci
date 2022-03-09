@@ -299,22 +299,3 @@ blockquote {
     @include fibMixins.no_shadow_radius;
   }
 }
-
-.cmp__responsive {
-  max-width: 100%;
-  @include fibMixins.set_hor_margin(0);
-
-  &.cmp__toc,
-  &.cmp__widget,
-  &.cmp__sub {
-    @include fibMixins.no_shadow_radius;
-  }
-
-  figcaption, caption {
-    @include fibMixins.set_hor_margin(fibVars.$lg-size);
-  }
-
-  img, .cmp__table-wrapper, pre, .cmp__widget, .cmp__card {
-    @include fibMixins.no_shadow_radius;
-  }
-}

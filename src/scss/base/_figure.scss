@@ -52,4 +52,14 @@ figure, .cmp__figure {
   pre {
     padding: fibVars.$small-padding;
   }
+
+  &.cmp__img-no-decor, &.cmp__img-min {
+    img {
+     @include fibMixins.no_shadow_radius;
+    }
+  }
+
+  &.cmp__img-center, &.cmp__img-min {
+    @include fibMixins.flex_init($column: true, $hor: true);
+  }
 }

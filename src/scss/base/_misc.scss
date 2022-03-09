@@ -90,50 +90,6 @@ address {
   width: 100%;
 }
 
-// Status Colors.
-$statuses: ("info": fibVars.$dim-gray, "success": fibVars.$success, "warn": fibVars.$warn, "error": fibVars.$error);
-
-@each $name, $color in $statuses {
-  .cmp__status-#{$name} {
-    --cmp-bg-color: #{$color};
-    --cmp-bg-color-dark: #{darken($color, 5%)};
-    background-color: var(--cmp-bg-color);
-  }
-}
-
-// Constants.
-$breakpoints: (
-        "mob": fibVars.$mobile,
-        "tab": fibVars.$tablet,
-        "desk": fibVars.$desktop
-);
-
-$sizes: (
-        "xs": fibVars.$xs-size,
-        "sm": fibVars.$sm-size,
-        "md": fibVars.$md-size,
-        "lg": fibVars.$lg-size,
-        "xl": fibVars.$xl-size,
-        "xxl": fibVars.$xxl-size
-);
-
-$colors: (
-        "brand": fibVars.$brand-color,
-        "brand-dark": fibVars.$brand-dark,
-        "brand-light": fibVars.$brand-light,
-        "brand-bg": fibVars.$brand-bg,
-        "dark-gray": fibVars.$dark-gray,
-        "medium-gray": fibVars.$medium-gray,
-        "light-gray": fibVars.$gray,
-        "dim-gray": fibVars.$dim-gray,
-        "brand-gray": fibVars.$brand-gray,
-        "white-color": fibVars.$white,
-        "black-color": fibVars.$black,
-        "success-color": fibVars.$success,
-        "warn-color": fibVars.$warn,
-        "error-color": fibVars.$error
-);
-
 // Floats & Responsive Floats.
 .cmp__float-left {
   float: left;
@@ -155,6 +111,13 @@ $colors: (
   clear: both;
 }
 
+.cmp__comp-center > * {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
 .cmp__no-radius {
   border-radius: 0 !important;
 }
@@ -162,6 +125,18 @@ $colors: (
 .cmp__no-shadow {
   box-shadow: none !important;
 }
+
+.cmp__no-radius-shadow {
+  @extend .cmp__no-radius;
+  @extend .cmp__no-shadow;
+}
+
+// Constants.
+$breakpoints: (
+        "mob": fibVars.$mobile,
+        "tab": fibVars.$tablet,
+        "desk": fibVars.$desktop
+);
 
 @each $name, $breakpoint in $breakpoints {
   @media only screen and (min-width: $breakpoint) {
@@ -195,6 +170,16 @@ $colors: (
 .cmp__no-pad {
   padding: 0;
 }
+
+// Sizes.
+$sizes: (
+        "xs": fibVars.$xs-size,
+        "sm": fibVars.$sm-size,
+        "md": fibVars.$md-size,
+        "lg": fibVars.$lg-size,
+        "xl": fibVars.$xl-size,
+        "xxl": fibVars.$xxl-size
+);
 
 @each $name, $size in $sizes {
 
@@ -338,8 +323,36 @@ $colors: (
   }
 }
 
+// Status Colors.
+$statuses: ("info": fibVars.$dim-gray, "success": fibVars.$success, "warn": fibVars.$warn, "error": fibVars.$error);
+
+@each $name, $color in $statuses {
+  .cmp__status-#{$name} {
+    --cmp-bg-color: #{$color};
+    --cmp-bg-color-dark: #{darken($color, 5%)};
+    background-color: var(--cmp-bg-color);
+  }
+}
+
+$colors: (
+        "brand": fibVars.$brand-color,
+        "brand-dark": fibVars.$brand-dark,
+        "brand-light": fibVars.$brand-light,
+        "brand-bg": fibVars.$brand-bg,
+        "dark-gray": fibVars.$dark-gray,
+        "medium-gray": fibVars.$medium-gray,
+        "light-gray": fibVars.$gray,
+        "dim-gray": fibVars.$dim-gray,
+        "brand-gray": fibVars.$brand-gray,
+        "white-color": fibVars.$white,
+        "black-color": fibVars.$black,
+        "success-color": fibVars.$success,
+        "warn-color": fibVars.$warn,
+        "error-color": fibVars.$error
+);
+
 // Color Classes.
-@each $name, $color in $sizes {
+@each $name, $color in $colors {
   .cmp__#{$name}-color {
     color: $color;
   }

@@ -277,16 +277,8 @@
 @media only screen and (min-width: fibVars.$desktop) {
 
   // Navigation.
-  .cmp__blog-nav {
-    ul {
-      li {
-        a {
-          .cmp__nav-link-text {
-            display: block;
-          }
-        }
-      }
-    }
+  .cmp__blog-nav ul li a .cmp__nav-link-text {
+    display: block;
   }
 
   // Blog content.

@@ -111,6 +111,9 @@ html, body {
     letter-spacing: fibVars.$large-letter-spacing;
     word-spacing: fibFuncs.size(-10);
 
+    background: linear-gradient(fibVars.$brand-color, fibVars.$brand-dark);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: lighten(fibVars.$brand-color, 3%);
 
     &::after {
@@ -124,6 +127,10 @@ html, body {
 
     &:hover::before {
       left: calc(#{fibVars.$h1-border-width} + 10px);
+    }
+
+    &::selection {
+      -webkit-text-fill-color: fibVars.$white;
     }
 
     &.cmp__has-icon {
@@ -152,58 +159,7 @@ html, body {
   }
 }
 
-// Page custom heading.
-.cmp__section-heading {
-  $border-color: darken(fibVars.$dim-gray, 10%);
-
-  position: relative;
-  @include fibMixins.flex_init($center: true);
-  margin: {
-    top: fibVars.$xxl-size;
-    bottom: fibVars.$xl-size;
-  };
-
-  color: fibVars.$gray;
-
-  span {
-    @include fibMixins.create_double_side_arrowed_ribbon(fibVars.$widget-ribbon-height, fibVars.$widget-ribbon-bg);
-    padding: 0 fibVars.$sm-size;
-    @include fibMixins.set_uppercase($family: fibVars.$heading-font-family);
-    font-weight: bold;
-    color: fibVars.$widget-ribbon-color;
-    z-index: 1;
-  }
-
-  &:after {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    content: '';
-    width: 100%;
-    border-bottom: solid 1px $border-color;
-  }
-}
-
 // Page Content.
 .cmp__blog-content {
   margin-bottom: fibVars.$xl-size;
-}
-
-// In small screens, make the content fluid and fixed in large.
-.cmp__auto-layout {
-  > * {
-    @include fibMixins.set_hor_margin(fibVars.$lg-size);
-  }
-
-  .cmp__sub {
-    .cmp__responsive {
-      @include fibMixins.set_hor_margin(0);
-    }
-
-    figure {
-      figcaption, caption {
-        @include fibMixins.set_hor_margin(0);
-      }
-    }
-  }
 }

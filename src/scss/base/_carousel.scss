@@ -67,18 +67,6 @@
       &:focus-visible {
         outline-offset: -5px;
       }
-
-      &:not(:last-child)::after {
-        position: absolute;
-        right: -5px;
-        content: '';
-        width: var(--cmp-connector-size);
-        height: var(--cmp-connector-size);
-        border-radius: 50%;
-        background-color: fibVars.$gray;
-        border: solid 2px fibVars.$white;
-        z-index: 1;
-      }
     }
   }
 
