@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const srcDir = path.resolve(__dirname, 'src'),
-  distDir = path.resolve(__dirname, 'dist');
+  docsDir = path.resolve(__dirname, 'docs');
 
 module.exports = {
   mode: 'production',
@@ -12,16 +12,14 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: 'scss', to: 'scss/', context: srcDir },
-        { from: 'assets', to: 'assets/', context: srcDir },
-        'LICENSE.txt',
-        'README.md',
-        'package.json'
+        { from: '*.html', context: srcDir },
+        { from: 'blog_resources', to: 'blog_resources/', context: srcDir },
+        { from: 'assets', to: 'assets/', context: srcDir }
       ],
     })
   ],
   output: {
-    path: distDir
+    path: docsDir
   },
   module: {
     rules: [
