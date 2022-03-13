@@ -84,4 +84,14 @@ export function init() {
   }
   
   mediaChangeHandler(mediaQuery);
+
+  WebFont.load({
+    google: {
+      families: ['JetBrains Mono']
+    },
+    timeout: 5000,
+    fontactive: function () {
+      hljs && hljs.highlightAll();
+    }
+  });
 }

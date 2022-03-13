@@ -33,7 +33,7 @@
 
           &:hover {
             cmp-icon {
-              animation: arrow-move-up-right fibVars.$medium-speed linear infinite;
+              animation: anim__arrow-move-up-right fibVars.$medium-speed linear infinite;
             }
           }
 
@@ -46,7 +46,7 @@
   }
 }
 
-@keyframes arrow-move-up-right {
+@keyframes anim__arrow-move-up-right {
   0% {
     top: 0;
     right: 0;

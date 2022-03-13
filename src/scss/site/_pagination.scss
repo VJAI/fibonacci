@@ -25,7 +25,7 @@
       }
 
       &:hover:before {
-        animation: arrow-move-left fibVars.$medium-speed linear infinite;
+        animation: anim__arrow-move-left fibVars.$medium-speed linear infinite;
       }
     }
   }
@@ -41,7 +41,7 @@
       }
 
       &:hover:after {
-        animation: arrow-move-right fibVars.$medium-speed linear infinite;
+        animation: anim__arrow-move-right fibVars.$medium-speed linear infinite;
       }
     }
   }

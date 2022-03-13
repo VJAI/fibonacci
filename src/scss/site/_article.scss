@@ -274,7 +274,7 @@ a.cmp__article-continue-reading {
   }
 
   &:hover:after {
-    animation: arrow-move-right fibVars.$medium-speed linear infinite;
+    animation: anim__arrow-move-right fibVars.$medium-speed linear infinite;
   }
 }
 

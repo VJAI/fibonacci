@@ -13,6 +13,9 @@ html, body {
   background: url('#{fibVars.$assets-path}/background-dark.png') fibVars.$brand-bg;
 
   &.cmp__site-loading {
+    position: static;
+    overflow: hidden;
+
     .cmp__page-loader {
       display: block;
     }
