@@ -1,6 +1,6 @@
 {
   "name": "fibonacci-blog-template",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A simplistic read-friendly blog template built with golden ratio",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js",

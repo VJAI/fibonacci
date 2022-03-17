@@ -116,7 +116,12 @@ html, body {
 
     background: linear-gradient(fibVars.$brand-color, fibVars.$brand-dark);
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
+    text-shadow: 0px 0px #00000000;
     color: lighten(fibVars.$brand-color, 3%);
 
     &::after {
